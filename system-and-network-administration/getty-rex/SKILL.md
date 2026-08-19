@@ -1,6 +1,6 @@
 ---
 name: getty-rex
-description: "Rex automation framework — Rexfiles, connection types, commands, SFTP limitations, and LibSSH backend"
+description: Use when writing or debugging a Rexfile or Rex task — connection types, Rex::Commands, which commands need SFTP, or the LibSSH backend.
 user-invocable: false
 allowed-tools: Read, Grep, Glob
 model: sonnet

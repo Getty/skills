@@ -1,6 +1,6 @@
 ---
 name: getty-git-commit-style
-description: "Commit message conventions — compact, precise, complete"
+description: Use when writing or amending a commit message in a Getty repository, including a commit that spans several repos.
 user-invocable: false
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: kubernetes-concepts
-description: "Kubernetes concepts, architecture, resource relationships, networking, storage, RBAC — the big picture without language-specific typing"
+description: Use when reasoning about Kubernetes itself — control plane, resource relationships, networking, storage, RBAC — independent of any client library.
 user-invocable: true
 allowed-tools: Read, Grep, Glob, WebSearch, WebFetch
 model: sonnet

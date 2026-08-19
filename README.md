@@ -11,46 +11,51 @@ projects and has no single home of its own.
 skill belongs to one specific project, it moves there and this repo drops the link.
 
 ```
-git/     commit conventions and repo workflow
-k8s/     Kubernetes concepts, tool-agnostic
-perl/    house style, object systems, async, MCP, release tooling
-tools/   automation frameworks
+authoring/    skills about skills — authoring, compressing, library rules, agent teams
+claude/       working with Claude itself — headless spawning, model routing
+development/  engineering practice — debugging discipline, workflows independent of language
+git/          commit conventions and repo workflow
+perl/         house style, object systems, async, MCP, release tooling
+software/     project scaffolding, cross-language
+system-and-network-administration/
+              machines, networks, containers, Kubernetes, admin automation
 ```
 
 Each group has its own README with the full skill list:
-[git](git/README.md) · [k8s](k8s/README.md) ·
-[perl](perl/README.md) · [tools](tools/README.md)
+[authoring](authoring/README.md) · [claude](claude/README.md) ·
+[development](development/README.md) · [git](git/README.md) · [perl](perl/README.md) ·
+[software](software/README.md) ·
+[system-and-network-administration](system-and-network-administration/README.md)
 
 ## Using this repo
 
+Without a local checkout:
+
 ```bash
-manage-skills sources add ~/dev/skills Getty's shared skills
+manage-skills sources add github:Getty/skills Getty's shared skills
 manage-skills locations                        # see what's available
 manage-skills link getty-perl-moo getty-git-usage
 ```
 
-Once this repo is pushed, anyone can add it the same way without a local checkout:
+With a local checkout, register the groups you want:
 
 ```bash
-manage-skills sources add github:Getty/skills Getty's shared skills
+manage-skills sources add ~/dev/skills/perl Cross-project Perl practices
+manage-skills sources add ~/dev/skills/git  Git conventions
 ```
 
 ## Naming
 
-Not every skill is prefixed `getty-`. The prefix marks a skill that **prescribes**
-something — a house convention chosen over other valid options (`getty-git-usage`:
-rebase, not merge), or the API of software Getty itself wrote (`getty-perl-crawl4ai`:
-there's no non-Getty way to call Getty's own module). Drop the prefix when a skill is
-just a **reference** — documentation of how a public tool or protocol actually behaves,
-equally true for anyone using it (`kubernetes-concepts`, `perl-mcp`).
-
-When in doubt, ask: does this tell you what Getty chose, or just what the tool does?
-The pattern either way is `{lang}-{name}` (`perl-moose`) or `{tool}` for something that
-doesn't need a language qualifier (`rex`), with `getty-` prepended when it prescribes.
+`getty-` prefixed skills **prescribe** — a house convention chosen over other valid
+options, or the API of Getty's own software. Unprefixed skills are **reference** —
+documentation of how a public tool or protocol behaves, equally true for anyone.
+The full naming and placement rules are themselves a skill:
+[getty-skill-library](authoring/getty-skill-library/SKILL.md).
 
 ## Adding a skill
 
 Write it where it's used first. Only pull it in here once a second, unrelated project
-needs the same knowledge — that's the signal it has outgrown a single home. Put it in the
-group that matches its language or domain, creating a new one at the repo root if none
-fits.
+needs the same knowledge — that's the signal it has outgrown a single home. The
+workbench for that is the [authoring group](authoring/README.md): `skill-authoring`
+for the content, `getty-skill-library` for placement, naming, and the hardlink editing
+discipline.

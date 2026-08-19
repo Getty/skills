@@ -1,6 +1,6 @@
 ---
 name: perl-mcp
-description: MCP (Model Context Protocol) server development in Perl — tool definition, server setup, integration with Langertha
+description: Use when building an MCP server in Perl — tool definitions, server setup, or wiring MCP into Langertha.
 ---
 
 <oneliner>

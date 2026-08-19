@@ -1,0 +1,57 @@
+# Go
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.html
+coverage-e2e-raw/
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# Build output
+dist/
+bin/
+
+# Output binaries (go build without -o)
+/app
+/server
+/cli
+
+# IDE
+.vscode/
+.idea/
+.history/
+*.code-workspace
+
+# Editor
+*.swp
+*.swo
+*.bak
+*.old
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.envrc
+
+# Test snapshots/golden files (comment if using git for snapshots)
+*.golden.got
+
+# Local development
+/kanban/
+/docs/

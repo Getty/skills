@@ -1,0 +1,53 @@
+# Node.js / JavaScript
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Lock files (choose one or include all for monorepos)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.gatsby/
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+.history/
+*.code-workspace
+
+# Cache
+.npm/
+.eslintcache
+.parcel-cache/
+.cache/
+.turbo/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# OS
+.DS_Store
+
+# Misc
+*.swp
+*.bak
+*.old

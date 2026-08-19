@@ -1,0 +1,43 @@
+# Perl / Dist::Zilla distribution
+
+# Build artifacts
+.build/
+_build/
+blib/
+/pm_to_blib
+/MANIFEST
+/MANIFEST.bak
+
+# Generated metadata
+/META.json
+/META.yml
+
+# Coverage
+/cover_db/
+
+# Release artifacts — add your dist name here to ignore dzil build output
+# e.g. Net-Async-MCP-Server-*
+Net-Async-MCP-Server-*
+[Dd]ist-*
+
+# Carton / Dependency Manager
+/local/
+/.carmel/
+/cpanfile.snapshot
+
+# Editor & IDE
+*.swp
+*.swo
+*.bak
+*.old
+.vscode/
+.idea/
+.history/
+*.code-workspace
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.envrc

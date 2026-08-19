@@ -1,6 +1,6 @@
 ---
 name: getty-perl-moose
-description: Moose-Klassen — Attribute, Roles vs. Inheritance, BUILD/BUILDARGS, Type-Constraints, MooseX::Singleton, make_immutable, Method-Modifier.
+description: Use when writing or refactoring a Moose class or role — attributes, BUILD/BUILDARGS, type constraints, method modifiers, MooseX::Singleton, make_immutable.
 ---
 
 # Perl/Moose – Architecture & Implementation Patterns

@@ -1,6 +1,6 @@
 ---
 name: getty-perl-kubernetes-classes
-description: "IO::K8s — How to create and use typed Kubernetes objects in Perl"
+description: Use when building or consuming typed Kubernetes objects in Perl with IO::K8s — object construction, serialization, the k8s attribute DSL, or CRD providers.
 user-invocable: false
 allowed-tools: Read, Grep, Glob
 model: sonnet

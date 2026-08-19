@@ -1,0 +1,6 @@
+Revision history for {{$dist}}
+
+{{$NEXT}}
+
+0.01  {{$date}}
+      Initial release to CPAN.

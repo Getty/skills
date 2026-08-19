@@ -1,6 +1,6 @@
 ---
 name: getty-git-usage
-description: How Getty's repositories use git — rebase over merge, linear history, signed-off conventional commits, and what a release cut expects. Use when integrating a branch, cleaning up history before a PR, or deciding how to land work. For the wording of a commit message itself, use getty-git-commit-style.
+description: Use when landing a branch in a Getty repo — rebase vs merge, cleaning up history before a PR, stacked branches, or cutting a release. For commit wording use getty-git-commit-style.
 ---
 
 # Git usage

@@ -1,0 +1,19 @@
+# Generic / Universal ignore rules
+
+# IDE & Editors
+.vscode/
+.idea/
+.history/
+*.code-workspace
+*.swp
+*.swo
+*.bak
+*.old
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.envrc

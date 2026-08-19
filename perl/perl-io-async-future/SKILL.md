@@ -1,8 +1,6 @@
 ---
 name: perl-io-async-future
-description: Async Perl with IO::Async, Future, Future::AsyncAwait — lifecycle, retention, cancellation, reconnect patterns from PEVANS modules and battle-tested fixes
-trigger: when working with IO::Async, Future, Future::AsyncAwait, Net::Async::*, async/await in Perl
-category: language
+description: Use when writing async Perl with IO::Async, Future, Future::AsyncAwait or any Net::Async::* module — notifier lifecycle, futures lost to garbage collection, cancellation, reconnect loops.
 ---
 
 # Perl IO::Async + Future — Patterns & Pitfalls

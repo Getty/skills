@@ -1,6 +1,6 @@
 ---
 name: getty-perl-core
-description: Getty's house rules for all Perl code — module loading, Moose patterns, cpanfile versioning for Getty-authored CPAN distributions, stylistic choices that differ from defaults. Load on any Perl edit in a Getty project.
+description: Load on any Perl edit in a Getty project — module loading, Moose patterns, cpanfile versioning, and the house choices that differ from Perl defaults.
 ---
 
 # Perl Core — Getty House Rules
