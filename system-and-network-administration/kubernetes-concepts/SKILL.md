@@ -8,7 +8,7 @@ model: sonnet
 
 # Kubernetes — Big Picture Reference
 
-This skill covers Kubernetes concepts and architecture. For Perl typed objects use the `getty-perl-kubernetes-classes` skill. For REST API calls use `perl-kubernetes-rest`. For container builds use `container-kubernetes`.
+This skill covers Kubernetes concepts and architecture, independent of any client library. For typed Kubernetes objects in Perl, the `getty-perl-kubernetes-classes` skill applies on top; a project that talks to the API or builds images keeps its own skill for that.
 
 ## Architecture
 

@@ -15,13 +15,13 @@ use Rex -feature => ['1.4'];   # ALWAYS include feature flag
 use Rex::Commands::Run;        # explicit imports
 use Rex::Commands::File;
 
-desc "Short description shown in getty-rex --tasks";
+desc "Short description shown in rex --tasks";
 task "taskname", sub {
   run "uname -r";
 };
 ```
 
-Run with: `getty-rex -f Rexfile -H host taskname`
+Run with: `rex -f Rexfile -H host taskname`
 
 ## Connection Types
 
@@ -45,7 +45,7 @@ set connection => 'Local';
 ```
 Can't call method "stat" on an undefined value at Rex/Interface/Fs/OpenSSH.pm line 82
 ```
-**Solution:** use `set connection => 'LibSSH'` (from the `getty-rex-libssh` distribution).
+**Solution:** use `set connection => 'LibSSH'` (from the `Rex-LibSSH` distribution).
 
 ## Rex::Commands — What Needs SFTP
 
@@ -104,7 +104,7 @@ Rex::Interface::Fs::SSH             — same problem as OpenSSH
 
 ## LibSSH Backend (Rex::LibSSH)
 
-From the `getty-rex-libssh` distribution. Use for any host without SFTP subsystem.
+From the `Rex-LibSSH` distribution. Use for any host without SFTP subsystem.
 
 ```perl
 use Rex -feature => ['1.4'];
@@ -126,9 +126,9 @@ Rex::Config->set_public_key('/root/.ssh/id_ed25519.pub');
 
 Host key checking is disabled by default (`strict_hostkeycheck => 0`).
 
-## Workspace Distributions
+## Getty's Rex distributions (CPAN)
 
-### Rex::GPU (`getty-rex-gpu`)
+### Rex::GPU (`Rex-GPU`)
 
 ```perl
 use Rex::GPU;
@@ -147,7 +147,7 @@ Sub-modules:
 Requires `Rex::LibSSH` connection for SFTP-less hosts. Dies with a helpful message if
 neither LibSSH nor a working SFTP connection is present.
 
-### Rex::Rancher (`getty-rex-rancher`)
+### Rex::Rancher (`Rex-Rancher`)
 
 ```perl
 use Rex::Rancher::Node;
@@ -162,7 +162,7 @@ install_cilium(distribution => 'rke2');
 
 ## Common Gotchas
 
-1. **SFTP-less hosts** — use `set connection => 'LibSSH'` (from `getty-rex-libssh`).
+1. **SFTP-less hosts** — use `set connection => 'LibSSH'` (from `Rex-LibSSH`).
    Never use `set connection => 'OpenSSH'` for hosts without SFTP.
 
 2. **`<> line N` in error messages** is Perl's `$.` tracker from `<ARGV>`, not a
