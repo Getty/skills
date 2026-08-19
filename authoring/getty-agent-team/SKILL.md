@@ -1,6 +1,6 @@
 ---
 name: getty-agent-team
-description: Use when a repo needs subagents — 'set up agents', 'add a worker agent', 'wire up briefing', 'add karr to this repo', or when .claude/agents is missing or has drifted from the house pattern.
+description: "Use when a repo needs subagents — setting one up, wiring briefing, adding karr, or when .claude/agents is missing or drifted from the house pattern."
 ---
 
 # Setup: agent team, skill base, house rules

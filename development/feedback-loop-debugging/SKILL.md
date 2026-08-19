@@ -1,6 +1,6 @@
 ---
 name: feedback-loop-debugging
-description: Use when a bug, test failure, or performance regression needs diagnosing — 'debug this', 'diagnose this', something broken, throwing, failing, or suddenly slow.
+description: "Use when a bug, test failure or performance regression needs diagnosing — 'debug this', 'diagnose this', something broken, throwing, failing, or suddenly slow."
 ---
 
 # Feedback-Loop Debugging

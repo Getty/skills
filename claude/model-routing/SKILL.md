@@ -1,6 +1,6 @@
 ---
 name: model-routing
-description: Use when choosing which Claude model runs work — opus/sonnet/haiku/fable for a subagent, headless run or Workflow stage, or assigning the model field to agent roles.
+description: "Use when choosing which Claude model runs work — opus/sonnet/haiku/fable for a subagent, headless run or Workflow stage, or setting an agent's model field."
 ---
 
 # Model Routing

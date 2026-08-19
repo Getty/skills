@@ -1,6 +1,6 @@
 ---
 name: docker-registry
-description: Use when running a container registry — a pull-through cache, an in-cluster image store, wiring containerd to it, or when pulls bypass the mirror or a push is rejected.
+description: "Use when running a container registry — pull-through cache, in-cluster image store, wiring containerd to it, pulls bypassing the mirror, or a rejected push."
 ---
 
 # Running a Container Registry

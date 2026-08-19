@@ -1,6 +1,6 @@
 ---
 name: getty-skill-library
-description: Use when adding, naming, moving, promoting or renaming a skill across Getty's projects, or before editing a SKILL.md that other repos hardlink.
+description: Use when adding, naming, moving or renaming a skill in Getty's projects, linking one into a repo with manage-skills, or before editing a hardlinked SKILL.md.
 ---
 
 # Getty's Skill Library

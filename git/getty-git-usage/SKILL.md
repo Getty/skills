@@ -1,6 +1,6 @@
 ---
 name: getty-git-usage
-description: Use when landing a branch in a Getty repo — rebase vs merge, cleaning up history before a PR, stacked branches, or cutting a release. For commit wording use getty-git-commit-style.
+description: "Use when landing a branch in a Getty repo — rebase vs merge, cleaning history before a PR, stacked branches, cutting a release. Commit wording: getty-git-commit-style."
 ---
 
 # Git usage

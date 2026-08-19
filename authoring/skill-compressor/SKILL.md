@@ -1,6 +1,6 @@
 ---
 name: skill-compressor
-description: Use when a skill, prompt or instruction file must shrink — compressing a verbose skill, merging overlapping ones, cutting token cost, or generalizing one for reuse.
+description: "Use when a skill, prompt or instruction file must shrink — compressing a verbose skill, merging overlapping ones, cutting token cost, or generalizing one for reuse."
 ---
 
 # Skill Compressor

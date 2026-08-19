@@ -1,6 +1,6 @@
 ---
 name: getty-create-software
-description: Use when creating a new project or module — 'create', 'new', 'scaffold', 'init' plus a name, for a Perl dist, Node app, Python package or Go binary, or a bare .gitignore request.
+description: "Use when creating a new project or module — 'create', 'new', 'scaffold', 'init' plus a name, for a Perl dist, Node app, Python package, Go binary, or a bare .gitignore."
 ---
 
 # Create Software

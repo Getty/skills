@@ -1,6 +1,6 @@
 ---
 name: skill-authoring
-description: "Use when writing a new SKILL.md or reworking one — before the first line. Also when a skill misfires: never triggers, fires on the wrong tasks, or is read but not followed."
+description: "Use when writing or reworking a SKILL.md — before the first line. Also when a skill misfires: never triggers, fires on the wrong tasks, or is read but not followed."
 ---
 
 # Skill Authoring

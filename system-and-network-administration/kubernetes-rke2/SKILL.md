@@ -1,6 +1,6 @@
 ---
 name: kubernetes-rke2
-description: Use when installing or configuring RKE2 or K3s — config.yaml, joining agents, replacing the bundled CNI or kube-proxy, registries.yaml, airgap installs, or a node stuck NotReady.
+description: "Use when installing or configuring RKE2 or K3s — config.yaml, joining agents, replacing the bundled CNI or kube-proxy, registries.yaml, airgap installs, a node stuck NotReady."
 ---
 
 # RKE2 and K3s — Operating Reference

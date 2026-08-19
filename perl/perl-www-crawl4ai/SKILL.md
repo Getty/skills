@@ -1,6 +1,6 @@
 ---
 name: perl-www-crawl4ai
-description: Use when fetching web pages from Perl via Crawl4AI — WWW::Crawl4AI, bot walls, captcha, thin content, why_failed tokens, or the Crawl4AI Docker REST API on port 11235.
+description: "Use when fetching web pages from Perl via Crawl4AI — WWW::Crawl4AI, bot walls, captcha, thin content, why_failed tokens, or the Crawl4AI REST API on port 11235."
 ---
 
 # Crawl4AI (in this workspace)
