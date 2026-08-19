@@ -13,19 +13,19 @@ Create or polish a Perl distribution matching Getty's workspace conventions.
 
 | What | Resolution order |
 |---|---|
-| `dist`      | dash-form (`WWW-Foo`) — from user arg or from dir name under `~/dev/perl/p5-*` |
+| `dist`      | dash-form (`WWW-Foo`) — from user arg or from dir name under `~/dev/p5-*` |
 | `module`    | colon-form (`WWW::Foo`) — derived from `dist` by `s/-/::/g` |
 | `abstract`  | one-line `# ABSTRACT:` from the first non-empty existing `lib/**/*.pm`, else ask |
 | `author`    | `Torsten Raudssus <getty@cpan.org>` |
 | `copyright_holder` | `Torsten Raudssus <torsten@raudssus.de> L<https://raudssus.de/>` |
 | `copyright_year`   | current year |
 | `license`   | `Perl_5` |
-| `irc`       | search sibling `~/dev/perl/p5-*/dist.ini` for an existing `irc =` line in the same topic cluster; if none found, ask the user (never make one up) |
+| `irc`       | search sibling `~/dev/p5-*/dist.ini` for an existing `irc =` line in the same topic cluster; if none found, ask the user (never make one up) |
 
 ## Sibling reference
 
 Before writing, read **one** existing sibling dist that is closest in topic
-(e.g. for `p5-www-openbao` look at `~/dev/perl/p5-www-firecrawl/` because both
+(e.g. for `p5-www-openbao` look at `~/dev/p5-www-crawl4ai/` because both
 are HTTP-client WWW-* packages). Match its layout exactly:
 
 - `dist.ini`
@@ -40,6 +40,43 @@ are HTTP-client WWW-* packages). Match its layout exactly:
 
 Do NOT diverge from the sibling's style even if it feels outdated. Workspace
 consistency beats "modern best practice."
+
+## Test file conventions
+
+- **Every `.t` opens with a shebang:** `#!/usr/bin/env perl`, then `use strict; use warnings; use Test::More;`
+- **Close with `done_testing;`** — never `plan tests => N`.
+- **Ship a load test** that `use_ok`s every module of the distribution, either via `Test::LoadAllModules` or an explicit `qw( ... )` list — match the sibling.
+
+```perl
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use Test::More;
+
+for (qw(
+  WWW::Foo
+  WWW::Foo::Client
+)) {
+  use_ok($_);
+}
+
+done_testing;
+```
+
+## dist.ini header
+
+Open every `dist.ini` with the metadata block, aligned on `=`:
+
+```
+name    = WWW-Foo
+author  = Torsten Raudssus <getty@conflict.industries> L<https://conflict.industries/>
+license = Perl_5
+copyright_holder = Torsten Raudssus <torsten@raudssus.de> L<https://raudssus.de/>
+copyright_year   = 2026
+```
+
+Then the plugin bundle. For Getty's own CPAN work that is `[@Author::GETTY]` —
+its options are documented in `getty-perl-release-author-getty`.
 
 ## CI workflow
 
@@ -60,7 +97,7 @@ The action runs `dzil authordeps` + `dzil listdeps --author` + `dzil test`. The
 - Pure-Perl dist: use the fallback template `templates/github-ci.yml` as-is.
 - Alien / XS dist: add the `apt-get`/`brew` system-library step(s) before the
   action, and a `share-build` job passing `install-type: share`. Copy the
-  layout from `~/dev/perl/p5-alien-libgit2/.github/workflows/`.
+  layout from `~/dev/p5-alien-libgit2/.github/workflows/`.
 
 ## Templates
 
