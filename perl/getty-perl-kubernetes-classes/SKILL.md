@@ -15,8 +15,8 @@ my $k8s = IO::K8s->new;
 
 # Short name — auto-resolves to full class
 my $pod = $k8s->new_object('Pod',
-    metadata => { name => 'test', namespace => 'default' },
-    spec => { containers => [{ name => 'app', image => 'nginx' }] },
+  metadata => { name => 'test', namespace => 'default' },
+  spec => { containers => [{ name => 'app', image => 'nginx' }] },
 );
 
 # With CRD providers
@@ -63,7 +63,7 @@ use Moo;
 with 'IO::K8s::Role::ResourceMap';
 
 sub resource_map {{
-    MyResource => 'MyCRD::V1::MyResource',
+  MyResource => 'MyCRD::V1::MyResource',
 }}
 ```
 
