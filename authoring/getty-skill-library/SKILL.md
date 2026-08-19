@@ -5,9 +5,9 @@ description: Use when adding, naming, moving or renaming a skill in Getty's proj
 
 # Getty's Skill Library
 
-How skills are owned, named, shared, and edited across this machine's
-projects. The shared library is [Getty/skills](https://github.com/Getty/skills)
-at `~/dev/skills`; the transport is
+How skills are owned, named, shared, and edited across Getty's
+projects. The shared library is [Getty/skills](https://github.com/Getty/skills);
+the transport is
 [manage-skills](https://github.com/Getty/manage-skills) — one source file per
 skill, hardlinks everywhere else.
 
@@ -17,8 +17,8 @@ skill, hardlinks everywhere else.
 module skill, a cluster repo keeps its cluster skill. The shared library holds
 only what has no single home:
 
-- Knowledge a *second, unrelated* project needs → promote it to
-  `~/dev/<group>/<name>/` and hardlink it back. Write it where
+- Knowledge a *second, unrelated* project needs → promote it to the
+  library as `<group>/<name>/` and hardlink it back. Write it where
   it is used first; promotion is triggered by the second consumer, never by
   anticipation.
 - Skills that run only user-level (never linked into a project, e.g.
@@ -73,7 +73,7 @@ overwrites — only when you know the divergence is accidental).
 ## Wiring a project
 
 ```bash
-manage-skills sources add ~/dev/skills/<group> <label>   # once per group
+manage-skills sources add <checkout>/<group> <label>   # once per group
 manage-skills link <skill> [<skill>…]    # hardlink into ./.claude/skills/
 manage-skills check                      # verify inode integrity
 manage-skills sync                       # repair stale links

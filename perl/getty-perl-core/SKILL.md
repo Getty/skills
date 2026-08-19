@@ -48,7 +48,7 @@ The rule is "always on", never "leave them out". Omitting them from a class is c
 
 ### Methods, not bare subs
 
-- **In a class, every helper is a method on `$self`** — not `sub _foo {...}` invoked as `_foo($self->goldmine, $x)`.
+- **In a class, every helper is a method on `$self`** — not `sub _foo {...}` invoked as `_foo($self->config, $x)`.
 - **Per-process caches go on the singleton as an attribute** (`has _cache => ( is => 'ro', default => sub { {} } )`), not a `my %CACHE` package variable.
 - **No package-level state** unless it is a true constant (an `%ENGINE_CLASS` lookup table counts; a per-call cache does not).
 - Bare subs are fine in **non-class utility modules** imported as functions. Once a file says `use Moose`/`use Moo`, every `sub` is a method.
@@ -88,7 +88,7 @@ Why: bare subs hide what the call needs, can't be overridden or mocked, and forc
 ## Configuration
 
 Config comes from environment variables prefixed with the project name
-(`$ENV{AMIGAEVENT_TIME_ZONE}`), each with a default in code. Where many
+(`$ENV{MYPROJECT_TIME_ZONE}`), each with a default in code. Where many
 attributes share that shape, write a generator that wraps `has` rather than
 repeating the declaration.
 
@@ -143,4 +143,4 @@ Every distribution ships a `Changes` file with a `{{$NEXT}}` token at the top (D
 
 ## When in doubt
 
-Grep hand-written Getty code for how the pattern is used there — `~/dev/sunriser` and `~/dev/amigaevent` are the reference, being entirely pre-AI. Newer repos may show an agent's guess rather than the house rule.
+Grep hand-written Getty code for how the pattern is used there — the reference is an older repo with no AI commits in its history. Newer repos may show an agent's guess rather than the house rule.

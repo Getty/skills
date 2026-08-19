@@ -5,12 +5,12 @@ description: "Use when a repo needs subagents — setting one up, wiring briefin
 
 # Setup: agent team, skill base, house rules
 
-Installs the setup used across this machine's projects (`dbio`, `langertha`,
-`p5-app-karr`, `goldmine`, `hi-proto`, …). Nothing here is language-specific — the
+Installs the setup Getty projects share. Nothing here is language-specific — the
 Perl repos are just where it grew up.
 
 **This skill is user-level only.** Its home is the shared library
-(`~/dev/skills/authoring/`); it runs user-level, changes the target project, and is
+([Getty/skills](https://github.com/Getty/skills), group `authoring/`); it runs
+user-level, changes the target project, and is
 done. Never hardlink or copy it into a project — the hardlink discipline below applies
 to the *briefed* skills the agents need at runtime, not to this one. A project's
 `.claude/` never mentions `getty-agent-team`.
@@ -18,7 +18,8 @@ to the *briefed* skills the agents need at runtime, not to this one. A project's
 ## The architecture in four sentences
 
 1. **Skills are the knowledge base.** Conventions, architecture, tooling. One source of
-   truth per skill, shared across repos via hardlink (skill `manage-skills`).
+   truth per skill, shared across repos via hardlink (skill `manage-skills`, from
+   [Getty/manage-skills](https://github.com/Getty/manage-skills)).
 2. **Agents are roles, not knowledge.** An agent file is a role sentence + a
    `briefing.skills` list + whatever is genuinely repo-specific and lives in no skill.
 3. **`briefing` (plugin) force-loads those skills** into the subagent's context *before*
@@ -73,15 +74,15 @@ Before writing anything, establish:
 | Release path | CPAN / npm / container / deploy-only — determines whether a release role is needed |
 
 **Prefix**: everything is named `<prefix>-<role>` where `<prefix>` is the project or
-family name in kebab-case (`dbio`, `langertha`, `karr`). Family repos suffix the worker:
-`dbio-worker-postgresql`. `karr-coordinator` is the one role that keeps its own name.
+family name in kebab-case. Family repos suffix the worker:
+`<prefix>-worker-postgresql`. `karr-coordinator` is the one role that keeps its own name.
 
 ## Step 2 — settle the skill base first
 
 `briefing` hard-fails on an unresolvable name, so every skill an agent lists must exist
 before the agent file does. For each skill an agent needs:
 
-- **Already shared** (the library `~/dev/skills`, or another project that owns it) →
+- **Already shared** (the shared library, or another project that owns it) →
   hardlink it in, never copy: `manage-skills link <name>`, or
   `ln <source>/SKILL.md .claude/skills/<name>/SKILL.md`. Rules and repair: skills
   `getty-skill-library` and `manage-skills`. **Never `Edit`/`Write` a hardlinked

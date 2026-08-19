@@ -1,6 +1,6 @@
 ---
 name: perl-mcp
-description: Use when building an MCP server in Perl — tool definitions, server setup, or wiring MCP into Langertha.
+description: Use when building an MCP server in Perl — MCP::Server, tool definitions, server setup, or wiring MCP into a Perl LLM client such as Langertha.
 ---
 
 <oneliner>
@@ -107,7 +107,7 @@ $server->tool(
 );
 ```
 
-### K8s Integration (HI Pattern)
+### K8s Integration
 
 ```perl
 $server->tool(

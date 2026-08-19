@@ -13,20 +13,20 @@ Create or polish a Perl distribution matching Getty's workspace conventions.
 
 | What | Resolution order |
 |---|---|
-| `dist`      | dash-form (`WWW-Foo`) — from user arg or from dir name under `~/dev/p5-*` |
+| `dist`      | dash-form (`WWW-Foo`) — from user arg or from the checkout dir name (`p5-www-foo` → `WWW-Foo`) |
 | `module`    | colon-form (`WWW::Foo`) — derived from `dist` by `s/-/::/g` |
 | `abstract`  | one-line `# ABSTRACT:` from the first non-empty existing `lib/**/*.pm`, else ask |
 | `author`    | `Torsten Raudssus <getty@cpan.org>` |
 | `copyright_holder` | `Torsten Raudssus <torsten@raudssus.de> L<https://raudssus.de/>` |
 | `copyright_year`   | current year |
 | `license`   | `Perl_5` |
-| `irc`       | search sibling `~/dev/p5-*/dist.ini` for an existing `irc =` line in the same topic cluster; if none found, ask the user (never make one up) |
+| `irc`       | search sibling `p5-*` checkouts' `dist.ini` for an existing `irc =` line in the same topic cluster; if none found, ask the user (never make one up) |
 
 ## Sibling reference
 
 Before writing, read **one** existing sibling dist that is closest in topic
-(e.g. for `p5-www-openbao` look at `~/dev/p5-www-crawl4ai/` because both
-are HTTP-client WWW-* packages). Match its layout exactly:
+(e.g. for a new `WWW-*` HTTP client, read an existing `WWW-*` client dist —
+same shape, same layout). Match its layout exactly:
 
 - `dist.ini`
 - `cpanfile` (split `on test` / `on develop` if the sibling does)
@@ -69,11 +69,15 @@ Open every `dist.ini` with the metadata block, aligned on `=`:
 
 ```
 name    = WWW-Foo
-author  = Torsten Raudssus <getty@conflict.industries> L<https://conflict.industries/>
+author  = Torsten Raudssus <getty@cpan.org>
 license = Perl_5
 copyright_holder = Torsten Raudssus <torsten@raudssus.de> L<https://raudssus.de/>
 copyright_year   = 2026
 ```
+
+`author` carries the **cpan.org** address — that is what links the release to
+the PAUSE account across the CPAN subsystems. `copyright_holder` carries the
+everyday address plus the homepage link. Never swap the two.
 
 Then the plugin bundle. For Getty's own CPAN work that is `[@Author::GETTY]` —
 its options are documented in `getty-perl-release-author-getty`.
@@ -97,7 +101,7 @@ The action runs `dzil authordeps` + `dzil listdeps --author` + `dzil test`. The
 - Pure-Perl dist: use the fallback template `templates/github-ci.yml` as-is.
 - Alien / XS dist: add the `apt-get`/`brew` system-library step(s) before the
   action, and a `share-build` job passing `install-type: share`. Copy the
-  layout from `~/dev/p5-alien-libgit2/.github/workflows/`.
+  layout from an existing Alien dist of the same shape.
 
 ## Templates
 

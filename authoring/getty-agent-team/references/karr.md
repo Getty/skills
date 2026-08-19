@@ -2,9 +2,10 @@
 
 `karr` is a git-native kanban board: state lives in `refs/karr/*` inside the repo, not in
 checked-in files. One board per repo. It is the coordination substrate for every project
-on this machine, so install it unless the user says otherwise.
+that uses this setup, so install it unless the user says otherwise.
 
-Full command surface: skill `kanban-issues-karr-cli` (source of truth: `~/dev/perl/p5-app-karr/`).
+Full command surface: skill `kanban-issues-karr-cli`, which `karr skill install`
+drops into the repo (source: [Getty/karr](https://github.com/Getty/karr)).
 
 ## Install into a repo
 

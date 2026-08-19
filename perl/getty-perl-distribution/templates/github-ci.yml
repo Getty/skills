@@ -9,7 +9,7 @@
 #
 # Alien / XS dists: add your `apt-get`/`brew` system-library step(s) before the
 # action, and a second `share-build` job passing `install-type: share`.
-# See p5-alien-libgit2 for the full pattern.
+# See an existing Alien dist for the full pattern.
 name: ci
 on:
   push:

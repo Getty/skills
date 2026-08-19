@@ -3,13 +3,12 @@ name: perl-www-crawl4ai
 description: "Use when fetching web pages from Perl via Crawl4AI — WWW::Crawl4AI, bot walls, captcha, thin content, why_failed tokens, or the Crawl4AI REST API on port 11235."
 ---
 
-# Crawl4AI (in this workspace)
+# Crawl4AI — the Perl bindings
 
 [Crawl4AI](https://github.com/unclecode/crawl4ai) is an open-source Docker
 service that fetches a page (optionally with a real browser) and returns clean
-Markdown. This workspace contains Perl bindings that wrap it as a **crawler
-control plane**: Crawl4AI does the fetch + Markdown extraction; the Perl side
-decides *policy*.
+Markdown. Getty's Perl bindings wrap it as a **crawler control plane**:
+Crawl4AI does the fetch + Markdown extraction; the Perl side decides *policy*.
 
 The key idea — and what makes this **not** "Firecrawl in Perl": fallback is not
 hidden inside the service. Every Attempt is modelled on the Perl side, so a
@@ -80,7 +79,8 @@ dropped). `fallback` is a constructor attribute, not a per-call option.
   `signals` and `why_failed` on every Attempt. **Caveat:** the win/continue
   decision currently calls `WWW::Crawl4AI::Detect::is_good` directly
   (`_attempt_for`), so an override changes what is *reported*, not which
-  strategy wins — check the karr board before relying on it.
+  strategy wins — a known limitation, so verify against the current
+  implementation before relying on an override.
 
 ## Classification (the other half)
 
@@ -225,8 +225,8 @@ Don't stack your own retry on top.
 
 ## Common gotchas
 
-- Getty house rules apply — load the `getty-perl-core` skill (style, module
-  loading, cpanfile) and `getty-perl-moo` for the OOP conventions.
+- In a Getty repo the house Perl rules apply on top — skills `getty-perl-core`
+  (style, module loading, cpanfile) and `getty-perl-moo` (OOP conventions).
 - `markdown` is a plain string on old servers and a structured object on newer
   ones — `WWW::Crawl4AI::Markdown::resolve_markdown_chain` prefers
   `fit_markdown` → `raw_markdown` → `markdown_with_citations` → `markdown`.
