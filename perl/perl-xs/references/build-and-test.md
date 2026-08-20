@@ -17,10 +17,10 @@ and very confusing green run.
 
 ```perl
 WriteMakefile(
-  NAME   => 'Net::LibSSH',
-  LIBS   => [ '-lssh' ],              # linker flags
-  INC    => '-I/usr/include/libssh',  # compiler include flags
-  OBJECT => 'LibSSH$(OBJ_EXT)',       # only when the basename differs or several
+  NAME   => 'Foo',
+  LIBS   => [ '-lfoo' ],              # linker flags
+  INC    => '-I/usr/include/foolib',  # compiler include flags
+  OBJECT => 'Foo$(OBJ_EXT)',          # only when the basename differs or several
   DEFINE => '-DSOMETHING',
 );
 ```

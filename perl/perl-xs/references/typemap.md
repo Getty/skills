@@ -9,14 +9,14 @@ what code converts a Perl SV into it (INPUT) and what code turns it back into an
 
 ```
 TYPEMAP
-Net::LibSSH          T_NET_LIBSSH        # C type (or class name) → XS type
+Foo                  T_FOO               # C type (or class name) → XS type
 
 INPUT
-T_NET_LIBSSH
+T_FOO
 	…C that assigns $var from $arg…
 
 OUTPUT
-T_NET_LIBSSH
+T_FOO
 	…C that fills $arg from $var…
 ```
 
@@ -44,8 +44,8 @@ Perl string early and the failure surfaces as an unrelated C syntax error, often
 pointing at a line that looks fine.
 
 ```
-# Wrong:    sv_magicext(newSVrv($arg, "Net::LibSSH"), ...);
-# Correct:  sv_magicext(newSVrv($arg, \"Net::LibSSH\"), ...);
+# Wrong:    sv_magicext(newSVrv($arg, "Foo"), ...);
+# Correct:  sv_magicext(newSVrv($arg, \"Foo\"), ...);
 ```
 
 The same holds for `$` and `@` that are meant literally in the C code — escape them.
@@ -58,38 +58,39 @@ and attaches the magic. Together they mean an XSUB body only ever assigns `RETVA
 
 ```
 INPUT
-T_NET_LIBSSH
+T_FOO
 	{
 	SV *_sv = $arg;
 	MAGIC *_mg = SvROK(_sv) && SvMAGICAL(SvRV(_sv))
-	    ? mg_findext(SvRV(_sv), PERL_MAGIC_ext, &Net__LibSSH_magic) : NULL;
+	    ? mg_findext(SvRV(_sv), PERL_MAGIC_ext, &Foo_magic) : NULL;
 	if (_mg)
-	    $var = (Net__LibSSH)(void *)_mg->mg_ptr;
+	    $var = (Foo)(void *)_mg->mg_ptr;
 	else
-	    Perl_croak(aTHX_ \"%s: not a valid Net::LibSSH object\", \"${pname}\");
+	    Perl_croak(aTHX_ \"%s: not a valid Foo object\", \"${pname}\");
 	}
 
 OUTPUT
-T_NET_LIBSSH
-	sv_magicext(newSVrv($arg, \"Net::LibSSH\"), NULL, PERL_MAGIC_ext,
-	    &Net__LibSSH_magic, (const char *)$var, 0);
+T_FOO
+	sv_magicext(newSVrv($arg, \"Foo\"), NULL, PERL_MAGIC_ext,
+	    &Foo_magic, (const char *)$var, 0);
 ```
 
 The `$var` cast works because the XS signature uses a **pointer typedef**:
 
 ```c
-typedef NLSS_Session *Net__LibSSH;   /* :: → __ is xsubpp's C-identifier form */
+typedef FOO_Conn   *Foo;             /* the class name as a C identifier */
+typedef FOO_Handle *Foo__Handle;     /* :: → __ is xsubpp's C-identifier form */
 ```
 
-so `Net::LibSSH self` in the signature needs no `*`, and the generated C sees
-`Net__LibSSH self`.
+so `Foo::Handle self` in the signature needs no `*`, and the generated C sees
+`Foo__Handle self`.
 
 ## One entry per type, not one generic entry
 
 A single generic `T_MAGICEXT` entry that writes `&${type}_magic` looks like the
 obvious deduplication. It relies on xsubpp expanding `::` to `__` inside `${type}`,
 **which only happens from xsubpp 3.60 on** — below that, `${type}` is still
-`Net::LibSSH`, which is not a C identifier, and the generated file will not compile.
+`Foo::Handle`, which is not a C identifier, and the generated file will not compile.
 A distribution supporting older toolchains spells the vtable pointer out per type
 (and one that does not, states `REQUIRE: 3.60` at the top of the typemap).
 

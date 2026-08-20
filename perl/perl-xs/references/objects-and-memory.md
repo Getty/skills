@@ -9,17 +9,17 @@ Two typedefs, each doing a different job:
 
 ```c
 typedef struct {
-    ssh_session   session;
+    foolib_conn   conn;
     unsigned int  generation;
-} NLSS_Session;                     /* named, so Newxz has a size to allocate */
+} FOO_Conn;                         /* named, so Newxz has a size to allocate */
 
-typedef NLSS_Session *Net__LibSSH;  /* pointer typedef xsubpp uses in generated C */
+typedef FOO_Conn *Foo;              /* pointer typedef xsubpp uses in generated C */
 ```
 
-The struct is named so `Newxz(RETVAL, 1, NLSS_Session)` compiles. The second is a
-**pointer** typedef, which is why `Net::LibSSH self` in an XS signature carries no
-`*`. Its name is the class with `::` written `__`, because that is what xsubpp
-emits into C.
+The struct is named so `Newxz(RETVAL, 1, FOO_Conn)` compiles. The second is a
+**pointer** typedef, which is why `Foo self` in an XS signature carries no `*`.
+Its name is the class written as a C identifier — a child class `Foo::Handle`
+becomes `Foo__Handle`, because `::` is not legal in one.
 
 Wrap the C handle in your own struct even when it is the only field. Everything
 learned later — a generation counter, a flag, a cached SV — needs somewhere to go,
@@ -40,13 +40,13 @@ state costs nothing to initialise.
 ## The free hook
 
 ```c
-static int nlss_session_free(pTHX_ SV *sv, MAGIC *mg) {
-    NLSS_Session *self = (NLSS_Session *)(void *)mg->mg_ptr;
-    if (self->session) { ssh_disconnect(self->session); ssh_free(self->session); }
+static int foo_conn_free(pTHX_ SV *sv, MAGIC *mg) {
+    FOO_Conn *self = (FOO_Conn *)(void *)mg->mg_ptr;
+    if (self->conn) { foolib_close(self->conn); foolib_free(self->conn); }
     Safefree(self);
     return 0;
 }
-static const MGVTBL Net__LibSSH_magic = { .svt_free = nlss_session_free };
+static const MGVTBL Foo_magic = { .svt_free = foo_conn_free };
 ```
 
 `svt_free` runs when the SV is collected. It beats a Perl `DESTROY` on three counts:
@@ -60,12 +60,12 @@ per class, never share a vtable between two types.
 
 ```c
 /* OUTPUT side, in the typemap: bless an SV and hang the pointer off it */
-sv_magicext(newSVrv($arg, "Net::LibSSH"), NULL, PERL_MAGIC_ext,
-            &Net__LibSSH_magic, (const char *)$var, 0);
+sv_magicext(newSVrv($arg, "Foo"), NULL, PERL_MAGIC_ext,
+            &Foo_magic, (const char *)$var, 0);
 
 /* INPUT side: retrieve, and refuse anything else */
 MAGIC *mg = SvROK(sv) && SvMAGICAL(SvRV(sv))
-    ? mg_findext(SvRV(sv), PERL_MAGIC_ext, &Net__LibSSH_magic) : NULL;
+    ? mg_findext(SvRV(sv), PERL_MAGIC_ext, &Foo_magic) : NULL;
 ```
 
 `newSVrv` creates the referent and returns it; the magic goes on **the referent**,
@@ -77,25 +77,25 @@ that are perfectly valid.
 
 ## Child objects: the refcount chain
 
-A channel opened on a session must not outlive that session's C handle. The child
-holds an owning reference:
+A handle opened on a connection must not outlive that connection's C object. The
+child holds an owning reference:
 
 ```c
-RETVAL->session_sv         = SvREFCNT_inc(SvRV(ST(0)));   /* construction */
+RETVAL->conn_sv = SvREFCNT_inc(SvRV(ST(0)));   /* construction */
 …
-SvREFCNT_dec(self->session_sv);                            /* in the child's svt_free */
+SvREFCNT_dec(self->conn_sv);                   /* in the child's svt_free */
 ```
 
 **Increment `SvRV(ST(0))`, not `ST(0)`.** `ST(0)` is the reference scalar — the
-caller's `$ssh` variable; the referent is the blessed, magic-bearing SV whose
+caller's `$conn` variable; the referent is the blessed, magic-bearing SV whose
 `svt_free` calls the C teardown. Holding the reference keeps the referent alive only
 as long as the reference still points at it:
 
 | what happens to the parent variable | ref held on `ST(0)` | ref held on `SvRV(ST(0))` |
 |---|---|---|
 | goes out of scope | works | works |
-| `undef $ssh` | **SIGSEGV** | works |
-| `$ssh = something_else` | **SIGSEGV** | works |
+| `undef $conn` | **SIGSEGV** | works |
+| `$conn = something_else` | **SIGSEGV** | works |
 
 Note which case survives the bug: the one a test writes first. Cover all three ways
 of losing the variable, per child type, and run each in a forked child so a segfault
@@ -108,7 +108,7 @@ only afterwards.
 ## When the C library frees your children behind your back
 
 Some teardown calls free objects the Perl side still holds pointers to —
-`ssh_disconnect()` frees every channel the session owns. A NULL check cannot see it:
+`foolib_close()` frees every handle the connection owns. A NULL check cannot see it:
 the pointer is unchanged and now points at freed memory.
 
 The fix is a **generation counter**. The parent counts the events that invalidate
@@ -117,14 +117,14 @@ children; each child stores the count it was born under:
 ```c
 /* parent, before the invalidating call */
 self->generation++;
-ssh_disconnect(self->session);
+foolib_close(self->conn);
 
 /* child, before touching its handle */
-static int nlss_session_stale(pTHX_ SV *session_sv, unsigned int generation) {
-    MAGIC *mg = session_sv && SvMAGICAL(session_sv)
-        ? mg_findext(session_sv, PERL_MAGIC_ext, &Net__LibSSH_magic) : NULL;
+static int foo_conn_stale(pTHX_ SV *conn_sv, unsigned int generation) {
+    MAGIC *mg = conn_sv && SvMAGICAL(conn_sv)
+        ? mg_findext(conn_sv, PERL_MAGIC_ext, &Foo_magic) : NULL;
     if (!mg) return 1;                       /* no magic → not ours → refuse */
-    return ((NLSS_Session *)(void *)mg->mg_ptr)->generation != generation;
+    return ((FOO_Conn *)(void *)mg->mg_ptr)->generation != generation;
 }
 ```
 
@@ -146,14 +146,14 @@ the way to say "no object" — and a leak whenever `RETVAL` was already allocate
 the C resource already created, on that path:
 
 ```c
-ssh_channel ch = ssh_channel_new(self->session);
+foolib_handle ch = foolib_handle_new(self->conn);
 if (!ch)
     XSRETURN_UNDEF;
-if (ssh_channel_open_session(ch) != SSH_OK) {
-    ssh_channel_free(ch);          /* free before returning, or it leaks */
+if (foolib_handle_open(ch) != FOOLIB_OK) {
+    foolib_handle_free(ch);        /* free before returning, or it leaks */
     XSRETURN_UNDEF;
 }
-Newxz(RETVAL, 1, NLSS_Channel);    /* allocate only once nothing can fail */
+Newxz(RETVAL, 1, FOO_Handle);      /* allocate only once nothing can fail */
 ```
 
 Allocating last is the discipline that makes those branches trivially correct.

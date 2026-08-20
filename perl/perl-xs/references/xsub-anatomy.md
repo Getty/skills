@@ -7,7 +7,7 @@ that reads Perl's argument stack, runs your code, and writes the return stack.
 ```
 SV *
 read(self, ...)
-    Net::LibSSH::Channel self
+    Foo::Handle self
   CODE:
     int len = -1;
     if (items >= 2) len = SvIV(ST(1));
@@ -57,7 +57,7 @@ raw SVs, `ST(0)` being the invocant for a method.
 ```
 SV *
 read(self, ...)                    /* ... makes everything after self optional */
-    Net::LibSSH::Channel self
+    Foo::Handle self
 ```
 
 - A trailing `...` turns off the generated arity check and hands the body `items`
@@ -115,7 +115,7 @@ For a single value, set `RETVAL`. Beyond that:
 helpers, where `aTHX` is not implicit.
 
 ```c
-Perl_croak(aTHX_ "%s: %s", "Net::LibSSH::option", ssh_get_error(self->session));
+Perl_croak(aTHX_ "%s: %s", "Foo::option", foolib_get_error(self->conn));
 ```
 
 Prefix every message with the fully qualified method name. `${pname}` gives it to

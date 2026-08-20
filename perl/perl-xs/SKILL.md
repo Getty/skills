@@ -46,7 +46,7 @@ The generated `Foo.c` is a build artifact. Keep it out of git.
 #define NEED_mg_findext         /* one NEED_ per ppport.h shim actually used */
 #include "ppport.h"
 
-#include <thelib/thelib.h>      /* the library being wrapped */
+#include <foolib/foolib.h>      /* the library being wrapped */
 ```
 
 `PERL_NO_GET_CONTEXT` belongs in every XS file: without it each function that
@@ -60,17 +60,17 @@ that lack it, and must appear exactly once per compilation unit.
 ## MODULE, PACKAGE, PREFIX
 
 ```
-MODULE = Net::LibSSH    PACKAGE = Net::LibSSH
+MODULE = Foo    PACKAGE = Foo
 
 PROTOTYPES: DISABLE
 ```
 
 - Every XSUB after that line is installed into that package, until the next
-  `MODULE`/`PACKAGE` line. One `.xs` file can serve a whole class family — the
-  session, its channels, and its subsystems all live in `LibSSH.xs`.
+  `MODULE`/`PACKAGE` line. One `.xs` file can serve a whole class family — a
+  connection, the handles opened on it and its subsystems all live in one `Foo.xs`.
 - `PROTOTYPES: DISABLE` goes once after the first `MODULE` line; xsubpp carries it
   into the later packages of the same file. Leaving it out earns a warning per XSUB.
-- `PREFIX = ssh_` strips a C prefix from the Perl-visible name. It pays when
+- `PREFIX = foolib_` strips a C prefix from the Perl-visible name. It pays when
   wrapping a C API one-to-one, and only obscures things when the Perl API was
   designed separately.
 
@@ -80,13 +80,13 @@ A C pointer reaches Perl as **magic on a blessed SV**, under an `MGVTBL` that is
 unique to its type:
 
 ```c
-static int nlss_session_free(pTHX_ SV *sv, MAGIC *mg) {
-    NLSS_Session *self = (NLSS_Session *)(void *)mg->mg_ptr;
-    if (self->session) { ssh_disconnect(self->session); ssh_free(self->session); }
+static int foo_conn_free(pTHX_ SV *sv, MAGIC *mg) {
+    FOO_Conn *self = (FOO_Conn *)(void *)mg->mg_ptr;
+    if (self->conn) { foolib_close(self->conn); foolib_free(self->conn); }
     Safefree(self);
     return 0;
 }
-static const MGVTBL Net__LibSSH_magic = { .svt_free = nlss_session_free };
+static const MGVTBL Foo_magic = { .svt_free = foo_conn_free };
 ```
 
 `svt_free` is the destructor, and it is a better one than a Perl method: it fires
@@ -125,9 +125,9 @@ library come from whatever resolves them (`Alien::*`, `pkg-config`, hardcoded):
 
 ```perl
 WriteMakefile(
-  LIBS   => [ '-lssh' ],
+  LIBS   => [ '-lfoo' ],
   INC    => '-I/usr/include',
-  OBJECT => 'LibSSH$(OBJ_EXT)',   # matches the .xs basename
+  OBJECT => 'Foo$(OBJ_EXT)',   # matches the .xs basename
 );
 ```
 
