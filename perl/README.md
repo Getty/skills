@@ -125,6 +125,47 @@ does on top.
 
 **Load when** reading, editing or debugging any `dist.ini`.
 
+## XS and C libraries
+
+### [perl-xs](perl-xs/SKILL.md)
+
+The Perl/C boundary. Leads with the framing that saves the most time — an `.xs` file
+is C with a preprocessor in front of it, and the XS-specific part is only three
+decisions: how a C pointer lives inside an SV, how it converts at the boundary, and
+what one XSUB looks like inside.
+
+The house answer to the first is `sv_magicext` with a per-type `MGVTBL`: `svt_free`
+is a better destructor than a Perl `DESTROY` (it cannot be overridden, it survives
+global destruction), and the vtable address doubles as the type check that turns a
+hand-blessed hashref into a croak instead of a segfault. Four references carry the
+depth: the typemap and its escaping rule, object lifetime including the refcount
+chain a child owes its parent and the generation-counter pattern for libraries that
+free your children behind your back, XSUB sections and the argument stack, and the
+build/test side — `ppport.h`, reading generated C, and testing crashes in a forked
+child so a regression fails instead of taking `prove` down.
+
+**Load when** writing or debugging XS, a typemap, or a segfault at the Perl/C
+boundary.
+
+### [perl-alien](perl-alien/SKILL.md)
+
+`Alien::Build` — providing a C library or tool to CPAN. One question at install
+time: is a usable libfoo already here, and if not, how is one built?
+
+Covers the `probe`/`sys`/`share` split and why `plugin 'PkgConfig'` should write the
+first two, the `minimum_version` floor and why the comment explaining it matters more
+than the number, bundling the source tarball for network-free installs, and the rule
+that no path may be hardcoded because the build prefix is a staging directory. Two
+references hold the rest: the alienfile in detail (interpolation, custom `build sub`,
+`install_prop` vs `runtime_prop`, gather hooks, the plugin catalogue) and the
+consumer side (XS and FFI, `cpanfile`, `Test::Alien`, forcing both install types).
+
+Pairs with `perl-xs` — the Alien resolves the flags, the XS module links against
+them.
+
+**Load when** writing or debugging an alienfile, or consuming `cflags`/`libs` from
+an Alien.
+
 ## Libraries and protocols
 
 ### [perl-io-async-future](perl-io-async-future/SKILL.md)

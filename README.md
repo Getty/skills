@@ -20,7 +20,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [claude](claude/README.md) | 2 | Working with Claude itself — headless spawning, routing work across model tiers |
 | [development](development/README.md) | 1 | Engineering practice independent of language — debugging discipline |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
-| [perl](perl/README.md) | 11 | House style, object systems, typing, async, MCP, release tooling |
+| [perl](perl/README.md) | 13 | House style, object systems, typing, async, MCP, XS and Alien, release tooling |
 | [software](software/README.md) | 1 | Project scaffolding across languages |
 | [system-and-network-administration](system-and-network-administration/README.md) | 7 | Machines, networks, containers, Kubernetes, admin automation |
 
