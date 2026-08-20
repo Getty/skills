@@ -33,6 +33,9 @@ same shape, same layout). Match its layout exactly:
 - `Changes` (`{{$NEXT}}` marker + one `0.001` entry with a bullet list)
 - `README.md` (Synopsis → Description → one example per public method → License)
 - `.gitignore` (copy sibling's, substituting the dist name in the build-dir ignore line)
+- `LICENSE` — **not** copied from the sibling: generated with `dzil genlicense`
+  and committed (see *After writing*). Most existing dists predate the check and
+  have no LICENSE at all, so the sibling is not a guide here
 - `t/00-load.t` using `Test::LoadAllModules` OR `use_ok` — match what the sibling uses
 - Any additional `t/NN-*.t` the author convention calls for (often `10-*`, `20-*` topical tests)
 - `.github/workflows/ci.yml` — copy the sibling's if it has one, else the
@@ -124,7 +127,16 @@ equivalent. Rename `lib_Module.pm` → `lib/<Path>/<Name>.pm`,
 
 ## After writing
 
-Run `dzil test` inside the dist directory and surface the output. Do NOT
+Write the licence file and track it. `[@Author::GETTY]` aborts the build without
+a committed `LICENSE`, and the `git add` is not optional — the bundle gathers
+through `Git::GatherDir`, which only sees tracked files:
+
+```bash
+dzil genlicense
+git add LICENSE
+```
+
+Then run `dzil test` inside the dist directory and surface the output. Do NOT
 `dzil release` unless the user explicitly asks.
 
 ## Related
