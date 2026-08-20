@@ -49,10 +49,11 @@ name it right the first time.
 
 ## Editing a shared skill — keep the inode
 
-Skill files are hardlinked across projects: every copy is the same inode.
-`Edit` and `Write` replace the file and detach it — every other project
-silently keeps the old content. **Edit hardlinked skill files only with an
-in-place truncating write:**
+Skill files are hardlinked across projects: every copy is the same inode — and
+that covers **every file a skill directory ships**, `references/` and
+`templates/` included, not only `SKILL.md`. `Edit` and `Write` replace the file
+and detach it — every other project silently keeps the old content. **Edit
+hardlinked skill files only with an in-place truncating write:**
 
 ```bash
 cat > <group>/<skill>/SKILL.md <<'SKILL'
@@ -91,9 +92,13 @@ Codex plugin. When skills or groups are added, renamed, or moved:
 
 1. Update the group `README.md` and the root `README.md` skill lists — they
    are hand-maintained and drift silently.
-2. Regenerate the plugin manifests: `manage-skills package` (writes
-   `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`); validate
-   with `claude plugin validate .`.
+2. Add the skill to the `skills` array in `.claude-plugin/plugin.json` **and**
+   `.codex-plugin/plugin.json`. A grouped layout lists every skill path
+   individually, so a new skill needs an entry even when its group already
+   exists. `manage-skills package` leaves an existing manifest alone, and its
+   `--force` rewrites the hand-written `description` to a placeholder — edit
+   the array by hand, then validate with `claude plugin validate .` (the
+   root-CLAUDE.md warning is expected; don't use `--strict`).
 3. The marketplace entry lives in `Getty/marketplace`, not here.
 
 ## Related
