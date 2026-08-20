@@ -194,22 +194,6 @@ route on.
 
 **Load when** building an MCP server in Perl.
 
-### [perl-www-crawl4ai](perl-www-crawl4ai/SKILL.md)
-
-`WWW::Crawl4AI` — the Perl client and fallback orchestrator for the Crawl4AI Docker
-service. The distinguishing idea: fallback is **not** hidden inside the service.
-Every Attempt is modelled on the Perl side, so the caller can see which backend won,
-what it cost, and on failure exactly why.
-
-Covers the strategy chain and how to extend it, the classification half that decides
-good-vs-retry (a crawl can be 200 OK and still be junk), the Result/Attempt history,
-DeepCrawl, action endpoints, running the service, the REST surface, and the error
-model. Includes an explicit "when NOT to use this" — a plain `LWP::UserAgent` fetch
-does not need a browser-grade service in the path.
-
-**Load when** fetching web pages from Perl via Crawl4AI, or diagnosing bot walls,
-captchas, thin content and `why_failed` tokens.
-
 ### [getty-perl-kubernetes-classes](getty-perl-kubernetes-classes/SKILL.md)
 
 `IO::K8s` — typed Kubernetes objects in Perl. Creating objects by short name with

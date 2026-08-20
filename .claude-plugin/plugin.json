@@ -26,7 +26,6 @@
     "./perl/perl-io-async-future",
     "./perl/perl-mcp",
     "./perl/perl-release-dist-ini",
-    "./perl/perl-www-crawl4ai",
     "./perl/perl-xs",
     "./software/getty-create-software",
     "./system-and-network-administration/docker",
