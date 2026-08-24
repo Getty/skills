@@ -10,8 +10,8 @@ in the repo that owns the cluster, not in a shared skill.
 Rough reading order for a bare-metal Kubernetes stack:
 [kubernetes-concepts](kubernetes-concepts/SKILL.md) → [kubernetes-rke2](kubernetes-rke2/SKILL.md)
 → [kubernetes-cilium-concepts](kubernetes-cilium-concepts/SKILL.md) → [kubernetes-gpu](kubernetes-gpu/SKILL.md),
-with [docker](docker/SKILL.md) and [docker-registry](docker-registry/SKILL.md)
-covering what feeds it images.
+with [docker](docker/SKILL.md), [docker-registry](docker-registry/SKILL.md) and
+[docker-engine-api](docker-engine-api/SKILL.md) covering what feeds it images.
 
 ## Containers
 
@@ -48,6 +48,27 @@ for plain HTTP.
 
 **Load when** running a registry, wiring containerd to one, or diagnosing pulls that
 bypass the mirror.
+
+### [docker-engine-api](docker-engine-api/SKILL.md)
+
+For code that speaks the Engine API over the socket instead of shelling out to
+`docker` — the CLI hides everything a client has to handle. Covers version
+negotiation and what a too-new version does, the response shapes that are not
+errors (204 with no body, 304 for "already in that state"), and the fact that a
+failed build, pull or push is still **HTTP 200** with the failure buried as
+`errorDetail` inside the NDJSON event stream.
+
+The centrepiece is the multiplexed stream: `logs`, `attach` and `exec/start`
+return 8-byte-framed data for every container created **without** a TTY, and raw
+text with one — so hand-testing interactively shows clean output while the shipped
+client emits header bytes into real callers' logs. Also filters (a JSON map of
+string to array of *string*; a wrong shape returns an unfiltered list, never a
+400), `X-Registry-Auth` needing its base64 padding, `X-Registry-Config` for
+builds, and where Podman's compat socket stops being Docker.
+
+**Load when** writing or debugging an Engine API client, probing the socket with
+`curl`, or chasing garbled log output, a 400 on push, or filters that match
+nothing.
 
 ## Kubernetes
 

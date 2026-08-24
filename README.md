@@ -22,7 +22,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [perl](perl/README.md) | 12 | House style, object systems, typing, async, MCP, XS and Alien, release tooling |
 | [software](software/README.md) | 1 | Project scaffolding across languages |
-| [system-and-network-administration](system-and-network-administration/README.md) | 7 | Machines, networks, containers, Kubernetes, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 8 | Machines, networks, containers, Kubernetes, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
