@@ -15,6 +15,21 @@ dzil build          # Build distribution
 dzil release        # Release to CPAN
 ```
 
+## License File
+
+`LICENSE` is committed, not generated at build time. `[@Author::GETTY]` checks it
+against `license`, `copyright_holder` and `copyright_year` from `dist.ini` and
+aborts the build when it is missing or no longer matches:
+
+```bash
+dzil genlicense
+git add LICENSE
+```
+
+The `git add` is not optional — the bundle gathers through `Git::GatherDir`, which
+sees only tracked files, so an untracked LICENSE fails exactly like a missing one.
+Re-run `genlicense` after changing any of the three settings.
+
 ## Project Structure
 
 ```
@@ -23,6 +38,7 @@ t/00-load.t                  # Basic load test
 t/01-basic.t                 # Feature tests
 cpanfile                     # Dependencies
 Changes                      # Release history
+LICENSE                      # dzil genlicense, committed
 ```
 
 ## Testing
