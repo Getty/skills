@@ -31,6 +31,13 @@ guess.
   already inside a repo.
 - A `README.md` stub naming what the thing is (one paragraph beats a
   template essay).
+- A committed `LICENSE`. GitHub, Gitea and Forgejo read a project's licence
+  from that file alone — a licence field in `package.json`, `pyproject.toml`
+  or `dist.ini` leaves the repository page saying nothing. Write the licence's
+  own text, filling only the placeholders it defines (MIT's copyright line);
+  prose in front of it makes the forge report `NOASSERTION` instead of naming
+  the licence. Perl dists generate the file instead — `dzil genlicense`, see
+  `getty-perl-distribution`.
 
 ## Ask before proceeding when
 
