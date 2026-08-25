@@ -21,6 +21,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [development](development/README.md) | 1 | Engineering practice independent of language — debugging discipline |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [perl](perl/README.md) | 12 | House style, object systems, typing, async, MCP, XS and Alien, release tooling |
+| [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [software](software/README.md) | 1 | Project scaffolding across languages |
 | [system-and-network-administration](system-and-network-administration/README.md) | 8 | Machines, networks, containers, Kubernetes, admin automation |
 

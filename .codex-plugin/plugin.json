@@ -27,6 +27,8 @@
     "./perl/perl-mcp",
     "./perl/perl-release-dist-ini",
     "./perl/perl-xs",
+    "./social-media/linkedin",
+    "./social-media/twitch",
     "./software/getty-create-software",
     "./system-and-network-administration/docker",
     "./system-and-network-administration/docker-engine-api",
