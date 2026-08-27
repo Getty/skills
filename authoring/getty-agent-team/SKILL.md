@@ -44,8 +44,7 @@ Bundled references — read the one you need, not all four:
 ## Step 0 — prerequisites
 
 ```bash
-grep -q '"briefing"' ~/.claude/plugins/known_marketplaces.json && echo "briefing marketplace: ok"
-ls ~/.claude/plugins/cache/briefing/briefing >/dev/null 2>&1 && echo "briefing installed: ok"
+ls -d ~/.claude/plugins/cache/*/briefing >/dev/null 2>&1 && echo "briefing installed: ok"
 command -v karr >/dev/null && echo "karr: ok"
 ```
 
@@ -53,9 +52,13 @@ If `briefing` is missing, ask the user to run these two slash commands (Claude c
 run them):
 
 ```
-/plugin marketplace add Getty/briefing
-/plugin install briefing@briefing
+/plugin marketplace add Getty/marketplace
+/plugin install briefing@getty
 ```
+
+The same marketplace ships `manage-skills` (`/plugin install manage-skills@getty`),
+which Step 2 needs. `Getty/briefing` as its own marketplace is the old route — an
+existing install from it keeps working, don't churn it.
 
 Without briefing the whole setup degrades to prompt-stuffing — do not proceed by
 inlining skill bodies into agent files as a workaround.
@@ -136,7 +139,7 @@ skills, referenced by name.
 ```json
 {
   "enabledPlugins": {
-    "briefing@briefing": true
+    "briefing@getty": true
   }
 }
 ```
