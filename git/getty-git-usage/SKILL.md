@@ -33,6 +33,21 @@ body so the trail survives.
 
 ## Commits
 
+**Commit early and commit often.** One finished piece of work per commit, however
+small — a typo fix is a commit. Wrapping up what you just finished is expected and
+needs no separate go-ahead; pushing is the decision that waits. The history here is
+kept linear and never squashed precisely so those small commits survive into `main`,
+where they are what makes `git bisect`, a one-commit revert and a cherry-pick possible
+at all. Work parked in a working tree until it is "done" throws all three away and
+lands as a lump nobody can unpick later.
+
+**A skill file that arrived by hardlink is its own commit.** Anything under
+`.claude/skills/` is shared from the repo that owns it, so an edit made anywhere lands
+in every working tree linking it — as a change nobody made *here*. Commit it in this
+repo too, on its own, never folded into a code commit: it is someone else's edit
+passing through, and a shared commit would file it under a message that does not
+describe it.
+
 Conventional prefixes (`feat:`, `fix:`, `docs:`, `test:`, `ci:`, `chore:`, `refactor:`),
 always `--signoff`. The prefix is not decoration where a release workflow reads it:
 `feat:` cuts a minor, `fix:` a patch, `feat!:` or a `BREAKING CHANGE:` body a major.
