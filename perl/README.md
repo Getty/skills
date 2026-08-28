@@ -112,6 +112,12 @@ The critical part is the versioning convention: **the version in the repository 
 always the NEXT release version, not the current one.** Reading it as "what is on
 CPAN" is how a release ends up a version ahead of where anyone expected.
 
+The release workflow adds the pass over `Changes` that `dzil release` does not do for
+anyone: reading the whole `{{$NEXT}}` section once before releasing, merging the
+entries that circle one topic and cutting back the over-detailed ones. It is worth the
+minute because `GitHub::CreateRelease` is wired with `notes_from = ChangeLog` — the
+section is published verbatim as the release notes.
+
 **Load when** a `dist.ini` contains `[@Author::GETTY]`.
 
 ### [perl-release-dist-ini](perl-release-dist-ini/SKILL.md)
