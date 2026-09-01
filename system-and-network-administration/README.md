@@ -134,7 +134,7 @@ missing from node capacity.
 
 ## Automation
 
-### [getty-rex](getty-rex/SKILL.md)
+### [rex](rex/SKILL.md)
 
 Rex is a Perl automation framework driven by a `Rexfile`. The skill exists mostly
 for one trap: `set connection => 'OpenSSH'` makes every file operation call

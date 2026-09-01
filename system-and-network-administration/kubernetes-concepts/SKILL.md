@@ -8,7 +8,7 @@ model: sonnet
 
 # Kubernetes — Big Picture Reference
 
-This skill covers Kubernetes concepts and architecture, independent of any client library. For typed Kubernetes objects in Perl, the `getty-perl-kubernetes-classes` skill applies on top; a project that talks to the API or builds images keeps its own skill for that.
+This skill covers Kubernetes concepts and architecture, independent of any client library. For typed Kubernetes objects in Perl, the `perl-io-k8s-kubernetes-classes` skill applies on top; a project that talks to the API or builds images keeps its own skill for that.
 
 ## Architecture
 

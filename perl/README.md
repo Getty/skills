@@ -101,25 +101,6 @@ after writing.
 
 **Load when** creating a new CPAN distribution or polishing an existing one.
 
-### [getty-perl-release-author-getty](getty-perl-release-author-getty/SKILL.md)
-
-Everything the `[@Author::GETTY]` plugin bundle adds: its option surface (feature
-toggles, identity, XS-with-Alien, versioning, build and release, Docker, support,
-git), the POD commands its transformer understands (`=attr`, `=method`, `=opt` and
-the section forms), and required metadata.
-
-The critical part is the versioning convention: **the version in the repository is
-always the NEXT release version, not the current one.** Reading it as "what is on
-CPAN" is how a release ends up a version ahead of where anyone expected.
-
-The release workflow adds the pass over `Changes` that `dzil release` does not do for
-anyone: reading the whole `{{$NEXT}}` section once before releasing, merging the
-entries that circle one topic and cutting back the over-detailed ones. It is worth the
-minute because `GitHub::CreateRelease` is wired with `notes_from = ChangeLog` — the
-section is published verbatim as the release notes.
-
-**Load when** a `dist.ini` contains `[@Author::GETTY]`.
-
 ### [perl-release-dist-ini](perl-release-dist-ini/SKILL.md)
 
 Generic Dist::Zilla reference that holds for any distribution regardless of author
@@ -199,14 +180,3 @@ Langertha, and a section on writing tool descriptions the calling model can actu
 route on.
 
 **Load when** building an MCP server in Perl.
-
-### [getty-perl-kubernetes-classes](getty-perl-kubernetes-classes/SKILL.md)
-
-`IO::K8s` — typed Kubernetes objects in Perl. Creating objects by short name with
-auto-resolution to the full class, serialising and deserialising, the `k8s` attribute
-DSL, and the CRD provider pattern that pulls in Cilium or Gateway API types.
-
-For the concepts underneath rather than the Perl binding, see
-[kubernetes-concepts](../system-and-network-administration/kubernetes-concepts/SKILL.md).
-
-**Load when** building or consuming typed Kubernetes objects in Perl.

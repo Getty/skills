@@ -1,5 +1,5 @@
 ---
-name: getty-rex
+name: rex
 description: Use when writing or debugging a Rexfile or Rex task — connection types, Rex::Commands, which commands need SFTP, or the LibSSH backend.
 user-invocable: false
 allowed-tools: Read, Grep, Glob
