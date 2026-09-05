@@ -101,6 +101,11 @@ Codex plugin. When skills or groups are added, renamed, or moved:
    root-CLAUDE.md warning is expected; don't use `--strict`).
 3. The marketplace entry lives in `Getty/marketplace`, not here.
 
+`bin/check-listings` in the library repo verifies all of this at once — group
+README entry, group-table count, the skill table, both manifests, and that the
+frontmatter `name` matches the directory. Run it after adding or renaming a
+skill; it exits non-zero with one line per omission.
+
 ## Related
 
 - `skill-authoring` — how to write the skill's content.

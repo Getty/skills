@@ -66,6 +66,16 @@ rather than the declaration copied N times.
 
 **Load when** writing classes or roles in a Moose distribution.
 
+### [perl-mojo](perl-mojo/SKILL.md)
+
+`Mojo::Base` as an object system — attributes and their defaults, overriding an
+inherited default, chainable accessors, composing roles, and lazy construction of
+expensive members — plus the toolkit around it: `Mojo::UserAgent`, `Mojo::IOLoop`
+and the `Mojo::*` helpers worth knowing, with the async patterns and conventions
+that come with them.
+
+**Load when** writing Mojolicious or `Mojo::Base` code.
+
 ### [getty-perl-typing](getty-perl-typing/SKILL.md)
 
 Two decisions, in this order: does this project need a type system at all, and which

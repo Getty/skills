@@ -1,0 +1,72 @@
+#!/usr/bin/env perl
+# Every skill must be listed in four places. This checks all of them.
+#   1. its group README            <group>/README.md
+#   2. the group table             README.md  (count per group)
+#   3. the "Every skill" table     README.md
+#   4. both plugin manifests       .claude-plugin/ and .codex-plugin/plugin.json
+# Run from the repository root. Exits non-zero when anything is missing.
+use strict;
+use warnings;
+use JSON::PP;
+
+my @problems;
+sub slurp { open my $fh, '<:encoding(UTF-8)', $_[0] or die "open $_[0]: $!"; local $/; <$fh> }
+
+-e 'README.md' && -d '.claude-plugin'
+    or die "run this from the repository root\n";
+
+my $root = slurp('README.md');
+my %manifest;
+for my $m ('.claude-plugin/plugin.json', '.codex-plugin/plugin.json') {
+    my $data = JSON::PP->new->decode( slurp($m) );
+    $manifest{$m} = { map { $_ => 1 } @{ $data->{skills} || [] } };
+}
+
+my @groups = sort grep { -d $_ && -e "$_/README.md" } glob('*');
+my $total = 0;
+
+for my $group (@groups) {
+    my @skills = sort grep { -e "$group/$_/SKILL.md" }
+                 map { s{^\Q$group\E/}{}r } glob("$group/*");
+    $total += @skills;
+
+    # 2. group table row, with the right count
+    if ( $root =~ m{^\|\s*\[\Q$group\E\]\(\Q$group\E/README\.md\)\s*\|\s*(\d+)\s*\|}m ) {
+        push @problems, "README.md: group table says $1 for '$group', found " . scalar(@skills)
+            if $1 != @skills;
+    }
+    else {
+        push @problems, "README.md: no group table row for '$group'";
+    }
+
+    my $gr = slurp("$group/README.md");
+    for my $skill (@skills) {
+        # 1. an entry in the group README
+        push @problems, "$group/README.md: no entry for '$skill'"
+            unless $gr =~ m{^\#{2,3}\s+\[\Q$skill\E\]\(\Q$skill\E/SKILL\.md\)}m;
+
+        # 3. a row in the "Every skill" table
+        push @problems, "README.md: '$skill' missing from the Every-skill table"
+            unless $root =~ m{\[\Q$skill\E\]\(\Q$group\E/\Q$skill\E/SKILL\.md\)};
+
+        # 4. both manifests
+        for my $m ( sort keys %manifest ) {
+            push @problems, "$m: does not list '$group/$skill'"
+                unless $manifest{$m}{"./$group/$skill"};
+        }
+
+        # the frontmatter name must match the directory
+        my ($name) = slurp("$group/$skill/SKILL.md") =~ m{^name:\s*"?([^"\n]+?)"?\s*$}m;
+        push @problems, "$group/$skill/SKILL.md: frontmatter name '" . ($name // '(none)')
+            . "' does not match the directory"
+            if !defined $name || $name ne $skill;
+    }
+}
+
+if (@problems) {
+    print "$_\n" for @problems;
+    printf "\n%d problem%s in %d skills across %d groups\n",
+        scalar @problems, (@problems == 1 ? '' : 's'), $total, scalar @groups;
+    exit 1;
+}
+printf "all listings consistent: %d skills across %d groups\n", $total, scalar @groups;

@@ -26,6 +26,7 @@
     "./perl/perl-alien",
     "./perl/perl-io-async-future",
     "./perl/perl-mcp",
+    "./perl/perl-mojo",
     "./perl/perl-release-dist-ini",
     "./perl/perl-xs",
     "./social-media/linkedin",
