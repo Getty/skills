@@ -10,8 +10,8 @@ app-server that owns the running threads — and a **queue** that holds messages
 until a thread picks them up. Anything you send is a letter, never a
 conversation: there is no reply channel back to the sender.
 
-Facts below verified against codex-cli 0.153.0; the remote paths in the last
-section are read from the CLI contract and not measured against a second host.
+Facts below verified against codex-cli 0.153.0 driving a 0.148.0 on a second
+host; the versions do not have to match.
 
 ## The queue is a letterbox
 
@@ -66,11 +66,30 @@ The client side is an address, not an account:
 ```
 
 This is the significant difference from Claude Code, where cross-machine reach
-is keyed to the *account* and a host you can ssh into gives you nothing by
-itself (see `claude-cross-session`). Here the daemon is addressable, so a
-tunnel — `ssh -L` onto the remote app-server, then `--remote ws://127.0.0.1:…` —
-reaches a Codex that belongs to somebody else's login. Verify that path before
-relying on it; it is the one part of this skill not measured.
+is keyed to the *account*, so a host you can ssh into gives you nothing by
+itself (see `claude-cross-session`). Here the daemon is addressable, and ssh is
+enough — including against a Codex that belongs to somebody else's login:
+
+```bash
+ssh host 'codex app-server daemon start'      # prints socketPath as JSON
+ssh -f -N -L /tmp/cdx.sock:/home/<user>/.codex/app-server-control/app-server-control.sock host
+codex queue --remote unix:///tmp/cdx.sock --thread <id> --message "…"
+```
+
+**Keep the local socket path short.** `sockaddr_un` holds 108 characters, and
+ssh rejects anything longer with `Bad local forwarding specification` — which
+names the path and not the reason. A scratch directory deep under `/tmp` will
+already be too long.
+
+No token is involved on this path: reaching the socket at all is the
+authorisation, and the ssh account's file permissions decide that.
+`--remote-auth-token-env` belongs to the `ws://`/`wss://` endpoints.
+
+Measured end to end: a thread created on the second host under a different
+account, a message queued into it from the first host through the tunnel, and a
+`codex exec resume` over there answering with both numbers — the queued one and
+the local one. Remember to stop the daemon (`codex app-server daemon stop`) and
+drop the tunnel afterwards.
 
 ## Codex as a tool for another agent
 

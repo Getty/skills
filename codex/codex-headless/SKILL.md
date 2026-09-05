@@ -11,10 +11,10 @@ is the authority for the installed version.
 
 ## The stdin trap
 
-`exec` takes its prompt from an argument **or** from stdin, and when stdin is an
-open pipe it waits for it — even with a prompt already given. A run started from
-a script that leaves stdin attached prints `Reading additional input from
-stdin...` and hangs. Close it:
+`exec` takes its prompt from an argument **or** from stdin, and announces
+`Reading additional input from stdin...` either way. With a prompt already given
+and stdin left as an open pipe that never closes, it waits on that pipe. Close
+it and the run is unambiguous:
 
 ```bash
 codex exec --json -s read-only "Antworte mit genau einem Wort: PONG" < /dev/null
@@ -76,6 +76,11 @@ a new thread from an old one.
 **`resume` accepts neither `-s/--sandbox` nor `-C/--cd`.** Sandbox and working
 root are decided when the thread is created; a resumed turn cannot widen or
 narrow them. Plan the sandbox at `exec` time.
+
+It does take `--skip-git-repo-check`, and needs it just as much as `exec` does:
+outside a repository a resume stops with `Not inside a trusted directory and
+--skip-git-repo-check was not specified` — on stderr, so a script filtering for
+JSON events sees an empty run and no reason.
 
 ## Related
 

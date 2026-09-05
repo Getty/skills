@@ -34,6 +34,8 @@ the thread is picked up again), `codex agents` as an interactive browser with no
 `--json`, the `remote-control start`/`pair`/`stop` daemon with its short-lived
 pairing code, and the client side `--remote ws://…|wss://…|unix://…` with a bearer
 token — an **address**, where Claude Code keys cross-machine reach to the account.
+Measured: an ssh tunnel onto the remote control socket reaches a Codex running
+under somebody else's login, no shared account and no open port involved.
 
 **Load when** sending a message to an existing thread, listing what runs, or
 setting up Codex across hosts.
