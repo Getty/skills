@@ -1,13 +1,13 @@
 ---
 name: claude-headless
-description: "Use when running Claude Code headless — claude -p/--print, --output-format json, claude calling claude, tool approval, or a nested run that hangs, denies a tool, or picks the wrong model."
+description: "Use when running Claude Code headless — claude -p/--print, --output-format json, claude calling claude, driving a child over several turns from a program, tool approval, or a nested run that hangs, denies a tool, or picks the wrong model."
 ---
 
 # Headless Claude Code
 
 `claude -p "<prompt>"` runs one non-interactive turn-loop and exits. Calling it
 from inside a running Claude Code session works — no environment cleanup
-needed. Facts below verified against claude 2.1.234; when a flag misbehaves,
+needed. Facts below verified against claude 2.1.261; when a flag misbehaves,
 `claude --help` is the authority for the installed version.
 
 ## Matching the parent's model
@@ -52,12 +52,12 @@ provider's rate card, not Claude's.
 matter: `result` (the final text), `is_error`, `session_id` (feed to
 `--resume`), `total_cost_usd`, `num_turns`, `stop_reason`, `modelUsage`,
 `usage` (token detail), `permission_denials`. `--output-format stream-json`
-emits events as they happen; `--json-schema <schema>` forces structured
-output.
+emits events as they happen and additionally requires `--verbose`;
+`--json-schema <schema>` forces structured output.
 
 ## Permissions — decide before launch
 
-Print mode cannot ask. An unapproved tool call is denied (see
+A one-shot print run cannot ask. An unapproved tool call is denied (see
 `permission_denials`), so the run limps or stops instead of prompting. Choose
 one:
 
@@ -68,6 +68,41 @@ one:
 - `--dangerously-skip-permissions` (= `bypassPermissions`) — only inside an
   isolated environment (container, throwaway VM), never on a working checkout
   you care about.
+
+## Staying in the conversation
+
+The single turn is a choice, not a limit. `--input-format stream-json` keeps
+stdin open, so one process takes several turns and remembers the earlier ones:
+
+```python
+p = subprocess.Popen(
+    ["claude","-p","--input-format","stream-json","--output-format","stream-json",
+     "--verbose","--replay-user-messages","--model","claude-haiku-4-5-20251001"],
+    stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
+
+def say(text):                       # one message in
+    p.stdin.write(json.dumps({"type":"user","message":{"role":"user",
+        "content":[{"type":"text","text":text}]}}) + "\n")
+    p.stdin.flush()                  # read stdout until type == "result"
+```
+
+`--replay-user-messages` echoes each message back so the driver knows it
+landed; closing stdin ends the run. `--include-partial-messages` streams
+chunks as they arrive, `--forward-subagent-text` surfaces what its subagents
+say. Both need `--output-format stream-json`.
+
+This is also the one way a print run can *ask*: point
+`--permission-prompt-tool` at an MCP tool of your own and every tool decision
+comes to the driver as a question instead of being silently denied.
+
+## The child is a peer
+
+A `-p` child is a full session, not an isolated command. It appears in
+`claude agents --json` — as `kind: interactive`, named after its directory
+(`p5-alien-libgit2-13`) — and it can call `ListAgents` and `SendMessage` to
+reach the session that started it and every other session on the machine.
+So a headless run does not have to report only through its exit JSON; it can
+talk back while it works, and you can talk to it. See `claude-cross-session`.
 
 ## What the child inherits
 
@@ -91,7 +126,8 @@ agents, and hooks. Consequences:
 - `--max-turns <n>` and `--max-budget-usd <amount>` bound a runaway child.
 - `session_id` from the JSON + `claude -p --resume <session-id> "<next>"`
   continues that conversation; `--continue` takes the most recent one.
-  `--no-session-persistence` for fire-and-forget runs.
+  `--session-id <uuid>` picks the id up front. `--no-session-persistence`
+  for fire-and-forget runs.
 - Background Bash commands the child starts are killed ~5 s after its final
   result — a headless run must finish its work in the foreground.
 - Inside any Claude Code Bash call, `CLAUDECODE=1` and
@@ -100,6 +136,9 @@ agents, and hooks. Consequences:
 
 ## Related
 
+- `claude-cross-session` — when you do not want a result but a counterpart:
+  starting a session elsewhere with `claude --bg` and talking to it while it
+  runs.
 - `getty-agent-team` — subagents *within* a session (briefing-preloaded);
   reach for headless spawning only when a separate process is genuinely
   needed: clean context, different cwd, CI, or another program driving Claude.

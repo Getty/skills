@@ -10,6 +10,7 @@
     "./authoring/skill-authoring",
     "./authoring/skill-compressor",
     "./authoring/skill-mining",
+    "./claude/claude-cross-session",
     "./claude/claude-headless",
     "./claude/model-routing",
     "./development/feedback-loop-debugging",

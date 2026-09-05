@@ -17,7 +17,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | Group | Skills | What it holds |
 |---|---|---|
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
-| [claude](claude/README.md) | 2 | Working with Claude itself — headless spawning, routing work across model tiers |
+| [claude](claude/README.md) | 3 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers |
 | [development](development/README.md) | 1 | Engineering practice independent of language — debugging discipline |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [perl](perl/README.md) | 12 | House style, object systems, typing, async, MCP, XS and Alien, release tooling |
