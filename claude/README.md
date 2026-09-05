@@ -23,7 +23,9 @@ background commands a child starts get killed seconds after its final result.
 
 The single turn is a choice, not a limit: `--input-format stream-json` keeps stdin
 open for a real multi-turn conversation, and `--permission-prompt-tool` is the one
-way a print run can *ask* instead of silently denying. And a `-p` child is not
+way a print run can *ask* instead of silently denying. That channel is a pipe, so it
+runs through ssh — the way to drive an agent on a host whose Claude is somebody
+else's login. And a `-p` child is not
 isolated — it is a full session that shows up in `claude agents` and can message
 the session that started it.
 
@@ -32,10 +34,11 @@ when a nested run hangs, denies a tool, or picks the wrong model.
 
 ## [claude-cross-session](claude-cross-session/SKILL.md)
 
-One session starts another anywhere on the machine and holds a real conversation
-with it — over a unix domain socket per process, with the transcripts kept by
-Claude Code. No protocol to implement, no adapter to install; ACP and a custom MCP
-server are for the different job of attaching an *editor*.
+One session starts another and holds a real conversation with it — over a unix
+domain socket per process on one machine, over Remote Control across machines,
+with the transcripts kept by Claude Code. No protocol to implement, no adapter to
+install; ACP and a custom MCP server are for the different job of attaching an
+*editor*.
 
 Covers `claude --bg` in a chosen directory (the cwd is the whole inheritance lever,
 and the provider wrappers work), the trap that the id managing a session is not the
@@ -45,8 +48,13 @@ polling, the `attach`/`logs`/`stop`/`rm`/`respawn` life cycle, and the two ways 
 background session goes quiet: an untrusted directory stopping on the MCP prompt,
 and `state: blocked` waiting for a permission decision nobody gives.
 
-**Load when** starting an agent in another directory, messaging another session, or
-when a background session sits there doing nothing.
+Across machines it also draws the line that surprises people: reach is keyed to the
+Claude account through Remote Control, never to network reachability. A host you can
+ssh into shows you nothing by itself, and starting an agent over there is plain ssh
+plus the `--bg` session registering itself.
+
+**Load when** starting an agent in another directory or on another host, messaging
+another session, or when a background session sits there doing nothing.
 
 ## [model-routing](model-routing/SKILL.md)
 

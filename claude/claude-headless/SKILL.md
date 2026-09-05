@@ -95,6 +95,19 @@ This is also the one way a print run can *ask*: point
 `--permission-prompt-tool` at an MCP tool of your own and every tool decision
 comes to the driver as a question instead of being silently denied.
 
+Because the channel is a pipe, it survives ssh — and that is how you drive an
+agent on a host whose Claude is somebody else's login:
+
+```bash
+ssh -T host 'export PATH=$HOME/.local/bin:$PATH; cd /srv/project; exec claude -p \
+  --input-format stream-json --output-format stream-json --verbose'
+```
+
+Write the same JSON lines into ssh's stdin. Use `-T` (no tty) and `exec` so the
+remote claude owns the connection's stdio and its signals. Verified across
+hosts: turn two still knew what turn one had been told. Nothing is shared but
+the ssh session — no account, no Remote Control.
+
 ## The child is a peer
 
 A `-p` child is a full session, not an isolated command. It appears in

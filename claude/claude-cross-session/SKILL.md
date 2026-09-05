@@ -5,12 +5,12 @@ description: "Use when one Claude session should reach another — starting an a
 
 # Talking Across Claude Sessions
 
-A Claude session can start another session anywhere on the machine and hold a
-real conversation with it. Nothing is bolted on: the sessions find each other
-over a unix domain socket per process (`/run/user/<uid>/cc-socks/<pid>.sock`),
-and Claude Code keeps the transcripts. There is no protocol to implement and no
-adapter to install — reach for ACP or a custom MCP server only if you need an
-*editor* attached, which is a different job.
+A Claude session can start another session and hold a real conversation with
+it. Nothing is bolted on: on one machine the sessions find each other over a
+unix domain socket per process (`/run/user/<uid>/cc-socks/<pid>.sock`), across
+machines over Remote Control, and Claude Code keeps the transcripts. There is
+no protocol to implement and no adapter to install — reach for ACP or a custom
+MCP server only if you need an *editor* attached, which is a different job.
 
 Facts below verified against claude 2.1.261; when a flag misbehaves,
 `claude --help` is the authority for the installed version.
@@ -61,6 +61,46 @@ attribute into `to`. Append the ` [ref]` only when the bare name is ambiguous.
 To learn *when* a session finishes rather than what it says, subscribe once
 with `notify_when_idle: true` and omit `message`; that costs the other session
 nothing. Never poll `ListAgents` in a loop, and never send "bist du fertig?".
+
+## Across machines
+
+Reach has two layers, configured independently:
+
+- **Same machine, same user** — the sockets above. Every session sees every
+  other one, with nothing to set up.
+- **Other machines** — Remote Control, keyed to the **Claude account**, started
+  with `claude --remote-control [name]`. Auto-generated names carry the
+  hostname as prefix (`--remote-control-session-name-prefix`), which is why
+  peers read `pikachu-…` and `reuben-…`. A `--bg` session connects itself.
+
+**Network reachability is not the criterion and never becomes one.** A host you
+can ssh into, running the same Claude Code version, shows you nothing by
+itself: its sessions see their local neighbours over the socket and stop there
+unless Remote Control is connected on that side, for the same account. Measured
+on a second host — an agent there listed exactly its own three local sessions,
+and none of the 68 peers the first host could see.
+
+So starting an agent on another host is plain ssh, not a protocol question:
+
+```bash
+ssh otherhost 'cd /srv/project && claude --bg "<Auftrag>"'
+```
+
+What that buys is the new session registering itself with Remote Control, so it
+becomes addressable from wherever you started.
+
+**When the account is not yours, this route does not exist at all** — a lab box,
+a colleague's machine, a customer's host. Do not try to bridge it; drive that
+agent over ssh with the stream-json channel in `claude-headless`, which needs
+nothing but the ssh session and works fine against somebody else's login.
+
+Two limits once you are across:
+
+- `notify_when_idle` covers only sessions **on this machine**. Ask a remote peer
+  to report back instead.
+- `offline` peers are listed but do not deliver; only `running` and `idle` do.
+  Cloud sessions receive a message but cannot answer back — read their own
+  transcript.
 
 ## Life cycle
 
