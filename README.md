@@ -157,5 +157,8 @@ silently keeps the old content. `getty-skill-library` has the rules for editing 
 
 ## Licence
 
+Copyright (c) 2026 Torsten Raudssus.
+
+This is free software; you can redistribute it and/or modify it under the terms of the
 [Artistic License 2.0](LICENSE) — the Perl licence, because that is where most of this
 came from.
