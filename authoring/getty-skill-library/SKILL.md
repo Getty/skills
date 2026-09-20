@@ -74,16 +74,17 @@ overwrites — only when you know the divergence is accidental).
 ## Wiring a project
 
 ```bash
-manage-skills sources add <checkout>/<group> <label>   # once per group
+manage-skills sources add <checkout> <label>           # the whole library at once
 manage-skills link <skill> [<skill>…]    # hardlink into ./.claude/skills/
 manage-skills check                      # verify inode integrity
 manage-skills sync                       # repair stale links
 ```
 
-Register library groups individually (group-level dirs); `manage-skills
-locations` shows what resolves. Remote consumers use
-`manage-skills sources add github:Getty/skills` — grouped layouts are
-detected there.
+One entry for the checkout covers the whole library — the groups a level inside
+it are found on their own, and `manage-skills locations` shows what resolves.
+Remote consumers need only the owner name: `manage-skills sources add Getty`
+resolves to that owner's `skills` repo, which is the convention this tooling
+sets.
 
 ## Distribution duties (library repo)
 

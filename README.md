@@ -112,19 +112,19 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 ## Using this repo
 
-Without a local checkout:
+An owner name on its own is enough — it resolves to that owner's `skills` repo:
 
 ```bash
-manage-skills sources add github:Getty/skills Getty's shared skills
-manage-skills locations                        # see what's available
+manage-skills sources add Getty     # github.com/Getty/skills
+manage-skills locations             # see what's available
 manage-skills link getty-perl-moo getty-git-usage
 ```
 
-With a local checkout, register the groups you want:
+With a local checkout, register the checkout itself; the groups a level inside
+it are found on their own:
 
 ```bash
-manage-skills sources add <checkout>/perl Cross-project Perl practices
-manage-skills sources add <checkout>/git  Git conventions
+manage-skills sources add <checkout> Getty shared skills
 ```
 
 The same files also ship as a plugin for Claude Code (`.claude-plugin/`) and for
