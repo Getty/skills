@@ -27,8 +27,14 @@ cilium-dbg status` is the first health check.
 
 Cilium implements Gateway API (`gatewayClassName: cilium`) — the successor
 path to Ingress. The Gateway API CRDs are **not** bundled: they must be
-installed before Cilium is deployed (standard set: Gateway, GatewayClass,
-HTTPRoute; experimental set adds TCP/UDP/TLSRoute). A Gateway resource in
+installed before Cilium is deployed, at a Gateway API version matching the
+Cilium release. Channels shift by version: before v1.5 the standard set is
+Gateway, GatewayClass, HTTPRoute, GRPCRoute, ReferenceGrant and TLS/TCP/UDPRoute
+are experimental-only; v1.5 moves TLSRoute (v1) to standard, v1.6 also TCP/UDPRoute.
+Cilium ≤1.16 requires TLSRoute v1alpha2 (experimental), 1.17–1.19 treat it as
+optional, 1.20 requires TLSRoute v1 + BackendTLSPolicy v1. From v1.5 a
+`safe-upgrades` admission policy refuses experimental CRDs over standard ones,
+so a standard cluster cannot move to experimental. A Gateway resource in
 `kube-system` with HTTP/HTTPS listeners plus HTTPRoutes replaces the
 ingress-controller-plus-Ingress pattern.
 
