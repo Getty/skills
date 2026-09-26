@@ -244,6 +244,10 @@ that duplicates a skill, a missing delegation lock, skills copied instead of har
 
 Role drift to look for in older setups:
 
+- `allowed-tools:` in an agent file → ignored by Claude Code, the agent has every tool.
+  Drop it on writing roles; on read-only roles replace it with
+  `disallowedTools: Edit, Write, NotebookEdit` (see the frontmatter contract);
+
 - a read-only `<prefix>-release-checker` → replace with `<prefix>-release-manager`
   (the audit becomes part of its lane; there is no third role);
 - workers or writers briefed with commit-style, changelog or release skills, or whose

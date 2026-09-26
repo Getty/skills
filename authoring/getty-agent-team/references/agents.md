@@ -7,7 +7,7 @@
 name: <prefix>-<role>            # must equal the filename stem
 description: "…"                 # one paragraph; this is what the main agent routes on
 model: inherit | opus | sonnet
-allowed-tools: Read, Edit, Write, Bash, Glob, Grep
+disallowedTools: Edit, Write, NotebookEdit   # read-only roles only; omit otherwise
 briefing:
   skills:
     - <skill-name>
@@ -20,9 +20,14 @@ briefing:
 - `model`: `inherit` for the default worker (it should be as strong as the session),
   `sonnet` for checklist/routing/audit lanes, `opus` where judgment about architecture
   is the whole job (ADR auditor).
-- `allowed-tools`: read-only roles (`Read, Bash, Glob, Grep`) get no `Edit`/`Write` — an
-  auditor that can edit will start fixing instead of reporting. Add `Skill, ToolSearch`
-  only when the agent genuinely needs to load *situational* skills beyond its briefing.
+- **Tool restriction: `disallowedTools`, never `allowed-tools`.** In an agent file
+  `allowed-tools:` is not a key at all — Claude Code ignores it silently and the agent
+  gets every tool (it is a *skill* frontmatter key). `tools:` is a hard allowlist:
+  whatever it does not name is gone, including `Skill`, `ToolSearch`, MCP and web tools
+  the agent may quietly rely on. So: writing roles carry no tool key and inherit
+  everything; read-only roles (auditor, checker, probe, router) carry
+  `disallowedTools: Edit, Write, NotebookEdit` — an auditor that can edit will start
+  fixing instead of reporting.
 - `briefing.skills`: every entry must resolve or the spawn is denied. Keep the list to
   what the role actually needs; a worker briefed with nine skills burns context before
   its first thought.
@@ -74,7 +79,6 @@ The default implementer. Everything behavior-relevant goes here.
 name: <prefix>-worker
 description: "Default <project> worker — implement, refactor, debug, and test code in this <repo/distribution>. Pre-loaded with all <project> conventions and <repo> specifics. Leaves a commit-ready tree; never commits — commits belong to <prefix>-release-manager."
 model: inherit
-allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 briefing:
   skills:
     - <prefix>-core
@@ -120,7 +124,6 @@ fixtures, a forbidden shortcut like "never hit a real database").
 name: <prefix>-test-writer
 description: "Write <project> tests using <framework/mock harness>. <The hard prohibition.> Use for test additions, regression scaffolding, debugging via <interception mechanism>."
 model: sonnet
-allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 briefing:
   skills:
     - <prefix>-core
@@ -159,7 +162,6 @@ it must never run.
 name: <prefix>-release-manager
 description: "Owns <project>'s git history and release readiness — cuts commits from the worker's commit-ready tree, writes commit messages and the <changelog> entry, moves karr cards to done with the commit hash, audits <manifest>/version/changelog/build before a release. Workers never commit; this agent does. Never pushes, tags or releases."
 model: sonnet
-allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 briefing:
   skills:
     - <commit-style skill>
@@ -204,7 +206,7 @@ code goes back to the worker as a note on a card, not as your own fix.
 name: <prefix>-doc-writer
 description: "Write and maintain <project> API documentation in the house format (<the directives/format>). Single distribution/repo at a time; specify the path."
 model: sonnet
-allowed-tools: Read, Edit, Grep, Glob
+disallowedTools: Write, Bash, NotebookEdit
 briefing:
   skills:
     - <doc-format skill>
@@ -226,7 +228,6 @@ method matters more than the template:
 name: <prefix>-adr-auditor
 description: "Audit <project> for architecturally-significant decisions that lack an ADR and (in write mode) record them in docs/adr/ in the house format. Backfill structure-first, confirm the WHY from git history and the board — never starting from archived planning docs."
 model: opus
-allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 briefing:
   skills:
     - <prefix>-adr
@@ -266,7 +267,7 @@ Routes tickets between repos. Never edits code outside the current repo.
 name: karr-coordinator
 description: "Cross-repo karr ticket router — read board, identify which <family> repo owns the work, push tickets via karr to that repo's remote, monitor handoffs."
 model: sonnet
-allowed-tools: Read, Bash, Glob, Grep
+disallowedTools: Edit, Write, NotebookEdit
 briefing:
   skills:
     - kanban-issues-karr-coordination
