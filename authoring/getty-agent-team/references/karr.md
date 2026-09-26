@@ -4,8 +4,12 @@
 checked-in files. One board per repo. It is the coordination substrate for every project
 that uses this setup, so install it unless the user says otherwise.
 
-Full command surface: skill `kanban-issues-karr-cli`, which `karr skill install`
-drops into the repo (source: [Getty/karr](https://github.com/Getty/karr)).
+Two skills, which `karr skill install` drops into the repo (source:
+[Getty/karr](https://github.com/Getty/karr)): `kanban-issues-karr-ticket` — working one
+handed-over card, briefed into every working role — and
+`kanban-issues-karr-coordination` — the full command surface, for the main agent and
+the karr-coordinator. They combine; neither repeats the other. (Older installs ship the
+single `kanban-issues-karr-cli`.)
 
 ## Install into a repo
 

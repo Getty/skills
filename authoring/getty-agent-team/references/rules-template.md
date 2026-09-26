@@ -56,8 +56,8 @@ This rule depends on whether the Agent/Task tool is available to you.
 
 - **You can spawn subagents** (orchestrating main agent): Do NOT touch behavior-relevant
   code yourself — delegate to this repo's worker (`<prefix>-worker`). Your lane:
-  coordinate, inspect, plan, review diffs, run tests, manage git, edit non-behavioral
-  docs. When in doubt, delegate. Why: only the `<prefix>-*` agents get their skills
+  coordinate, inspect, plan, review diffs, run tests, edit non-behavioral docs. Commits
+  go through the release-manager, not through you or the worker. When in doubt, delegate. Why: only the `<prefix>-*` agents get their skills
   force-loaded via `briefing.skills`; you get no briefing and would touch internals with
   too little context. Specialist lanes:
 
@@ -65,7 +65,10 @@ This rule depends on whether the Agent/Task tool is available to you.
   |---|---|
   | Implement / refactor / debug behavior-relevant code | `<prefix>-worker` (default) |
   | Write/extend tests | `<prefix>-test-writer` |
-  | Pre-release audit | `<prefix>-release-checker` |
+  | Commits, changelog, card → done, pre-release audit | `<prefix>-release-manager` |
+
+  **Only `<prefix>-release-manager` commits.** A worker hands its card to `review` and
+  reports; you then dispatch the release-manager to cut the commit.
 
 - **You cannot spawn subagents** (you ARE a `<prefix>-*` agent): The delegation lock does
   not apply to you — implement, refactor, debug, and test per these rules.
@@ -77,7 +80,7 @@ not.
 ## Coordination — karr board (always in scope)
 
 Ticket coordination is the orchestrating agent's job, so `karr` is always in scope —
-don't invoke the `kanban-issues-karr-cli` skill first, just use it. Git-native kanban; state lives in
+don't invoke the `kanban-issues-karr-coordination` skill first, just use it. Git-native kanban; state lives in
 `refs/karr/*`; this repo has its own board. Day-to-day:
 
 - `karr list --compact` / `karr board` — open work · `karr show ID` — detail
@@ -88,7 +91,10 @@ don't invoke the `kanban-issues-karr-cli` skill first, just use it. Git-native k
 
 <Family only:> Cross-repo handoff = create the ticket on the *other* repo's board (cd in,
 or push its ref). Routing + handoff protocol: skill `<prefix>-coordination`. Full command
-surface: skill `kanban-issues-karr-cli`.
+surface: skill `kanban-issues-karr-coordination`.
+
+Card life cycle: you claim and hand out → the worker notes and ends at `review` → the
+release-manager commits and moves it to `done`.
 
 **Serialize board mutations when fanning out.** Keep implementation work parallel if you
 like, but collect the results and then loop `karr move`/`handoff`/`sync` sequentially —

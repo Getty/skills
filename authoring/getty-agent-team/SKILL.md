@@ -112,9 +112,14 @@ done
 Role catalogue, frontmatter contract, model/tool choices and full templates:
 `references/agents.md`.
 
-Minimum viable team: **worker** (always) + **release-checker** if the project ships
+Minimum viable team: **worker** (always) + **release-manager** if the project ships
 anything + **karr-coordinator** if it's a family. Add test-writer, doc-writer and
 adr-auditor when the project has enough surface to warrant a lane.
+
+**Only the release-manager commits.** Workers and writers leave a commit-ready tree and
+a report; commit style, changelog and release skills are briefed into the
+release-manager alone. Card ownership and the karr skill split: "Who writes shared
+state" in `references/agents.md`.
 
 Two rules that decide whether this setup works or rots:
 
@@ -164,7 +169,7 @@ principle and lane are in `.claude/rules/<prefix>-rules.md`.
 |---|---|
 | Implement / refactor / debug behavior-relevant code | `<prefix>-worker` (default) |
 | Write/extend tests | `<prefix>-test-writer` |
-| Pre-release audit | `<prefix>-release-checker` |
+| Commits, changelog, card → done, pre-release audit | `<prefix>-release-manager` |
 
 The agents carry their skills via `briefing.skills` (see `.claude/agents/`); the main
 agent delegates rather than loading them. Skill sources live under `.claude/skills/`.
@@ -236,3 +241,14 @@ content (migrate to `briefing.skills`), agents still using the plain top-level `
 key (**briefing deliberately ignores it — it only reads `briefing.skills`**), a rules file
 that duplicates a skill, a missing delegation lock, skills copied instead of hardlinked
 (skill `manage-skills-drift-triage`).
+
+Role drift to look for in older setups:
+
+- a read-only `<prefix>-release-checker` → replace with `<prefix>-release-manager`
+  (the audit becomes part of its lane; there is no third role);
+- workers or writers briefed with commit-style, changelog or release skills, or whose
+  body tells them to commit → strip both, the release-manager owns them;
+- doc-writers briefed with a whole release skill just for the doc format → brief the
+  doc-format skill instead;
+- `kanban-issues-karr-cli` in a working role's briefing → `kanban-issues-karr-ticket`;
+  in the karr-coordinator → `kanban-issues-karr-coordination` + `-ticket`.
