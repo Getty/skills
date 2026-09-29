@@ -126,8 +126,10 @@ picked up as instructions.
 - Copyright year in `dist.ini` and `Changes` must match.
 - IRC channel is optional but, if included, must be a real channel. Ask rather
   than invent.
-- Never write `our $VERSION = ...` into `lib/*.pm` — `[@Author::GETTY]` injects
-  it from the Changes file.
+- Every module under `lib/` and executable under `bin/` carries its own
+  `our $VERSION = '...';`, set to the NEXT (unreleased) version —
+  `[@Author::GETTY]` rewrites it via `RewriteVersion::Transitional`, and a file
+  without one ships versionless. See `getty-perl-core`.
 
 ## After writing
 
