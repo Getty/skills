@@ -19,6 +19,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 3 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers |
 | [codex](codex/README.md) | 2 | Working with the Codex CLI — non-interactive runs, and reaching threads that already exist |
+| [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [perl](perl/README.md) | 11 | House style, object systems including Mojo::Base, typing, async, MCP, XS and Alien, release tooling |
@@ -53,6 +54,12 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [codex-cross-session](codex/codex-cross-session/SKILL.md) | Reaching an existing Codex thread: the queue, the daemon, `--remote` |
 | [codex-headless](codex/codex-headless/SKILL.md) | `codex exec` non-interactively: JSONL events, sandboxes, resuming a thread |
+
+### [databases](databases/README.md)
+
+| Skill | What it is |
+|---|---|
+| [postgres-vector-graph](databases/postgres-vector-graph/SKILL.md) | PostgreSQL 18 with pgvector and Apache AGE: relational, vector and graph in one system |
 
 ### [development](development/README.md)
 

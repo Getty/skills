@@ -1,6 +1,6 @@
 {
   "name": "skills",
-  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes and container operations, and the craft of writing skills themselves. Only what has no single home of its own.",
+  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes and container operations, PostgreSQL with pgvector and Apache AGE, and the craft of writing skills themselves. Only what has no single home of its own.",
   "version": "0.1.0",
   "author": {
     "name": "Torsten Raudssus",
@@ -20,6 +20,7 @@
     "./claude/model-routing",
     "./codex/codex-cross-session",
     "./codex/codex-headless",
+    "./databases/postgres-vector-graph",
     "./development/feedback-loop-debugging",
     "./development/getty-create-software",
     "./git/getty-git-commit-style",
