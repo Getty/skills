@@ -1,0 +1,38 @@
+# EXAMPLES ONLY. Check current TYPE, metric names, labels and histogram buckets.
+# These are SERVER boundaries, not end-user latency or quality measurements.
+groups:
+  - name: vllm-example-recordings
+    rules:
+      - record: vllm_service:server_ttft_seconds:p95
+        expr: |
+          histogram_quantile(0.95,
+            sum by (le, job, model_name) (
+              rate(vllm:time_to_first_token_seconds_bucket[5m])
+            )
+          )
+      - record: vllm_service:server_e2e_seconds:p95
+        expr: |
+          histogram_quantile(0.95,
+            sum by (le, job, model_name) (
+              rate(vllm:e2e_request_latency_seconds_bucket[5m])
+            )
+          )
+      - record: vllm_service:output_tokens_per_second:rate5m
+        expr: sum by (job, model_name) (rate(vllm:generation_tokens_total[5m]))
+      - record: vllm_service:prefix_token_hit_ratio:rate5m
+        expr: |
+          sum by (job, model_name) (rate(vllm:prefix_cache_hits_total[5m]))
+          /
+          sum by (job, model_name) (rate(vllm:prefix_cache_queries_total[5m]))
+      - record: vllm_service:preemptions_per_second:rate5m
+        expr: sum by (job, model_name) (rate(vllm:num_preemptions_total[5m]))
+  - name: vllm-example-availability
+    rules:
+      - alert: VLLMExporterUnreachable
+        expr: up{job="vllm"} == 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The configured vLLM metrics target cannot be scraped."
+          description: "Check readiness, network, authentication and rollout state; this is not proof of a model crash."

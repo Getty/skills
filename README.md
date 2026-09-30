@@ -19,12 +19,11 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 3 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers |
 | [codex](codex/README.md) | 2 | Working with the Codex CLI — non-interactive runs, and reaching threads that already exist |
-| [development](development/README.md) | 1 | Engineering practice independent of language — debugging discipline |
+| [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [perl](perl/README.md) | 11 | House style, object systems including Mojo::Base, typing, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
-| [software](software/README.md) | 1 | Project scaffolding across languages |
-| [system-and-network-administration](system-and-network-administration/README.md) | 8 | Machines, networks, containers, Kubernetes, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 9 | Machines, networks, containers, Kubernetes, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
@@ -60,6 +59,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | Skill | What it is |
 |---|---|
 | [feedback-loop-debugging](development/feedback-loop-debugging/SKILL.md) | A six-phase discipline for hard bugs, built on a fast pass/fail signal |
+| [getty-create-software](development/getty-create-software/SKILL.md) | Scaffolding a new project from the signals that reveal its type |
 
 ### [git](git/README.md)
 
@@ -91,12 +91,6 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [linkedin](social-media/linkedin/SKILL.md) | Formats, how distribution actually works, and the DACH legal duties |
 | [twitch](social-media/twitch/SKILL.md) | Channel operation end to end: encoder, growth, chat, monetization, moderation |
 
-### [software](software/README.md)
-
-| Skill | What it is |
-|---|---|
-| [getty-create-software](software/getty-create-software/SKILL.md) | Scaffolding a new project from the signals that reveal its type |
-
 ### [system-and-network-administration](system-and-network-administration/README.md)
 
 | Skill | What it is |
@@ -109,6 +103,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [kubernetes-gpu](system-and-network-administration/kubernetes-gpu/SKILL.md) | The four layers that must line up before a pod can use a GPU |
 | [kubernetes-rke2](system-and-network-administration/kubernetes-rke2/SKILL.md) | RKE2 and K3s as one topic, with the differences named where they exist |
 | [rex](system-and-network-administration/rex/SKILL.md) | Perl automation from a `Rexfile`, and the OpenSSH connection trap |
+| [vllm-operator](system-and-network-administration/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning (German) |
 
 ## Using this repo
 

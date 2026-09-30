@@ -21,6 +21,7 @@
     "./codex/codex-cross-session",
     "./codex/codex-headless",
     "./development/feedback-loop-debugging",
+    "./development/getty-create-software",
     "./git/getty-git-commit-style",
     "./git/getty-git-usage",
     "./perl/getty-perl-core",
@@ -36,7 +37,6 @@
     "./perl/perl-xs",
     "./social-media/linkedin",
     "./social-media/twitch",
-    "./software/getty-create-software",
     "./system-and-network-administration/docker",
     "./system-and-network-administration/docker-engine-api",
     "./system-and-network-administration/docker-registry",
@@ -44,6 +44,7 @@
     "./system-and-network-administration/kubernetes-concepts",
     "./system-and-network-administration/kubernetes-gpu",
     "./system-and-network-administration/kubernetes-rke2",
-    "./system-and-network-administration/rex"
+    "./system-and-network-administration/rex",
+    "./system-and-network-administration/vllm-operator"
   ]
 }

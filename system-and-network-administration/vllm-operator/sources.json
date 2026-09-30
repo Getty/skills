@@ -1,0 +1,351 @@
+{
+  "checked_at": "2026-09-21",
+  "release_observed": "v0.29.0",
+  "policy": "Primary sources; stable and latest are moving URLs. No hardware/GPU benchmarks were performed for the original research or this localization.",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "vLLM Releases",
+      "url": "https://github.com/vllm-project/vllm/releases",
+      "note": "Release listing: v0.29.0, September 9, 2026; do not equate it with an arbitrary state of the stable documentation."
+    },
+    {
+      "id": "S02",
+      "title": "GPU installation",
+      "url": "https://docs.vllm.ai/en/stable/getting_started/installation/gpu/",
+      "note": "Linux, platforms, wheel/CUDA/Python compatibility."
+    },
+    {
+      "id": "S03",
+      "title": "Engine arguments",
+      "url": "https://docs.vllm.ai/en/stable/configuration/engine_args/",
+      "note": "Flag names, value ranges, version-dependent defaults."
+    },
+    {
+      "id": "S04",
+      "title": "Optimization and tuning",
+      "url": "https://docs.vllm.ai/en/stable/configuration/optimization/",
+      "note": "Scheduler, chunked prefill, CPU and multimodal processing."
+    },
+    {
+      "id": "S05",
+      "title": "Automatic prefix caching – usage",
+      "url": "https://docs.vllm.ai/en/stable/features/automatic_prefix_caching/",
+      "note": "APC accelerates reusable prefill, not decode directly."
+    },
+    {
+      "id": "S06",
+      "title": "Automatic prefix caching – design",
+      "url": "https://docs.vllm.ai/en/stable/design/prefix_caching/",
+      "note": "Hash chains, cache identity, cache_salt, lifecycle."
+    },
+    {
+      "id": "S07",
+      "title": "Native KV offloading",
+      "url": "https://docs.vllm.ai/en/stable/features/kv_offloading_usage/",
+      "note": "OffloadingConnector, CPU, and additional storage tiers."
+    },
+    {
+      "id": "S08",
+      "title": "Production metrics",
+      "url": "https://docs.vllm.ai/en/stable/usage/metrics/",
+      "note": "Metric families and semantics; the local scrape is authoritative."
+    },
+    {
+      "id": "S09",
+      "title": "Per-request metrics",
+      "url": "https://docs.vllm.ai/en/stable/features/per_request_metrics/",
+      "note": "Request timing, units, boundaries, and CPU overhead."
+    },
+    {
+      "id": "S10",
+      "title": "OpenTelemetry example",
+      "url": "https://docs.vllm.ai/en/stable/examples/observability/opentelemetry/",
+      "note": "OTLP configuration, protocols, and instrumentation."
+    },
+    {
+      "id": "S11",
+      "title": "Profiling vLLM",
+      "url": "https://docs.vllm.ai/en/stable/contributing/profiling/",
+      "note": "Profiler configuration, Nsight, PyTorch, substantial measurement overhead."
+    },
+    {
+      "id": "S12",
+      "title": "Quantization support",
+      "url": "https://docs.vllm.ai/en/stable/features/quantization/",
+      "note": "Backend/hardware/quantization matrix."
+    },
+    {
+      "id": "S13",
+      "title": "Quantized KV cache",
+      "url": "https://docs.vllm.ai/en/stable/features/quantization/quantized_kvcache/",
+      "note": "FP8, scales, calibration, and layer exceptions."
+    },
+    {
+      "id": "S14",
+      "title": "Attention backend support",
+      "url": "https://docs.vllm.ai/en/stable/design/attention_backends/",
+      "note": "Combination of architecture, dtype, attention, and features."
+    },
+    {
+      "id": "S15",
+      "title": "Benchmark CLI overview",
+      "url": "https://docs.vllm.ai/en/stable/benchmarking/cli/",
+      "note": "Datasets, prefix repetition, timed traces, multimodal workloads."
+    },
+    {
+      "id": "S16",
+      "title": "vllm bench serve reference",
+      "url": "https://docs.vllm.ai/en/stable/cli/bench/serve/",
+      "note": "Request rate, concurrency, percentiles, goodput, result files."
+    },
+    {
+      "id": "S17",
+      "title": "OpenAI-compatible server",
+      "url": "https://docs.vllm.ai/en/stable/serving/online_serving/openai_compatible_server/",
+      "note": "APIs, additional fields, templates, and protocol boundaries."
+    },
+    {
+      "id": "S18",
+      "title": "Supported models",
+      "url": "https://docs.vllm.ai/en/stable/models/supported_models/",
+      "note": "Model/task matrix, native implementation, and integrations."
+    },
+    {
+      "id": "S19",
+      "title": "Structured outputs",
+      "url": "https://docs.vllm.ai/en/stable/features/structured_outputs/",
+      "note": "JSON Schema, grammars, and version-dependent backends."
+    },
+    {
+      "id": "S20",
+      "title": "Tool calling",
+      "url": "https://docs.vllm.ai/en/stable/features/tool_calling/",
+      "note": "Model/parser/template compatibility."
+    },
+    {
+      "id": "S21",
+      "title": "Reasoning outputs",
+      "url": "https://docs.vllm.ai/en/stable/features/reasoning_outputs/",
+      "note": "Parsers, visible answers, reasoning, and streaming."
+    },
+    {
+      "id": "S22",
+      "title": "LoRA",
+      "url": "https://docs.vllm.ai/en/stable/features/lora/",
+      "note": "Adapter serving and dynamic loading."
+    },
+    {
+      "id": "S23",
+      "title": "Speculative decoding",
+      "url": "https://docs.vllm.ai/en/stable/features/speculative_decoding/",
+      "note": "Methods and their compatibility."
+    },
+    {
+      "id": "S24",
+      "title": "Multimodal inputs",
+      "url": "https://docs.vllm.ai/en/stable/features/multimodal_inputs/",
+      "note": "Multimodal inputs, resource limits, reuse."
+    },
+    {
+      "id": "S25",
+      "title": "Pooling models",
+      "url": "https://docs.vllm.ai/en/stable/models/pooling_models/",
+      "note": "Embeddings, scoring, classification, and token pooling."
+    },
+    {
+      "id": "S26",
+      "title": "Sleep mode",
+      "url": "https://docs.vllm.ai/en/stable/features/sleep_mode/",
+      "note": "Memory release and recovery."
+    },
+    {
+      "id": "S27",
+      "title": "Security",
+      "url": "https://docs.vllm.ai/en/stable/usage/security/",
+      "note": "Trust boundaries, API and system protection."
+    },
+    {
+      "id": "S28",
+      "title": "Parallelism and scaling",
+      "url": "https://docs.vllm.ai/en/stable/serving/parallelism_scaling/",
+      "note": "TP/PP, topology, and distributed serving."
+    },
+    {
+      "id": "S29",
+      "title": "Hybrid KV cache manager",
+      "url": "https://docs.vllm.ai/en/stable/design/hybrid_kv_cache_manager/",
+      "note": "Full/sliding attention, hybrid models, and memory groups."
+    },
+    {
+      "id": "S30",
+      "title": "Batch invariance",
+      "url": "https://docs.vllm.ai/en/stable/features/batch_invariance/",
+      "note": "Numerical reproducibility across changing batches."
+    },
+    {
+      "id": "S31",
+      "title": "GGUF",
+      "url": "https://docs.vllm.ai/en/stable/features/quantization/gguf/",
+      "note": "GGUF does not imply universal equivalence to llama.cpp."
+    },
+    {
+      "id": "S32",
+      "title": "Docker deployment",
+      "url": "https://docs.vllm.ai/en/stable/deployment/docker/",
+      "note": "Images, platforms, shared memory, and ARM builds."
+    },
+    {
+      "id": "S33",
+      "title": "Disaggregated prefill",
+      "url": "https://docs.vllm.ai/en/stable/features/disagg_prefill/",
+      "note": "Experimental prefill/decode split and connectors."
+    },
+    {
+      "id": "S34",
+      "title": "Claude Code integration",
+      "url": "https://docs.vllm.ai/en/stable/serving/integrations/claude_code/",
+      "note": "Anthropic Messages compatibility in the consulted vLLM documentation."
+    },
+    {
+      "id": "S35",
+      "title": "Codex integration",
+      "url": "https://docs.vllm.ai/en/stable/serving/integrations/codex/",
+      "note": "Reference for client/endpoint compatibility; not a performance guarantee."
+    },
+    {
+      "id": "S36",
+      "title": "Responses with MCP tools",
+      "url": "https://docs.vllm.ai/en/stable/examples/tool_calling/openai_responses_client_with_mcp_tools/",
+      "note": "Optional server-side tool integration; do not confuse it with tool parsing alone."
+    },
+    {
+      "id": "S37",
+      "title": "Speech-to-text APIs",
+      "url": "https://docs.vllm.ai/en/stable/serving/online_serving/speech_to_text/",
+      "note": "Model-dependent audio and streaming endpoints."
+    },
+    {
+      "id": "S38",
+      "title": "Async RL",
+      "url": "https://docs.vllm.ai/en/stable/training/async_rl/",
+      "note": "Inference/rollouts as part of external training pipelines."
+    },
+    {
+      "id": "S39",
+      "title": "Model runner V2",
+      "url": "https://docs.vllm.ai/en/stable/design/model_runner_v2/",
+      "note": "Do not confuse MRV2 with Engine V1/V0."
+    },
+    {
+      "id": "S40",
+      "title": "IndexCache",
+      "url": "https://docs.vllm.ai/en/stable/features/index_cache/",
+      "note": "Specialized feature; not equivalent to generic APC."
+    },
+    {
+      "id": "H01",
+      "title": "NVIDIA RTX 3090 / 3090 Ti",
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/",
+      "note": "24 GB GDDR6X; desktop models."
+    },
+    {
+      "id": "H02",
+      "title": "NVIDIA RTX 4090",
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+      "note": "24 GB, Ada, no NVLink; desktop."
+    },
+    {
+      "id": "H03",
+      "title": "NVIDIA RTX 5090",
+      "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
+      "note": "32 GB GDDR7, Blackwell, no NVLink; desktop."
+    },
+    {
+      "id": "H04",
+      "title": "NVIDIA RTX A6000",
+      "url": "https://www.nvidia.com/en-us/products/workstations/rtx-a6000/",
+      "note": "48 GB workstation class; not equivalent to RTX 6000 Ada/PRO."
+    },
+    {
+      "id": "H05",
+      "title": "NVIDIA L4",
+      "url": "https://www.nvidia.com/en-us/data-center/l4/",
+      "note": "24 GB class as an individually rented GPU."
+    },
+    {
+      "id": "H06",
+      "title": "NVIDIA DGX Spark specifications",
+      "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+      "note": "128 GB unified memory, 273 GB/s, Arm CPU, ConnectX-7 up to 200 Gbit/s."
+    },
+    {
+      "id": "H07",
+      "title": "NVIDIA Spark vLLM playbook",
+      "url": "https://build.nvidia.com/spark/vllm",
+      "note": "Official hardware-specific container/serving path."
+    },
+    {
+      "id": "H08",
+      "title": "NVIDIA Spark vLLM instructions",
+      "url": "https://build.nvidia.com/spark/vllm/instructions",
+      "note": "Select the applicable container from the playbook, then pin its digest."
+    },
+    {
+      "id": "C01",
+      "title": "Vast.ai instance types",
+      "url": "https://docs.vast.ai/guides/instances/choosing/instance-types",
+      "note": "Instance/interruption model; always check costs afresh."
+    },
+    {
+      "id": "C02",
+      "title": "Runpod storage types",
+      "url": "https://docs.runpod.io/pods/storage/types",
+      "note": "Lifecycle of container, volume, and network storage."
+    },
+    {
+      "id": "P01",
+      "title": "External KV cache characterization",
+      "url": "https://arxiv.org/abs/2609.11744",
+      "note": "Primary research dated September 10, 2026; break-even is setup-dependent, so do not adopt a universal speedup figure."
+    },
+    {
+      "id": "P02",
+      "title": "LMCache paper",
+      "url": "https://arxiv.org/abs/2510.09665",
+      "note": "Architecture of external KV tiers and transfer; do not extrapolate results to consumer GPUs."
+    },
+    {
+      "id": "S41",
+      "title": "OpenTelemetry Collector configuration",
+      "url": "https://opentelemetry.io/docs/collector/configuration/",
+      "note": "Collector pipeline, localhost, debug export, and configuration validation."
+    },
+    {
+      "id": "S42",
+      "title": "NGINX proxy module",
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html",
+      "note": "SSE buffering, proxy timeouts, and upstream behavior."
+    },
+    {
+      "id": "S43",
+      "title": "Prometheus configuration",
+      "url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+      "note": "Scrape configuration and rule loading."
+    },
+    {
+      "id": "S44",
+      "title": "vLLM benchmark HTTP implementation",
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm/main/vllm/benchmarks/lib/endpoint_request_func.py",
+      "note": "Moving main revision; check OPENAI_API_KEY and the client measurement boundaries."
+    },
+    {
+      "id": "S45",
+      "title": "vLLM serve CLI",
+      "url": "https://docs.vllm.ai/en/stable/cli/serve/",
+      "note": "Frontend/admission flags, usage, API-key path boundaries, and scheduling."
+    }
+  ],
+  "language": "en",
+  "localized_at": "2026-09-30"
+}

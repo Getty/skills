@@ -150,3 +150,21 @@ not a source line, and that a Rex task name silently overwrites an imported func
 of the same name.
 
 **Load when** writing or debugging a Rexfile or Rex task.
+
+## Inference serving
+
+### [vllm-operator](vllm-operator/SKILL.md)
+
+Planning, installing, running, measuring and tuning vLLM on affordable hardware —
+consumer GPUs, small workstations, DGX Spark, small rented GPU servers (1-4 GPUs).
+Written in German. `SKILL.md` is a router and workflow: it points at the matching one
+of 28 numbered references (engine fundamentals, memory capacity, prefix/KV caching and
+offload, scheduling under load, benchmarking, metrics and tracing, quantization,
+multi-GPU, deployment security, troubleshooting, recipes) instead of dumping them into
+context. Ships measurement scripts (capacity, cost, bench sweep, stream probe, metrics
+inventory), config templates (nginx, Prometheus, OTel, KV offload) and experiment
+templates. Optimises correct answers within a latency budget per euro, not headline
+tokens/s, and refuses to invent GPU benchmark numbers.
+
+**Load when** serving an LLM with vLLM, sizing GPU memory or context, diagnosing TTFT/ITL
+or OOM, or deciding on multi-GPU.

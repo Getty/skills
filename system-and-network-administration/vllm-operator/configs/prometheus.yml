@@ -1,0 +1,20 @@
+# LOCAL EXAMPLE. Prometheus and vLLM must share the host network namespace.
+# Validate paths/labels/auth against the actual installation before deployment.
+global:
+  scrape_interval: 15s
+  scrape_timeout: 5s
+  evaluation_interval: 15s
+rule_files:
+  - prometheus-rules.yml
+scrape_configs:
+  - job_name: vllm
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['127.0.0.1:8000']
+        labels:
+          deployment: local-evaluation
+    # Only if this endpoint actually supports bearer authentication:
+    # authorization:
+    #   type: Bearer
+    #   credentials_file: /run/secrets/vllm_metrics_key

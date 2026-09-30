@@ -1,0 +1,55 @@
+test_launcher_only_plans_by_default (test_tools.AuditAndPackageTests.test_launcher_only_plans_by_default) ... ok
+test_launcher_rejects_english_documentation_placeholders (test_tools.AuditAndPackageTests.test_launcher_rejects_english_documentation_placeholders) ... ok
+test_missing_audit_command_is_nonfatal (test_tools.AuditAndPackageTests.test_missing_audit_command_is_nonfatal) ... ok
+test_package_structure (test_tools.AuditAndPackageTests.test_package_structure) ... ok
+test_arrival_has_no_client_cap (test_tools.BenchTests.test_arrival_has_no_client_cap) ... ok
+test_cli_run_timeout (test_tools.BenchTests.test_cli_run_timeout) ... ok
+test_default_dry_run_without_vllm (test_tools.BenchTests.test_default_dry_run_without_vllm) ... ok
+test_exact_flag_preflight (test_tools.BenchTests.test_exact_flag_preflight) ... ok
+test_execute_with_stub_cli_not_a_gpu_benchmark (test_tools.BenchTests.test_execute_with_stub_cli_not_a_gpu_benchmark) ... ok
+test_prefix_dataset_uses_correct_family (test_tools.BenchTests.test_prefix_dataset_uses_correct_family) ... ok
+test_prevent_accidental_cloud_key_forwarding (test_tools.BenchTests.test_prevent_accidental_cloud_key_forwarding) ... ok
+test_run_count_guard (test_tools.BenchTests.test_run_count_guard) ... ok
+test_saturation_has_cap_and_infinite_rate (test_tools.BenchTests.test_saturation_has_cap_and_infinite_rate) ... ok
+test_tokenizer_and_alias_not_confused (test_tools.BenchTests.test_tokenizer_and_alias_not_confused) ... ok
+test_block_rounding (test_tools.CapacityTests.test_block_rounding) ... ok
+test_fp8_halves_raw_kv (test_tools.CapacityTests.test_fp8_halves_raw_kv) ... ok
+test_invalid_capacity_inputs (test_tools.CapacityTests.test_invalid_capacity_inputs) ... ok
+test_known_synthetic_gqa (test_tools.CapacityTests.test_known_synthetic_gqa) ... ok
+test_no_fit_is_zero_not_negative_capacity (test_tools.CapacityTests.test_no_fit_is_zero_not_negative_capacity) ... ok
+test_raw_weights_units (test_tools.CapacityTests.test_raw_weights_units) ... ok
+test_api_key_newline_rejected (test_tools.CommonTests.test_api_key_newline_rejected) ... ok
+test_https_remote_is_allowed (test_tools.CommonTests.test_https_remote_is_allowed) ... ok
+test_invalid_urls (test_tools.CommonTests.test_invalid_urls) ... ok
+test_json_size_and_nonfinite (test_tools.CommonTests.test_json_size_and_nonfinite) ... ok
+test_loopback_http_is_allowed (test_tools.CommonTests.test_loopback_http_is_allowed) ... ok
+test_no_overwrite_and_no_nan_files (test_tools.CommonTests.test_no_overwrite_and_no_nan_files) ... ok
+test_numeric_validators (test_tools.CommonTests.test_numeric_validators) ... ok
+test_remote_http_needs_opt_in (test_tools.CommonTests.test_remote_http_needs_opt_in) ... ok
+test_invalid_cost_inputs (test_tools.CostTests.test_invalid_cost_inputs) ... ok
+test_sample_arithmetic (test_tools.CostTests.test_sample_arithmetic) ... ok
+test_zero_denominators_are_unknown (test_tools.CostTests.test_zero_denominators_are_unknown) ... ok
+test_http_error_redacts_body (test_tools.HTTPIntegrationTests.test_http_error_redacts_body) ... ok
+test_missing_done_is_failed (test_tools.HTTPIntegrationTests.test_missing_done_is_failed) ... ok
+test_probe_cli_writes_redacted_report (test_tools.HTTPIntegrationTests.test_probe_cli_writes_redacted_report) ... ok
+test_real_local_sse_consumption (test_tools.HTTPIntegrationTests.test_real_local_sse_consumption) ... ok
+test_redirect_does_not_leak_auth (test_tools.HTTPIntegrationTests.test_redirect_does_not_leak_auth) ... ok
+test_socket_timeout_is_failed (test_tools.HTTPIntegrationTests.test_socket_timeout_is_failed) ... ok
+test_wrong_content_type_is_failed (test_tools.HTTPIntegrationTests.test_wrong_content_type_is_failed) ... ok
+test_counter_suffix_and_label_redaction (test_tools.MetricsTests.test_counter_suffix_and_label_redaction) ... ok
+test_histogram_and_unknown (test_tools.MetricsTests.test_histogram_and_unknown) ... ok
+test_unparsed_new_metric_syntax_is_not_hidden (test_tools.MetricsTests.test_unparsed_new_metric_syntax_is_not_hidden) ... ok
+test_comments_crlf_and_multiline_data (test_tools.SSETests.test_comments_crlf_and_multiline_data) ... ok
+test_invalid_json_and_apierror (test_tools.SSETests.test_invalid_json_and_apierror) ... ok
+test_payload_requires_bounded_single_output (test_tools.SSETests.test_payload_requires_bounded_single_output) ... ok
+test_role_usage_not_tokens_reasoning_not_answer (test_tools.SSETests.test_role_usage_not_tokens_reasoning_not_answer) ... ok
+test_size_limit (test_tools.SSETests.test_size_limit) ... ok
+test_tool_fields_and_refusal (test_tools.SSETests.test_tool_fields_and_refusal) ... ok
+test_unfinished_record_rejected (test_tools.SSETests.test_unfinished_record_rejected) ... ok
+test_usage_and_server_metrics (test_tools.SSETests.test_usage_and_server_metrics) ... ok
+test_utf8_bom (test_tools.SSETests.test_utf8_bom) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 4.989s
+
+OK

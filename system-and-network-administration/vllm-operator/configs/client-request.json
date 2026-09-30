@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "Answer in English and follow the task instructions."
+    },
+    {
+      "role": "user",
+      "content": "Explain the difference between prefill and decode in three sentences."
+    }
+  ],
+  "temperature": 0,
+  "max_tokens": 128
+}
