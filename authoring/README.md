@@ -66,13 +66,14 @@ The library's own constitution: a skill lives in the repo that owns its subject,
 only knowledge a *second, unrelated* project needs gets promoted here.
 
 Defines the naming scheme and the `getty-` prefix semantics (prescribes vs.
-reference), and — most importantly — the editing discipline. Skill files are
-hardlinked across repos, so every copy is the same inode. Tools that replace a file
-on write detach it, and every other project silently keeps the old content. The fix
-is an in-place truncating write plus a verified inode and link count.
+reference), and the path an edit takes. Consumers install skills with skilletor, and
+an installed copy is a build artifact the next sync overwrites — so every edit
+happens in the source. Covers wiring a project, the `.gitignore` trap that keeps the
+config from ever being committed, and how to clear a hardlink left over from
+manage-skills.
 
-**Load when** adding, naming, moving or renaming a skill, linking one into a repo
-with manage-skills, or before editing any hardlinked SKILL.md.
+**Load when** adding, naming, moving or renaming a skill, installing one into a repo
+with skilletor, or before editing an installed SKILL.md.
 
 ## [getty-agent-team](getty-agent-team/SKILL.md)
 
@@ -89,4 +90,4 @@ line. Coordination via [karr](https://github.com/Getty/karr) is a documented
 optional layer.
 
 **Load when** a repo needs subagents, or when `.claude/agents` is missing or has
-drifted. Runs user-level only — never hardlink this one into a project.
+drifted. Runs user-level only — never install this one into a project.

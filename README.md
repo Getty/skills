@@ -4,7 +4,7 @@
 
 **The skills that don't belong to any one project.**
 
-Skills managed with [manage-skills](https://github.com/Getty/manage-skills) live in
+Skills installed with [skilletor](https://github.com/Getty/skilletor) live in
 whichever repo owns them — a Perl module keeps its Perl skill, a Kubernetes cluster repo
 keeps its cluster skill. This repo holds the rest: knowledge that applies across many
 projects and has no single home of its own.
@@ -36,7 +36,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | Skill | What it is |
 |---|---|
 | [getty-agent-team](authoring/getty-agent-team/SKILL.md) | A whole multi-agent setup for a project: subagents, briefing-preloaded skills, karr wiring |
-| [getty-skill-library](authoring/getty-skill-library/SKILL.md) | Where a skill lives, what it is named, and how the hardlinks stay intact |
+| [getty-skill-library](authoring/getty-skill-library/SKILL.md) | Where a skill lives, what it is named, and how an edit reaches its consumers |
 | [skill-authoring](authoring/skill-authoring/SKILL.md) | Writing a SKILL.md that fires from its description and then gets followed |
 | [skill-compressor](authoring/skill-compressor/SKILL.md) | Shrinking or merging skills without losing the rules that drive behaviour |
 | [skill-mining](authoring/skill-mining/SKILL.md) | Deriving skill content from a codebase instead of inventing conventions |
@@ -126,20 +126,23 @@ Each group README describes every skill in it: what it covers, and when to load 
 An owner name on its own is enough — it resolves to that owner's `skills` repo:
 
 ```bash
-manage-skills sources add Getty     # github.com/Getty/skills
-manage-skills locations             # see what's available
-manage-skills link getty-perl-moo getty-git-usage
+skilletor add Getty --project       # github.com/Getty/skills, as source `getty`
+skilletor available getty           # see what's on offer
+skilletor install getty-perl-moo@getty getty-git-usage@getty --project
 ```
 
-With a local checkout, register the checkout itself; the groups a level inside
-it are found on their own:
+With a local checkout, point the same source name at it in your user config
+(`~/.claude/skilletor.json`); it then overrides the git source and is read
+directly on every sync:
 
-```bash
-manage-skills sources add <checkout> Getty shared skills
+```json
+{ "sources": { "getty": { "local": "<checkout>" } } }
 ```
 
 The same files also ship as a plugin for Claude Code (`.claude-plugin/`) and for
 Codex (`.codex-plugin/`) — three distribution routes, one source of truth.
+[manage-skills](https://github.com/Getty/manage-skills) still resolves the repo as
+a source, for setups that share by hardlink.
 
 ## Naming
 
@@ -154,17 +157,16 @@ The full naming and placement rules are themselves a skill:
 Write it where it's used first. Only pull it in here once a second, unrelated project
 needs the same knowledge — that's the signal it has outgrown a single home. The
 workbench for that is the [authoring group](authoring/README.md): `skill-authoring`
-for the content, `getty-skill-library` for placement, naming, and the hardlink editing
-discipline.
+for the content, `getty-skill-library` for placement, naming, and the way an edit
+reaches its consumers.
 
 A skill has to be listed in four places — its group README, the group table and the
 skill table above, and both plugin manifests. `bin/check-listings` holds them against
 the directories and names what is missing; it exits non-zero, so it fits a hook or CI.
 
-Every file here is hardlinked into the projects that use it — one inode, many repos.
-Editing a `SKILL.md` with a tool that replaces the file detaches it, and every consumer
-silently keeps the old content. `getty-skill-library` has the rules for editing safely;
-`manage-skills check` is what proves they held.
+Consumers hold installed copies, not these files. Edit a skill here, and a consuming
+project picks the change up at its next `skilletor sync`; an edit made to the installed
+copy is overwritten by that same sync. `getty-skill-library` has the details.
 
 ## Licence
 
