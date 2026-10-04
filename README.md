@@ -17,11 +17,12 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | Group | Skills | What it holds |
 |---|---|---|
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
-| [claude](claude/README.md) | 3 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers |
-| [codex](codex/README.md) | 2 | Working with the Codex CLI — non-interactive runs, and reaching threads that already exist |
+| [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
+| [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
+| [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [perl](perl/README.md) | 11 | House style, object systems including Mojo::Base, typing, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [system-and-network-administration](system-and-network-administration/README.md) | 9 | Machines, networks, containers, Kubernetes, admin automation |
@@ -44,6 +45,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
+| [claude-code-plugin-engineering](claude/claude-code-plugin-engineering/SKILL.md) | Building a Claude Code plugin: picking the mechanism, hooks and mods, loading, distribution |
 | [claude-cross-session](claude/claude-cross-session/SKILL.md) | One Claude session starting, watching and messaging another |
 | [claude-headless](claude/claude-headless/SKILL.md) | Driving Claude Code as a subprocess: `-p`, JSON, permissions, the multi-turn channel |
 | [model-routing](claude/model-routing/SKILL.md) | Choosing a model tier by the hardest dimension the work routinely hits |
@@ -54,6 +56,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [codex-cross-session](codex/codex-cross-session/SKILL.md) | Reaching an existing Codex thread: the queue, the daemon, `--remote` |
 | [codex-headless](codex/codex-headless/SKILL.md) | `codex exec` non-interactively: JSONL events, sandboxes, resuming a thread |
+| [codex-plugin-engineering](codex/codex-plugin-engineering/SKILL.md) | Building a Codex plugin: package formats, hooks, MCP, and what each host actually runs |
 
 ### [databases](databases/README.md)
 
@@ -74,6 +77,12 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | Imperative summary, one body line per change, and how changelog entries read |
 | [getty-git-usage](git/getty-git-usage/SKILL.md) | Linear history: rebase over merge, and `--force-with-lease` after it |
+
+### [hermes-agent](hermes-agent/README.md)
+
+| Skill | What it is |
+|---|---|
+| [hermes-plugin-engineering](hermes-agent/hermes-plugin-engineering/SKILL.md) | Extending Hermes Agent: tools, hooks, middleware, providers, gateway adapters, Desktop |
 
 ### [perl](perl/README.md)
 

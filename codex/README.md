@@ -2,9 +2,9 @@
 
 # Codex skills
 
-Working with the Codex CLI itself: driving it non-interactively, and reaching a
-thread that already exists. Both are reference skills — nothing here is specific
-to one project.
+Working with Codex itself: driving the CLI non-interactively, reaching a thread
+that already exists, and building plugins for it. All three are reference skills —
+nothing here is specific to one project.
 
 ## [codex-headless](codex-headless/SKILL.md)
 
@@ -39,3 +39,29 @@ under somebody else's login, no shared account and no open port involved.
 
 **Load when** sending a message to an existing thread, listing what runs, or
 setting up Codex across hosts.
+
+## [codex-plugin-engineering](codex-plugin-engineering/SKILL.md)
+
+A plugin showing up in a catalog proves less than it looks. The visible client, the
+service that orchestrates, the machine that executes and the connected identity are
+four separate things, and a capability exists per surface: the CLI and the desktop
+app take native plugins, the IDE extension takes standalone skills and directly
+configured MCP, and cloud-orchestrated ChatGPT Work drops plugin hooks — connecting
+a computer does not move the orchestration onto it.
+
+Covers the two package formats — the portable root `plugin.json` with `skills/` and
+`mcp.json`, and the `.codex-plugin/plugin.json` compatibility bundle with its own
+`.mcp.json` spelling — marketplaces and host state, skills with their
+`agents/openai.yaml` metadata, MCP connections, tool contracts and authentication,
+and lifecycle hooks with their per-event output contracts: a familiar Claude event
+name guarantees nothing, and an unsupported `PreToolUse` output fails the hook while
+the tool runs anyway. Also MCP Apps UI, events, and the cases where the answer is
+not a plugin at all but the Codex SDK or an app-server client.
+
+Development workflow, testing, release, migration and debugging are split by phase
+— 22 references, loaded one decision at a time, on a dated snapshot. Schema
+validation is never reported as an end-to-end runtime test.
+
+**Load when** building, testing, migrating or publishing a Codex plugin, deciding
+between plugin, SDK and app-server, or when a plugin is listed but its hook, tool
+or UI does not run on the target host.

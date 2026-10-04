@@ -1,0 +1,14 @@
+interface:
+  display_name: Claude Code Plugin Engineering
+  short_description: Build and operate Claude Code plugins and mods
+  default_prompt: Use $claude-code-plugin-engineering to design and verify a plugin
+    for the requested Claude Code version and host.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

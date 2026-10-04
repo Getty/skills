@@ -1,0 +1,14 @@
+interface:
+  display_name: Codex Plugin Engineering
+  short_description: Build, test, and maintain Codex plugins
+  default_prompt: Use $codex-plugin-engineering to design and validate a portable
+    Codex plugin for this workflow.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

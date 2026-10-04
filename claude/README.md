@@ -3,8 +3,9 @@
 # Claude skills
 
 Working with Claude itself: spawning another instance of it, talking to the
-sessions already running, and deciding which model any given piece of work should
-run on. All three are reference skills — nothing here is specific to one project.
+sessions already running, deciding which model any given piece of work should
+run on, and building plugins for Claude Code. All four are reference skills —
+nothing here is specific to one project.
 
 ## [claude-headless](claude-headless/SKILL.md)
 
@@ -72,3 +73,30 @@ agent roles so a lane that spans two tiers becomes two lanes.
 
 **Load when** choosing a model for a subagent, headless run or workflow stage, or
 setting an agent's `model:` field.
+
+## [claude-code-plugin-engineering](claude-code-plugin-engineering/SKILL.md)
+
+A plugin is packaging, not behaviour: it bundles components into one installable
+unit, and each component keeps its own execution semantics. Instructions do not
+become enforcement by being shipped in a plugin, and four competing ways of doing
+one action are three too many. The skill starts from the observable contract —
+trigger, input, result, authorized effects, failure path — and picks the smallest
+mechanism that meets it.
+
+Covers the choice between skill, command, subagent, classic JSON hook, MCP server,
+LSP configuration, in-process mod, workflow, monitor and channel; manifest and
+layout rules; `userConfig`, secrets and persistent state; the hook contracts down
+to stdin, exit codes and structured decisions; and mods as an API distinct from
+classic hooks — one `modules` entry in `hooks/hooks.json`, `register(on, options)`,
+types generated for the installed build.
+
+Then the part behind most "works in my checkout": declared, cached and active are
+three independent states, and a cached install carries only what sits inside the
+distributable root. Marketplaces and versioning, permissions and trust, portability
+across CLI, IDE, Desktop and cloud sessions, and testing layer by layer fill the
+rest — 22 references, loaded one decision at a time, on a dated knowledge
+checkpoint. Recheck anything version-sensitive against the target build.
+
+**Load when** designing, building, testing or distributing a Claude Code plugin,
+choosing between hook, mod, MCP and skill, or when a plugin validates and installs
+but does not load or behave.
