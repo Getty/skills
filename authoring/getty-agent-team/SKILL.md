@@ -11,15 +11,15 @@ Perl repos are just where it grew up.
 **This skill is user-level only.** Its home is the shared library
 ([Getty/skills](https://github.com/Getty/skills), group `authoring/`); it runs
 user-level, changes the target project, and is
-done. Never hardlink or copy it into a project — the hardlink discipline below applies
-to the *briefed* skills the agents need at runtime, not to this one. A project's
-`.claude/` never mentions `getty-agent-team`.
+done. Never install or copy it into a project — what Step 2 installs are the *briefed*
+skills the agents need at runtime, not this one. A project's `.claude/` never mentions
+`getty-agent-team`.
 
 ## The architecture in four sentences
 
 1. **Skills are the knowledge base.** Conventions, architecture, tooling. One source of
-   truth per skill, shared across repos via hardlink (skill `manage-skills`, from
-   [Getty/manage-skills](https://github.com/Getty/manage-skills)).
+   truth per skill, installed into each repo that needs it (skill `skilletor`, from
+   [Getty/skilletor](https://github.com/Getty/skilletor)).
 2. **Agents are roles, not knowledge.** An agent file is a role sentence + a
    `briefing.skills` list + whatever is genuinely repo-specific and lives in no skill.
 3. **`briefing` (plugin) force-loads those skills** into the subagent's context *before*
@@ -46,6 +46,7 @@ Bundled references — read the one you need, not all four:
 ```bash
 ls -d ~/.claude/plugins/cache/*/briefing >/dev/null 2>&1 && echo "briefing installed: ok"
 command -v karr >/dev/null && echo "karr: ok"
+command -v skilletor >/dev/null && echo "skilletor: ok"
 ```
 
 If `briefing` is missing, ask the user to run these two slash commands (Claude cannot
@@ -56,7 +57,7 @@ run them):
 /plugin install briefing@getty
 ```
 
-The same marketplace ships `manage-skills` (`/plugin install manage-skills@getty`),
+The same marketplace ships `skilletor` (`/plugin install skilletor@getty`),
 which Step 2 needs. `Getty/briefing` as its own marketplace is the old route — an
 existing install from it keeps working, don't churn it.
 
@@ -72,7 +73,7 @@ Before writing anything, establish:
 | Build / test / lint commands | `dist.ini`, `Makefile`, `justfile`, `package.json`, `Cargo.toml`, `pyproject.toml`, CI config |
 | Recursive test gotchas | do subdirs under `t/` / `tests/` exist that the naive runner skips? |
 | Single repo or family? | sibling repos with a shared prefix → family, needs cross-repo routing |
-| Existing skills to brief from | `.claude/skills/`, `~/.claude/skills/`, and the sources `manage-skills locations` lists |
+| Existing skills to brief from | `.claude/skills/`, `~/.claude/skills/`, and what `skilletor available` offers |
 | Existing conventions worth encoding | `CLAUDE.md`, `CONTEXT.md`, `docs/adr/`, the code itself |
 | Release path | CPAN / npm / container / deploy-only — determines whether a release role is needed |
 
@@ -86,10 +87,10 @@ family name in kebab-case. Family repos suffix the worker:
 before the agent file does. For each skill an agent needs:
 
 - **Already shared** (the shared library, or another project that owns it) →
-  hardlink it in, never copy: `manage-skills link <name>`, or
-  `ln <source>/SKILL.md .claude/skills/<name>/SKILL.md`. Rules and repair: skills
-  `getty-skill-library` and `manage-skills`. **Never `Edit`/`Write` a hardlinked
-  SKILL.md** — that breaks the inode chain; use `cat > path <<'EOF'`.
+  install it, never copy by hand: `skilletor install <name>@<source> --project`.
+  Wiring, sourcing and what to commit: skills `getty-skill-library` and `skilletor`.
+  **Never edit an installed SKILL.md** — the next sync overwrites it; change the
+  skill in its source.
 - **Project-owned and missing** → write it (skill `skill-authoring`). The two that most
   projects end up needing:
   - `<prefix>-core` — architecture, vocabulary, the invariants an implementer must know.
@@ -239,8 +240,8 @@ reaches for `Skill`, the hook did not fire — check `enabledPlugins` in *this* 
 Same steps, but audit first and report before editing: agents whose bodies restate skill
 content (migrate to `briefing.skills`), agents still using the plain top-level `skills:`
 key (**briefing deliberately ignores it — it only reads `briefing.skills`**), a rules file
-that duplicates a skill, a missing delegation lock, skills copied instead of hardlinked
-(skill `manage-skills-drift-triage`).
+that duplicates a skill, a missing delegation lock, shared skills copied by hand or
+still hardlinked instead of installed (skill `getty-skill-library`, "Old pattern").
 
 Role drift to look for in older setups:
 

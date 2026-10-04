@@ -20,9 +20,11 @@ karr skill install --agent claude-code  # drops .claude/skills/karr/SKILL.md
 karr board                              # verify
 ```
 
-`karr init --claude-skill` does both in one step. Prefer hardlinking the canonical skill
-if the machine already has one (skill `manage-skills`) — `karr skill check` /
-`karr skill update` tell you whether an installed copy is current.
+`karr init --claude-skill` does both in one step. In a repo that uses skilletor, install
+the two skills from the karr source instead (`kanban-issues-karr-ticket@karr`,
+`kanban-issues-karr-coordination@karr`) — they then follow karr on every sync. For a
+copy karr installed itself, `karr skill check` / `karr skill update` tell you whether
+it is current.
 
 Statuses default to `backlog → todo → in-progress → review → done → archived`, with
 `in-progress` and `review` requiring a claim. Change via `karr config set` only if the
@@ -71,7 +73,7 @@ A family of independent repos has **no shared board**. Cross-repo work is a tick
 skill, briefed into the worker and the `karr-coordinator`.
 
 Template: `coordination-skill-template.md` (next to this file). Source of truth lives in
-the family's core repo; the other repos hardlink it.
+the family's core repo; the other repos install it from there with skilletor.
 
 ## Operational rules that go in the rules file
 

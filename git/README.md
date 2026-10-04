@@ -21,9 +21,9 @@ It also states the cadence: **commit early and commit often**, one finished piec
 work per commit down to a typo fix, and wrapping up finished work needs no separate
 go-ahead — pushing is the decision that waits. The linear, never-squashed history is
 what carries those small commits into `main`, and with them `git bisect`, a one-commit
-revert and the option to cherry-pick. A skill file that arrived under
-`.claude/skills/` by hardlink gets a commit of its own: the edit was made in the repo
-that owns it and merely surfaces here, so it never rides along in a code commit.
+revert and the option to cherry-pick. Shared skills under `.claude/skills/` are
+installed by skilletor and stay out of git: a repo commits its `skilletor.json` and
+the skills it owns, and a shared skill git still tracks gets untracked, not committed.
 
 **Load when** landing a branch, cleaning up history before a PR, working with
 stacked branches, or cutting a release.

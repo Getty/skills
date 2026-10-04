@@ -141,8 +141,6 @@ directly on every sync:
 
 The same files also ship as a plugin for Claude Code (`.claude-plugin/`) and for
 Codex (`.codex-plugin/`) — three distribution routes, one source of truth.
-[manage-skills](https://github.com/Getty/manage-skills) still resolves the repo as
-a source, for setups that share by hardlink.
 
 ## Naming
 

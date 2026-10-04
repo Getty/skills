@@ -115,9 +115,9 @@ skill's `templates/` directory: `dist.ini`, `cpanfile`, `Changes`,
 with `sed` or equivalent. Rename `lib_Module.pm` → `lib/<Path>/<Name>.pm`,
 `t_*.t` → `t/*.t`, `claude-md.md` → `CLAUDE.md`, and `github-ci.yml` →
 `.github/workflows/ci.yml`. Every template is named so that it stays inert
-where the skill is linked: the whole skill directory is hardlinked into each
-project, and a file literally called `CLAUDE.md` under `.claude/skills/` is
-picked up as instructions.
+where the skill is installed: the whole skill directory lands under
+`.claude/skills/`, and a file literally called `CLAUDE.md` there is picked up
+as instructions.
 
 ## Handcheck rules
 

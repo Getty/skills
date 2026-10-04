@@ -2,7 +2,8 @@
 
 Copy the block below into `.claude/skills/<prefix>-coordination/SKILL.md`, replace the
 placeholders, delete what doesn't apply. It is a project-owned skill: the source of truth
-lives in the family's core repo and the other repos hardlink it (skill `manage-skills`).
+lives in the family's core repo and the other repos install it from there (skill
+`getty-skill-library`).
 
 Brief it into the worker and the `karr-coordinator`. Do not brief it into single-repo
 projects — they have no cross-repo protocol to follow.
@@ -30,7 +31,7 @@ up by the receiving repo's agent on its next `karr sync --pull`.
 | <core abstraction, shared API, test infrastructure> | `<core repo>` |
 | <variant-specific behavior> | `<variant repo>` |
 | <build / release tooling> | `<tooling repo>` |
-| This coordination skill | `<core repo>` (source of truth, hardlinked) |
+| This coordination skill | `<core repo>` (source of truth, installed elsewhere) |
 
 ## Decision rule when a ticket arrives
 

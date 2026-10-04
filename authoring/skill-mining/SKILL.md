@@ -195,8 +195,8 @@ by dumping the leftovers into a file.
 record every later run re-proposes the same rejects, and the human re-judges
 work already done.
 
-Shared skills are hardlinked: edit them in place with a truncating write and
-verify the inode survived (`getty-skill-library`).
+Shared skills are installed copies: write the rule into the skill's source, then
+sync the consumer (`getty-skill-library`).
 
 **Done when:** every `yes` verdict is present in a skill, and the verdict file
 still lists every `no`.
