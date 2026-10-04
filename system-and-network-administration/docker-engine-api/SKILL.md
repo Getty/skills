@@ -1,6 +1,6 @@
 ---
 name: docker-engine-api
-description: "Use when talking to the Docker Engine HTTP API directly — writing or debugging a client, hitting /containers, /images, /build, /exec, /events over the socket, curl --unix-socket probes, garbled log output, a 400 on push, filters that match nothing, or making a client work against Podman."
+description: "Use when talking to the Docker Engine HTTP API directly — a client over the socket, curl --unix-socket, /containers, /build, /exec, /events, garbled logs, or Podman compatibility."
 ---
 
 # Docker Engine HTTP API

@@ -1,6 +1,6 @@
 ---
 name: perl-xs
-description: "Use when writing or debugging XS — a .xs file, a typemap, ppport.h, xsubpp errors, C compile errors in generated code, segfaults or leaks at the Perl/C boundary, or wrapping a C library as a Perl distribution."
+description: "Use when writing or debugging XS — .xs files, typemaps, ppport.h, xsubpp or C compile errors, segfaults or leaks at the Perl/C boundary."
 ---
 
 # XS — the Perl/C boundary

@@ -1,6 +1,6 @@
 ---
 name: codex-plugin-engineering
-description: Design, implement, test, distribute, and troubleshoot OpenAI Codex plugins, portable Agent Plugins packages, Codex manifests and marketplaces, bundled skills, MCP tools and authentication, lifecycle hooks, and optional ChatGPT UI or events. Use for plugin.json, .codex-plugin/plugin.json, marketplace.json, SKILL.md, agents/openai.yaml, hooks.json, MCP configuration, plugin migrations, and decisions between a plugin, Codex SDK, or app-server integration. Distinguish CLI, desktop, IDE, Codex Cloud, and cloud-orchestrated ChatGPT Work capabilities.
+description: "Use when building or debugging an OpenAI Codex plugin — plugin.json, .codex-plugin/, marketplace.json, hooks.json, plugin MCP — or choosing between plugin, Codex SDK and app-server."
 ---
 
 # Codex Plugin Engineering

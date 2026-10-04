@@ -1,6 +1,6 @@
 ---
 name: getty-perl-core
-description: "Load on any Perl edit in a Getty project — module loading, attributes, errors, strings, control flow, cpanfile, per-file $VERSION, and the house choices that differ from Perl defaults."
+description: "Load on any Perl edit in a Getty project — the house choices for module loading, errors, control flow, cpanfile and per-file $VERSION."
 ---
 
 # Perl Core — Getty House Rules

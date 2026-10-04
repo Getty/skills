@@ -1,6 +1,6 @@
 ---
 name: claude-headless
-description: "Use when running Claude Code headless — claude -p/--print, --output-format json, claude calling claude, driving a child over several turns from a program, tool approval, or a nested run that hangs, denies a tool, or picks the wrong model."
+description: "Use when running Claude Code headless — claude -p, JSON output, claude calling claude, or a nested run that hangs, denies a tool or picks the wrong model."
 ---
 
 # Headless Claude Code

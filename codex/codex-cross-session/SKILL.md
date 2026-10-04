@@ -1,6 +1,6 @@
 ---
 name: codex-cross-session
-description: "Use when reaching a Codex session that already exists — codex queue to send it a message, codex agents to see what runs, the app-server daemon, remote-control start/pair, --remote ws:// or unix://, or a queued message that never seems to arrive."
+description: "Use when reaching an existing Codex session — codex queue, codex agents, remote-control start/pair, --remote, or a queued message that never arrives."
 ---
 
 # Reaching Other Codex Sessions

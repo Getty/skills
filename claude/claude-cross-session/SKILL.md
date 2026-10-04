@@ -1,6 +1,6 @@
 ---
 name: claude-cross-session
-description: "Use when one Claude session should reach another — starting an agent in a different directory with claude --bg, listing sessions with claude agents, SendMessage/ListAgents between sessions, attach/logs/stop/rm, a peer that never answers, or a background session that sits there doing nothing."
+description: "Use when one Claude session should reach another — claude --bg, claude agents, SendMessage/ListAgents, attach/logs/stop, or a background session that never answers."
 ---
 
 # Talking Across Claude Sessions

@@ -1,6 +1,6 @@
 ---
 name: docker
-description: "Use when writing or debugging Dockerfiles or docker-compose — builds, layer caching, multi-stage, service wiring, wrong start order, or a service that cannot be reached."
+description: "Use when writing or debugging Dockerfiles or docker-compose — layer caching, multi-stage builds, start order, an unreachable service."
 user-invocable: true
 ---
 

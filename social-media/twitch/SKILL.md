@@ -1,6 +1,6 @@
 ---
 name: twitch
-description: Use when working on anything Twitch or live-streaming — setting up or auditing a channel, OBS and encoder settings, growth and discovery, stream structure and overlays, chat and community features, monetization and payouts, moderation and safety, the Twitch API/EventSub and bots, or the legal duties of a streamer in Germany, Austria or Switzerland.
+description: "Use when working on anything Twitch or live-streaming — channel setup, OBS and encoder settings, growth, chat, monetization, moderation, the Twitch API/EventSub, or DACH legal duties."
 ---
 
 # Twitch

@@ -1,6 +1,6 @@
 ---
 name: perl-alien
-description: "Use when a distribution provides a C library or tool through Alien::Build — writing or debugging an alienfile, probe/system/share builds, pkg-config detection, bundling a source tarball, or consuming cflags and libs from Alien::Base in an XS or FFI module."
+description: "Use when providing a C library or tool through Alien::Build — an alienfile, system vs share builds, pkg-config probing, or consuming Alien::Base from XS or FFI."
 ---
 
 # Alien — providing a C library to CPAN

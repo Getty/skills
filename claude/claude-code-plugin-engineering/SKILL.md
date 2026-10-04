@@ -1,6 +1,6 @@
 ---
 name: claude-code-plugin-engineering
-description: Design, implement, inspect, test, distribute, and troubleshoot Claude Code plugins. Use for plugin.json, marketplace.json, plugin skills and commands, subagents, lifecycle hooks, MCP and LSP integration, userConfig and secrets, in-process JavaScript or TypeScript mods, workflows, monitors, channels and messaging bridges, local development, reloads, caching, versioning, permissions, Agent SDK loading, and portability between CLI, IDE, Desktop Code, and cloud sessions.
+description: "Use when building or debugging a Claude Code plugin — plugin.json, marketplace.json, hooks, mods, plugin MCP/LSP, userConfig — or when a plugin installs but does not load."
 ---
 
 # Claude Code Plugin Engineering

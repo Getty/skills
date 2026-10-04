@@ -1,6 +1,6 @@
 ---
 name: codex-headless
-description: "Use when running the Codex CLI non-interactively — codex exec, its JSONL events, resuming or forking a thread by id, sandbox and approval settings, an exec run that hangs on stdin, refuses a model, or complains about a git repository."
+description: "Use when running Codex non-interactively — codex exec, JSONL events, resuming a thread, sandbox settings, or an exec run that hangs on stdin or refuses a model."
 ---
 
 # Headless Codex

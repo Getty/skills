@@ -1,6 +1,6 @@
 ---
 name: linkedin
-description: Use when working on anything LinkedIn — writing or editing a post, planning content strategy, optimising a profile or company page, understanding the algorithm and post limits, engagement and outreach, ads and lead generation, job search or recruiting, analytics and post archives, or the legal and cultural requirements for Germany, Austria and Switzerland.
+description: "Use when working on anything LinkedIn — posts, content strategy, profile or company page, algorithm and limits, ads, recruiting, analytics, or the DACH legal requirements."
 ---
 
 # LinkedIn

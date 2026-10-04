@@ -1,12 +1,6 @@
 ---
 name: postgres-vector-graph
-description: >-
-  Design, implement, debug, benchmark, and operate PostgreSQL 18+ with pgvector
-  and Apache AGE, individually and in combination. Use for relational/vector/graph
-  modeling, filtered ANN, HNSW and IVFFlat, full-text plus vector fusion, graph-first
-  and vector-first retrieval, SQL/Cypher boundaries, agtype/JSONB conversion,
-  tenant isolation, transactional graph projections, connection pooling, extension
-  compatibility, and recovery. Prefer this skill when a task crosses these layers.
+description: "Use when working with pgvector or Apache AGE on PostgreSQL — HNSW/IVFFlat, filtered or hybrid vector search, Cypher and agtype, or combining relational, vector and graph."
 license: MIT
 compatibility: >-
   PostgreSQL 18 is the verified documentation baseline; later majors need a fresh

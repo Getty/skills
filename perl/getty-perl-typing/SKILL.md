@@ -1,6 +1,6 @@
 ---
 name: getty-perl-typing
-description: "Use when typing Perl attributes or parameters — isa, Moose constraints, Type::Tiny, Types::Standard, Type::Library, Maybe/Optional/Enum, or whether a project needs types at all."
+description: "Use when typing Perl attributes or parameters — isa, Type::Tiny, Types::Standard, Moose constraints, or whether a project needs types at all."
 ---
 
 # Perl Typing — Getty House Rules

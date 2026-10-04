@@ -1,12 +1,6 @@
 ---
 name: vllm-operator
-description: >-
-  Plan, install, operate, measure, and optimize vLLM. Use for vLLM serving,
-  consumer GPUs, DGX Spark, small rented GPU servers, TTFT/ITL/TPOT,
-  high concurrency, prefix/KV caching, KV offloading, tracing, Prometheus,
-  quantization, OOM, tool calling, multimodal workloads, and multi-GPU decisions.
-  Produces reproducible configurations, experiments, and rollback plans rather
-  than blanket performance promises.
+description: "Use when installing, running or tuning vLLM — small or consumer GPUs, DGX Spark, TTFT and throughput under concurrency, KV/prefix caching, quantization, OOM, tool calling."
 metadata:
   version: "1.0.1"
   language: en

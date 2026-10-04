@@ -1,6 +1,6 @@
 ---
 name: skill-mining
-description: "Use when a skill's content should come from existing code — mining house conventions out of a codebase, or checking whether a skill states real practice or an invented convention."
+description: "Use when a skill's content should come from existing code — mining conventions out of a codebase, or checking a skill against real practice."
 ---
 
 # Skill Mining

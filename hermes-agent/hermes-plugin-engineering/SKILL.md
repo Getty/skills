@@ -1,6 +1,6 @@
 ---
 name: hermes-plugin-engineering
-description: Design, implement, package, evaluate, and troubleshoot extensions for NousResearch Hermes Agent. Use for native Python plugins, tools, slash commands, hooks, middleware, MCP, portable Agent Plugins, model/memory/context/media providers, messaging gateway adapters, Telegram and other channels, Hermes Desktop SDK, dashboard plugins, and local or remote deployment. Distinguish supported extension contracts, surface-specific permissions, process boundaries, and changes that require core work.
+description: "Use when extending NousResearch Hermes Agent — a plugin, tool, hook, middleware, provider, gateway or Telegram adapter, or a Desktop/Dashboard extension."
 ---
 
 # Hermes Plugin Engineering
