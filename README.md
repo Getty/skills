@@ -75,7 +75,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | Imperative summary, one body line per change, and how changelog entries read |
+| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | Imperative summary, one body line per change, and the `Changes` file every repo keeps: format, entries, version line |
 | [getty-git-usage](git/getty-git-usage/SKILL.md) | Linear history: rebase over merge, and `--force-with-lease` after it |
 
 ### [hermes-agent](hermes-agent/README.md)

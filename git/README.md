@@ -40,8 +40,10 @@ or how it works — the diff shows that. Includes the `@`-symbol trap (GitHub re
 co-authorship trailer naming the model that actually did the work, and passing
 messages via HEREDOC so the formatting survives the shell.
 
-A `Changes`/`CHANGELOG` entry follows the same rules, plus three an ever-open
-unreleased section needs: **one topic, one entry** — touching an area again rewrites
+Every repo that cuts releases keeps one `Changes` file in the CPAN format, Perl or
+not: `{{$NEXT}}` for the unreleased section, a version line with the UTC time below
+it for each release, and a `CHANGELOG.md` converted rather than kept beside it. An
+entry follows the commit rules, plus three an ever-open unreleased section needs: **one topic, one entry** — touching an area again rewrites
 the bullet already there instead of appending a second; **describe the destination,
 not the journey**, since the reader never saw the old behaviour and the reasoning
 already has homes that keep it; and **reference only the tracker the repo
