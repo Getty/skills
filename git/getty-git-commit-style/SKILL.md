@@ -93,7 +93,10 @@ Revision history for <name>
 - **A `CHANGELOG.md` or a README section that plays this part is converted**, not
   kept beside it: same text, this format, the old file removed and its references
   repointed. A repo without any gets `Changes` with its released versions as far as
-  tags and history name them.
+  tags and history name them. A version line written this way takes its time from
+  git — the tagged commit, without a tag the commit that set the version
+  (`TZ=UTC git log -1 --date=format-local:'%F %TZ' --format=%cd <commit>`) — not
+  from a guess.
 
 The entry belongs in the same commit as the change it describes, and the rules above
 apply to it unchanged. One thing makes it harder than a commit message: a message is
