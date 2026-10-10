@@ -1,0 +1,42 @@
+# EXAMPLE POLICY for a dedicated gateway without Docker/UFW/firewalld.
+# Replace interface names and admin addresses; inspect the existing ruleset.
+# Review input/forward hooks owned by other software before integration.
+# There is deliberately NO 'flush ruleset' and NO Internet NAT here.
+# First load only: table creation is not a general idempotent update mechanism.
+define public_if = "eth0"
+define private_if = "enp7s0"
+define wg_if = "wg0"
+
+table inet hetzner_vpn {
+    chain input {
+        type filter hook input priority filter; policy drop;
+        iifname "lo" accept
+        ct state invalid drop
+        ct state established,related accept
+        # Keep PMTU errors and IPv6 neighbor discovery functional.
+        meta l4proto { icmp, ipv6-icmp } accept
+        # DHCP clients on the actual provider-facing interfaces.
+        iifname { $public_if, $private_if } udp sport 67 udp dport 68 accept
+        iifname $public_if udp sport 547 udp dport 546 accept
+        iifname $public_if udp dport 51820 accept
+        # Temporary recovery SSH: documentation address, MUST replace.
+        iifname $public_if ip saddr 198.51.100.10 tcp dport 22 accept
+        # Selected administrator overlay address and office workstation.
+        iifname $wg_if ip saddr { 10.77.0.10, 192.168.50.10 } tcp dport 22 accept
+    }
+
+    chain forward {
+        type filter hook forward priority filter; policy drop;
+        ct state invalid drop
+        ct state established,related accept
+        # This policy allows selected admins to initiate SSH/HTTPS only.
+        iifname $wg_if oifname $private_if ip saddr { 10.77.0.10, 192.168.50.10 } ip daddr 10.70.0.0/16 tcp dport { 22, 443 } accept
+        iifname $wg_if oifname $private_if ip saddr { 10.77.0.10, 192.168.50.10 } ip daddr 10.70.0.0/16 ip protocol icmp accept
+        # Add explicit source, destination and service rules for other flows.
+        # New Cloud->office sessions and client-to-client sessions stay denied.
+    }
+
+    chain output {
+        type filter hook output priority filter; policy accept;
+    }
+}

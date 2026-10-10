@@ -25,7 +25,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [perl](perl/README.md) | 11 | House style, object systems including Mojo::Base, typing, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
-| [system-and-network-administration](system-and-network-administration/README.md) | 9 | Machines, networks, containers, Kubernetes, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 11 | Machines, networks, hosting, containers, Kubernetes, TLS and PKI, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
@@ -111,14 +111,16 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [docker](system-and-network-administration/docker/SKILL.md) | Docker and Compose as one workflow — the decisions and the traps |
-| [docker-engine-api](system-and-network-administration/docker-engine-api/SKILL.md) | Speaking the Engine API over the socket instead of shelling out to `docker` |
-| [docker-registry](system-and-network-administration/docker-registry/SKILL.md) | `registry:2` as two products in one binary, and the pull-through trap |
+| [docker](system-and-network-administration/docker/SKILL.md) | Docker images and Compose stacks: build, wiring, operation, recovery — routed by task |
+| [docker-engine-api](system-and-network-administration/docker-engine-api/SKILL.md) | Writing a client that speaks the Engine HTTP API instead of shelling out to `docker` |
+| [docker-registry](system-and-network-administration/docker-registry/SKILL.md) | Registries and pull-through caches: protocol, clients, mirror fallback, retention |
+| [hetzner-operator](system-and-network-administration/hetzner-operator/SKILL.md) | Hetzner Cloud, Robot and managed hosting: networking, VPN access, storage, recovery, cost |
 | [kubernetes-cilium-concepts](system-and-network-administration/kubernetes-cilium-concepts/SKILL.md) | Cilium replacing CNI, kube-proxy, policy, encryption and ingress at once |
 | [kubernetes-concepts](system-and-network-administration/kubernetes-concepts/SKILL.md) | Control plane, resource hierarchy, and how ownership and selectors tie it together |
 | [kubernetes-gpu](system-and-network-administration/kubernetes-gpu/SKILL.md) | The four layers that must line up before a pod can use a GPU |
 | [kubernetes-rke2](system-and-network-administration/kubernetes-rke2/SKILL.md) | RKE2 and K3s as one topic, with the differences named where they exist |
-| [rex](system-and-network-administration/rex/SKILL.md) | Perl automation from a `Rexfile`, and the OpenSSH connection trap |
+| [rex](system-and-network-administration/rex/SKILL.md) | Perl Rex automation: Rexfiles, transports, idempotency, and operating it safely |
+| [ssl-tls-pki](system-and-network-administration/ssl-tls-pki/SKILL.md) | TLS, public Web PKI, private CAs, ACME and mTLS — design, operation, debugging |
 | [vllm-operator](system-and-network-administration/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning (German) |
 
 ## Using this repo

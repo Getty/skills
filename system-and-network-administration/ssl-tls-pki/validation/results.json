@@ -1,0 +1,786 @@
+{
+  "environment": {
+    "executed_at_utc": "2026-10-10T06:38:23.495762+00:00",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "python_ssl": "OpenSSL 3.5.5 27 Jan 2026",
+    "cryptography": "46.0.4",
+    "openssl": "OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)\nbuilt on: Fri Apr  3 10:05:32 2026 UTC\nplatform: debian-amd64\noptions:  bn(64,64)\ncompiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -Wa,--noexecstack -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/openssl-3.5.5=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DZSTD -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2\nOPENSSLDIR: \"/usr/lib/ssl\"\nENGINESDIR: \"/usr/lib/x86_64-linux-gnu/engines-3\"\nMODULESDIR: \"/usr/lib/x86_64-linux-gnu/ossl-modules\"\nSeeding source: os-specific\nCPUINFO: OPENSSL_ia32cap=0xfffa3203078bffff:0x00405fc6f1bf07ab:0x0000002020000010:0x0000000000000000:0x0000000000000000",
+    "curl": "curl 8.10.1 (x86_64-pc-linux-gnu) libcurl/8.10.1 OpenSSL/3.5.5 zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 nghttp2/1.64.0 librtmp/2.3 OpenLDAP/2.6.10\nRelease-Date: 2024-09-18\nProtocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s rtmp rtsp smb smbs smtp smtps telnet tftp\nFeatures: alt-svc AsynchDNS brotli HSTS HTTP2 HTTPS-proxy IDN IPv6 Largefile libz NTLM PSL SSL threadsafe TLS-SRP UnixSockets zstd",
+    "go": "go version go1.23.2 linux/amd64",
+    "node": "{\"node\":\"22.16.0\",\"acorn\":\"8.14.1\",\"ada\":\"2.9.2\",\"amaro\":\"0.4.1\",\"ares\":\"1.34.5\",\"brotli\":\"1.1.0\",\"cjs_module_lexer\":\"2.1.0\",\"cldr\":\"47.0\",\"icu\":\"77.1\",\"llhttp\":\"9.2.1\",\"modules\":\"127\",\"napi\":\"10\",\"nbytes\":\"0.1.1\",\"ncrypto\":\"0.0.1\",\"nghttp2\":\"1.64.0\",\"openssl\":\"3.0.16\",\"simdjson\":\"3.12.2\",\"simdutf\":\"6.4.2\",\"sqlite\":\"3.49.1\",\"tz\":\"2025b\",\"undici\":\"6.21.2\",\"unicode\":\"16.0\",\"uv\":\"1.49.2\",\"uvwasi\":\"0.0.21\",\"v8\":\"12.4.254.21-node.26\",\"zlib\":\"1.3.0.1-motley-780819f\",\"zstd\":\"1.5.7\"}",
+    "java": "openjdk version \"21.0.12.1\" 2026-08-18\nOpenJDK Runtime Environment (build 21.0.12.1+1-1-deb13u1-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-deb13u1-Debian, mixed mode, sharing)",
+    "javac": "javac 21.0.12.1",
+    "perl": "Perl v5.40.1; IO::Socket::SSL 2.089; Net::SSLeay 1.94; OpenSSL 3.5.5 27 Jan 2026",
+    "nginx": "nginx version: nginx/1.26.3"
+  },
+  "summary": {
+    "PASS": 108,
+    "FAIL": 0,
+    "SKIP": 0
+  },
+  "tests": [
+    {
+      "id": "PATH-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Valid full path accepted",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server.pem: OK\\n'}"
+    },
+    {
+      "id": "PATH-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Unknown root rejected",
+      "observed": "{'exit': 2, 'output': 'CN=DISPOSABLE LAB Issuer A\\nerror 20 at 1 depth lookup: unable to get local issuer certificate\\nerror <TEMP>/pki/server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "PATH-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Missing intermediate rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 20 at 0 depth lookup: unable to get local issuer certificate\\nerror <TEMP>/pki/server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Wrong DNS SAN rejected",
+      "observed": "{'exit': 2, 'output': 'CN=other.svc.test\\nerror 62 at 0 depth lookup: hostname mismatch\\nerror <TEMP>/pki/wrong_name.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Matching iPAddress SAN accepted",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server.pem: OK\\n'}"
+    },
+    {
+      "id": "NAME-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "IP encoded as DNS SAN rejected for IP identity",
+      "observed": "{'exit': 2, 'output': 'CN=127.0.0.1\\nerror 64 at 0 depth lookup: IP address mismatch\\nerror <TEMP>/pki/dns_ip_string.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-04",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Single-label wildcard accepted",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/wildcard.pem: OK\\n'}"
+    },
+    {
+      "id": "NAME-05",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Wildcard does not cover apex",
+      "observed": "{'exit': 2, 'output': 'CN=*.svc.test\\nerror 62 at 0 depth lookup: hostname mismatch\\nerror <TEMP>/pki/wildcard.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-06",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Wildcard does not cover nested labels",
+      "observed": "{'exit': 2, 'output': 'CN=*.svc.test\\nerror 62 at 0 depth lookup: hostname mismatch\\nerror <TEMP>/pki/wildcard.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-07",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "CN cannot override a conflicting SAN",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 62 at 0 depth lookup: hostname mismatch\\nerror <TEMP>/pki/cn_conflict.pem: verification failed\\n'}"
+    },
+    {
+      "id": "NAME-08",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "OpenSSL legacy CN fallback observed, not a recommended profile",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/cn_only.pem: OK\\n'}"
+    },
+    {
+      "id": "EKU-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Client-auth EKU accepted for client purpose",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/client.pem: OK\\n'}"
+    },
+    {
+      "id": "EKU-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Client-only EKU rejected as server",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 26 at 0 depth lookup: unsuitable certificate purpose\\nerror <TEMP>/pki/client_only_server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "EKU-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Server-only EKU rejected as client",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 26 at 0 depth lookup: unsuitable certificate purpose\\nerror <TEMP>/pki/server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "TIME-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Expired leaf rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 10 at 0 depth lookup: certificate has expired\\nerror <TEMP>/pki/expired.pem: verification failed\\n'}"
+    },
+    {
+      "id": "TIME-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Not-yet-valid leaf rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 9 at 0 depth lookup: certificate is not yet valid\\nerror <TEMP>/pki/future.pem: verification failed\\n'}"
+    },
+    {
+      "id": "TIME-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Expired intermediate rejected",
+      "observed": "{'exit': 2, 'output': 'CN=expired_intermediate\\nerror 10 at 1 depth lookup: certificate has expired\\nerror <TEMP>/pki/expired_issuer_leaf.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CONSTRAINT-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Non-CA issuer rejected",
+      "observed": "{'exit': 2, 'output': 'CN=NOT A CA\\nerror 79 at 1 depth lookup: invalid CA certificate\\nCN=NOT A CA\\nerror 26 at 1 depth lookup: unsuitable certificate purpose\\nCN=NOT A CA\\nerror 32 at 1 depth lookup: key usage does not include certificate signing\\nerror <TEMP>/pki/signed_by_nonca.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CONSTRAINT-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Excess CA path length rejected",
+      "observed": "{'exit': 2, 'output': 'CN=DISPOSABLE LAB Issuer A\\nerror 25 at 2 depth lookup: path length constraint exceeded\\nCN=DISPOSABLE LAB Root A\\nerror 25 at 3 depth lookup: path length constraint exceeded\\nerror <TEMP>/pki/excess_depth.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CONSTRAINT-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Permitted DNS constraint accepted",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/inside_constraint.pem: OK\\n'}"
+    },
+    {
+      "id": "CONSTRAINT-04",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Outside DNS name constraint rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.other.test\\nerror 47 at 0 depth lookup: permitted subtree violation\\nerror <TEMP>/pki/outside_constraint.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CONSTRAINT-05",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Unknown critical extension rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 34 at 0 depth lookup: unhandled critical extension\\nerror <TEMP>/pki/critical_unknown.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CRL-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Without CRL policy revoked fixture is still accepted",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/revoked.pem: OK\\n'}"
+    },
+    {
+      "id": "CRL-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Explicit fresh CRL rejects revoked leaf",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 23 at 0 depth lookup: certificate revoked\\nerror <TEMP>/pki/revoked.pem: verification failed\\n'}"
+    },
+    {
+      "id": "CRL-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Explicit fresh CRL accepts non-revoked leaf",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server.pem: OK\\n'}"
+    },
+    {
+      "id": "CRL-04",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Stale CRL rejected",
+      "observed": "{'exit': 2, 'output': 'CN=api.svc.test\\nerror 12 at 0 depth lookup: CRL has expired\\nerror <TEMP>/pki/server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "ROOT-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Root B path accepted by Root B",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server_b.pem: OK\\n'}"
+    },
+    {
+      "id": "ROOT-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Root B rejected without trust distribution",
+      "observed": "{'exit': 2, 'output': 'CN=DISPOSABLE LAB Issuer B\\nerror 20 at 1 depth lookup: unable to get local issuer certificate\\nerror <TEMP>/pki/server_b.pem: verification failed\\n'}"
+    },
+    {
+      "id": "ROOT-03",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Overlap trust bundle accepts new Root B",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server_b.pem: OK\\n'}"
+    },
+    {
+      "id": "CROSS-01",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Cross-signed issuer builds to Root B",
+      "observed": "{'exit': 0, 'output': '<TEMP>/pki/server.pem: OK\\n'}"
+    },
+    {
+      "id": "CROSS-02",
+      "group": "OpenSSL offline path validation",
+      "status": "PASS",
+      "expected": "Cross-signature alone does not trust Root B",
+      "observed": "{'exit': 2, 'output': 'CN=DISPOSABLE LAB Issuer A\\nerror 20 at 1 depth lookup: unable to get local issuer certificate\\nerror <TEMP>/pki/server.pem: verification failed\\n'}"
+    },
+    {
+      "id": "KEY-01",
+      "group": "Local safety",
+      "status": "PASS",
+      "expected": "Mismatched private key rejected",
+      "observed": "[X509: KEY_VALUES_MISMATCH] key values mismatch (_ssl.c:4108)"
+    },
+    {
+      "id": "KEY-02",
+      "group": "Local safety",
+      "status": "PASS",
+      "expected": "All disposable private keys have mode 0600",
+      "observed": "{'intermediate.key': '0o600', 'intermediate_b.key': '0o600', 'wildcard.key': '0o600', 'client_only_server.key': '0o600', 'expired_client.key': '0o600', 'dns_ip_string.key': '0o600', 'root.key': '0o600', 'excess_ca.key': '0o600', 'critical_unknown.key': '0o600', 'expired.key': '0o600', 'cn_conflict.key': '0o600', 'wrong_name.key': '0o600', 'constrained_intermediate.key': '0o600', 'rsa_server.key': '0o600', 'expired_issuer_leaf.key': '0o600', 'future.key': '0o600', 'not_a_ca.key': '0o600', 'signed_by_nonca.key': '0o600', 'cn_only.key': '0o600', 'server.key': '0o600', 'client_b.key': '0o600', 'client.key': '0o600', 'cross_intermediate.key': '0o600', 'excess_depth.key': '0o600', 'root_b.key': '0o600', 'expired_intermediate.key': '0o600', 'revoked.key': '0o600', 'unauthorized_client.key': '0o600', 'outside_constraint.key': '0o600', 'server_b.key': '0o600', 'inside_constraint.key': '0o600'}"
+    },
+    {
+      "id": "LOCAL-01",
+      "group": "Local safety",
+      "status": "PASS",
+      "expected": "Existing fixture directory cannot be overwritten",
+      "observed": "[Errno 17] File exists: '<TEMP>/pki'"
+    },
+    {
+      "id": "INSPECT-01",
+      "group": "Inspection tool",
+      "status": "PASS",
+      "expected": "Inspection-only parser behavior for server.pem",
+      "observed": "{\n  \"inspection_only\": true,\n  \"trust_verified\": false,\n  \"certificates\": [\n    {\n      \"subject\": \"CN=api.svc.test\",\n      \"issuer\": \"CN=DISPOSABLE LAB Issuer A\",\n      \"serial_hex\": \"f2515f1f9e3daf88a1ffe7feadad97746dff045\",\n      \"sha256\": \"61813219223b0c331ef344d7d7c701ea5ed7fdecfdecec6964e8f786dfad62cc\",\n      \"spki_sha256\": \"0a36065da2142472c28e19bb9bc1aafe581bc9ee59555285b4fabc79f3b6aaca\",\n      \"key_type\": \"ECPublicKey\",\n      \"key_size\": 256,\n      \"not_before\": \"2026-10-10T05:38:23+00:00\",\n      \"not_after\": \"2026-10-12T06:38:23+00:00\",\n      \"within_own_validity_interval\": true,\n      \"remaining_seconds\": 172798,\n      \"critical_extension_oids\": [\n        \"2.5.29.19\",\n        \"2.5.29.15\"\n      ],\n      \"sans\": [\n        {\n          \"type\": \"DNSName\",\n          \"value\": \"api.svc.test\"\n        },\n        {\n          \"type\": \"IPAddress\",\n          \"value\": \"127.0.0.1\"\n        }\n      ],\n      \"extended_key_usage\": [\n        \"1.3.6.1.5.5.7.3.1\"\n      ],\n      \"basic_constraints\": {\n        \"ca\": false,\n        \"path_length\": null\n      }\n    }\n  ]\n}\n"
+    },
+    {
+      "id": "INSPECT-02",
+      "group": "Inspection tool",
+      "status": "PASS",
+      "expected": "Inspection-only parser behavior for server.der",
+      "observed": "{\n  \"inspection_only\": true,\n  \"trust_verified\": false,\n  \"certificates\": [\n    {\n      \"subject\": \"CN=api.svc.test\",\n      \"issuer\": \"CN=DISPOSABLE LAB Issuer A\",\n      \"serial_hex\": \"f2515f1f9e3daf88a1ffe7feadad97746dff045\",\n      \"sha256\": \"61813219223b0c331ef344d7d7c701ea5ed7fdecfdecec6964e8f786dfad62cc\",\n      \"spki_sha256\": \"0a36065da2142472c28e19bb9bc1aafe581bc9ee59555285b4fabc79f3b6aaca\",\n      \"key_type\": \"ECPublicKey\",\n      \"key_size\": 256,\n      \"not_before\": \"2026-10-10T05:38:23+00:00\",\n      \"not_after\": \"2026-10-12T06:38:23+00:00\",\n      \"within_own_validity_interval\": true,\n      \"remaining_seconds\": 172797,\n      \"critical_extension_oids\": [\n        \"2.5.29.19\",\n        \"2.5.29.15\"\n      ],\n      \"sans\": [\n        {\n          \"type\": \"DNSName\",\n          \"value\": \"api.svc.test\"\n        },\n        {\n          \"type\": \"IPAddress\",\n          \"value\": \"127.0.0.1\"\n        }\n      ],\n      \"extended_key_usage\": [\n        \"1.3.6.1.5.5.7.3.1\"\n      ],\n      \"basic_constraints\": {\n        \"ca\": false,\n        \"path_length\": null\n      }\n    }\n  ]\n}\n"
+    },
+    {
+      "id": "INSPECT-03",
+      "group": "Inspection tool",
+      "status": "PASS",
+      "expected": "Inspection-only parser behavior for server.fullchain.pem",
+      "observed": "{\n  \"inspection_only\": true,\n  \"trust_verified\": false,\n  \"certificates\": [\n    {\n      \"subject\": \"CN=api.svc.test\",\n      \"issuer\": \"CN=DISPOSABLE LAB Issuer A\",\n      \"serial_hex\": \"f2515f1f9e3daf88a1ffe7feadad97746dff045\",\n      \"sha256\": \"61813219223b0c331ef344d7d7c701ea5ed7fdecfdecec6964e8f786dfad62cc\",\n      \"spki_sha256\": \"0a36065da2142472c28e19bb9bc1aafe581bc9ee59555285b4fabc79f3b6aaca\",\n      \"key_type\": \"ECPublicKey\",\n      \"key_size\": 256,\n      \"not_before\": \"2026-10-10T05:38:23+00:00\",\n      \"not_after\": \"2026-10-12T06:38:23+00:00\",\n      \"within_own_validity_interval\": true,\n      \"remaining_seconds\": 172795,\n      \"critical_extension_oids\": [\n        \"2.5.29.19\",\n        \"2.5.29.15\"\n      ],\n      \"sans\": [\n        {\n          \"type\": \"DNSName\",\n          \"value\": \"api.svc.test\"\n        },\n        {\n          \"type\": \"IPAddress\",\n          \"value\": \"127.0.0.1\"\n        }\n      ],\n      \"extended_key_usage\": [\n        \"1.3.6.1.5.5.7.3.1\"\n      ],\n      \"basic_constraints\": {\n        \"ca\": false,\n        \"path_length\": null\n      }\n    },\n    {\n      \"subject\": \"CN=DISPOSABLE LAB Issuer A\",\n      \"issuer\": \"CN=DISPOSABLE LAB Root A\",\n      \"serial_hex\": \"2a202b70f98a649e3afb6b8ce02e241bb0935719\",\n      \"sha256\": \"5a50bc14716ce8d4968acd43a96117d1c0b7ff2a1e7da15bdca3adca1cc1c31d\",\n      \"spki_sha256\": \"2f1207d4cd020eed831bfbca6edfe9d85f141eef5eea912bedbf8b71bd4b5d65\",\n      \"key_type\": \"ECPublicKey\",\n      \"key_size\": 256,\n      \"not_before\": \"2026-10-07T06:38:23+00:00\",\n      \"not_after\": \"2026-11-09T06:38:23+00:00\",\n      \"within_own_validity_interval\": true,\n      \"remaining_seconds\": 2591995,\n      \"critical_extension_oids\": [\n        \"2.5.29.19\",\n        \"2.5.29.15\"\n      ],\n      \"sans\": null,\n      \"extended_key_usage\": null,\n      \"basic_constraints\": {\n        \"ca\": true,\n        \"path_length\": 0\n      }\n    }\n  ]\n}\n"
+    },
+    {
+      "id": "INSPECT-04",
+      "group": "Inspection tool",
+      "status": "PASS",
+      "expected": "Inspection-only parser behavior for malformed.pem",
+      "observed": "{\"inspection_only\": true, \"error\": \"error parsing asn1 value: ParseError { kind: ShortData { needed: 95 } }\"}\n"
+    },
+    {
+      "id": "INSPECT-05",
+      "group": "Inspection tool",
+      "status": "PASS",
+      "expected": "Inspection-only parser behavior for server.key",
+      "observed": "{\"inspection_only\": true, \"error\": \"refusing input containing private-key material\"}\n"
+    },
+    {
+      "id": "TLS-P01",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Valid DNS name and SNI",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P02",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "IP identity without DNS SNI",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': [None], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P03",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Wrong DNS identity rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.svc.test'. (_ssl.c:1029)\", 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P04",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Unknown trust root rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1029)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P05",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Missing intermediate rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1029)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P06",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Wrong server EKU rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unsuitable certificate purpose (_ssl.c:1029)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_UNSUPPORTED_CERTIFICATE] ssl/tls alert unsupported certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P07",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Expired leaf rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1029)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P08",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Future leaf rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate is not yet valid (_ssl.c:1029)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P09",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Conflicting SAN wins over CN",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.svc.test'. (_ssl.c:1029)\", 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P10",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Explicit SAN-only policy rejects CN-only certificate",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.svc.test'. (_ssl.c:1029)\", 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P11",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Single-label wildcard accepted",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P12",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Nested wildcard name rejected",
+      "observed": "{'error_type': 'SSLCertVerificationError', 'error': \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'deep.api.svc.test'. (_ssl.c:1029)\", 'server': {'sni': ['deep.api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P13",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "HTTP/1.1 ALPN negotiated",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P14",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "TLS 1.2 can be explicitly negotiated",
+      "observed": "{'client': {'protocol': 'TLSv1.2', 'cipher': 'ECDHE-ECDSA-AES256-GCM-SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.2', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P15",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "TLS 1.3 can be explicitly negotiated",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "TLS-P16",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "No permitted protocol overlap is rejected",
+      "observed": "{'error_type': 'SSLError', 'error': '[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1029)', 'server': {'sni': [], 'errors': ['SSLError: [SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "TLS-P17",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "RSA certificate works with ECDHE-RSA, not RSA key exchange",
+      "observed": "{'client': {'protocol': 'TLSv1.2', 'cipher': 'ECDHE-RSA-AES256-GCM-SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.2', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "MTLS-01",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Valid and explicitly authorized client accepted",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 200 OK'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': True, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1', 'client_uris': ['spiffe://lab.test/service/allowed']}}"
+    },
+    {
+      "id": "MTLS-02",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Missing mandatory client certificate rejected",
+      "observed": "{'error_type': 'SSLError', 'error': '[SSL: TLSV13_ALERT_CERTIFICATE_REQUIRED] tlsv13 alert certificate required (_ssl.c:2649)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: PEER_DID_NOT_RETURN_A_CERTIFICATE] peer did not return a certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "MTLS-03",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Server-only certificate rejected as mTLS client",
+      "observed": "{'error_type': 'SSLError', 'error': '[SSL: SSLV3_ALERT_UNSUPPORTED_CERTIFICATE] ssl/tls alert unsupported certificate (_ssl.c:2649)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unsuitable certificate purpose (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "MTLS-04",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Foreign client issuer rejected",
+      "observed": "{'error_type': 'SSLError', 'error': '[SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:2649)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "MTLS-05",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Authenticated client can still be unauthorized",
+      "observed": "{'client': {'protocol': 'TLSv1.3', 'cipher': 'TLS_AES_256_GCM_SHA384', 'alpn': 'http/1.1', 'status': 'HTTP/1.1 403 Forbidden'}, 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': True, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1', 'client_uris': ['spiffe://lab.test/service/denied']}}"
+    },
+    {
+      "id": "MTLS-06",
+      "group": "Python loopback TLS/mTLS",
+      "status": "PASS",
+      "expected": "Expired client certificate rejected",
+      "observed": "{'error_type': 'SSLError', 'error': '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:2649)', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "PROBE-01",
+      "group": "Secure probe CLI",
+      "status": "PASS",
+      "expected": "server: accept",
+      "observed": "{\n  \"verified\": true,\n  \"connect_host\": \"127.0.0.1\",\n  \"port\": 36335,\n  \"reference_identity\": \"api.svc.test\",\n  \"backend\": \"OpenSSL 3.5.5 27 Jan 2026\",\n  \"trust_source\": \"<TEMP>/pki/root.pem\",\n  \"scope\": \"TCP TLS path/name/purpose; no browser CT or revocation enforcement\",\n  \"application_checked\": true,\n  \"protocol\": \"TLSv1.3\",\n  \"cipher\": [\n    \"TLS_AES_256_GCM_SHA384\",\n    \"TLSv1.3\",\n    256\n  ],\n  \"alpn\": \"http/1.1\",\n  \"leaf_sha256\": \"61813219223b0c331ef344d7d7c701ea5ed7fdecfdecec6964e8f786dfad62cc\",\n  \"peer_leaf\": {\n    \"subject\": [\n      [\n        [\n          \"commonName\",\n          \"api.svc.test\"\n        ]\n      ]\n    ],\n    \"issuer\": [\n      [\n        [\n          \"commonName\",\n          \"DISPOSABLE LAB Issuer A\"\n        ]\n      ]\n    ],\n    \"version\": 3,\n    \"serialNumber\": \"0F2515F1F9E3DAF88A1FFE7FEADAD97746DFF045\",\n    \"notBefore\": \"Oct 10 05:38:23 2026 GMT\",\n    \"notAfter\": \"Oct 12 06:38:23 2026 GMT\",\n    \"subjectAltName\": [\n      [\n        \"DNS\",\n        \"api.svc.test\"\n      ],\n      [\n        \"IP Address\",\n        \"127.0.0.1\"\n      ]\n    ]\n  },\n  \"handshake_seconds\": 0.003278,\n  \"http_status_line\": \"HTTP/1.1 200 OK\",\n  \"application_ok\": true\n}\n"
+    },
+    {
+      "id": "PROBE-02",
+      "group": "Secure probe CLI",
+      "status": "PASS",
+      "expected": "wrong_name: certificate rejection",
+      "observed": "{\n  \"verified\": false,\n  \"connect_host\": \"127.0.0.1\",\n  \"port\": 59365,\n  \"reference_identity\": \"api.svc.test\",\n  \"backend\": \"OpenSSL 3.5.5 27 Jan 2026\",\n  \"trust_source\": \"<TEMP>/pki/root.pem\",\n  \"scope\": \"TCP TLS path/name/purpose; no browser CT or revocation enforcement\",\n  \"application_checked\": true,\n  \"error_type\": \"SSLCertVerificationError\",\n  \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.svc.test'. (_ssl.c:1029)\",\n  \"verify_code\": 62,\n  \"verify_message\": \"Hostname mismatch, certificate is not valid for 'api.svc.test'.\"\n}\n"
+    },
+    {
+      "id": "PROBE-03",
+      "group": "Secure probe CLI",
+      "status": "PASS",
+      "expected": "cn_only: certificate rejection",
+      "observed": "{\n  \"verified\": false,\n  \"connect_host\": \"127.0.0.1\",\n  \"port\": 46093,\n  \"reference_identity\": \"api.svc.test\",\n  \"backend\": \"OpenSSL 3.5.5 27 Jan 2026\",\n  \"trust_source\": \"<TEMP>/pki/root.pem\",\n  \"scope\": \"TCP TLS path/name/purpose; no browser CT or revocation enforcement\",\n  \"application_checked\": true,\n  \"error_type\": \"SSLCertVerificationError\",\n  \"error\": \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.svc.test'. (_ssl.c:1029)\",\n  \"verify_code\": 62,\n  \"verify_message\": \"Hostname mismatch, certificate is not valid for 'api.svc.test'.\"\n}\n"
+    },
+    {
+      "id": "BUILD-GO",
+      "group": "Compile examples",
+      "status": "PASS",
+      "expected": "Compile Go probe without network/module downloads",
+      "observed": "compiled"
+    },
+    {
+      "id": "BUILD-JAVA",
+      "group": "Compile examples",
+      "status": "PASS",
+      "expected": "Compile Java JSSE probe",
+      "observed": "compiled"
+    },
+    {
+      "id": "EXT-OPENSSL-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'HTTP/1.1 200 OK\\nContent-Length: 3\\nConnection: close\\n\\nok\\nConnecting to 127.0.0.1\\ndepth=2 CN=DISPOSABLE LAB Root A\\nverify return:1\\ndepth=1 CN=DISPOSABLE LAB Issuer A\\nverify return:1\\ndepth=0 CN=api.svc.test\\nverify return:1\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': None}}"
+    },
+    {
+      "id": "EXT-OPENSSL-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: name certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'Connecting to 127.0.0.1\\ndepth=0 CN=other.svc.test\\nverify error:num=62:hostname mismatch\\n405759BB2B7F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:../ssl/statem/statem_clnt.c:2124:\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-OPENSSL-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: chain certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'Connecting to 127.0.0.1\\ndepth=0 CN=api.svc.test\\nverify error:num=20:unable to get local issuer certificate\\n40E71ABC2F7F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:../ssl/statem/statem_clnt.c:2124:\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-OPENSSL-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: eku certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'Connecting to 127.0.0.1\\ndepth=0 CN=api.svc.test\\nverify error:num=26:unsuitable certificate purpose\\n4047FB005F7F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:../ssl/statem/statem_clnt.c:2124:\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_UNSUPPORTED_CERTIFICATE] ssl/tls alert unsupported certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-OPENSSL-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: expired certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'Connecting to 127.0.0.1\\ndepth=2 CN=DISPOSABLE LAB Root A\\nverify return:1\\ndepth=1 CN=DISPOSABLE LAB Issuer A\\nverify return:1\\ndepth=0 CN=api.svc.test\\nverify error:num=10:certificate has expired\\nnotAfter=Oct  9 06:38:23 2026 GMT\\n40871E121B7F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:../ssl/statem/statem_clnt.c:2124:\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-OPENSSL-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "OPENSSL: trust certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'Connecting to 127.0.0.1\\ndepth=1 CN=DISPOSABLE LAB Issuer A\\nverify error:num=20:unable to get local issuer certificate\\n40978E254A7F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:../ssl/statem/statem_clnt.c:2124:\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-CURL-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'HTTP/1.1 200 OK\\nContent-Length: 3\\nConnection: close\\n\\nok\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "EXT-CURL-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: name certificate failure rejected",
+      "observed": "{'exit': 60, 'output': \"curl: (60) SSL: no alternative certificate subject name matches target hostname 'api.svc.test'\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\\n\", 'server': {'sni': ['api.svc.test'], 'errors': ['BrokenPipeError: [Errno 32] Broken pipe'], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "EXT-CURL-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: chain certificate failure rejected",
+      "observed": "{'exit': 60, 'output': 'curl: (60) SSL certificate problem: unable to get local issuer certificate\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-CURL-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: eku certificate failure rejected",
+      "observed": "{'exit': 60, 'output': 'curl: (60) SSL certificate problem: unsuitable certificate purpose\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_UNSUPPORTED_CERTIFICATE] ssl/tls alert unsupported certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-CURL-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: expired certificate failure rejected",
+      "observed": "{'exit': 60, 'output': 'curl: (60) SSL certificate problem: certificate has expired\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-CURL-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "CURL: trust certificate failure rejected",
+      "observed": "{'exit': 60, 'output': 'curl: (60) SSL certificate problem: unable to get local issuer certificate\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-NODE-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'HTTP/1.1 200 OK\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "EXT-NODE-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: name certificate failure rejected",
+      "observed": "{'exit': 1, 'output': \"Hostname/IP does not match certificate's altnames: Host: api.svc.test. is not in the cert's altnames: DNS:other.svc.test\\n\", 'server': {'sni': ['api.svc.test'], 'errors': ['SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-NODE-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: chain certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'unable to verify the first certificate\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-NODE-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: eku certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'unsuitable certificate purpose\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-NODE-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: expired certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'certificate has expired\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-NODE-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "NODE: trust certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'unable to get local issuer certificate\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-PERL-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'HTTP/1.1 200 OK\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': None}}"
+    },
+    {
+      "id": "EXT-PERL-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: name certificate failure rejected",
+      "observed": "{'exit': 255, 'output': 'hostname verification failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-PERL-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: chain certificate failure rejected",
+      "observed": "{'exit': 255, 'output': 'SSL connect attempt failed error:0A000086:SSL routines::certificate verify failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-PERL-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: eku certificate failure rejected",
+      "observed": "{'exit': 255, 'output': 'SSL connect attempt failed error:0A000086:SSL routines::certificate verify failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_UNSUPPORTED_CERTIFICATE] ssl/tls alert unsupported certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-PERL-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: expired certificate failure rejected",
+      "observed": "{'exit': 255, 'output': 'SSL connect attempt failed error:0A000086:SSL routines::certificate verify failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-PERL-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "PERL: trust certificate failure rejected",
+      "observed": "{'exit': 255, 'output': 'SSL connect attempt failed error:0A000086:SSL routines::certificate verify failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: TLSV1_ALERT_UNKNOWN_CA] tlsv1 alert unknown ca (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-GO-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'verified api.svc.test; TLS version 0x304; HTTP/1.1 200 OK\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "EXT-GO-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: name certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'tls: failed to verify certificate: x509: certificate is valid for other.svc.test, not api.svc.test\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-GO-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: chain certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'tls: failed to verify certificate: x509: certificate signed by unknown authority\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-GO-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: eku certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'tls: failed to verify certificate: x509: certificate specifies an incompatible key usage\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-GO-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: expired certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2026-10-10T06:38:49Z is after 2026-10-09T06:38:23Z\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-GO-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "GO: trust certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'tls: failed to verify certificate: x509: certificate signed by unknown authority\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] ssl/tls alert bad certificate (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-JAVA-GOOD",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: verified HTTP request accepted",
+      "observed": "{'exit': 0, 'output': 'TLSv1.3 HTTP/1.1 200 OK\\n', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': 'http/1.1'}}"
+    },
+    {
+      "id": "EXT-JAVA-NAME",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: name certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'SSLHandshakeException: (certificate_unknown) No subject alternative DNS name matching api.svc.test found.\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] ssl/tls alert certificate unknown (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-JAVA-CHAIN",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: chain certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] ssl/tls alert certificate unknown (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-JAVA-EKU",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: eku certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'SSLHandshakeException: (certificate_unknown) Extended key usage does not permit use for TLS server authentication\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] ssl/tls alert certificate unknown (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-JAVA-EXPIRED",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: expired certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'SSLHandshakeException: (certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] ssl/tls alert certificate expired (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "EXT-JAVA-TRUST",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "JAVA: trust certificate failure rejected",
+      "observed": "{'exit': 1, 'output': 'SSLHandshakeException: (certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target\\n', 'server': {'sni': ['api.svc.test'], 'errors': ['SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_UNKNOWN] ssl/tls alert certificate unknown (_ssl.c:1029)'], 'client_verified': False}}"
+    },
+    {
+      "id": "GO-CN-ONLY",
+      "group": "External runtime loopback",
+      "status": "PASS",
+      "expected": "Go rejects legacy CN-only identity",
+      "observed": "tls: failed to verify certificate: x509: certificate relies on legacy Common Name field, use SANs instead\n"
+    },
+    {
+      "id": "NGINX-CONFIG-GOOD",
+      "group": "NGINX verified upstream",
+      "status": "PASS",
+      "expected": "Validate substituted standalone NGINX template",
+      "observed": "nginx: the configuration file <TEMP>/build/nginx-good/nginx.conf syntax is ok\nnginx: configuration file <TEMP>/build/nginx-good/nginx.conf test is successful\n"
+    },
+    {
+      "id": "NGINX-LIVE-GOOD",
+      "group": "NGINX verified upstream",
+      "status": "PASS",
+      "expected": "Authenticated frontend receives 200 for server upstream",
+      "observed": "{'exit': 0, 'status': '200', 'stderr': '', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': None}, 'log': '2026/10/10 06:38:53 [notice] 6088#6088: using the \"epoll\" event method\\n2026/10/10 06:38:53 [notice] 6088#6088: nginx/1.26.3\\n2026/10/10 06:38:53 [notice] 6088#6088: OS: Linux 6.18.44\\n2026/10/10 06:38:53 [notice] 6088#6088: getrlimit(RLIMIT_NOFILE): 16384:16384\\n2026/10/10 06:38:53 [notice] 6088#6088: start worker processes\\n2026/10/10 06:38:53 [notice] 6088#6088: start worker process 6089\\n2026/10/10 06:38:53 [info] 6089#6089: *1 client closed connection while SSL handshaking, client: 127.0.0.1, server: 127.0.0.1:49069\\n2026/10/10 06:38:53 [info] 6089#6089: *2 client 127.0.0.1 closed keepalive connection\\n'}"
+    },
+    {
+      "id": "NGINX-CONFIG-BAD-NAME",
+      "group": "NGINX verified upstream",
+      "status": "PASS",
+      "expected": "Validate substituted standalone NGINX template",
+      "observed": "nginx: the configuration file <TEMP>/build/nginx-bad-name/nginx.conf syntax is ok\nnginx: configuration file <TEMP>/build/nginx-bad-name/nginx.conf test is successful\n"
+    },
+    {
+      "id": "NGINX-LIVE-BAD-NAME",
+      "group": "NGINX verified upstream",
+      "status": "PASS",
+      "expected": "Authenticated frontend receives 502 for wrong_name upstream",
+      "observed": "{'exit': 0, 'status': '502', 'stderr': '', 'server': {'sni': ['api.svc.test'], 'errors': [], 'client_verified': False, 'protocol': 'TLSv1.3', 'alpn': None}, 'log': '2026/10/10 06:38:54 [notice] 6093#6093: using the \"epoll\" event method\\n2026/10/10 06:38:54 [notice] 6093#6093: nginx/1.26.3\\n2026/10/10 06:38:54 [notice] 6093#6093: OS: Linux 6.18.44\\n2026/10/10 06:38:54 [notice] 6093#6093: getrlimit(RLIMIT_NOFILE): 16384:16384\\n2026/10/10 06:38:54 [notice] 6093#6093: start worker processes\\n2026/10/10 06:38:54 [notice] 6093#6093: start worker process 6094\\n2026/10/10 06:38:54 [info] 6094#6094: *1 client closed connection while SSL handshaking, client: 127.0.0.1, server: 127.0.0.1:39041\\n2026/10/10 06:38:54 [error] 6094#6094: *2 upstream SSL certificate does not match \"api.svc.test\" while SSL handshaking to upstream, client: 127.0.0.1, server: api.svc.test, request: \"GET / HTTP/1.1\", upstream: \"https://127.0.0.1:43293/\", host: \"api.svc.test:39041\"\\n2026/10/10 06:38:54 [info] 6094#6094: *2 client 127.0.0.1 closed keepalive connection\\n'}"
+    }
+  ],
+  "limitations": [
+    "Linux only; no browser/mobile/Windows/macOS execution.",
+    "Python, curl, Perl and OpenSSL may share a backend. Go crypto/x509 and Java JSSE add independent implementation paths.",
+    "Disposable private CA only; no production ACME, public-root qualification, live OCSP, CT, ECH, PQC, QUIC or OS-wide trust mutations.",
+    "Client acceptance checks in this lab do not establish a complete browser policy implementation or all production configurations."
+  ]
+}

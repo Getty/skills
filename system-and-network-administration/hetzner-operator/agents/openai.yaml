@@ -1,0 +1,15 @@
+interface:
+  display_name: Hetzner Operator
+  short_description: Plan, build, secure and troubleshoot Hetzner systems
+  default_prompt: Use $hetzner-operator to plan, build, secure, optimize, or troubleshoot
+    this Hetzner setup using current official documentation and clearly labeled community
+    evidence.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

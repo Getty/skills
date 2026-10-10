@@ -1,0 +1,3 @@
+# Exact Python dependency used for the bundled execution record, not a promise
+# that this remains the newest/security-preferred release. Reassess before use.
+cryptography==46.0.4

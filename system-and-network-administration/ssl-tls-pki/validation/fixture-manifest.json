@@ -1,0 +1,254 @@
+{
+  "warning": "Disposable educational fixtures, including intentionally invalid certificates. Never trust outside this lab.",
+  "generated_at": "2026-10-10T06:38:23+00:00",
+  "fixtures": {
+    "root": {
+      "issuer": "root",
+      "description": "",
+      "serial_hex": "4e92e9e43425104147d926eda4d29bd7983c991",
+      "sha256": "9cb3b16941ec0a9330debbd6eef4eaf7b0f61e8682ed090abe94571749d7a6dd",
+      "not_before": "2026-09-10T06:38:23+00:00",
+      "not_after": "2027-10-10T06:38:23+00:00"
+    },
+    "root_b": {
+      "issuer": "root_b",
+      "description": "",
+      "serial_hex": "46a9e3ab1b6fc478106d0a297bf0b887d592d455",
+      "sha256": "4390b38526ab19b3e9d2e1235e43753c58a877f384bf3fdb2298b925ceae7bad",
+      "not_before": "2026-09-10T06:38:23+00:00",
+      "not_after": "2027-10-10T06:38:23+00:00"
+    },
+    "intermediate": {
+      "issuer": "root",
+      "description": "",
+      "serial_hex": "2a202b70f98a649e3afb6b8ce02e241bb0935719",
+      "sha256": "5a50bc14716ce8d4968acd43a96117d1c0b7ff2a1e7da15bdca3adca1cc1c31d",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "intermediate_b": {
+      "issuer": "root_b",
+      "description": "",
+      "serial_hex": "1292f90c85937518be3a851e5a9c4422f2a464b",
+      "sha256": "7fb2c13cbe2bca7e3cf1f15d88a9d54aaad014f644932d5ec3278ce87054172d",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "cross_intermediate": {
+      "issuer": "root_b",
+      "description": "Same issuer key/subject, cross-signed by Root B",
+      "serial_hex": "2b4fd574d6b65117014bee1a8497723d2bb181e9",
+      "sha256": "126c1067f95733070d7e555ba2c24c1204c6aff8fe34945fafed25cd626d0dc1",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "server": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "f2515f1f9e3daf88a1ffe7feadad97746dff045",
+      "sha256": "61813219223b0c331ef344d7d7c701ea5ed7fdecfdecec6964e8f786dfad62cc",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "server_b": {
+      "issuer": "intermediate_b",
+      "description": "",
+      "serial_hex": "45ce190103d88bbbd59c7fa3bf29eb5c78dedae7",
+      "sha256": "926c56eb32f90acc821a3384aca3dd27c589a024370d2b69d0bea80c34345602",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "rsa_server": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "4774540d723dc367cf43a2e172b30b7b1e2af438",
+      "sha256": "bf6e69b056858c3c4ba322b0a9cf1fbcf18eb9c511c13a7397094cf038d85ce3",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "wrong_name": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "68bf134fe4072598df1febd180717baf09d07db2",
+      "sha256": "e3d5588ac9e9d8ba9727fe354263f6d2a4539d9eb77783a867a87f5d7fd49854",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "cn_conflict": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "146e83b8aba97038200434b78fd41a1c50a6d6e2",
+      "sha256": "8c730d5167783494cba454968a7e82e1b0233accba8d6ef861813cb80e8b67ab",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "cn_only": {
+      "issuer": "intermediate",
+      "description": "Legacy CN-only server: intentional compatibility trap, not a modern profile",
+      "serial_hex": "3643d518f767ac107d67663d88c594a6d0842dc2",
+      "sha256": "fbb34487e1b312c343c4460bfd3ade26b93fd0fbea8c654f89f4cd8fcd362f1d",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "wildcard": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "2e06a7dbb72a43641ccaac62d3730c9e53c673a9",
+      "sha256": "8f757c1398b0ad33d871ec9d6960e354892df3dcdd5380e7e49969481afaf579",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "dns_ip_string": {
+      "issuer": "intermediate",
+      "description": "IP text wrongly encoded as DNS SAN",
+      "serial_hex": "22973487fcf671466ba5933a5f567eb5a2a34fa9",
+      "sha256": "a240d55da98ca6dbc279ab99459eb2c3e3cd771508fecb0fb3ea66c0a3e524f7",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "client_only_server": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "596b5ee00f7a9317525e79547283064d7ac1de7d",
+      "sha256": "f5afa8d2d35c155b754400b8a6b1fb260c5927a9b9d91f527b9bc4d9b68c650d",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "expired": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "4053d14616e8f5fc59aacef25a1910f2825d9760",
+      "sha256": "014160edee0d2c6990666db0fad84ab892729c742c956062fd67c8aa94de5936",
+      "not_before": "2026-10-08T06:38:23+00:00",
+      "not_after": "2026-10-09T06:38:23+00:00"
+    },
+    "future": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "519eb9eec0044171c0f637f62d2fb50a6cb8616f",
+      "sha256": "eaebf065070c203c30bf31e7c946da1e699de078de2f448c488fee6e4e492d5d",
+      "not_before": "2026-10-11T06:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "critical_unknown": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "27c221b8ec402e3805e949f5f9d35697f05ba323",
+      "sha256": "f9ef865a5411edbbba0ec4a0a51bd8708f2c0a1734f8930787df3e73b7de10df",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "revoked": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "764d99f1abe5b04452a7677729653bd10967910f",
+      "sha256": "950c9004c7677e536469f503d1f251348f671645d743908d9a7aa3ffbd0da760",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "client": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "3795577693132b87fb55f05642c4ffdf0008c2df",
+      "sha256": "bf31f5d259b61147ec4abd1bc042cdd3a0a2cabb12e6038a0b8eddb58576a779",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "unauthorized_client": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "621226b58283e42050f7bcaca81681aa7d143490",
+      "sha256": "32ebbdd5ba20496f744cc83aa5636ff3557977397fccf28897ec1543235ad1ad",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "client_b": {
+      "issuer": "intermediate_b",
+      "description": "",
+      "serial_hex": "6b300a9395085c809734d3e491a375a820560faa",
+      "sha256": "91e35089f73891775799969a7ee383450de00a71680762653c7a2194c8ddb65e",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "expired_client": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "8c363612e3a0537731a6cf68d9a9f7b146d702b",
+      "sha256": "7feea5d70312939e6b0b57df50fc51afebbd095be0197b79a5e0f43f576b6d48",
+      "not_before": "2026-10-08T06:38:23+00:00",
+      "not_after": "2026-10-09T06:38:23+00:00"
+    },
+    "constrained_intermediate": {
+      "issuer": "root",
+      "description": "",
+      "serial_hex": "78ee77efbb84c768624f87650198f590cdcef0e2",
+      "sha256": "77da81a535c9f8f2fc3a7d7f5141067327e9f9a3d38f03c17d471bc9ceb1e1b7",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "inside_constraint": {
+      "issuer": "constrained_intermediate",
+      "description": "",
+      "serial_hex": "4de2ea7e1ed6143cb087fc8d3da3f5d7d256965c",
+      "sha256": "7d764458e3abe8ccc07747a5693da054a2d16ac6719ee551d250d822b472f2f0",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "outside_constraint": {
+      "issuer": "constrained_intermediate",
+      "description": "",
+      "serial_hex": "20133a005f007a8a3cd13e7c78dfad11c05df331",
+      "sha256": "002f9aa8d887616f9c85ac13fa7393574d28b85181831cea78ef89b03bd72a24",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "not_a_ca": {
+      "issuer": "root",
+      "description": "",
+      "serial_hex": "4acb6586b3b10d9c12c54e430e613d0592a4f2c6",
+      "sha256": "afc12d068fe92635618e5bf233e699b37e78253d42e4b23bab51e0cb2993fd4f",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "signed_by_nonca": {
+      "issuer": "not_a_ca",
+      "description": "",
+      "serial_hex": "56ba801e997426e545a0f041840e149902e48d5c",
+      "sha256": "b159457766600de8b588ae3feda2163af668696c4f29ba2f4bc50e27d358d195",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "excess_ca": {
+      "issuer": "intermediate",
+      "description": "",
+      "serial_hex": "7b9b1a2a5a881864b229c79b7d51bd09e70c3bed",
+      "sha256": "f1f6557de5162d6aa9fd7e2d9438369ad4ef249a17bc65cc6dc3e41db81400bc",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-11-09T06:38:23+00:00"
+    },
+    "excess_depth": {
+      "issuer": "excess_ca",
+      "description": "",
+      "serial_hex": "7ecbe3600894aff5aa74593ab2d0e17480c18cf3",
+      "sha256": "c64644e2d87c5aeab21d71c6494a773a1aa7b0d1633d1618f8b6dca9bc08a7b4",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    },
+    "expired_intermediate": {
+      "issuer": "root",
+      "description": "",
+      "serial_hex": "7da65f926ca4857b0bd5c257ab4661d010889103",
+      "sha256": "80c0f5bcfe1e83f8e8d62429ebf793d1a9defd8ecf6ce7d0f98be62e6eb42a86",
+      "not_before": "2026-10-07T06:38:23+00:00",
+      "not_after": "2026-10-09T06:38:23+00:00"
+    },
+    "expired_issuer_leaf": {
+      "issuer": "expired_intermediate",
+      "description": "",
+      "serial_hex": "29f43e71d9637dbb52f9710f72f475322a9cd236",
+      "sha256": "44381a3c7bed7aa3b952a55dcbfbfd33b3d2aacd8fd48ead24bf8b5b2a0a7241",
+      "not_before": "2026-10-10T05:38:23+00:00",
+      "not_after": "2026-10-12T06:38:23+00:00"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+# REVIEWED TEMPLATE, not applied to a cluster. Replace email, owned domain and ingress class.
+# Create namespace pki-demo separately; keep staging secrets out of production.
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-staging
+  namespace: pki-demo
+spec:
+  acme:
+    email: pki-operator@example.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-staging-account
+    solvers:
+      - http01:
+          ingress:
+            ingressClassName: nginx
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-staging
+  namespace: pki-demo
+spec:
+  secretName: api-staging-tls
+  dnsNames:
+    - api.example.com
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-staging
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  renewBeforePercentage: 33
+  usages:
+    - digital signature
+    - server auth

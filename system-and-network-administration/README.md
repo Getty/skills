@@ -3,9 +3,11 @@
 # System & network administration skills
 
 Running machines, networks, containers and the automation that manages them —
-tool reference and admin practice, independent of any language ecosystem. Every
-skill here is deliberately version-free: pinned versions and site specifics belong
-in the repo that owns the cluster, not in a shared skill.
+tool reference and admin practice, independent of any language ecosystem. No skill
+here carries site specifics: those belong in the repo that owns the cluster. Several
+are routers over a reference tree and name the date or release their research was
+checked against — release-dependent facts are to be rechecked against what is
+actually installed.
 
 Rough reading order for a bare-metal Kubernetes stack:
 [kubernetes-concepts](kubernetes-concepts/SKILL.md) → [kubernetes-rke2](kubernetes-rke2/SKILL.md)
@@ -17,58 +19,62 @@ with [docker](docker/SKILL.md), [docker-registry](docker-registry/SKILL.md) and
 
 ### [docker](docker/SKILL.md)
 
-Docker and Compose as one workflow, covering the decisions and traps rather than
-the basics. The Dockerfile rules that pay rent: order layers by change frequency so
-a source edit does not rebuild the dependency layer, multi-stage for anything
-compiled, cleanup in the same `RUN` that made the mess, `USER` non-root,
-`.dockerignore` as non-optional, and `CMD` in exec form — shell form wraps PID 1 in
-`/bin/sh`, which swallows SIGTERM and turns every stop into the ten-second kill
-timeout.
+A decision and operations skill for Docker images, local and remote Engines, and
+Compose applications. `SKILL.md` is a small entrypoint: a task-and-symptom table
+routes to references on building (Dockerfile design, contexts, cache and CI, secrets
+and SSH, multi-platform, Bake, supply chain), on Compose (project model,
+interpolation, merge and include, health and lifecycle, networks, volumes, Watch,
+resources, deploy and rollback) and on operations (diagnostic ladder, daemon and
+storage, backup, rootless and Desktop, security and agent access).
 
-Then compose service wiring (healthcheck-gated `depends_on`, networks, volumes, env
-precedence, profiles, overrides) and a debug ladder for a service that will not come
-up or cannot be reached. Also notes the CLI split: `docker compose` v2 is current,
-the `version:` key is obsolete, and the project name defaults to the directory name.
+The rules it keeps in front: start from the target context rather than from a
+command, and render the Compose model before applying it. Interpolation sources are
+not container environment, readiness is not creation order, a restart does not apply
+changed configuration, and a read-only socket mount is not a read-only API. No prune
+or `down -v` without scope and a recovery path. Ships a modular Compose lab,
+environment and lifecycle fixtures, and a read-only evidence script.
 
-**Load when** writing or debugging Dockerfiles or compose files.
+**Load when** designing, building, debugging or operating Docker images or Compose
+stacks.
 
 ### [docker-registry](docker-registry/SKILL.md)
 
-The `registry:2` image is two products behind one binary, and the expensive mistake
-is assuming it is one: `proxy.remoteurl` turns it into a read-only pull-through
-cache mirroring exactly **one** upstream. A cache for Docker Hub plus somewhere to
-push your own builds is two deployments, not one with two configs.
+Registry protocol and operations, with writable image storage, pull-through caching,
+runtime configuration and artifact retention kept apart — a cache is not
+interchangeable with a private push destination. Routes by task to references on
+roles and naming, TLS and auth, reverse proxies and uploads, storage, the per-client
+mirror wiring (Docker and BuildKit, containerd hosts, K3s/RKE2), manifests and
+indexes, retention and garbage collection, backup and migration, and OCI referrers.
 
-Covers wiring containerd to it (per-host resolution, not Docker's
-`--registry-mirror`), the trap that the upstream default endpoint is **always tried
-last** — so an unreachable mirror does not fail a pull, it quietly goes out to the
-internet — naming across the three access paths that are not interchangeable, why a
-dotless registry name is read as a Docker Hub namespace, and the per-client rules
-for plain HTTP.
+A successful pull does not prove the mirror was used: test the cold-cache, the
+warm-cache and the upstream-denied path from the client that actually pulls. A login
+in one client authenticates no other runtime, and retention is a content-graph
+policy, not a list of old tags. Ships a loopback lab, a secure-pair template (a TLS
+writable registry beside a Hub cache), client config fragments and a read-only
+registry probe.
 
-**Load when** running a registry, wiring containerd to one, or diagnosing pulls that
-bypass the mirror.
+**Load when** running a registry or cache, wiring a client to one, or diagnosing
+pulls that bypass the mirror.
 
 ### [docker-engine-api](docker-engine-api/SKILL.md)
 
-For code that speaks the Engine API over the socket instead of shelling out to
-`docker` — the CLI hides everything a client has to handle. Covers version
-negotiation and what a too-new version does, the response shapes that are not
-errors (204 with no body, 304 for "already in that state"), and the fact that a
-failed build, pull or push is still **HTTP 200** with the failure buried as
-`errorDetail` inside the NDJSON event stream.
+For software that speaks the Engine API directly instead of delegating to the CLI —
+a protocol and client-engineering guide, not an endpoint dump. It starts with the
+contract: record the server's API range and the client's, select a supported
+intersection, and never adopt the daemon maximum because it is advertised.
+Wire-format examples are pinned to Moby 28.5.2 / API 1.51.
 
-The centrepiece is the multiplexed stream: `logs`, `attach` and `exec/start`
-return 8-byte-framed data for every container created **without** a TTY, and raw
-text with one — so hand-testing interactively shows clean output while the shipped
-client emits header bytes into real callers' logs. Also filters (a JSON map of
-string to array of *string*; a wrong shape returns an unfiltered list, never a
-400), `X-Registry-Auth` needing its base64 padding, `X-Registry-Config` for
-builds, and where Podman's compat socket stops being Docker.
+Routes to references on transport and discovery, request shapes and filters,
+container lifecycle, multiplexed output and hijacked attach/exec, progress streams
+that report false success, registry auth, events and stats, archives, prune, and
+Podman compatibility. The client invariants: keep transport errors, endpoint status,
+streamed operation errors and exit status apart; parse non-TTY frame headers across
+arbitrary network boundaries; a malformed filter is not a safe deletion guard. Ships
+a Python helper package — version negotiation, padded registry auth, bounded
+multiplex and NDJSON parsers, tests, a read-only socket probe.
 
-**Load when** writing or debugging an Engine API client, probing the socket with
-`curl`, or chasing garbled log output, a 400 on push, or filters that match
-nothing.
+**Load when** writing or debugging an Engine API client, or chasing garbled log
+output, a pull that falsely succeeds, or filters that match nothing.
 
 ## Kubernetes
 
@@ -136,20 +142,79 @@ missing from node capacity.
 
 ### [rex](rex/SKILL.md)
 
-Rex is a Perl automation framework driven by a `Rexfile`. The skill exists mostly
-for one trap: `set connection => 'OpenSSH'` makes every file operation call
-`Rex::get_sftp()`, so on a host without an SFTP subsystem it crashes with a
-misleading `Can't call method "stat" on an undefined value`. The fix is the LibSSH
-backend, which does file operations over exec channels instead.
+Authoring, reviewing, debugging and safely operating Perl Rex automation. The
+researched baseline is Rex 1.16.1, with source observations pinned in
+`SOURCE_LOCK.json`.
 
-Includes a table of which `Rex::Commands` actually need SFTP, the `Rex::Interface`
-architecture that explains why, the gather and run command surfaces, and Getty's own
-Rex distributions on CPAN (`Rex-LibSSH`, `Rex-GPU`, `Rex-Rancher`). Closes with ten
-gotchas — among them that `<> line N` in an error message is Perl's `$.` tracker and
-not a source line, and that a Rex task name silently overwrites an imported function
-of the same name.
+Opens with ten safeguards. A Rexfile is executable Perl — listing tasks or compiling
+it can already load code. No host can mean local execution, so locality has to be
+proven. A successful `run 'true'` does not validate filesystem access, an argument
+array is shell-quoted rather than shell-free, and `rex -c` enables caching, not a
+check mode. Then a task table into references on the execution model, tasks,
+inventory and CMDB, transports (capability matrix, OpenSSH, LibSSH, the SFTP-less
+procedure, sudo), run status and quoting, idempotency, resources, testing, module and
+backend authoring, and the optional `Rex::GPU` and `Rex::Rancher` integrations.
 
-**Load when** writing or debugging a Rexfile or Rex task.
+Ships examples, a heuristic Rexfile audit script, an offline module inventory, and
+change-brief and bug-report templates. The package also carries its own validation
+record, and the superseded original skill under `audit/` — for audit only, not as
+guidance.
+
+**Load when** writing, reviewing or debugging a Rexfile or Rex task, or choosing a
+Rex transport.
+
+## Hosting
+
+### [hetzner-operator](hetzner-operator/SKILL.md)
+
+Planning, provisioning, connecting, securing and troubleshooting Hetzner
+infrastructure across Console/Cloud, Robot (dedicated and auction servers) and
+managed hosting. The method: model the system, then describe public ingress, operator
+access, outbound access and server-to-server traffic separately — each with source,
+destination, port, authentication, forward path and return path. Inspect before
+changing, and verify with a real application path and a denied one.
+
+It guards against assumptions carried over from other clouds. Nothing like an
+AWS-style VPC, a managed NAT gateway, a managed database or managed Kubernetes exists
+merely because a design needs one. A private Cloud Network is a routed underlay, a
+Load Balancer supplies neither general egress nor WireGuard UDP transport, and a
+private subnet is not a security boundary.
+
+A task table routes into 28 references: Cloud networking, public IPs, private egress
+and NAT, Load Balancers, VPN architecture, vSwitch, firewalls, storage, database
+recovery, automation and IaC, DNS, Kubernetes, cost, troubleshooting, and community
+patterns kept apart from documented behaviour. Ships a WireGuard site-to-site runbook
+with hub, office and admin config examples, an nftables policy and an offline
+topology validator. Research snapshot 2026-10-04; prices, limits and API facts are to
+be rechecked live.
+
+**Load when** designing, building or debugging anything on Hetzner — Cloud, Robot,
+private networks, VPN access, storage or cost.
+
+## TLS and PKI
+
+### [ssl-tls-pki](ssl-tls-pki/SKILL.md)
+
+Designing, deploying, auditing, operating and debugging TLS and the PKI behind it:
+public Web PKI, private certificate authorities, ACME and Let's Encrypt, mTLS,
+chains, trust stores, and TLS clients across operating systems and runtimes. "SSL"
+is taken as the user's umbrella term, never as a request to enable obsolete
+protocols.
+
+Modular: `SKILL.md` holds an eight-step workflow from inventory to report and routes
+through `CONTENTS.md` into the branches — foundations, public PKI, ACME, private PKI,
+deployment, clients, debugging, operations. Draw every TLS hop. A trusted client
+certificate is not an authorization policy. A failure is never fixed by disabling
+verification or by installing a root obtained from an unauthenticated peer. Test with
+the real consuming client and check the live certificate at every termination point,
+not a file or a controller status.
+
+Ships a local lab, certificate inspection tooling, config examples, a claim ledger
+with its sources and a validation report. Snapshot 2026-10-10, with a policy calendar
+for the claims that carry a date.
+
+**Load when** setting up or debugging HTTPS, certificates, ACME renewal, a private CA
+or mTLS, or analysing a TLS incident.
 
 ## Inference serving
 

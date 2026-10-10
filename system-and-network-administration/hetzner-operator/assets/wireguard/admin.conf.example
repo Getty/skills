@@ -1,0 +1,11 @@
+# EXAMPLE ONLY. Split tunnel: this does not route the user's Internet traffic.
+[Interface]
+Address = 10.77.0.10/32
+PrivateKey = REPLACE_WITH_ADMIN_PRIVATE_KEY
+MTU = 1380
+
+[Peer]
+PublicKey = REPLACE_WITH_HUB_PUBLIC_KEY
+Endpoint = 203.0.113.10:51820
+AllowedIPs = 10.70.0.0/16, 10.77.0.1/32
+PersistentKeepalive = 25

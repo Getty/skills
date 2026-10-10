@@ -1,0 +1,19 @@
+# EXAMPLE ONLY. Install a reviewed copy as /etc/wireguard/wg0.conf, mode 0600.
+# Never commit real private keys. See references/wireguard-site-to-site.md.
+[Interface]
+Address = 10.77.0.1/24
+ListenPort = 51820
+PrivateKey = REPLACE_WITH_HUB_PRIVATE_KEY
+# Starting value, not a throughput optimum; measure the complete underlay.
+MTU = 1380
+
+# Office connector: its tunnel address plus the LAN it may originate.
+[Peer]
+PublicKey = REPLACE_WITH_OFFICE_PUBLIC_KEY
+AllowedIPs = 10.77.0.2/32, 192.168.50.0/24
+# No Endpoint needed here when the office initiates to the public hub.
+
+# One administrator; use an individual key and address for every person/device.
+[Peer]
+PublicKey = REPLACE_WITH_ADMIN_PUBLIC_KEY
+AllowedIPs = 10.77.0.10/32

@@ -1,0 +1,58 @@
+{
+  "network_cidr": "10.70.0.0/16",
+  "cloud_subnets": [
+    "10.70.1.0/24"
+  ],
+  "vpn_gateway_ip": "10.70.1.2",
+  "vpn_cidr": "10.77.0.0/24",
+  "site_cidrs": [
+    "192.168.50.0/24"
+  ],
+  "other_cidrs": [
+    "172.17.0.0/16",
+    "10.244.0.0/16",
+    "10.96.0.0/12"
+  ],
+  "private_servers": [
+    {
+      "name": "app",
+      "ip": "10.70.1.10"
+    },
+    {
+      "name": "db",
+      "ip": "10.70.1.11"
+    }
+  ],
+  "provider_routes": [
+    {
+      "destination": "10.77.0.0/24",
+      "gateway": "10.70.1.2"
+    },
+    {
+      "destination": "192.168.50.0/24",
+      "gateway": "10.70.1.2"
+    }
+  ],
+  "guest_routes": [
+    {
+      "server": "app",
+      "destination": "10.77.0.0/24",
+      "via": "10.70.0.1"
+    },
+    {
+      "server": "app",
+      "destination": "192.168.50.0/24",
+      "via": "10.70.0.1"
+    },
+    {
+      "server": "db",
+      "destination": "10.77.0.0/24",
+      "via": "10.70.0.1"
+    },
+    {
+      "server": "db",
+      "destination": "192.168.50.0/24",
+      "via": "10.70.0.1"
+    }
+  ]
+}

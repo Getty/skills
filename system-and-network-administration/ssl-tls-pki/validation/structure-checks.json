@@ -1,0 +1,90 @@
+{
+  "summary": {
+    "PASS": 16,
+    "FAIL": 0,
+    "SKIP": 0
+  },
+  "checks": [
+    {
+      "check": "Required package entry points",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "No symlinks in package",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "No private-key or compiled-binary artifacts",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Slim SKILL.md with metadata",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Relative Markdown file links resolve (fragments not validated)",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Markdown fenced code blocks are balanced",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Source registry IDs, URLs and review snapshot",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Every topical reference has registered primary sources",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "JSON syntax",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Python source syntax (no bytecode generation)",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Shell hook syntax only",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Node.js probe syntax only",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Perl probe syntax only",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "YAML parse and local staging consistency (NOT CRD validation)",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Bundled executed-test report is internally consistent",
+      "status": "PASS",
+      "details": []
+    },
+    {
+      "check": "Bundled executed-test report has no failures",
+      "status": "PASS",
+      "details": []
+    }
+  ],
+  "limits": "Structural/syntax checks, not external-link freshness, full Markdown anchor validation, production deployment or certificate security certification. Integrity is executed separately against final SHA256SUMS to avoid a self-referential checksum report."
+}

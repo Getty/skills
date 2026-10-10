@@ -44,11 +44,13 @@
     "./system-and-network-administration/docker",
     "./system-and-network-administration/docker-engine-api",
     "./system-and-network-administration/docker-registry",
+    "./system-and-network-administration/hetzner-operator",
     "./system-and-network-administration/kubernetes-cilium-concepts",
     "./system-and-network-administration/kubernetes-concepts",
     "./system-and-network-administration/kubernetes-gpu",
     "./system-and-network-administration/kubernetes-rke2",
     "./system-and-network-administration/rex",
+    "./system-and-network-administration/ssl-tls-pki",
     "./system-and-network-administration/vllm-operator"
   ]
 }

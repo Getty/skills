@@ -1,0 +1,933 @@
+{
+  "snapshot": "2026-10-10",
+  "scope": "Primary-source provenance for this package, not an exhaustive PKI bibliography or archived copy of each external document.",
+  "sources": [
+    {
+      "id": "RFC5280",
+      "title": "X.509 certificates and CRLs / PKIX",
+      "url": "https://www.rfc-editor.org/rfc/rfc5280.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9525",
+      "title": "Service identity verification in TLS",
+      "url": "https://www.rfc-editor.org/rfc/rfc9525.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9325",
+      "title": "Recommendations for secure use of TLS and DTLS",
+      "url": "https://www.rfc-editor.org/rfc/rfc9325.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9846",
+      "title": "TLS 1.3 \u2014 July 2026 revision",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9846",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9851",
+      "title": "TLS 1.2 feature freeze",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9851",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9852",
+      "title": "New protocols using TLS must require TLS 1.3",
+      "url": "https://www.rfc-editor.org/rfc/rfc9852.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC10015",
+      "title": "Deprecating obsolete key exchange methods in TLS 1.2 and DTLS 1.2",
+      "url": "https://datatracker.ietf.org/doc/html/rfc10015",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9849",
+      "title": "TLS Encrypted Client Hello",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9849",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9850",
+      "title": "The SSLKEYLOGFILE format",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9850",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8996",
+      "title": "Deprecating TLS 1.0 and TLS 1.1",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8996",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC6066",
+      "title": "TLS extensions, including SNI",
+      "url": "https://datatracker.ietf.org/doc/html/rfc6066",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC7301",
+      "title": "Application-Layer Protocol Negotiation",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7301",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8555",
+      "title": "Automated Certificate Management Environment",
+      "url": "https://www.rfc-editor.org/rfc/rfc8555.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9773",
+      "title": "ACME Renewal Information",
+      "url": "https://www.rfc-editor.org/rfc/rfc9773.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8737",
+      "title": "ACME TLS-ALPN challenge",
+      "url": "https://www.rfc-editor.org/rfc/rfc8737.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8738",
+      "title": "ACME IP identifier validation",
+      "url": "https://www.rfc-editor.org/rfc/rfc8738.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8659",
+      "title": "DNS Certification Authority Authorization",
+      "url": "https://www.rfc-editor.org/rfc/rfc8659.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8657",
+      "title": "CAA account and validation-method binding",
+      "url": "https://www.rfc-editor.org/rfc/rfc8657.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC6960",
+      "title": "Online Certificate Status Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc6960.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9162",
+      "title": "Certificate Transparency v2 \u2014 Experimental",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9162",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9001",
+      "title": "Using TLS to secure QUIC",
+      "url": "https://www.rfc-editor.org/rfc/rfc9001.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9147",
+      "title": "DTLS 1.3",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9147",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC7250",
+      "title": "Raw public keys in TLS and DTLS",
+      "url": "https://www.rfc-editor.org/rfc/rfc7250.html",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8314",
+      "title": "TLS for email submission and access",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8314",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8461",
+      "title": "SMTP MTA Strict Transport Security",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8461",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC8460",
+      "title": "SMTP TLS reporting",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8460",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC7672",
+      "title": "SMTP security with DANE",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7672",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC9190",
+      "title": "EAP-TLS 1.3",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9190",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC7030",
+      "title": "Enrollment over Secure Transport",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7030",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RFC6797",
+      "title": "HTTP Strict Transport Security",
+      "url": "https://datatracker.ietf.org/doc/html/rfc6797",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CABF-BR",
+      "title": "CA/Browser Forum TLS Baseline Requirements \u2014 current HTML",
+      "url": "https://cabforum.org/working-groups/server/baseline-requirements/requirements/",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Living policy; preserve issue-date and future-effective-date distinctions."
+    },
+    {
+      "id": "CABF-SC081",
+      "title": "Ballot SC081v3: validity and validation-data reuse schedule",
+      "url": "https://cabforum.org/2025/04/11/ballot-sc081v3-introduce-schedule-of-reducing-validity-and-data-reuse-periods/",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CHROME-ROOT",
+      "title": "Chrome Root Program policy",
+      "url": "https://googlechrome.github.io/chromerootprogram/crp/policy/",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Version 1.8 reviewed; root, subordinate and subscriber rules have different dates."
+    },
+    {
+      "id": "MOZILLA-ROOT",
+      "title": "Mozilla Root Store Policy",
+      "url": "https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/policy/",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Version 3.1 effective 2026-07-01."
+    },
+    {
+      "id": "CCADB",
+      "title": "Common CA Database",
+      "url": "https://www.ccadb.org/",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Overview only; not an exhaustive audit of database contents."
+    },
+    {
+      "id": "APPLE-ROOT",
+      "title": "Apple trusted root certificate stores",
+      "url": "https://support.apple.com/en-us/103272",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "MS-ROOT",
+      "title": "Microsoft Trusted Root Program requirements",
+      "url": "https://learn.microsoft.com/en-us/security/trusted-root/program-requirements",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CHROME-CT",
+      "title": "Chrome Certificate Transparency policy",
+      "url": "https://googlechrome.github.io/CertificateTransparency/ct_policy.html",
+      "kind": "policy",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-PROFILES",
+      "title": "Let\u2019s Encrypt certificate profiles",
+      "url": "https://letsencrypt.org/docs/profiles/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CHALLENGES",
+      "title": "Let\u2019s Encrypt challenge types",
+      "url": "https://letsencrypt.org/docs/challenge-types/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-64D",
+      "title": "64-day certificates: announcement on 2026-10-07",
+      "url": "https://letsencrypt.org/2026/10/07/64-day-certs",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-45D",
+      "title": "Let\u2019s Encrypt planned 45-day default lifetimes",
+      "url": "https://letsencrypt.org/2025/12/02/from-90-to-45",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-IP",
+      "title": "Six-day and IP certificates generally available",
+      "url": "https://letsencrypt.org/2026/01/15/6day-and-ip-general-availability",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CLIENTAUTH",
+      "title": "End of TLS client-authentication certificate support",
+      "url": "https://letsencrypt.org/2025/05/14/ending-tls-client-authentication",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-OCSP",
+      "title": "Let\u2019s Encrypt OCSP end of life",
+      "url": "https://letsencrypt.org/2025/08/06/ocsp-service-has-reached-end-of-life",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-PERSIST",
+      "title": "DNS-PERSIST-01 announcement",
+      "url": "https://letsencrypt.org/2026/02/18/dns-persist-01",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-LIMITS",
+      "title": "Let\u2019s Encrypt rate limits",
+      "url": "https://letsencrypt.org/docs/rate-limits/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-STAGING",
+      "title": "Let\u2019s Encrypt staging environment",
+      "url": "https://letsencrypt.org/docs/staging-environment/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CHAINS",
+      "title": "Let\u2019s Encrypt roots and intermediates",
+      "url": "https://letsencrypt.org/certificates/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-IPV6",
+      "title": "Let\u2019s Encrypt IPv6 validation behavior",
+      "url": "https://letsencrypt.org/docs/ipv6-support/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CAA",
+      "title": "Let\u2019s Encrypt CAA processing",
+      "url": "https://letsencrypt.org/docs/caa/",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-SCLIENT",
+      "title": "OpenSSL 3.5 s_client",
+      "url": "https://docs.openssl.org/3.5/man1/openssl-s_client/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-VERIFY",
+      "title": "OpenSSL 3.5 verification options",
+      "url": "https://docs.openssl.org/3.5/man1/openssl-verification-options/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-X509",
+      "title": "OpenSSL 3.5 x509",
+      "url": "https://docs.openssl.org/3.5/man1/openssl-x509/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-REQ",
+      "title": "OpenSSL 3.5 req",
+      "url": "https://docs.openssl.org/3.5/man1/openssl-req/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-P12",
+      "title": "OpenSSL 3.5 pkcs12",
+      "url": "https://docs.openssl.org/3.5/man1/openssl-pkcs12/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-HOST",
+      "title": "OpenSSL 3.5 SSL_set1_host",
+      "url": "https://docs.openssl.org/3.5/man3/SSL_set1_host/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENSSL-MIGRATION",
+      "title": "OpenSSL 3.5 migration guide",
+      "url": "https://docs.openssl.org/3.5/man7/ossl-guide-migration/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CURL-TRUST",
+      "title": "curl TLS certificate verification",
+      "url": "https://curl.se/docs/sslcerts.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CURL-MAN",
+      "title": "curl command-line manual",
+      "url": "https://curl.se/docs/manpage.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "PY-SSL",
+      "title": "Python ssl library",
+      "url": "https://docs.python.org/3/library/ssl.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Living documentation; local lab uses Python 3.13.5, not every newer option."
+    },
+    {
+      "id": "REQUESTS",
+      "title": "Requests advanced usage",
+      "url": "https://requests.readthedocs.io/en/latest/user/advanced/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "NODE-TLS",
+      "title": "Node.js TLS API",
+      "url": "https://nodejs.org/api/tls.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "NODE-CLI",
+      "title": "Node.js CLI and trust-store environment",
+      "url": "https://nodejs.org/api/cli.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "GO-TLS",
+      "title": "Go crypto/tls",
+      "url": "https://pkg.go.dev/crypto/tls",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "GO-X509",
+      "title": "Go crypto/x509",
+      "url": "https://pkg.go.dev/crypto/x509",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "JAVA-JSSE",
+      "title": "Java 25 JSSE reference guide",
+      "url": "https://docs.oracle.com/en/java/javase/25/security/java-secure-socket-extension-jsse-reference-guide.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "DOTNET-SSL",
+      "title": "Microsoft SslStream best practices",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/extensions/sslstream-best-practices",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "SCHANNEL",
+      "title": "TLS cipher suites in Windows 11 / Schannel",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-11",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "ANDROID",
+      "title": "Android Network Security Configuration",
+      "url": "https://developer.android.com/privacy-and-security/security-config",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "FIREFOX",
+      "title": "Firefox enterprise certificate authorities",
+      "url": "https://support.mozilla.org/en-US/kb/setting-certificate-authorities-firefox",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "APPLE-PROFILE",
+      "title": "Apple manually installed certificate profiles",
+      "url": "https://support.apple.com/en-us/102390",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "PERL-SSL",
+      "title": "IO::Socket::SSL author-maintained POD",
+      "url": "https://metacpan.org/pod/IO::Socket::SSL",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RUSTLS",
+      "title": "rustls crate documentation",
+      "url": "https://docs.rs/rustls/latest/rustls/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "WIRESHARK",
+      "title": "Wireshark TLS decryption and troubleshooting",
+      "url": "https://wiki.wireshark.org/TLS",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "DEBIAN-CA",
+      "title": "Debian update-ca-certificates manual",
+      "url": "https://manpages.debian.org/bookworm/ca-certificates/update-ca-certificates.8.en.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "RHEL-CA",
+      "title": "RHEL 9 shared system certificate storage",
+      "url": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/using-shared-system-certificates_securing-networks",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENBAO-PKI",
+      "title": "OpenBao PKI secrets engine",
+      "url": "https://openbao.org/docs/secrets/pki/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "OPENBAO-CONSIDER",
+      "title": "OpenBao PKI design considerations",
+      "url": "https://openbao.org/docs/secrets/pki/considerations/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "STEP-CA",
+      "title": "Smallstep step-ca open-source overview",
+      "url": "https://smallstep.com/docs/step-ca/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "SPIFFE",
+      "title": "SPIFFE concepts, identities and workload API",
+      "url": "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "NGINX-SSL",
+      "title": "NGINX HTTP SSL module",
+      "url": "https://nginx.org/en/docs/http/ngx_http_ssl_module.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "NGINX-PROXY",
+      "title": "NGINX HTTP proxy module",
+      "url": "https://nginx.org/en/docs/http/ngx_http_proxy_module.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CADDY",
+      "title": "Caddy automatic HTTPS",
+      "url": "https://caddyserver.com/docs/automatic-https",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "APACHE",
+      "title": "Apache HTTP Server mod_ssl",
+      "url": "https://httpd.apache.org/docs/2.4/mod/mod_ssl.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "PG-CLIENT",
+      "title": "PostgreSQL 18 libpq TLS",
+      "url": "https://www.postgresql.org/docs/18/libpq-ssl.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "PG-SERVER",
+      "title": "PostgreSQL 18 server TLS",
+      "url": "https://www.postgresql.org/docs/18/ssl-tcp.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "DOCKER-REGISTRY",
+      "title": "Docker registry client certificates",
+      "url": "https://docs.docker.com/engine/security/certificates/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "DOCKER-CA",
+      "title": "Docker host and container CA certificates",
+      "url": "https://docs.docker.com/engine/network/ca-certs/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CM-CERT",
+      "title": "cert-manager Certificate resources and renewal",
+      "url": "https://cert-manager.io/docs/usage/certificate/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CM-ACME",
+      "title": "cert-manager ACME issuers",
+      "url": "https://cert-manager.io/docs/configuration/acme/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CM-DNS",
+      "title": "cert-manager DNS01 and delegation",
+      "url": "https://cert-manager.io/docs/configuration/acme/dns01/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CM-TRUST",
+      "title": "cert-manager trust-manager",
+      "url": "https://cert-manager.io/docs/trust/trust-manager/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "CERTBOT",
+      "title": "Certbot user guide",
+      "url": "https://eff-certbot.readthedocs.io/en/stable/using.html",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Version 5.8.0 documentation reviewed; installed client flags must be checked."
+    },
+    {
+      "id": "CRYPTO-X509",
+      "title": "cryptography X.509 reference",
+      "url": "https://cryptography.io/en/latest/x509/reference/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Living documentation; lab uses cryptography 46.0.4."
+    },
+    {
+      "id": "NIST-PQC",
+      "title": "NIST post-quantum cryptography project",
+      "url": "https://csrc.nist.gov/projects/post-quantum-cryptography",
+      "kind": "standard",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CT-STATIC",
+      "title": "Let\u2019s Encrypt transition from RFC 6962 logs to Static CT APIs",
+      "url": "https://letsencrypt.org/2025/08/14/rfc-6962-logs-eol",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "LE-CERTBOT-IP",
+      "title": "Certbot support for short-lived and IP certificates",
+      "url": "https://letsencrypt.org/2026/03/11/shorter-certs-certbot",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "March announcement; check installed plugin capabilities separately."
+    },
+    {
+      "id": "LE-PQC",
+      "title": "Let\u2019s Encrypt plans for Merkle Tree Certificates",
+      "url": "https://letsencrypt.org/2026/06/03/pq-certs",
+      "kind": "service",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Plan/research direction, not a statement of general production availability."
+    },
+    {
+      "id": "LE-PEBBLE",
+      "title": "Pebble as an ACME development test server",
+      "url": "https://letsencrypt.org/2025/04/30/pebbleacmeimplementation",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    },
+    {
+      "id": "SSLYZE",
+      "title": "SSLyze maintained documentation",
+      "url": "https://nabla-c0d3.github.io/sslyze/documentation/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Redirected to the maintainer site blog.adqt.fr; documentation version 6.3.0."
+    },
+    {
+      "id": "ZLINT",
+      "title": "ZLint project documentation",
+      "url": "https://github.com/zmap/zlint",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": "Lint coverage is version/policy dependent; not a path validator."
+    },
+    {
+      "id": "SSLLABS",
+      "title": "Qualys SSL Labs API/project documentation",
+      "url": "https://www.ssllabs.com/projects/ssllabs-apis/",
+      "kind": "implementation",
+      "reviewed_on": "2026-10-10",
+      "review_method": "Primary-source HTML documentation reviewed; no live production integration inferred.",
+      "note": ""
+    }
+  ]
+}
