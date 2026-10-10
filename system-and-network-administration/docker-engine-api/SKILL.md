@@ -1,155 +1,49 @@
 ---
 name: docker-engine-api
-description: "Use when talking to the Docker Engine HTTP API directly — a client over the socket, curl --unix-socket, /containers, /build, /exec, /events, garbled logs, or Podman compatibility."
+description: "Use when implementing, testing, or debugging a Docker Engine HTTP API client: socket/remote transport, API negotiation, container lifecycle, attach/exec/log framing, progress streams, image auth, events/stats, resource policy, archives, retries, or Podman compatibility. Load task-specific references rather than the entire API corpus."
 ---
 
 # Docker Engine HTTP API
 
-For code that speaks the API over a socket rather than shelling out to `docker`.
-The CLI hides everything below; a client has to handle it. Endpoint lists live
-in the daemon's own reference — what follows is what the reference states once
-and clients get wrong repeatedly.
+Use this skill when software speaks directly to the Engine API instead of delegating the operation to Docker CLI/Compose. Documentation review: **2026-10-09**. This is a protocol and client-engineering guide, not an exhaustive endpoint dump or a replacement for the selected API schema.
 
-## Versioning
+## Acquire the contract first
 
-Every path is prefixed `/v1.NN` (`/v1.47/containers/json`). Unversioned paths
-work and mean "whatever the daemon defaults to" — fine for `/version` and
-`/_ping`, wrong for anything a client should pin.
+Read the [compatibility policy](references/compatibility-policy.md) and [version negotiation](references/transport/version-negotiation.md). Record target implementation, endpoint/transport, server API range, the client's implemented API range, and required features. Select a supported intersection; never adopt the daemon maximum merely because it is advertised.
 
-`GET /version` answers `ApiVersion` (newest supported) and `MinAPIVersion`
-(oldest). Negotiate by requesting `/version` unprefixed, then using
-`ApiVersion` for everything else. Asking for a version above `ApiVersion` fails
-with 400 `client version 1.99 is too new`; below `MinAPIVersion` fails the same
-way. A feature added in a later version is simply absent — the daemon returns
-404 or silently ignores the query parameter, so a client that assumes a
-parameter took effect can be wrong without any error.
+Pinned Moby **28.5.2 / API 1.51** sources support reproducible wire-format examples. They are not a latest-version claim. For additional endpoints or fields, fetch the exact target release's official schema and gate the implementation explicitly.
 
-## Response shapes
+## Load by task
 
-- **204 No Content** is the success case for `start`, `stop`, `kill`, `pause`,
-  `remove` and friends. There is no body to decode.
-- **304 Not Modified** means the container was already in the requested state —
-  starting a running container, stopping a stopped one. It is *not* an error,
-  and a client that only special-cases `>= 400` will hand back an empty result
-  here. Decide explicitly whether that is success.
-- **Errors** carry `{"message": "..."}` as JSON with a 4xx/5xx status. The
-  message is human text; do not parse it for control flow.
-- **`/build`, `/images/create` (pull) and `/images/{name}/push` stream
-  newline-delimited JSON** — one object per line: `{"stream":…}`,
-  `{"status":…,"progress":…}`, `{"aux":{"ID":…}}`, `{"errorDetail":{…}}`.
+| Task or symptom | Required reference | Related reference |
+|---|---|---|
+| Wrong daemon, socket, TLS, or remote discovery | [Transport and discovery](references/transport/discovery-and-connections.md) | [Security](references/clients/security-and-untrusted-input.md) |
+| Query encoding, filters, paths, or JSON body types | [Request shapes](references/http/request-shapes-and-encoding.md) | [Status and retries](references/http/status-errors-and-retries.md) |
+| Create/start/stop/delete automation | [Lifecycle and ownership](references/containers/lifecycle-and-ownership.md) | [Create/resource policy](references/containers/create-and-resource-policy.md) |
+| Garbage bytes in logs or truncated output | [Multiplexed output](references/streams/multiplexed-output.md) | [Hijack/attach/exec](references/streams/hijack-attach-and-exec.md) |
+| Interactive execution or lost exit status | [Hijack/attach/exec](references/streams/hijack-attach-and-exec.md) | [Lifecycle](references/containers/lifecycle-and-ownership.md) |
+| Pull/push/build reports false success | [Progress/completion](references/streams/json-progress-and-completion.md) | [Registry auth](references/images/pull-push-and-registry-auth.md) |
+| Reimplementing a Docker build | [Build context/BuildKit boundary](references/images/build-context-and-buildkit-boundary.md) | [SDK selection](references/clients/sdk-selection-and-language-notes.md) |
+| Dashboard, watcher, or resource accounting | [Events/reconciliation](references/observability/events-and-reconciliation.md) | [Stats](references/observability/stats-and-accounting.md) |
+| Network, volume, or cleanup API | [Resources and prune](references/resources/networks-volumes-and-prune.md) | [Ownership](references/containers/lifecycle-and-ownership.md) |
+| File copy into/out of containers | [Archives](references/resources/archives-and-copy.md) | [Input security](references/clients/security-and-untrusted-input.md) |
+| Compose or Swarm through HTTP | [Control-plane boundaries](references/resources/swarm-and-compose-boundaries.md) | [SDK selection](references/clients/sdk-selection-and-language-notes.md) |
+| Podman or another compatible engine | [Compatibility testing](references/clients/podman-and-other-engines.md) | [Conformance](references/testing-and-conformance.md) |
 
-**A failed build, pull or push is still HTTP 200.** The failure arrives as an
-`errorDetail` object inside the stream, after the daemon has already committed
-to a successful status line. Any client that treats HTTP status as the verdict
-reports a broken build as a success. Scan the events.
+## Client invariants
 
-## The multiplexed stream — the one that looks like it works
+Treat the Docker socket as a privileged control plane. Keep endpoint selection explicit; do not silently fall back to another daemon. Do not expose raw Engine access to untrusted callers. A policy must inspect mutation payloads, mounts, privileges, resource limits, images, and ownership—not merely HTTP verbs.
 
-`GET /containers/{id}/logs`, `/containers/{id}/attach` and
-`POST /exec/{id}/start` return **frames, not text**, whenever the container was
-created **without** a TTY:
+Separate HTTP transport errors, endpoint statuses, streamed operation errors, and application exit status. Handle empty successful bodies without JSON decoding. Drain and validate finite operation streams before reporting completion. Reconcile after an ambiguous mutation instead of retrying it blindly.
 
-```
-[STREAM_TYPE, 0, 0, 0, SIZE1, SIZE2, SIZE3, SIZE4][payload of SIZE bytes]
-```
+For non-TTY streams, parse binary headers across arbitrary network boundaries; for TTY streams, preserve raw combined output. Put bounds on frames, JSON records, queues, and timeouts. Keep long-lived stream connections separate from ordinary requests.
 
-`STREAM_TYPE` is 0 stdin, 1 stdout, 2 stderr. `SIZE` is a big-endian uint32.
-Frames repeat until the stream ends. Measured against a container running
-`echo OUT; echo ERR 1>&2`:
+Validate endpoint-specific filters and version-gated request fields. Malformed filters are not a safe deletion guard. Inspect actual created resource settings where policy enforcement matters. Never log credentials, registry auth headers, full container environments, or signed storage URLs.
 
-```
-Tty=0:  01 00 00 00 00 00 00 04  "OUT\n"   02 00 00 00 00 00 00 04  "ERR\n"
-Tty=1:  "OUT\r\n"  "ERR\r\n"
-```
+## Implement and prove
 
-**With `Tty: true` the stream is raw** — no headers, and newlines arrive as
-`\r\n` because a PTY is involved. That is the trap: a developer testing by hand
-reaches for an interactive container, sees clean text, and ships a client that
-emits header bytes into the caller's log output for every non-TTY container —
-which is every container a program actually runs. Demultiplex by reading eight
-bytes, taking the length, reading that many payload bytes, repeating. Go clients
-get this from `stdcopy.StdCopy`; everyone else writes it.
+Read [testing and conformance](references/testing-and-conformance.md) before claiming support. The [Python helper package](examples/python/README.md) supplies numeric version-range negotiation, padded registry auth encoding, bounded multiplex/NDJSON parsers, unit tests, and an explicitly read-only Unix-socket probe. It is not a complete SDK, Windows transport, TLS/SSH client, or hijack implementation.
 
-`attach` and `exec/start` additionally accept `Upgrade: tcp` +
-`Connection: Upgrade`, to which the daemon answers **101 Switching Protocols**
-and hands over a bidirectional connection. Without those headers it answers 200
-and streams the same frames one-way.
+For client code, state the supported contract, request/response model, streaming behavior, retry/cancellation semantics, security restrictions, and tests. Separate unit/static validation from integration tests against actual engine versions.
 
-## Filters are JSON, and the shape is specific
-
-`filters` is a query parameter holding a JSON-encoded **map of string to array
-of string** — the values are arrays of *strings*, even for booleans:
-
-```
-?filters={"dangling":["true"],"label":["stage=build"]}     correct
-?filters={"dangling":true}                                 matches nothing
-```
-
-Wrong-shaped filters do not error. The daemon accepts them and returns an
-unfiltered or empty list, so the bug surfaces as "my prune deleted too much" or
-"my list is empty", never as a 400.
-
-Query-string booleans elsewhere are strings: `?all=1` / `?all=true`. Booleans
-in a **JSON request body** must be real JSON booleans — a language that encodes
-`1` where the daemon expects `true` gets a type error from the API.
-
-## Registry auth
-
-`X-Registry-Auth` carries **base64url of a JSON object**, and the padding is
-required — the daemon decodes with Go's `base64.URLEncoding`, not
-`RawURLEncoding`. Stripping `=` produces
-`failed to parse "X-Registry-Auth" header ... unexpected EOF`.
-
-The header is mandatory on **every** push, anonymous included; the anonymous
-form is the encoding of `{}`, which is `e30=` — three characters and one pad,
-the shortest case and the one that proves padding matters. Payload keys:
-`username`, `password`, `serveraddress`, or `identitytoken`.
-
-`/build` uses a different header for the same job: `X-Registry-Config`,
-base64url of a map from registry hostname to auth object, because a build may
-pull from several registries.
-
-## Bodies and paths
-
-`POST /build` is the odd one: the request body is the **tar build context**
-(`Content-Type: application/x-tar`), and every option — `t`, `dockerfile`,
-`buildargs`, `target`, `platform` — rides in the query string. `buildargs` and
-`labels` are themselves JSON-encoded strings inside that query.
-
-Container endpoints accept a name or any unambiguous ID prefix. Image
-references keep their slashes and tags inside the path
-(`/images/myrepo/app:v1/push`) — percent-encoding them breaks the reference.
-Names from `GET /containers/json` arrive with a leading `/`.
-
-`exec` is two calls: `POST /containers/{id}/exec` creates the instance and
-returns an `Id`, `POST /exec/{id}/start` runs it. The exit status comes from
-`GET /exec/{id}/json` afterwards (`ExitCode`), never from the start call.
-
-## Other engines
-
-Podman serves this API on a compat socket — enable with
-`systemctl --user enable --now podman.socket`, reach it at
-`unix://$XDG_RUNTIME_DIR/podman/podman.sock`, and it announces API 1.41.
-Multi-stage builds including `target` pass through unchanged, and the frame
-format above is byte-identical. It is a reimplementation, not Docker: treat
-anything beyond the documented surface — event payload details, healthcheck
-fields, error message text — as unverified until measured against the engine
-you actually target.
-
-Clients differ in how they *find* the daemon: `DOCKER_HOST` is the one
-mechanism all of them honour. Docker contexts
-(`~/.docker/config.json` `currentContext` plus
-`~/.docker/contexts/meta/*/meta.json`) are resolved by the `docker` CLI and
-docker-java but not by most library clients, so "works in the terminal, fails
-in my program" usually means a context the program never read.
-
-## Probing by hand
-
-```bash
-curl --unix-socket /var/run/docker.sock http://localhost/v1.47/containers/json
-curl --unix-socket /var/run/docker.sock -X POST \
-  'http://localhost/v1.47/images/create?fromImage=alpine&tag=3'
-```
-
-`curl` writes the raw stream, frame headers included — that is the fastest way
-to confirm what a client should be seeing before blaming the client.
+Use sibling `docker` for Dockerfile/Compose operation and `docker-registry` for the separate Distribution/OCI API. The [full index](references/INDEX.md) and [sources](references/SOURCES.md) provide deeper navigation.
