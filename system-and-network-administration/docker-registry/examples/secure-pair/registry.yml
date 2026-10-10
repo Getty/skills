@@ -1,0 +1,17 @@
+version: 0.1
+log:
+  level: info
+storage:
+  filesystem:
+    rootdirectory: /var/lib/registry
+  delete:
+    enabled: false
+http:
+  addr: :5443
+  tls:
+    certificate: /tls/registry.crt
+    key: /tls/registry.key
+auth:
+  htpasswd:
+    realm: private-registry
+    path: /auth/registry.htpasswd

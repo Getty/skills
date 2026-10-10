@@ -1,0 +1,23 @@
+name: registry-skill-lab
+services:
+  registry:
+    image: "${REGISTRY_IMAGE:-registry:3.1.2}"
+    command: [serve, /etc/distribution/config.yml]
+    ports:
+      - "127.0.0.1:${REGISTRY_PORT:-15000}:5000"
+    volumes:
+      - type: bind
+        source: ./config.yml
+        target: /etc/distribution/config.yml
+        read_only: true
+        bind:
+          create_host_path: false
+      - registry-data:/var/lib/registry
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    restart: "no"
+volumes:
+  registry-data: {}

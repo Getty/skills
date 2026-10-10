@@ -1,0 +1,64 @@
+# Configuration template: provide certificates, bcrypt htpasswd, and generated secrets.
+name: registry-secure-pair
+services:
+  registry:
+    image: "${REGISTRY_IMAGE:?Set REGISTRY_IMAGE to a reviewed Distribution 3 image}"
+    command: [serve, /etc/distribution/config.yml]
+    ports:
+      - "${BIND_IP:-127.0.0.1}:5443:5443"
+    environment:
+      REGISTRY_HTTP_SECRET: "${REGISTRY_HTTP_SECRET:?Generate a stable per-deployment HTTP secret}"
+    volumes:
+      - type: bind
+        source: ./registry.yml
+        target: /etc/distribution/config.yml
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./tls
+        target: /tls
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./auth
+        target: /auth
+        read_only: true
+        bind: {create_host_path: false}
+      - private-data:/var/lib/registry
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+  hub-cache:
+    image: "${REGISTRY_IMAGE:?Set REGISTRY_IMAGE}"
+    command: [serve, /etc/distribution/config.yml]
+    ports:
+      - "${BIND_IP:-127.0.0.1}:5444:5443"
+    environment:
+      REGISTRY_HTTP_SECRET: "${CACHE_HTTP_SECRET:?Generate a separate stable cache HTTP secret}"
+    volumes:
+      - type: bind
+        source: ./cache.yml
+        target: /etc/distribution/config.yml
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./tls
+        target: /tls
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ./auth
+        target: /auth
+        read_only: true
+        bind: {create_host_path: false}
+      - cache-data:/var/lib/registry
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+volumes:
+  private-data: {}
+  cache-data: {}

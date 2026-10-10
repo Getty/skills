@@ -1,0 +1,9 @@
+# K3s/RKE2 source configuration; restart affected node services after review.
+mirrors:
+  docker.io:
+    endpoint:
+      - "https://hub-cache.example.com"
+configs:
+  "hub-cache.example.com":
+    tls:
+      ca_file: /etc/rancher/registry-cache-ca.crt

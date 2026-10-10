@@ -1,0 +1,20 @@
+version: 0.1
+log:
+  level: info
+storage:
+  filesystem:
+    rootdirectory: /var/lib/registry
+  delete:
+    enabled: true
+proxy:
+  remoteurl: https://registry-1.docker.io
+  ttl: 168h
+http:
+  addr: :5443
+  tls:
+    certificate: /tls/cache.crt
+    key: /tls/cache.key
+auth:
+  htpasswd:
+    realm: hub-cache
+    path: /auth/cache.htpasswd

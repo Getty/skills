@@ -1,0 +1,6 @@
+# Install under certs.d/docker.io/hosts.toml for the appropriate runtime.
+# This example ALLOWS upstream fallback.
+server = "https://registry-1.docker.io"
+[host."https://hub-cache.example.com"]
+  capabilities = ["pull", "resolve"]
+  ca = "/etc/containerd/certs.d/docker.io/cache-ca.crt"

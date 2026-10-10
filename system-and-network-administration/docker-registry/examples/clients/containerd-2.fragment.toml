@@ -1,0 +1,4 @@
+# Merge into the actual containerd 2.x main configuration, do not overwrite it.
+version = 3
+[plugins."io.containerd.cri.v1.images".registry]
+  config_path = "/etc/containerd/certs.d"

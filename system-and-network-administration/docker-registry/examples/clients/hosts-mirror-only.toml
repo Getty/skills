@@ -1,0 +1,4 @@
+# Explicit mirror-only namespace. Test with the target containerd release.
+server = "https://hub-cache.example.com"
+capabilities = ["pull", "resolve"]
+ca = "/etc/containerd/certs.d/docker.io/cache-ca.crt"

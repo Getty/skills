@@ -1,114 +1,51 @@
 ---
 name: docker-registry
-description: "Use when running a container registry — pull-through cache, in-cluster image store, wiring containerd to it, pulls bypassing the mirror, or a rejected push."
+description: "Use when deploying, securing, debugging, or maintaining container registries and pull-through caches: Distribution/OCI HTTP API, TLS/auth, storage, Docker/BuildKit/containerd/K3s/RKE2 clients, mirror fallback, air gaps, uploads, retention, garbage collection, backup, HA, referrers, or migration. Load the relevant operational references."
 ---
 
-# Running a Container Registry
+# Container Registries and Mirrors
 
-The CNCF `distribution` image (`registry:2`) is two products behind one binary,
-and the single most expensive mistake is assuming it is one.
+A registry protocol and operations skill. Keep writable image storage, pull-through caching, runtime configuration, and artifact retention separate. Documentation review: **2026-10-09**. Begin with [versions and migration](references/versions-and-migration.md); example image versions are dated review snapshots, not permanent recommendations.
 
-## A cache cannot store your images
+## Establish the topology
 
-`proxy.remoteurl` turns a registry into a **pull-through cache**: read-only,
-mirroring exactly **one** upstream. Pushes are rejected, and no second
-`remoteurl` can be added. If you need both a Docker Hub cache and somewhere to
-put your own builds, that is **two deployments**, not one with two configs.
+Identify whether the service is a writable registry, an upstream cache, or part of a broader artifact platform. Record its canonical authority, intended clients, upstreams, network paths, authentication/authorization, TLS trust, backing storage, data criticality, and allowed egress.
 
-```yaml
-# cache — config.yml
-version: 0.1
-storage:
-  filesystem:
-    rootdirectory: /var/lib/registry
-  delete:
-    enabled: true          # required, or the scheduler cannot expire stale blobs
-proxy:
-  remoteurl: https://registry-1.docker.io
-  ttl: 168h
-```
+Read [roles and boundaries](references/architecture/roles-and-boundaries.md) before selecting a deployment. A cache is not interchangeable with a private push destination. Read [image identity and naming](references/architecture/image-identity-and-naming.md) before publishing names into manifests or pipelines.
 
-Use the `filesystem` driver for a cache — correctness and performance both
-depend on it. Credentials in the `proxy` block are optional and dangerous: they
-make every private image that account can reach available through your mirror,
-so a cache with credentials **must** carry authentication of its own.
+## Load by task
 
-The storage registry is the same image with no `proxy` block, plus `delete`
-enabled if anything is ever to be reclaimed. Untagged blobs survive deletion
-until `registry garbage-collect config.yml` runs, and that wants the registry
-read-only or stopped.
-
-## Pointing containerd at it
-
-Not Docker's `--registry-mirror`; containerd resolves per-host. On K3s/RKE2 the
-file is `/etc/rancher/{k3s,rke2}/registries.yaml` and needs a service restart —
-see skill `kubernetes-rke2`. Elsewhere it is `hosts.toml` under
-`config_path` (commonly `/etc/containerd/certs.d/<host>/hosts.toml`):
-
-```toml
-server = "https://registry-1.docker.io"
-
-[host."http://cache.internal:5000"]
-  capabilities = ["pull", "resolve"]
-```
-
-`capabilities` is the honest way to say "cache": omit `push` and a client that
-tries gets a clear error instead of a confusing upstream one.
-
-**The upstream default is always tried last.** A mirror that is merely
-unreachable does not fail the pull — it falls through to the internet, quietly.
-So "the mirror works" is never proven by a successful `crictl pull`; prove it by
-watching egress, or by taking the upstream route away.
-
-## Naming decides more than it looks
-
-A registry's name is part of every image reference, so it is baked into
-manifests, caches and image IDs. Three access paths for the same registry are
-normal, and they are not interchangeable:
-
-| From | Reference | Why |
+| Task or symptom | Required reference | Related reference |
 |---|---|---|
-| in-cluster build | `registry.ns.svc:5000/img:tag` | ClusterIP DNS, no node involved |
-| node / kubelet pull | `localhost:30500/img:tag` | NodePort, resolvable on every node |
-| human and config | `registry.internal/img:tag` | stable name, needs real DNS |
+| New service or version upgrade | [Versions/migration](references/versions-and-migration.md) | [Roles](references/architecture/roles-and-boundaries.md) |
+| Changed files have no effect | [Config readers and reload](references/operations/config-files-and-reload.md) | Client-specific reference below |
+| Certificate, login, permissions, or exposed endpoint | [TLS/private access](references/deployment/tls-and-private-access.md) | [Authentication/authorization](references/protocol/authentication-and-authorization.md) |
+| Proxy, load balancer, large upload, or redirect failure | [Proxy/load balancer](references/deployment/reverse-proxy-and-load-balancer.md) | [Upload protocol](references/protocol/uploads-resume-and-redirects.md) |
+| Storage choice, capacity, or multiple instances | [Storage](references/deployment/storage-and-capacity.md) | [HA/observability](references/maintenance/ha-and-observability.md) |
+| Pull-through cache design | [Cache model](references/mirrors/pull-through-design.md) | [Fallback and air gap](references/mirrors/fallback-and-airgap.md) |
+| Docker or BuildKit ignores the mirror | [Docker/BuildKit clients](references/clients/docker-and-buildkit.md) | [Fallback proof](references/mirrors/fallback-and-airgap.md) |
+| containerd host namespace or trust issue | [containerd hosts](references/clients/containerd-hosts.md) | [Config consumption](references/operations/config-files-and-reload.md) |
+| K3s/RKE2 or kubelet pull failure | [K3s/RKE2/Kubernetes](references/clients/k3s-rke2-and-kubernetes.md) | [Identity and naming](references/architecture/image-identity-and-naming.md) |
+| Missing manifest, wrong architecture, or digest mismatch | [Manifests/blobs/indexes](references/protocol/manifests-blobs-and-indexes.md) | [Discovery/catalog](references/protocol/discovery-pagination-and-catalog.md) |
+| Delete old images or recover disk | [Retention/deletion](references/maintenance/retention-and-deletion.md) | [Garbage collection](references/maintenance/garbage-collection.md) |
+| Disaster recovery or storage migration | [Backup/restore](references/maintenance/backup-restore-and-migration.md) | [Versions](references/versions-and-migration.md) |
+| Promote signatures/SBOMs/multi-platform releases | [OCI referrers/promotion](references/artifacts/oci-referrers-and-promotion.md) | [Content graph](references/protocol/manifests-blobs-and-indexes.md) |
+| Unclassified pull or push failure | [Troubleshooting](references/troubleshooting.md) | Select the exact client and protocol layer |
 
-A short name without a dot (`registry.local`, `myregistry`) is not automatically
-a registry host to every client — Docker treats a dotless first segment as a
-Docker Hub namespace. Give internal names a dot, or accept that some tools will
-resolve them somewhere else entirely. Where a name has to resolve inside the
-cluster too, add it to CoreDNS rather than hoping node `/etc/hosts` is consulted
-by pods:
+## Operational invariants
 
-```
-hosts {
-    10.0.0.5 registry.internal
-    fallthrough
-}
-```
+A successful pull does not prove that a mirror was used. Validate the cold-cache path, warm-cache path, and upstream-denied case from the actual pulling client. Do not promise air-gap enforcement solely from mirror configuration.
 
-## Plain HTTP is a per-client decision
+Prefer a stable, resolvable registry authority with verified TLS. Install a CA in the correct client's trust store rather than disabling verification. Node, Pod, daemon, builder, and human-client DNS/trust are separate concerns. A login in one client does not authenticate all other runtimes.
 
-An HTTP registry is refused by default everywhere, and each client refuses it
-differently: containerd needs the `http://` endpoint spelled out (and
-`insecure_skip_verify` for a self-signed HTTPS one), Docker needs
-`insecure-registries` in `daemon.json`, Podman needs an entry in
-`registries.conf`. There is no cluster-wide switch — a registry that "works on
-the node but not in the cluster" is almost always this.
+Keep cache and private-registry storage/configuration independent. Protect a credentialed cache: it can expose content available to its upstream account. Authentication is not repository-scoped authorization; test permissions with the intended identity and tool.
 
-## Diagnosing a pull
+Treat retention as a content-graph policy, not a list of old tags. Do not run deletion or garbage collection without explicit scope, release-specific behavior, a write-quiescence plan, backups, and a proven restore. Include multi-platform children and referrers in preservation tests. Never recommend direct storage-file deletion as a normal cleanup operation.
 
-```bash
-curl -s http://cache.internal:5000/v2/                       # 200 = reachable, speaks v2
-curl -s http://cache.internal:5000/v2/_catalog                # a cache answers empty — expected
-curl -sI http://cache.internal:5000/v2/library/alpine/manifests/latest \
-  -H 'Accept: application/vnd.oci.image.index.v1+json'        # a cache fetches on demand
-crictl pull docker.io/library/alpine:latest                   # then check the cache's storage grew
-```
+## Examples and output
 
-`_catalog` on a pull-through cache returning nothing is **not** a fault: it
-lists what has been cached, and it caches on first pull.
+The [local lab](examples/local-lab/README.md) is loopback-only HTTP and unsuitable for private data. The [secure-pair template](examples/secure-pair/README.md) separates a TLS-protected writable registry from a Hub cache and requires real certificates, credentials, and secrets before use. [Client fragments](examples/clients/README.md) are merge inputs, not replacement system configuration. The [registry probe](scripts/README.md) performs bounded, non-authenticated, non-redirecting diagnostic requests without writes.
 
-## Related
+For a deployment/change, provide topology, authorities, exact config readers and paths, secret handling, apply/restart requirements, positive and negative tests, and rollback. For incidents, separate reachability, trust, authentication, authorization, manifest resolution, and blob transfer.
 
-- `kubernetes-rke2` — `registries.yaml` and when it is read.
-- `docker` — building the images that end up here.
+Use sibling `docker` for builds/Compose and `docker-engine-api` for daemon HTTP clients. K3s/RKE2 details here are usable without another skill. See the [full index](references/INDEX.md) and [source register](references/SOURCES.md).
