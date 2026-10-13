@@ -1,0 +1,29 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "lightcraft",
+  "skill_name": "storytold-lightcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "lightcraft-cli",
+  "catalog_argv": [
+    [
+      "commands",
+      "--json"
+    ],
+    [
+      "controls",
+      "--json"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp",
+    "--compact"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "light-cli",
+    "light-mcp",
+    "lightcraft-readme"
+  ]
+}

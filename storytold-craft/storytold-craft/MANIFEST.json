@@ -1,0 +1,101 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "d4ea1c7d110e3c56d6486d951fbf9394106d6c3f45fc0a3f24bd890f5c9a4d79",
+      "bytes": 2625
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "34676fa4150ad93c4c1c376c38d612cd8aaa3a75f9d8ce1d090dc90e7f1e1dc0",
+      "bytes": 3325
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "ddfd49eb1aff9fce8d72ef263ed3004a3a12daa756afc893e0d6d53a5e960be8",
+      "bytes": 1263
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "e6f6922bc98d8613e58b2f761e8d9032e3f3fedd0bdb5335de09d1a886ef303c",
+      "bytes": 653
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "b1c71e6774cdb8edf300ff22852dae93694e42194bb5fe8185da72c994b85102",
+      "bytes": 8853
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "049ef28768613415958f0c0bce02400537e1228ffe327a30e768ac84a7061e4a",
+      "bytes": 452
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/agent-evaluation.md",
+      "sha256": "664f9e5ea90dd876957a69e676d85b9d9522d720b9a9f6d3bc997c4e4c7481b4",
+      "bytes": 2857
+    },
+    {
+      "path": "references/cli-grammar-matrix.md",
+      "sha256": "1bb710b7e9168bb5abb071e299ec1f71f9d7d0a524a86432cf6d8f1059e5c7e3",
+      "bytes": 3374
+    },
+    {
+      "path": "references/cross-product-handoffs.md",
+      "sha256": "b18dd5e0e91598a38030198275d55e9d82bd8be15974dac127eff49b3ef75559",
+      "bytes": 3146
+    },
+    {
+      "path": "references/filesystem-and-authority-matrix.md",
+      "sha256": "8f65e54bae4aeb4a53ff203bb6c17e5a735c65ad42b79982d9b77b21b578ae17",
+      "bytes": 3365
+    },
+    {
+      "path": "references/mcp-modes-and-tool-names.md",
+      "sha256": "fac6af034ced3f0836382cddd127b3d64e9b70fc990305afdad95059308e50fe",
+      "bytes": 3328
+    },
+    {
+      "path": "references/persistence-and-failure-semantics.md",
+      "sha256": "6ab48b2e21e1f5e6fcb3ec41eb6f670d899dce3163b8f59eb9bac2c63f58e478",
+      "bytes": 2987
+    },
+    {
+      "path": "references/product-routing.md",
+      "sha256": "e1ac2803611ef0d18496b914116e928a2f70e9d52b6872b5abb175f7620267ed",
+      "bytes": 3621
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "5460e64c3fff1d65ac9c5d2b26fd638bdb56daa48dd64c3e4f0cf8cb2987aacf",
+      "bytes": 2817
+    },
+    {
+      "path": "references/source-evidence-and-updates.md",
+      "sha256": "6d567b9bb942d9594c37c1e2549ed1b787de526ae78da7a997c4dd9110a5c5d3",
+      "bytes": 3066
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "51527ed5877bc5e4014fdf90d323009ad024849a0a147726fd4d04bd8edc1882",
+      "bytes": 4709
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "73dae421d5eeefd9b37689182bbf9e3921a245a93cd37880e8a07194dafb464e",
+      "bytes": 2371
+    }
+  ]
+}

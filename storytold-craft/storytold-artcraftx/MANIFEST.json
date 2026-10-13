@@ -1,0 +1,81 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "659ee07cdf5bb07b4370a9b75f9f6bd02831e514f12e0c030eb292c4ebf79136",
+      "bytes": 2009
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "68260b556e0be4d0b9ac85d795f08f4ddb81ffd7d19607dcdda201eed1adae41",
+      "bytes": 2682
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "a4fc38434523bf0034ac01cd8c6fd930c01430405b87945946bea2f26326e336",
+      "bytes": 1249
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "c12a2c997dbac0d2f583143840c1070e23adb19b763f13a19710db7560f8d9bf",
+      "bytes": 472
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "9e98f0c28a2e46f6682df657cc0b1baffb2931ef012a2377d22c11d1d3f1a0a7",
+      "bytes": 954
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "be10599cbd066bd4dad0209e031312c98f1d47e4f231cc76f46452c4ec38f61f",
+      "bytes": 456
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/credentials-jobs-and-files.md",
+      "sha256": "f3ae943372ef6e5fac8224a70298f3a87ac49fdc059efdf850ecf2d18f9fcdb1",
+      "bytes": 1884
+    },
+    {
+      "path": "references/development-lifecycle.md",
+      "sha256": "db6a80c9e81bffae759b63375e3c473ab5fa14b1696a23e11d8a7b201750c7a5",
+      "bytes": 1879
+    },
+    {
+      "path": "references/product-and-ipc-boundary.md",
+      "sha256": "8136068ed43932dd66f54f3e175d12ad379270d487cc21d3c86290eb6bd873c7",
+      "bytes": 1764
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "ef8be687a52f17d57f086c83efa0129d641773d06388917f4e597ca3167480cf",
+      "bytes": 1732
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "3b96481e5315a4a89e00ca89b2ce5cd27018b2089ad6b0d5318d9ddf08e0ceec",
+      "bytes": 1028
+    },
+    {
+      "path": "references/verification-and-migration.md",
+      "sha256": "b6b347e27f487a130d9feb68ec6a04b8b6109b1b8ad371b0c2f4fe41ed6d140f",
+      "bytes": 1643
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "4cf77b41bd40b9f883be580816074c35ea1072b72ac41d7b2e08399bfb4d4c46",
+      "bytes": 2264
+    }
+  ]
+}

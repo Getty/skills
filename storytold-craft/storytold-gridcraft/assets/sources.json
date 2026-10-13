@@ -1,0 +1,39 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "grid-mcp",
+      "repository": "storytold/gridcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "3e6e7bc11ed0fed18aebadd4755a95c6cc6b8cd9",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/gridcraft/git/blobs/3e6e7bc11ed0fed18aebadd4755a95c6cc6b8cd9",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "grid-cli-guide",
+      "repository": "storytold/gridcraft",
+      "path": "docs/cli.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/docs/cli.md",
+      "git_blob_sha": "b3ee318a83f6b2a7a6697c7469e78e93e5c8d476",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/gridcraft/git/blobs/b3ee318a83f6b2a7a6697c7469e78e93e5c8d476",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "gridcraft-readme",
+      "repository": "storytold/gridcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

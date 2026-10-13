@@ -1,0 +1,602 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "reviewed_on": "2026-10-12",
+  "scope": "Selected documentation, CLI implementations and targeted integration source excerpts; not complete repository audits or live application tests",
+  "sources": [
+    {
+      "id": "photocraft-readme",
+      "repository": "storytold/photocraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "lightcraft-readme",
+      "repository": "storytold/lightcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "vectorcraft-readme",
+      "repository": "storytold/vectorcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "filmcraft-readme",
+      "repository": "storytold/filmcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/filmcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "effectcraft-readme",
+      "repository": "storytold/effectcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "designcraft-readme",
+      "repository": "storytold/designcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/designcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "pdfcraft-readme",
+      "repository": "storytold/pdfcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "wordcraft-readme",
+      "repository": "storytold/wordcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "gridcraft-readme",
+      "repository": "storytold/gridcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "deckcraft-readme",
+      "repository": "storytold/deckcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "cadcraft-readme",
+      "repository": "storytold/cadcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "soundcraft-readme",
+      "repository": "storytold/soundcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "artcraft-readme",
+      "repository": "storytold/artcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "artcraftx-readme",
+      "repository": "storytold/artcraftx",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraftx/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "craft-launcher-readme",
+      "repository": "storytold/craft-launcher",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/craft-launcher/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "photo-cli",
+      "repository": "storytold/photocraft",
+      "path": "apps/photocraft-cli/src/lib.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/apps/photocraft-cli/src/lib.rs",
+      "git_blob_sha": "93090610a550fe1811225bf8a11d8ca3ac0fe2d6",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/93090610a550fe1811225bf8a11d8ca3ac0fe2d6",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-mcp",
+      "repository": "storytold/photocraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/docs/mcp.md",
+      "git_blob_sha": "4f7e9cc70430d6b713f3eaeee15575d1891772d6",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/4f7e9cc70430d6b713f3eaeee15575d1891772d6",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-cli-guide",
+      "repository": "storytold/photocraft",
+      "path": "book/src/automation/cli.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/book/src/automation/cli.md",
+      "git_blob_sha": "05a7c3da272304bc15bb701d331b5967306b4338",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/05a7c3da272304bc15bb701d331b5967306b4338",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-control",
+      "repository": "storytold/photocraft",
+      "path": "docs/control-protocol.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/docs/control-protocol.md",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "light-mcp",
+      "repository": "storytold/lightcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/701f78ea2e586d4748705f10fdf5c4181dc1fd49/docs/mcp.md",
+      "git_commit": "701f78ea2e586d4748705f10fdf5c4181dc1fd49",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "light-cli",
+      "repository": "storytold/lightcraft",
+      "path": "apps/lightcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/main/apps/lightcraft-cli/src/main.rs",
+      "git_blob_sha": "63a4deb764b63b6a8dd3de4d4e5561bc613c9ee1",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/lightcraft/git/blobs/63a4deb764b63b6a8dd3de4d4e5561bc613c9ee1",
+      "reviewed_lines": [
+        1,
+        155
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "film-agents",
+      "repository": "storytold/filmcraft",
+      "path": "docs/agents.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/filmcraft/blob/main/docs/agents.md",
+      "git_blob_sha": "cbbeecaa79ba84ec03d64eb3a6a360dbb490660b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/filmcraft/git/blobs/cbbeecaa79ba84ec03d64eb3a6a360dbb490660b",
+      "reviewed_lines": [
+        1,
+        190
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "film-cli",
+      "repository": "storytold/filmcraft",
+      "path": "apps/filmcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/filmcraft/blob/main/apps/filmcraft-cli/src/main.rs",
+      "git_blob_sha": "d49652b365ecfa28f46b03a4ecd61ba013c5ddb4",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/filmcraft/git/blobs/d49652b365ecfa28f46b03a4ecd61ba013c5ddb4",
+      "reviewed_lines": [
+        1,
+        180
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "vector-mcp",
+      "repository": "storytold/vectorcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "e811ccfe03128c59effe5fac078701e615425e2b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/vectorcraft/git/blobs/e811ccfe03128c59effe5fac078701e615425e2b",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "vector-cli",
+      "repository": "storytold/vectorcraft",
+      "path": "apps/vectorcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/apps/vectorcraft-cli/src/main.rs",
+      "git_blob_sha": "26139dcc8c461749ad76bb83164644d87955170f",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/vectorcraft/git/blobs/26139dcc8c461749ad76bb83164644d87955170f",
+      "reviewed_lines": [
+        1,
+        115
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "design-mcp",
+      "repository": "storytold/designcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/designcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "17c03a3dfeb160a3cd2e3388ebf9295899862ae9",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/designcraft/git/blobs/17c03a3dfeb160a3cd2e3388ebf9295899862ae9",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "design-cli",
+      "repository": "storytold/designcraft",
+      "path": "apps/designcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/designcraft/blob/main/apps/designcraft-cli/src/main.rs",
+      "git_blob_sha": "b1819c3573304db1e4fc1fee3ef3ed421507cd23",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/designcraft/git/blobs/b1819c3573304db1e4fc1fee3ef3ed421507cd23",
+      "reviewed_lines": [
+        1,
+        105
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effect-agents",
+      "repository": "storytold/effectcraft",
+      "path": "docs/agents.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/docs/agents.md",
+      "git_blob_sha": "01738edd11615f2c3c4383716f7290e32f4e3517",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/01738edd11615f2c3c4383716f7290e32f4e3517",
+      "reviewed_lines": [
+        1,
+        180
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effect-mcp",
+      "repository": "storytold/effectcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "1104927acbcfa741ac658f1c79676e168cb0e80b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/1104927acbcfa741ac658f1c79676e168cb0e80b",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effect-cli",
+      "repository": "storytold/effectcraft",
+      "path": "apps/effectcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/apps/effectcraft-cli/src/main.rs",
+      "git_blob_sha": "fe5238075ee40ae45cbf0ba4990a0df007707610",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/fe5238075ee40ae45cbf0ba4990a0df007707610",
+      "reviewed_lines": [
+        1,
+        125
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "pdf-automation",
+      "repository": "storytold/pdfcraft",
+      "path": "crates/automation/README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/7163ba3dee8becfff6871c9a65d0d8314314742b/crates/automation/README.md",
+      "git_blob_sha": "971125024febd96298ce2976a8f5329d7cfae27d",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/pdfcraft/git/blobs/971125024febd96298ce2976a8f5329d7cfae27d",
+      "git_commit": "7163ba3dee8becfff6871c9a65d0d8314314742b",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "pdf-cli",
+      "repository": "storytold/pdfcraft",
+      "path": "apps/pdfcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/7163ba3dee8becfff6871c9a65d0d8314314742b/apps/pdfcraft-cli/src/main.rs",
+      "git_blob_sha": "b33cd894cd921a30f3c5491f408ad6aa1fbc713b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/pdfcraft/git/blobs/b33cd894cd921a30f3c5491f408ad6aa1fbc713b",
+      "git_commit": "7163ba3dee8becfff6871c9a65d0d8314314742b",
+      "reviewed_lines": [
+        1,
+        135
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "word-mcp",
+      "repository": "storytold/wordcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "ae53a78a8d5daceb9cba9e2f0d851a1c48575f16",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/wordcraft/git/blobs/ae53a78a8d5daceb9cba9e2f0d851a1c48575f16",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "word-cli",
+      "repository": "storytold/wordcraft",
+      "path": "apps/wordcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/apps/wordcraft-cli/src/main.rs",
+      "git_blob_sha": "a0a2d5f233cc744d21970d976725cc14683ce5c3",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/wordcraft/git/blobs/a0a2d5f233cc744d21970d976725cc14683ce5c3",
+      "reviewed_lines": [
+        1,
+        95
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "grid-cli-guide",
+      "repository": "storytold/gridcraft",
+      "path": "docs/cli.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/docs/cli.md",
+      "git_blob_sha": "b3ee318a83f6b2a7a6697c7469e78e93e5c8d476",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/gridcraft/git/blobs/b3ee318a83f6b2a7a6697c7469e78e93e5c8d476",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deck-mcp",
+      "repository": "storytold/deckcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "f7e24c7e48f50c93e5b15a844eababef00a20939",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/f7e24c7e48f50c93e5b15a844eababef00a20939",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deck-cli",
+      "repository": "storytold/deckcraft",
+      "path": "apps/deckcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/apps/deckcraft-cli/src/main.rs",
+      "git_blob_sha": "c450393f9963d3da599b1fb79676d64b697d23df",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/c450393f9963d3da599b1fb79676d64b697d23df",
+      "reviewed_lines": [
+        1,
+        180
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "cad-readme-detail",
+      "repository": "storytold/cadcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/README.md",
+      "git_blob_sha": "3c5720b1a0d4ff301e6205d89d34b5c489406726",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/cadcraft/git/blobs/3c5720b1a0d4ff301e6205d89d34b5c489406726",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "sound-mcp",
+      "repository": "storytold/soundcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "7102a237c624c1c1e767745a6cf189d645d7a58d",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/soundcraft/git/blobs/7102a237c624c1c1e767745a6cf189d645d7a58d",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "artcraft-client",
+      "repository": "storytold/artcraft",
+      "path": "crates/api_clients/artcraft/artcraft_client/AGENTS.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373/crates/api_clients/artcraft/artcraft_client/AGENTS.md",
+      "git_blob_sha": "759ae5aab05077ea172734febbd1af4289ee25aa",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/artcraft/git/blobs/759ae5aab05077ea172734febbd1af4289ee25aa",
+      "git_commit": "d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "artcraft-dev",
+      "repository": "storytold/artcraft",
+      "path": "_docs/dev_setup.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373/_docs/dev_setup.md",
+      "git_commit": "d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    },
+    {
+      "id": "artcraftx-ipc",
+      "repository": "storytold/artcraftx",
+      "path": "crates/artcraftx/src/lib.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation-search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraftx/blob/98c2a48940aa0a54604637f665ee539c122fa707/crates/artcraftx/src/lib.rs",
+      "git_commit": "98c2a48940aa0a54604637f665ee539c122fa707",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    },
+    {
+      "id": "launcher-xtask",
+      "repository": "storytold/craft-launcher",
+      "path": "xtask/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation-search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/craft-launcher/blob/1aaf7b27be2dba970d1a77f96aef6aad52352730/xtask/src/main.rs",
+      "git_commit": "1aaf7b27be2dba970d1a77f96aef6aad52352730",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    },
+    {
+      "id": "cad-cli",
+      "repository": "storytold/cadcraft",
+      "path": "apps/cadcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/apps/cadcraft-cli/src/main.rs",
+      "git_blob_sha": "30292d59db63543223088bd4a6cff4225430ee75",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/cadcraft/git/blobs/30292d59db63543223088bd4a6cff4225430ee75",
+      "reviewed_lines": [
+        1,
+        125
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "sound-cli",
+      "repository": "storytold/soundcraft",
+      "path": "apps/soundcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/apps/soundcraft-cli/src/main.rs",
+      "git_blob_sha": "bb7628aa0777faecff6a6501e44370e48ef10df1",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/soundcraft/git/blobs/bb7628aa0777faecff6a6501e44370e48ef10df1",
+      "reviewed_lines": [
+        1,
+        95
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "grid-mcp",
+      "repository": "storytold/gridcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/gridcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "3e6e7bc11ed0fed18aebadd4755a95c6cc6b8cd9",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/gridcraft/git/blobs/3e6e7bc11ed0fed18aebadd4755a95c6cc6b8cd9",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deck-control",
+      "repository": "storytold/deckcraft",
+      "path": "docs/control-protocol.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/docs/control-protocol.md",
+      "git_blob_sha": "449b7fc6e07e094e882fa7678fb32c1ab3860363",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/449b7fc6e07e094e882fa7678fb32c1ab3860363",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    }
+  ]
+}

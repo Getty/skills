@@ -1,0 +1,24 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "pdfcraft",
+  "skill_name": "storytold-pdfcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "pdfcraft-cli",
+  "catalog_argv": [
+    [
+      "tools"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp",
+    "--compact"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "pdf-cli",
+    "pdf-automation",
+    "pdfcraft-readme"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "pdfcraft",
+  "input_required": true,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "edit",
+        "@INPUT@",
+        "--rotate",
+        "1:90",
+        "--out",
+        "@OUT@/rotated.pdf"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "render",
+        "@OUT@/rotated.pdf",
+        "--page",
+        "1",
+        "--dpi",
+        "96",
+        "--out",
+        "@OUT@/preview.png"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "rotated.pdf",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "pdf-cli",
+    "pdf-automation",
+    "pdfcraft-readme"
+  ]
+}

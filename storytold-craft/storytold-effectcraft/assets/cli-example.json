@@ -1,0 +1,53 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "effectcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "comp.new",
+        "{\"name\":\"Intro\",\"width\":640,\"height\":360,\"frameRate\":30,\"duration\":2}",
+        "layer.newText",
+        "{\"text\":\"Agent verification\",\"size\":48}",
+        "--empty",
+        "--save-as",
+        "@OUT@/working.ecproj",
+        "--json"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "render-frame",
+        "--project",
+        "@OUT@/working.ecproj",
+        "--comp",
+        "Intro",
+        "--time",
+        "0",
+        "--out",
+        "@OUT@/preview.png"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.ecproj",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "effect-cli",
+    "effect-agents",
+    "effect-mcp",
+    "effectcraft-readme"
+  ]
+}

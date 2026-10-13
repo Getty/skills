@@ -1,0 +1,73 @@
+{
+  "plan": {
+    "active_total": 3,
+    "owners": [
+      "Example::CoreProbe",
+      "Example::CoreCheck"
+    ],
+    "schema_version": 1,
+    "steps": [
+      {
+        "active": 1,
+        "index": 0,
+        "key": "probe",
+        "label": "Probe input",
+        "owner": "Example::CoreProbe",
+        "phase": "gather",
+        "predicate": {
+          "kind": "always"
+        },
+        "requires": [],
+        "revision": "1"
+      },
+      {
+        "active": 1,
+        "index": 0,
+        "key": "parts",
+        "label": "Parse input",
+        "owner": "Example::CoreCheck",
+        "phase": "gather",
+        "predicate": {
+          "kind": "always"
+        },
+        "requires": [],
+        "revision": "1"
+      },
+      {
+        "active": 1,
+        "index": 1,
+        "key": "deeper",
+        "label": "Deep check",
+        "owner": "Example::CoreCheck",
+        "phase": "analyse",
+        "predicate": {
+          "kind": "truthy_reader",
+          "reader": "deep"
+        },
+        "requires": [
+          "probe",
+          "parts"
+        ],
+        "revision": "1"
+      }
+    ]
+  },
+  "progress": {
+    "active_total": 3,
+    "failed": 0,
+    "skipped": 0,
+    "succeeded": 3
+  },
+  "results": {
+    "deeper": {
+      "len": 23,
+      "probe": 1
+    },
+    "parts": {
+      "len": 23
+    },
+    "probe": {
+      "ok": 1
+    }
+  }
+}

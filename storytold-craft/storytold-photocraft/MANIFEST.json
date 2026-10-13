@@ -1,0 +1,111 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "c8c6aa86b0ccc38fc6ea1091c00dfe27f43cb7c87aa34a3c821d1a6ee7a509c7",
+      "bytes": 2255
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "67a0ef8a64adbe2ae1076ba587ff33a25fea2adee5564966daafb724dc45ff6b",
+      "bytes": 3372
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "4e9f6e6bf1a092ec89e8539bbbeb2a0f352395ed6ec23157f9d3f165cb814f08",
+      "bytes": 1325
+    },
+    {
+      "path": "assets/cli-example.json",
+      "sha256": "cb8871cbb05f499260b9c2b245e5749ab4aabe3e15f415e2e2a66f2e927699f5",
+      "bytes": 907
+    },
+    {
+      "path": "assets/invert.actions.json",
+      "sha256": "c6c2e9a2ecd2ad82f0b65d1e761b02b94cd8ff365cf32bd2bf989cb331600e25",
+      "bytes": 72
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "660c86592a74b5039095c326326f87382b6a281392db383ae4b527190217e987",
+      "bytes": 595
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "ee9e911b68372ba8fcc2f99f35ac3d269d3a2485284bf5e7a100e5f06f8757ef",
+      "bytes": 3175
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "2f27a80c675e955439f9b6439acc1e745e9181705c1ee53e1f66a09a092da474",
+      "bytes": 457
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/cli.md",
+      "sha256": "5d135e7d25f13a9da1ed273ab21911716559782b5a53c0b0970b21be5df8e9ce",
+      "bytes": 2987
+    },
+    {
+      "path": "references/color-type-and-fidelity.md",
+      "sha256": "45e759f9f6a7ab7a386c4b6bd8842fd4b9734519af11bec3cfe9fd8c5d1b86b3",
+      "bytes": 2774
+    },
+    {
+      "path": "references/jobs-batches-and-recovery.md",
+      "sha256": "bcc036ebaf4378e07b4e08f91ddeba2cb3574451407a2c5afc1374a7dd3c9551",
+      "bytes": 2557
+    },
+    {
+      "path": "references/layers-masks-smart-objects.md",
+      "sha256": "7b57d6cb7895a4deec9e15d7a86cf18f36cb67fc390a9132166cf21bea72641c",
+      "bytes": 3043
+    },
+    {
+      "path": "references/mcp-and-control.md",
+      "sha256": "ece3f220cc1f9c7c88aaa41c86947a6f08240be17cea77fa18aab47c4cc3979c",
+      "bytes": 3141
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "ecf926abbba5d134b3823a135d034717d576e997a9acf57e4d35a2c93c558828",
+      "bytes": 4459
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "b7d0fbe63fbc3af2f3320f0bd42f287c77eddf06e1b3d0a7d8b6f9beab98d198",
+      "bytes": 2237
+    },
+    {
+      "path": "scripts/capture_capabilities.py",
+      "sha256": "7535996877f78b90a3f2028fd180b5b5802e742d1492513e4529e6c5cb340190",
+      "bytes": 17788
+    },
+    {
+      "path": "scripts/run_example.py",
+      "sha256": "368ddfb47d7fdc88de425a5c472e4a68c844b3eec793e62db9da25d280f252fd",
+      "bytes": 7075
+    },
+    {
+      "path": "scripts/test_helpers.py",
+      "sha256": "120640e2ed4904dd1510b1f9f7c6d4dcfa989dc55d10db08038ef11cdc6ac2fa",
+      "bytes": 10472
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "042858049d2e713f2f2ccba0e48d0365a04c178b8b5e2910f057abab2929f3f1",
+      "bytes": 2520
+    }
+  ]
+}

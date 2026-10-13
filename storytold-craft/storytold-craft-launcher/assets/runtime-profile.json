@@ -1,0 +1,16 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "craft-launcher",
+  "skill_name": "storytold-craft-launcher",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": false,
+  "operator_cli_evidence": "no_comparable_operator_cli_verified",
+  "binary_name": null,
+  "catalog_argv": [],
+  "mcp_argv": null,
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "craft-launcher-readme",
+    "launcher-xtask"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "gridcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--script",
+        "@ASSETS@/calculation-smoke.jsonl",
+        "--out",
+        "@OUT@/working.xlsx",
+        "--print",
+        "A1:C1"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "info",
+        "@OUT@/working.xlsx",
+        "--json"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.xlsx",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "grid-mcp",
+    "grid-cli-guide",
+    "gridcraft-readme"
+  ]
+}

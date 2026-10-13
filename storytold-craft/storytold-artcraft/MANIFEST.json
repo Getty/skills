@@ -1,0 +1,81 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "4dbf5023851744506bb058340fec73c4115eceb3917c629f9a80e7bcf55ba375",
+      "bytes": 2023
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "02db0e070df791927a435e5a04312e3895c48dd6a5815f1153052d78c5c49afc",
+      "bytes": 2731
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "627fe6150b5b856773cecb1272132886ca70a65455c96e6e22116ed9ccb3ff2e",
+      "bytes": 1247
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "01d7a3b8a8d85214749264be97b5ec9b1b80f776a17862dd9c2290057a8c3f12",
+      "bytes": 491
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "0c37535b5e5a282c98607e817b7a43efe4ef38aa1c6cee7342da117af681dae6",
+      "bytes": 1694
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "f2a0599242a9c5834b0a74b6f8464b8fe95fb21eb4caacc5984594f215ee095d",
+      "bytes": 455
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/creative-handoffs-and-verification.md",
+      "sha256": "2098cae98864d4cc9df0dfba9d7eccfc1a96b98dcb73fdc70c677856f086029f",
+      "bytes": 2067
+    },
+    {
+      "path": "references/generation-jobs-and-approval.md",
+      "sha256": "1f0b854fd951665bfd32805f0ae0e8e86751e4539db85f8acfd3501c6cc32476",
+      "bytes": 2035
+    },
+    {
+      "path": "references/product-and-automation-boundary.md",
+      "sha256": "173bc73204d1b7a7ba6fd988abf0c03aa757649c62231b318dc17ac20a35fe74",
+      "bytes": 2150
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "c5136ed12d840c16c05e8b4a71c200cd8829e15f740557c82709f2f7031d19b2",
+      "bytes": 1878
+    },
+    {
+      "path": "references/source-guided-integration.md",
+      "sha256": "9b42ed9d6689e87a7d392d62e99d84248d90d9b5b9727e019fa88f1b8500357e",
+      "bytes": 2101
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "5d0d7d25c728c18b73e7a26881b765aa58e0f2ad620093b61571c2cb5927d242",
+      "bytes": 1462
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "cf4026f333a49fc1a2e6f4720ceb588eaf49b9c17197ef9ae771728e9a65d9da",
+      "bytes": 2438
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "d0c793b7b7057e0da9d7feae9fc99ea65103cf3546b396f97a0bb329b171af46",
+      "bytes": 2458
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "52abc18e90f148acdba1332c8c3990128957d3ec6f380f07d4f18f44f1fc4463",
+      "bytes": 3634
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "176c63bd390c5ff01090491a211dd050a327d5c966419d45504863fd61d10b37",
+      "bytes": 1323
+    },
+    {
+      "path": "assets/cli-example.json",
+      "sha256": "03adfd49c2fae7eb8bdc1a1ee42f10447d929beba6cf035ed2c79c06bd17cf75",
+      "bytes": 918
+    },
+    {
+      "path": "assets/inspect-review.script.json",
+      "sha256": "f44384d9bce8224d2dc660547318f8a4eea7796da0cc94c475042e538453a845",
+      "bytes": 249
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "c8cd737dca911b72bc52003a3fbe48c5280668ec54da8523bc2b3f575cdf4d68",
+      "bytes": 544
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "8b015d84523626e1b14421d306e2e8201ed3af6ea1750da0f504cd290614cf97",
+      "bytes": 1940
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "eec9e2985f2a7e67aa1e654a9d3f582602e4fc8f88c5f8c0aecda99b02718554",
+      "bytes": 455
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/cli-and-tool-scripts.md",
+      "sha256": "7a936b0ffff76583102280d39043ef7f7a62175d701a74aa46fb0b66efe916e7",
+      "bytes": 2589
+    },
+    {
+      "path": "references/forms-comments-and-signatures.md",
+      "sha256": "2b5aea207b7897b78a01378063c6ed8bc1d1fe8c35ddb485d1fb570f5f38d176",
+      "bytes": 2263
+    },
+    {
+      "path": "references/mcp-and-root-policy.md",
+      "sha256": "20d22096158182b57b8d624515c397873515404725effb1eaae2f097bd50e2fe",
+      "bytes": 2660
+    },
+    {
+      "path": "references/pages-geometry-and-text.md",
+      "sha256": "ff1a0b6ba2e5883a504f76edab14762695a8a3c6a4336762d0aa3cbe33ed5317",
+      "bytes": 2384
+    },
+    {
+      "path": "references/redaction-sanitization-accessibility.md",
+      "sha256": "0bf6b25f5e3170f40f9621f2f886287cd6359065b1dc572afdb77f8d77e8cec2",
+      "bytes": 2666
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "1ebd6d462d51c21a7bde9ef88ea31fb7f608e8822d48083bf2368becb95194de",
+      "bytes": 4199
+    },
+    {
+      "path": "references/save-reopen-and-robustness.md",
+      "sha256": "d5bc88c7ddb351d9adea8378236f7efbe57ccd0d8ba74f4e42027f0092becd43",
+      "bytes": 2124
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "6078417406529f0c1041cfb219fac1bd3a6ec96a93cc29891579b566ddd05bbb",
+      "bytes": 1483
+    },
+    {
+      "path": "scripts/capture_capabilities.py",
+      "sha256": "7535996877f78b90a3f2028fd180b5b5802e742d1492513e4529e6c5cb340190",
+      "bytes": 17788
+    },
+    {
+      "path": "scripts/run_example.py",
+      "sha256": "368ddfb47d7fdc88de425a5c472e4a68c844b3eec793e62db9da25d280f252fd",
+      "bytes": 7075
+    },
+    {
+      "path": "scripts/test_helpers.py",
+      "sha256": "120640e2ed4904dd1510b1f9f7c6d4dcfa989dc55d10db08038ef11cdc6ac2fa",
+      "bytes": 10472
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "c05a3a8ba16dec7ed744326d7258ee9a44daf758d7811d49254325c9b4299183",
+      "bytes": 2417
+    }
+  ]
+}

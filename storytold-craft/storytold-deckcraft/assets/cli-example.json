@@ -1,0 +1,51 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "deckcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--sample",
+        "--save",
+        "@OUT@/working.deckcraft",
+        "--export",
+        "@OUT@/delivery.pptx"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "render",
+        "@OUT@/working.deckcraft",
+        "--all",
+        "--scale",
+        "1",
+        "@OUT@/previews"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.deckcraft",
+      "kind": "file"
+    },
+    {
+      "path": "delivery.pptx",
+      "kind": "file"
+    },
+    {
+      "path": "previews",
+      "kind": "directory"
+    }
+  ],
+  "source_ids": [
+    "deck-control",
+    "deck-cli",
+    "deck-mcp",
+    "deckcraft-readme"
+  ]
+}

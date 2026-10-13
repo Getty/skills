@@ -1,0 +1,25 @@
+Package: 20 references, 649 entry-point words, 69 local links, 57 file hashes verified.
+t/00-load.t ...... ok
+t/10-caller.t .... ok
+t/20-registry.t .. ok
+t/30-plan.t ...... ok
+t/40-executor.t .. ok
+t/50-schema.t .... ok
+t/70-moose.t ..... ok
+t/80-future.t .... ok
+t/90-io-async.t .. ok
+All tests successful.
+Files=9, Tests=151,  2 wallclock secs ( 0.13 usr  0.05 sys +  1.87 cusr  0.30 csys =  2.35 CPU)
+Result: PASS
+test_invalid_cases (test_schema.GeneratedSchemaTests.test_invalid_cases) ... ok
+test_null_is_not_omission (test_schema.GeneratedSchemaTests.test_null_is_not_omission) ... ok
+test_nullable_enum_accepts_null (test_schema.GeneratedSchemaTests.test_nullable_enum_accepts_null) ... ok
+test_schema_validity (test_schema.GeneratedSchemaTests.test_schema_validity) ... ok
+test_valid_input (test_schema.GeneratedSchemaTests.test_valid_input) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.065s
+
+OK
+Determinism: planner tests and core demo agree across 4 hash-seed configurations.
+Verification passed. Read explicit SKIP lines; skipped integrations were not executed.

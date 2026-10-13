@@ -1,0 +1,81 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "d03a84246e75eb465b61867e3906a753b4db6a271bf142047cccd19f2f6da8a4",
+      "bytes": 1988
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "9390ca9c0167cd09b729273c75bb6ad55f12cac6a9f33bd032ead717b4e70749",
+      "bytes": 2701
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "9da9c335d687bcd7fda81561d956f579b62f3c81fbded33f53098c43c65fb41e",
+      "bytes": 1253
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "f6acc984b20b8495e44e9d543ecbbecde3455da3bd36b7576c3447b80e706947",
+      "bytes": 488
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "7e2e52c73f5deb328bda506304b8586ac4d389f8bcf220abbfff9919d1e8862a",
+      "bytes": 960
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "f3c421665df4d358b94d0600533aa3494f1d12db1df661bcf5febdba4fa2f459",
+      "bytes": 461
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/catalog-and-product-identity.md",
+      "sha256": "eea2b732ecf10cb2815219f15ce13d62b9a5162344ce3d58c906baa21ac8d151",
+      "bytes": 1740
+    },
+    {
+      "path": "references/logs-diagnostics-and-handoff.md",
+      "sha256": "ff5f7bb61f0ad22b7a0315036cb45e3eb3f7c4c99b6514a13b8d1b79c34dedd6",
+      "bytes": 1712
+    },
+    {
+      "path": "references/platform-paths-and-cli-discovery.md",
+      "sha256": "1522f7061fc4424f05a9fc5445025a6889ba1375b97c2bfaa16dfa7be749561e",
+      "bytes": 1820
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "80c83b32ea12f080df41f90258903c29aa05fb5a354425be1dd7309c4cebcdbe",
+      "bytes": 1738
+    },
+    {
+      "path": "references/safe-updates-and-release-evidence.md",
+      "sha256": "c6d3ab9a2572897c7c30bc7b6a902a6953810cf4a7892c1f9d65e7d8ee80fe61",
+      "bytes": 1788
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "c4dd2365c58f8645e2fcf3e0555e0896390966667eee0c40db9472ceaf44eabe",
+      "bytes": 1034
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "3d5721e83ca7b4e92ee86377eedae9de6b42ca70128698fc548f209a4a8fb87f",
+      "bytes": 2292
+    }
+  ]
+}

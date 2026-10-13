@@ -1,0 +1,57 @@
+{
+  "schema": "storytold-package-validation/1",
+  "validated_at": "2026-10-13T05:14:50.853920+00:00",
+  "status": "passed",
+  "scope": "Offline structure, syntax, links, hashes and source/evaluation records only",
+  "counts": {
+    "skills": 16,
+    "references": 116,
+    "evaluation_cases": 80,
+    "json_files": 114,
+    "jsonl_files": 2,
+    "python_files": 40,
+    "local_links": 384,
+    "external_links_not_refetched": 384,
+    "manifests": 16
+  },
+  "skill_word_counts": {
+    "storytold-artcraft": 353,
+    "storytold-artcraftx": 341,
+    "storytold-cadcraft": 418,
+    "storytold-craft": 421,
+    "storytold-craft-launcher": 339,
+    "storytold-deckcraft": 428,
+    "storytold-designcraft": 421,
+    "storytold-effectcraft": 438,
+    "storytold-filmcraft": 438,
+    "storytold-gridcraft": 434,
+    "storytold-lightcraft": 465,
+    "storytold-pdfcraft": 457,
+    "storytold-photocraft": 441,
+    "storytold-soundcraft": 423,
+    "storytold-vectorcraft": 426,
+    "storytold-wordcraft": 446
+  },
+  "binary_path_discovery": {
+    "cadcraft": null,
+    "deckcraft": null,
+    "designcraft": null,
+    "effectcraft": null,
+    "filmcraft": null,
+    "gridcraft": null,
+    "lightcraft": null,
+    "pdfcraft": null,
+    "photocraft": null,
+    "soundcraft": null,
+    "vectorcraft": null,
+    "wordcraft": null
+  },
+  "application_tests": "not_run",
+  "fresh_agent_evaluations": "not_run",
+  "errors": [],
+  "limitations": [
+    "No real Craft application executed by this validator",
+    "External URLs not refetched",
+    "JSON validated for syntax and selected contracts, not complete upstream schemas"
+  ]
+}

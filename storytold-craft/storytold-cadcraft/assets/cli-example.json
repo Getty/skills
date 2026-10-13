@@ -1,0 +1,49 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "cadcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "sample",
+        "bracket",
+        "@OUT@/drawing.dxf"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "run",
+        "@OUT@/drawing.dxf",
+        "--save",
+        "@OUT@/working.dxf",
+        "--export",
+        "@OUT@/preview.png",
+        "--view",
+        "extents"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "drawing.dxf",
+      "kind": "file"
+    },
+    {
+      "path": "working.dxf",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "cad-cli",
+    "cad-readme-detail",
+    "cadcraft-readme"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "vectorcraft",
+  "skill_name": "storytold-vectorcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "vectorcraft-cli",
+  "catalog_argv": [
+    [
+      "commands"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp",
+    "--headless"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "vector-cli",
+    "vector-mcp",
+    "vectorcraft-readme"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "format_version": 1,
+  "execution_status": "not_run_with_an_independent_agent",
+  "cases": [
+    {
+      "id": "keep-it-small",
+      "prompt": "Refactor this two-step Perl method; there is no reuse or introspection need.",
+      "expected": [
+        "Consider retaining a normal method.",
+        "Do not introduce a full workflow engine solely to shorten syntax."
+      ]
+    },
+    {
+      "id": "wrong-caller",
+      "prompt": "My role shim calls MainDSL::step(@_) and the registry owner is the shim.",
+      "expected": [
+        "Explain the ordinary call-frame change.",
+        "Offer goto & for transparent compatibility or explicit-owner forwarding.",
+        "Add a role-owner regression test."
+      ]
+    },
+    {
+      "id": "new-exporter",
+      "prompt": "Design new Moose class and role sugar without fragile caller depth.",
+      "expected": [
+        "Prefer with_meta and one explicit-owner registration backend.",
+        "Keep the role entry point distinct from the class entry point."
+      ]
+    },
+    {
+      "id": "inherited-steps",
+      "prompt": "A subclass sees inherited methods but none of its parent workflow steps.",
+      "expected": [
+        "Inspect parent-class registry traversal separately from inherited role discovery.",
+        "Do not promise calculate_all_roles provides scheduling order."
+      ]
+    },
+    {
+      "id": "fake-parallel",
+      "prompt": "Each body calls a blocking command, then returns Future->done($result). Is it parallel?",
+      "expected": [
+        "State that wrapping does not make blocking bodies concurrent.",
+        "Identify the need for nonblocking adapters or workers.",
+        "Mention cancellation and resource limits."
+      ]
+    },
+    {
+      "id": "unsafe-resume",
+      "prompt": "Resume a checkpoint after inputs and implementation have changed because all step keys still match.",
+      "expected": [
+        "Reject key-only compatibility.",
+        "Require run/input/plan/revision validation.",
+        "Discuss the side-effect-to-checkpoint crash window."
+      ]
+    },
+    {
+      "id": "predicate-injection",
+      "prompt": "Support arbitrary condition strings by eval, since the inputs came from a tool schema.",
+      "expected": [
+        "Do not use string eval.",
+        "Propose a bounded parser or structured condition.",
+        "Separate schema validation from authorization."
+      ]
+    },
+    {
+      "id": "dynamic-count",
+      "prompt": "A predicate reads the result of the preceding step; compute the exact active count before execution.",
+      "expected": [
+        "Identify a dynamic gate, not a pure preflight predicate.",
+        "Do not execute bodies to count them.",
+        "Choose an honest dynamic or declared-step progress policy."
+      ]
+    },
+    {
+      "id": "nullable-enum",
+      "prompt": "Make this shared enum schema nullable without changing any consumer using the original schema.",
+      "expected": [
+        "Create a detached schema union or an equivalently correct transformation.",
+        "Do not only append null to type while leaving enum restrictive.",
+        "Test null versus omission."
+      ]
+    },
+    {
+      "id": "cleanup",
+      "prompt": "make_immutable ran but $obj->step is still callable.",
+      "expected": [
+        "Separate immutability from namespace cleanup and registry sealing.",
+        "Use and test the matching DSL cleanup or namespace cleaner."
+      ]
+    },
+    {
+      "id": "project-evidence",
+      "prompt": "Describe the exact current par_group implementation of our task DSL using only this design note.",
+      "expected": [
+        "Say the notes are not a source-code audit.",
+        "Inspect the actual repository when accessible.",
+        "Distinguish described behavior from proposed improvements."
+      ]
+    },
+    {
+      "id": "agent-inspection",
+      "prompt": "Build a list of setup tools by requiring uploaded Perl modules in the admin server.",
+      "expected": [
+        "Identify module loading as arbitrary code execution.",
+        "Use a trusted manifest or isolated approved inspection.",
+        "Keep tool authorization separate from declarative metadata."
+      ]
+    }
+  ]
+}

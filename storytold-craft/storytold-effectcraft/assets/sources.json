@@ -1,0 +1,59 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "effect-cli",
+      "repository": "storytold/effectcraft",
+      "path": "apps/effectcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/apps/effectcraft-cli/src/main.rs",
+      "git_blob_sha": "fe5238075ee40ae45cbf0ba4990a0df007707610",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/fe5238075ee40ae45cbf0ba4990a0df007707610",
+      "reviewed_lines": [
+        1,
+        125
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effect-agents",
+      "repository": "storytold/effectcraft",
+      "path": "docs/agents.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/docs/agents.md",
+      "git_blob_sha": "01738edd11615f2c3c4383716f7290e32f4e3517",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/01738edd11615f2c3c4383716f7290e32f4e3517",
+      "reviewed_lines": [
+        1,
+        180
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effect-mcp",
+      "repository": "storytold/effectcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "1104927acbcfa741ac658f1c79676e168cb0e80b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/effectcraft/git/blobs/1104927acbcfa741ac658f1c79676e168cb0e80b",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "effectcraft-readme",
+      "repository": "storytold/effectcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/effectcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

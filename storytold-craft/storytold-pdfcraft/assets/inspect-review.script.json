@@ -1,0 +1,21 @@
+[
+  {
+    "tool": "doc_open",
+    "args": {
+      "path": "source.pdf"
+    }
+  },
+  {
+    "tool": "text_find",
+    "args": {
+      "doc": 1,
+      "query": "invoice"
+    }
+  },
+  {
+    "tool": "doc_inspect",
+    "args": {
+      "doc": 1
+    }
+  }
+]

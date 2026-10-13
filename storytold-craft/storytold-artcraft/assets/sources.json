@@ -1,0 +1,39 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "artcraft-readme",
+      "repository": "storytold/artcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "artcraft-client",
+      "repository": "storytold/artcraft",
+      "path": "crates/api_clients/artcraft/artcraft_client/AGENTS.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373/crates/api_clients/artcraft/artcraft_client/AGENTS.md",
+      "git_blob_sha": "759ae5aab05077ea172734febbd1af4289ee25aa",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/artcraft/git/blobs/759ae5aab05077ea172734febbd1af4289ee25aa",
+      "git_commit": "d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "artcraft-dev",
+      "repository": "storytold/artcraft",
+      "path": "_docs/dev_setup.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraft/blob/d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373/_docs/dev_setup.md",
+      "git_commit": "d4e4ac69bbd93d237eaf5d0260bc6a5ff3a5e373",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    }
+  ]
+}

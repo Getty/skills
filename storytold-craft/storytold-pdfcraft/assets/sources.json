@@ -1,0 +1,45 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "pdf-cli",
+      "repository": "storytold/pdfcraft",
+      "path": "apps/pdfcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/7163ba3dee8becfff6871c9a65d0d8314314742b/apps/pdfcraft-cli/src/main.rs",
+      "git_blob_sha": "b33cd894cd921a30f3c5491f408ad6aa1fbc713b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/pdfcraft/git/blobs/b33cd894cd921a30f3c5491f408ad6aa1fbc713b",
+      "git_commit": "7163ba3dee8becfff6871c9a65d0d8314314742b",
+      "reviewed_lines": [
+        1,
+        135
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "pdf-automation",
+      "repository": "storytold/pdfcraft",
+      "path": "crates/automation/README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/7163ba3dee8becfff6871c9a65d0d8314314742b/crates/automation/README.md",
+      "git_blob_sha": "971125024febd96298ce2976a8f5329d7cfae27d",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/pdfcraft/git/blobs/971125024febd96298ce2976a8f5329d7cfae27d",
+      "git_commit": "7163ba3dee8becfff6871c9a65d0d8314314742b",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "pdfcraft-readme",
+      "repository": "storytold/pdfcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/pdfcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

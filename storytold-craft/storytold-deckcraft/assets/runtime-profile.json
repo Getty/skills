@@ -1,0 +1,24 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "deckcraft",
+  "skill_name": "storytold-deckcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "deckcraft-cli",
+  "catalog_argv": [
+    [
+      "commands"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "deck-control",
+    "deck-cli",
+    "deck-mcp",
+    "deckcraft-readme"
+  ]
+}

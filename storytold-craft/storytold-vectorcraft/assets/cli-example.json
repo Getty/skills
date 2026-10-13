@@ -1,0 +1,42 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "vectorcraft",
+  "input_required": true,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--in",
+        "@INPUT@",
+        "--export",
+        "@OUT@/preview.svg"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "convert",
+        "@OUT@/preview.svg",
+        "@OUT@/preview.png"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "preview.svg",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "vector-cli",
+    "vector-mcp",
+    "vectorcraft-readme"
+  ]
+}

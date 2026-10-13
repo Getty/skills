@@ -1,0 +1,23 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "cadcraft",
+  "skill_name": "storytold-cadcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "cadcraft-cli",
+  "catalog_argv": [
+    [
+      "commands"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "cad-cli",
+    "cad-readme-detail",
+    "cadcraft-readme"
+  ]
+}

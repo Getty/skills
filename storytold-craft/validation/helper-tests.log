@@ -1,0 +1,37 @@
+test_bounded_output_limit (test_helpers.Helpers.test_bounded_output_limit) ... ok
+test_bounded_streams (test_helpers.Helpers.test_bounded_streams) ... ok
+test_bounded_timeout (test_helpers.Helpers.test_bounded_timeout) ... ok
+test_digest (test_helpers.Helpers.test_digest) ... ok
+test_expected_path_traversal (test_helpers.Helpers.test_expected_path_traversal) ... ok
+test_limits (test_helpers.Helpers.test_limits) ... ok
+test_mcp_cursor_loop (test_helpers.Helpers.test_mcp_cursor_loop) ... ok
+test_mcp_duplicate_names (test_helpers.Helpers.test_mcp_duplicate_names) ... ok
+test_mcp_forbids_tool_calls (test_helpers.Helpers.test_mcp_forbids_tool_calls) ... ok
+test_mcp_metadata (test_helpers.Helpers.test_mcp_metadata) ... ok
+test_mcp_missing_schema (test_helpers.Helpers.test_mcp_missing_schema) ... ok
+test_mcp_noise (test_helpers.Helpers.test_mcp_noise) ... ok
+test_mcp_notifications (test_helpers.Helpers.test_mcp_notifications) ... ok
+test_mcp_pagination (test_helpers.Helpers.test_mcp_pagination) ... ok
+test_mcp_rpc_error (test_helpers.Helpers.test_mcp_rpc_error) ... ok
+test_mcp_timeout (test_helpers.Helpers.test_mcp_timeout) ... ok
+test_mcp_unimplemented_revision (test_helpers.Helpers.test_mcp_unimplemented_revision) ... ok
+test_mcp_unoffered_capability (test_helpers.Helpers.test_mcp_unoffered_capability) ... ok
+test_mcp_wrong_id (test_helpers.Helpers.test_mcp_wrong_id) ... ok
+test_no_shell_interpolation (test_helpers.Helpers.test_no_shell_interpolation) ... ok
+test_nonzero_is_preserved (test_helpers.Helpers.test_nonzero_is_preserved) ... ok
+test_private_write_no_overwrite (test_helpers.Helpers.test_private_write_no_overwrite) ... ok
+test_probe_executes_mock_catalog (test_helpers.Helpers.test_probe_executes_mock_catalog) ... ok
+test_probe_plan_does_not_launch (test_helpers.Helpers.test_probe_plan_does_not_launch) ... ok
+test_probe_refuses_unverified_cli (test_helpers.Helpers.test_probe_refuses_unverified_cli) ... ok
+test_recipe_executes_mock_and_preserves_original (test_helpers.Helpers.test_recipe_executes_mock_and_preserves_original) ... ok
+test_recipe_plan_does_not_execute (test_helpers.Helpers.test_recipe_plan_does_not_execute) ... ok
+test_recipe_stops_first_failure (test_helpers.Helpers.test_recipe_stops_first_failure) ... ok
+test_reject_nonfinite (test_helpers.Helpers.test_reject_nonfinite) ... ok
+test_strict_json (test_helpers.Helpers.test_strict_json) ... ok
+test_substitution_keeps_json (test_helpers.Helpers.test_substitution_keeps_json) ... ok
+test_substitution_missing_token (test_helpers.Helpers.test_substitution_missing_token) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 14.700s
+
+OK

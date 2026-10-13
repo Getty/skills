@@ -1,0 +1,45 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "photocraft",
+  "input_required": true,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "@INPUT@",
+        "--cmd",
+        "image.adjustments.invert",
+        "--out",
+        "@OUT@/edited.pcraft"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "convert",
+        "@OUT@/edited.pcraft",
+        "@OUT@/preview.png"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "edited.pcraft",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "photo-cli",
+    "photo-mcp",
+    "photo-cli-guide",
+    "photo-control",
+    "photocraft-readme"
+  ]
+}

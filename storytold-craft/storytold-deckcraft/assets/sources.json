@@ -1,0 +1,55 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "deck-control",
+      "repository": "storytold/deckcraft",
+      "path": "docs/control-protocol.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/docs/control-protocol.md",
+      "git_blob_sha": "449b7fc6e07e094e882fa7678fb32c1ab3860363",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/449b7fc6e07e094e882fa7678fb32c1ab3860363",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deck-cli",
+      "repository": "storytold/deckcraft",
+      "path": "apps/deckcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/apps/deckcraft-cli/src/main.rs",
+      "git_blob_sha": "c450393f9963d3da599b1fb79676d64b697d23df",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/c450393f9963d3da599b1fb79676d64b697d23df",
+      "reviewed_lines": [
+        1,
+        180
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deck-mcp",
+      "repository": "storytold/deckcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "f7e24c7e48f50c93e5b15a844eababef00a20939",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/deckcraft/git/blobs/f7e24c7e48f50c93e5b15a844eababef00a20939",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "deckcraft-readme",
+      "repository": "storytold/deckcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/deckcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

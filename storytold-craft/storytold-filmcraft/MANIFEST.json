@@ -1,0 +1,111 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "03408093408fde4cdde7b39f4668d617869faaf0074fafe592c94bd8116fbbba",
+      "bytes": 2223
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "4452dc431794bb979e46d84bf5931fda017c3ae402e9d22a67239adc3f26c604",
+      "bytes": 3336
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "f166e5d8951c61325d0bc1f783b513b692dceb9b3f492c901949c234c3f54cea",
+      "bytes": 1324
+    },
+    {
+      "path": "assets/cli-example.json",
+      "sha256": "22b5306a61ed73f3db5aa2c21e0327a8140f41b5871bcea75764f1dfd735f7f9",
+      "bytes": 939
+    },
+    {
+      "path": "assets/review-bin.jsonl",
+      "sha256": "9c3ea868eb75371a315427c9002d835002a63bd192e2c2abad6ad0eb03090044",
+      "bytes": 57
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "733e7973830593e9737f31fdcb0cb2b68d5bc5a10829fecc6a1c7f43518b596a",
+      "bytes": 548
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "a5c7e13609d50c81a0eae892296db4309512a1050a99e3a385905cfecbb77d20",
+      "bytes": 1781
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "21c93f21ea396a6d51749549c18aa8915ef72235569366fb44b52618a99da6b9",
+      "bytes": 456
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/cli.md",
+      "sha256": "b1170e7656bf7a5ffd8394e3016264ebdc6939ba551f1725ec6a2806b74cd989",
+      "bytes": 2365
+    },
+    {
+      "path": "references/mcp-and-control.md",
+      "sha256": "585c0b0a7f0b61b8e8db617e31b6265aa6cf8254c2c35bb3659bb698b4c4657c",
+      "bytes": 2400
+    },
+    {
+      "path": "references/media-and-interchange.md",
+      "sha256": "e45f3e4cd08d94c2bfd54d09055d567ef3eadbcbd6bb4189b864e19815b66a93",
+      "bytes": 2237
+    },
+    {
+      "path": "references/render-jobs-and-delivery.md",
+      "sha256": "7298fcfc4b8e59ac6ef0de23d3e5e19c5b04d35e3c02d9a7e3a011336c428f89",
+      "bytes": 2428
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "2ca5c7cc7567970b196c8117bff4a6ea3162d5eadde6b944dafff504b67d9fdb",
+      "bytes": 4120
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "aabe18cff6f6bc0612c8537df691a3a4677948fb3f30106e5cec1ea495bf4579",
+      "bytes": 1290
+    },
+    {
+      "path": "references/timeline-time-and-targeting.md",
+      "sha256": "237f21725b54fab453c97fd2b16636c85eb3e51ebeb62aa1e4568e5b8e6833f7",
+      "bytes": 2336
+    },
+    {
+      "path": "scripts/capture_capabilities.py",
+      "sha256": "7535996877f78b90a3f2028fd180b5b5802e742d1492513e4529e6c5cb340190",
+      "bytes": 17788
+    },
+    {
+      "path": "scripts/run_example.py",
+      "sha256": "368ddfb47d7fdc88de425a5c472e4a68c844b3eec793e62db9da25d280f252fd",
+      "bytes": 7075
+    },
+    {
+      "path": "scripts/test_helpers.py",
+      "sha256": "120640e2ed4904dd1510b1f9f7c6d4dcfa989dc55d10db08038ef11cdc6ac2fa",
+      "bytes": 10472
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "dd69e03d764c1900dfbcf7053639b4c92886b2834afe2c69f9aacb01f4482d26",
+      "bytes": 2437
+    }
+  ]
+}

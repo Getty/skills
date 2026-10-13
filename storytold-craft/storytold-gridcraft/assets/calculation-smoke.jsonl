@@ -1,0 +1,3 @@
+{"command": "cell.set", "params": {"cell": "A1", "input": "2"}}
+{"command": "cell.set", "params": {"cell": "B1", "input": "3"}}
+{"command": "cell.set", "params": {"cell": "C1", "input": "=A1*B1"}}

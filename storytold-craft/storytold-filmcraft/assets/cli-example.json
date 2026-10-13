@@ -1,0 +1,47 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "filmcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "--demo",
+        "--save-as",
+        "@OUT@/working.fcproj",
+        "exec",
+        "file.newBin",
+        "name=AgentReview"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "--project",
+        "@OUT@/working.fcproj",
+        "render",
+        "--seconds",
+        "1",
+        "--out",
+        "@OUT@/preview.png"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.fcproj",
+      "kind": "file"
+    },
+    {
+      "path": "preview.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "film-cli",
+    "film-agents",
+    "filmcraft-readme"
+  ]
+}

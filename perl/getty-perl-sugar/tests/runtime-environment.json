@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-13",
+  "perl": "5.40.1",
+  "Test::More": "1.302222",
+  "JSON::PP": "4.16",
+  "python": "3.13.5",
+  "jsonschema": "4.26.0",
+  "moose": "2.4000",
+  "future": "0.52",
+  "io_async": "0.805",
+  "unique_perl_assertions": 151,
+  "executed_perl_test_files": 9,
+  "skipped_perl_test_files": 0,
+  "python_test_methods": 5,
+  "invalid_payload_subcases": 8,
+  "hash_seeds": [
+    "0",
+    "1",
+    "42",
+    "123456"
+  ],
+  "PERL_PERTURB_KEYS": "2",
+  "independent_agent_evaluation": false,
+  "source_dsl_audit": false
+}

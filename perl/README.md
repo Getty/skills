@@ -94,6 +94,28 @@ that cannot fail.
 **Load when** typing attributes or parameters, or deciding whether a project needs
 types at all.
 
+### [getty-perl-sugar](getty-perl-sugar/SKILL.md)
+
+Declarative DSL sugar — keywords like `step 'Label' => key => sub { ... }` that only
+register metadata, while one shared runner owns the execution policy. It starts from
+the question whether a DSL is justified at all: a routine without reuse,
+introspection or lifecycle policy stays a method.
+
+The procedure separates three stages that tend to blur — registration, plan
+compilation and binding, execution — and settles the decisions that go wrong in
+practice: `with_meta` and an explicit owner for new Moose sugar, `goto &` only where
+an existing keyword reads `caller`; owner collection across parent classes and roles
+as a policy of its own, never Moose's role order; a key declared by two owners is a
+composition error, found before the first body runs. Twenty references carry the
+depth, each with a "read when": registry lifecycle, predicates, planning, results,
+Futures, durable resume, attribute and form metadata, tool schemas, security,
+testing. An executable reference implementation — a core without Moose, Moose
+adapters on top, nine test files — shows the mechanism; it is not a module to
+depend on.
+
+**Load when** designing, refactoring or reviewing declaration keywords built on
+`Moose::Exporter`, the registry behind them, or the runner that executes them.
+
 ## Distribution and release
 
 ### [getty-perl-distribution](getty-perl-distribution/SKILL.md)

@@ -1,0 +1,57 @@
+{
+   "additionalProperties" : false,
+   "properties" : {
+      "count" : {
+         "maximum" : 10,
+         "minimum" : 1,
+         "type" : "integer"
+      },
+      "enabled" : {
+         "type" : "boolean"
+      },
+      "mode" : {
+         "anyOf" : [
+            {
+               "enum" : [
+                  "fast",
+                  "thorough"
+               ],
+               "type" : "string"
+            },
+            {
+               "type" : "null"
+            }
+         ]
+      },
+      "name" : {
+         "maxLength" : 60,
+         "minLength" : 1,
+         "type" : "string"
+      },
+      "note" : {
+         "anyOf" : [
+            {
+               "maxLength" : 80,
+               "type" : "string"
+            },
+            {
+               "type" : "null"
+            }
+         ]
+      },
+      "tags" : {
+         "items" : {
+            "maxLength" : 20,
+            "type" : "string"
+         },
+         "maxItems" : 5,
+         "type" : "array"
+      }
+   },
+   "required" : [
+      "name",
+      "count",
+      "mode"
+   ],
+   "type" : "object"
+}

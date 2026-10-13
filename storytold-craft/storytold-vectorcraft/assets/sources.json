@@ -1,0 +1,47 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "vector-cli",
+      "repository": "storytold/vectorcraft",
+      "path": "apps/vectorcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/apps/vectorcraft-cli/src/main.rs",
+      "git_blob_sha": "26139dcc8c461749ad76bb83164644d87955170f",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/vectorcraft/git/blobs/26139dcc8c461749ad76bb83164644d87955170f",
+      "reviewed_lines": [
+        1,
+        115
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "vector-mcp",
+      "repository": "storytold/vectorcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "e811ccfe03128c59effe5fac078701e615425e2b",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/vectorcraft/git/blobs/e811ccfe03128c59effe5fac078701e615425e2b",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "vectorcraft-readme",
+      "repository": "storytold/vectorcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/vectorcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

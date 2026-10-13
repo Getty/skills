@@ -1,0 +1,31 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "lightcraft",
+  "input_required": true,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "render",
+        "@INPUT@",
+        "-o",
+        "@OUT@/developed.png",
+        "--set",
+        "light.exposure=0.5"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "developed.png",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "light-cli",
+    "light-mcp",
+    "lightcraft-readme"
+  ]
+}

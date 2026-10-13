@@ -1,0 +1,69 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "photo-cli",
+      "repository": "storytold/photocraft",
+      "path": "apps/photocraft-cli/src/lib.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/apps/photocraft-cli/src/lib.rs",
+      "git_blob_sha": "93090610a550fe1811225bf8a11d8ca3ac0fe2d6",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/93090610a550fe1811225bf8a11d8ca3ac0fe2d6",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-mcp",
+      "repository": "storytold/photocraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/docs/mcp.md",
+      "git_blob_sha": "4f7e9cc70430d6b713f3eaeee15575d1891772d6",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/4f7e9cc70430d6b713f3eaeee15575d1891772d6",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-cli-guide",
+      "repository": "storytold/photocraft",
+      "path": "book/src/automation/cli.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/book/src/automation/cli.md",
+      "git_blob_sha": "05a7c3da272304bc15bb701d331b5967306b4338",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/photocraft/git/blobs/05a7c3da272304bc15bb701d331b5967306b4338",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "photo-control",
+      "repository": "storytold/photocraft",
+      "path": "docs/control-protocol.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/184c226a76c9ca6234d473912d438feaa48c1cb0/docs/control-protocol.md",
+      "git_commit": "184c226a76c9ca6234d473912d438feaa48c1cb0",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "photocraft-readme",
+      "repository": "storytold/photocraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/photocraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

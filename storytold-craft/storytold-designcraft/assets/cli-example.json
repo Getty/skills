@@ -1,0 +1,35 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "designcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--sample",
+        "--export",
+        "@OUT@/working.designcraft",
+        "--all-pages",
+        "@OUT@/previews"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.designcraft",
+      "kind": "file"
+    },
+    {
+      "path": "previews",
+      "kind": "directory"
+    }
+  ],
+  "source_ids": [
+    "design-cli",
+    "design-mcp",
+    "designcraft-readme"
+  ]
+}

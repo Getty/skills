@@ -1,0 +1,47 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "wordcraft",
+  "input_required": true,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--file",
+        "@INPUT@",
+        "--cmd",
+        "review.trackChanges={\"value\":true}",
+        "--author",
+        "AI smoke test",
+        "--save",
+        "@OUT@/working.docx"
+      ]
+    },
+    {
+      "name": "step-2",
+      "argv": [
+        "convert",
+        "@OUT@/working.docx",
+        "@OUT@/proof.pdf",
+        "--markup"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.docx",
+      "kind": "file"
+    },
+    {
+      "path": "proof.pdf",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "word-cli",
+    "word-mcp",
+    "wordcraft-readme"
+  ]
+}

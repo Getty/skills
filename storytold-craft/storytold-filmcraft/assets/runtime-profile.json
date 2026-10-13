@@ -1,0 +1,24 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "filmcraft",
+  "skill_name": "storytold-filmcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "filmcraft-cli",
+  "catalog_argv": [
+    [
+      "commands",
+      "--json"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "film-cli",
+    "film-agents",
+    "filmcraft-readme"
+  ]
+}

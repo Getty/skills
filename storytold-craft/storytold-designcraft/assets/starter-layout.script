@@ -1,0 +1,2 @@
+file.new {"preset":"A4","margins":36}
+frame.create {"rect":[36,36,559,200],"content":"text","text":"Agent layout verification"}

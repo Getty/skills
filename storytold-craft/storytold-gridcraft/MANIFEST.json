@@ -1,0 +1,111 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "30e31363c3990e8617f92bb784a8e9389a8cd5a595e2a1ddb97601918e25e494",
+      "bytes": 2279
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "ca8bf3af16998fad00b5ecc68d3f991e5b9d29998f29f9be38f63481783a3ae5",
+      "bytes": 3407
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "b9d10c590ba626b170f02e2a5e1ad6bdbb1cdc743d7be5400dd27bdb851d52cb",
+      "bytes": 1324
+    },
+    {
+      "path": "assets/calculation-smoke.jsonl",
+      "sha256": "8c9c0cc0133c8abcfbd609d2ea6341eb2082ae733f6a2d8aad8034059860dc60",
+      "bytes": 197
+    },
+    {
+      "path": "assets/cli-example.json",
+      "sha256": "464e138781bbe8ec9e74c03a59263cb8b74cc27f6e06cea0d927a319fceb55cd",
+      "bytes": 814
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "1dc694ca711f548fa4347bec84fae92932349ca9662a87586b624594620283b2",
+      "bytes": 598
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "639241cb969530f995b4074ca02bf96da6df8c933d154505df5cd898c9d9512d",
+      "bytes": 1623
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "34302d3411a5327b2fa724f7b5c0139b04de6b046448e4650ee6f3b897301e62",
+      "bytes": 456
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/cli.md",
+      "sha256": "576926e2a02ce8e52c77bcc024535f3f5bfbcf85702abab1acc9e0f7b77e8cfc",
+      "bytes": 2084
+    },
+    {
+      "path": "references/format-import-and-roundtrip.md",
+      "sha256": "43f5091d50e96f70f91e28d377ddde272feb4e84d0df8b0450584768439ee93d",
+      "bytes": 2078
+    },
+    {
+      "path": "references/formulas-and-calculation-oracles.md",
+      "sha256": "7d6ad877c5b9c14aead83c52051f09ef4f2c300acf0bf97808b3ba7b2d5fa022",
+      "bytes": 2315
+    },
+    {
+      "path": "references/mcp-and-data-types.md",
+      "sha256": "72f5e0eeff9ad7e5195cdb7b1464ff344f6e3981e02325487c8ecec45326aac3",
+      "bytes": 2232
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "b6f37e443f2af898927d2f837a1c3d48312bbee4081909e877b894263d760386",
+      "bytes": 4101
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "3b90482201ea649e14a098ff532e89daa154edf4774271074b623cfd0b864775",
+      "bytes": 1249
+    },
+    {
+      "path": "references/workbook-editing-and-verification.md",
+      "sha256": "4e54217b2666edb984ca6db3cff7ac26d59e0f7a74fd6a7c00fa982748a95436",
+      "bytes": 1813
+    },
+    {
+      "path": "scripts/capture_capabilities.py",
+      "sha256": "7535996877f78b90a3f2028fd180b5b5802e742d1492513e4529e6c5cb340190",
+      "bytes": 17788
+    },
+    {
+      "path": "scripts/run_example.py",
+      "sha256": "368ddfb47d7fdc88de425a5c472e4a68c844b3eec793e62db9da25d280f252fd",
+      "bytes": 7075
+    },
+    {
+      "path": "scripts/test_helpers.py",
+      "sha256": "120640e2ed4904dd1510b1f9f7c6d4dcfa989dc55d10db08038ef11cdc6ac2fa",
+      "bytes": 10472
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "978bc008192f6f604a1ccda4c7cfaaa03cfad2815e4427ddb465efe7984f79f1",
+      "bytes": 2393
+    }
+  ]
+}

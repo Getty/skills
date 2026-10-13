@@ -1,0 +1,439 @@
+{
+  "schema": "storytold-collection-capabilities/1",
+  "reviewed_on": "2026-10-12",
+  "products": [
+    {
+      "skill": "storytold-craft",
+      "title": "Storytold Craft Overview",
+      "purpose": "Route AI-operated creative work to the correct Storytold product and coordinate CLI/MCP workflows without assuming a shared API.",
+      "operator_cli": null,
+      "cli_evidence": "not_verified_or_overview",
+      "catalog_argv": [],
+      "headless_mcp_argv": null,
+      "hazards": [
+        "The twelve editors share ideas, not one CLI grammar, parameter schema or sandbox policy.",
+        "A repository capability is not necessarily present in an installed release.",
+        "ArtCraft, ArtCraft-X and the launcher do not have a comparable operator CLI verified here."
+      ],
+      "reference_count": 10,
+      "source_ids": [
+        "craft-launcher-readme",
+        "photo-cli",
+        "light-cli",
+        "film-cli",
+        "vector-cli",
+        "effect-cli",
+        "design-cli",
+        "pdf-cli",
+        "word-cli",
+        "grid-cli-guide",
+        "deck-cli",
+        "cad-cli",
+        "sound-cli"
+      ]
+    },
+    {
+      "skill": "storytold-photocraft",
+      "title": "PhotoCraft",
+      "purpose": "Edit layered raster images, PSD/PSB documents, masks, adjustments, smart objects and exports through PhotoCraft.",
+      "operator_cli": "photocraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "CLI --cmd takes a separate --params; do not import another app's id=JSON grammar.",
+        "Direct CLI paths are ambient; scoped MCP/serve use separately granted read and write authority.",
+        "An MCP batch is not atomic; response-budget errors may occur after an edit.",
+        "Save smart-object contents inward-to-outward before saving the parent document."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "photo-cli",
+        "photo-mcp",
+        "photo-cli-guide",
+        "photo-control",
+        "photocraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-lightcraft",
+      "title": "LightCraft",
+      "purpose": "Operate a persistent photo catalog, develop RAW files, manage originals/sidecars, and export images with LightCraft.",
+      "operator_cli": "lightcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ],
+        [
+          "controls",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp",
+        "--compact"
+      ],
+      "hazards": [
+        "A library has one owning process; use connect mode rather than opening it twice.",
+        "CLI render defaults to full size, while the MCP export helper defaults to a 3000-pixel long edge.",
+        "Move import changes original files; undo does not put them back.",
+        "White-balance scale and develop process version are part of the image specification."
+      ],
+      "reference_count": 8,
+      "source_ids": [
+        "light-cli",
+        "light-mcp",
+        "lightcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-vectorcraft",
+      "title": "VectorCraft",
+      "purpose": "Create and transform vector documents, inspect objects, control live appearance and export artboards with VectorCraft.",
+      "operator_cli": "vectorcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp",
+        "--headless"
+      ],
+      "hazards": [
+        "Bare mcp tries a live app before falling back; specify --headless for deterministic isolation.",
+        "--artboard is zero-based; --range is one-based.",
+        "Scoped MCP root flags imply headless and cannot be combined with --connect.",
+        "Import warnings can indicate lost content; do not bypass --replace-lossy protections casually."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "vector-cli",
+        "vector-mcp",
+        "vectorcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-filmcraft",
+      "title": "FilmCraft",
+      "purpose": "Inspect, edit and render video projects and timelines with FilmCraft, including media health, timing and export jobs.",
+      "operator_cli": "filmcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "Time uses 254016000000 ticks per second; never confuse ticks, frames and seconds.",
+        "Headless MCP has ambient filesystem access; PhotoCraft root flags are not accepted.",
+        "Engine/MCP export can succeed while drawing offline-media placeholders; inspect offlineMedia.",
+        "Breaking a stdout pipe does not cancel execution or a pending save."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "film-cli",
+        "film-agents",
+        "filmcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-effectcraft",
+      "title": "EffectCraft",
+      "purpose": "Build motion graphics, animate composition/layer properties, manage expressions and render jobs with EffectCraft.",
+      "operator_cli": "effectcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "Keyframe writes default to layer time; explicit comp time must be requested.",
+        "batch and command_batch have different rollback and undo semantics.",
+        "A render owns a snapshot; edits made during rendering do not change that render.",
+        "Scoped mode restricts scripts and UI driving as well as filesystem paths."
+      ],
+      "reference_count": 8,
+      "source_ids": [
+        "effect-cli",
+        "effect-agents",
+        "effect-mcp",
+        "effectcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-designcraft",
+      "title": "DesignCraft",
+      "purpose": "Compose page-layout documents with threaded stories, frames, styles, images and publication exports in DesignCraft.",
+      "operator_cli": "designcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "Story offsets are UTF-8 bytes, not Unicode character indexes.",
+        "Geometry is spread-space points, y down; rendered page indexes are zero-based.",
+        "--page, --scale and --pdf-options apply to the exports that follow them.",
+        "Rendered text is not proof that every story fits; inspect overset."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "design-cli",
+        "design-mcp",
+        "designcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-pdfcraft",
+      "title": "PdfCraft",
+      "purpose": "Read, inspect, organize, annotate, edit, secure and verify PDFs through PdfCraft's CLI and schema-described automation tools.",
+      "operator_cli": "pdfcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "tools"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp",
+        "--compact"
+      ],
+      "hazards": [
+        "Pages and positions are one-based; geometry uses displayed-page top-left PDF points.",
+        "Document IDs belong to a live session; use one run script or persistent MCP for multistep edits.",
+        "Strict task-tool schemas differ from command_run, which can warn and ignore unknown nested keys.",
+        "Incremental saves retain previous bytes; overlays and successful renders do not establish secure redaction."
+      ],
+      "reference_count": 8,
+      "source_ids": [
+        "pdf-cli",
+        "pdf-automation",
+        "pdfcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-wordcraft",
+      "title": "WordCraft",
+      "purpose": "Write, revise and review structured documents with WordCraft, preserving style, tracked changes and export intent.",
+      "operator_cli": "wordcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "review.trackChanges without value toggles; use value:true for reliable enabling.",
+        "Unknown CharProps/ParaProps fields may be ignored; inspect the result.",
+        "Headless filesystem roots cannot be applied to --connect; the reviewed desktop has no equivalent roots.",
+        "Do not assume --help works on every subcommand; use the verified commands catalog."
+      ],
+      "reference_count": 8,
+      "source_ids": [
+        "word-cli",
+        "word-mcp",
+        "wordcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-gridcraft",
+      "title": "GridCraft",
+      "purpose": "Inspect and edit spreadsheets, evaluate formulas, validate calculation oracles and measure workbook round-trip fidelity using GridCraft.",
+      "operator_cli": "gridcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands",
+          "--json"
+        ],
+        [
+          "functions",
+          "--json"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "XLSB and ODS import may turn formulas into cached values and omit formatting.",
+        "check exit zero is not comprehensive formula coverage: inspect noOracle, volatile and checked counts.",
+        "Preserve formulas separately from displayed values and data types.",
+        "CLI run stops on the first failing step; do not assume transaction rollback."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "grid-mcp",
+        "grid-cli-guide",
+        "gridcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-deckcraft",
+      "title": "DeckCraft",
+      "purpose": "Build, inspect and export presentations with DeckCraft while preserving editable shapes, slide structure and presentation intent.",
+      "operator_cli": "deckcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "A PNG conversion can cover only the first slide; use render --all for coverage.",
+        "A static render does not verify animation, transitions or embedded media playback.",
+        "Use --save for the editable working document and explicit exports for deliveries.",
+        "Do not assume generic --help flags or schema parity with another Craft app."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "deck-control",
+        "deck-cli",
+        "deck-mcp",
+        "deckcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-cadcraft",
+      "title": "CADCraft",
+      "purpose": "Create and verify drawings with CADCraft using geometry commands, structured inspection, layouts and DXF/DWG interchange.",
+      "operator_cli": "cadcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "Unsupported imported entity types are not necessarily retained on save.",
+        "Model-space units, paper-space points and viewport scale are distinct.",
+        "Command-prompt workflows are stateful; inspect pending prompts before sending another command.",
+        "SVG/PNG visual similarity does not establish dimensional or CAD round-trip correctness."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "cad-cli",
+        "cad-readme-detail",
+        "cadcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-soundcraft",
+      "title": "SoundCraft",
+      "purpose": "Operate multitrack audio sessions, source media, mixing, routing, automation and offline bounces with SoundCraft.",
+      "operator_cli": "soundcraft-cli",
+      "cli_evidence": "source_reviewed_not_executed",
+      "catalog_argv": [
+        [
+          "commands"
+        ]
+      ],
+      "headless_mcp_argv": [
+        "mcp"
+      ],
+      "hazards": [
+        "Headless MCP has no audio device; transport success is not evidence of audible output.",
+        "A .scraft session depends on its Audio Files directory and media availability.",
+        "session.audio_health is not a loudness, routing or plugin-quality audit.",
+        "save_session requires replace:true to overwrite another existing file."
+      ],
+      "reference_count": 7,
+      "source_ids": [
+        "sound-cli",
+        "sound-mcp",
+        "soundcraft-readme"
+      ]
+    },
+    {
+      "skill": "storytold-artcraft",
+      "title": "ArtCraft",
+      "purpose": "Inspect and integrate Storytold ArtCraft's generative desktop workflow and Rust client without inventing a Craft-style operator CLI.",
+      "operator_cli": null,
+      "cli_evidence": "not_verified_or_overview",
+      "catalog_argv": [],
+      "headless_mcp_argv": null,
+      "hazards": [
+        "No comparable artcraft-cli operator surface was verified in the reviewed sources.",
+        "A Rust HTTP endpoint binding is not a supported public automation API contract by itself.",
+        "Generation can upload user content and incur provider costs; authorize those effects explicitly."
+      ],
+      "reference_count": 6,
+      "source_ids": [
+        "artcraft-readme",
+        "artcraft-client",
+        "artcraft-dev"
+      ]
+    },
+    {
+      "skill": "storytold-artcraftx",
+      "title": "ArtCraft-X",
+      "purpose": "Understand and integrate the experimental ArtCraft-X Tauri generation application, its IPC boundary and development lifecycle.",
+      "operator_cli": null,
+      "cli_evidence": "not_verified_or_overview",
+      "catalog_argv": [],
+      "headless_mcp_argv": null,
+      "hazards": [
+        "The Vite development port is not a generation REST API.",
+        "A registered Tauri invoke handler is not an externally reachable MCP or CLI endpoint.",
+        "Development startup and hot reload must not be mistaken for durable production job management."
+      ],
+      "reference_count": 6,
+      "source_ids": [
+        "artcraftx-readme",
+        "artcraftx-ipc"
+      ]
+    },
+    {
+      "skill": "storytold-craft-launcher",
+      "title": "Craft Launcher",
+      "purpose": "Manage discovery, installation, version compatibility and safe update handoffs for Storytold Craft applications via the ArtCraft Launcher.",
+      "operator_cli": null,
+      "cli_evidence": "not_verified_or_overview",
+      "catalog_argv": [],
+      "headless_mcp_argv": null,
+      "hazards": [
+        "The product executable is artcraft-launcher; a craft-launcher-cli management API was not verified.",
+        "Installing a GUI does not prove that a compatible CLI is on PATH, especially on macOS.",
+        "Package formats, elevation and sandbox paths differ across platforms."
+      ],
+      "reference_count": 6,
+      "source_ids": [
+        "craft-launcher-readme",
+        "launcher-xtask"
+      ]
+    }
+  ]
+}

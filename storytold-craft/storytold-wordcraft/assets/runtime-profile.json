@@ -1,0 +1,24 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "wordcraft",
+  "skill_name": "storytold-wordcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "wordcraft-cli",
+  "catalog_argv": [
+    [
+      "commands",
+      "--json"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "word-cli",
+    "word-mcp",
+    "wordcraft-readme"
+  ]
+}

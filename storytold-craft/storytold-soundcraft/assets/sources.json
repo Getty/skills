@@ -1,0 +1,43 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "sound-cli",
+      "repository": "storytold/soundcraft",
+      "path": "apps/soundcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/apps/soundcraft-cli/src/main.rs",
+      "git_blob_sha": "bb7628aa0777faecff6a6501e44370e48ef10df1",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/soundcraft/git/blobs/bb7628aa0777faecff6a6501e44370e48ef10df1",
+      "reviewed_lines": [
+        1,
+        95
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "sound-mcp",
+      "repository": "storytold/soundcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "7102a237c624c1c1e767745a6cf189d645d7a58d",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/soundcraft/git/blobs/7102a237c624c1c1e767745a6cf189d645d7a58d",
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "soundcraft-readme",
+      "repository": "storytold/soundcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/soundcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

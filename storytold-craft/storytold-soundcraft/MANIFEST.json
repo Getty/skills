@@ -1,0 +1,106 @@
+{
+  "schema": "storytold-file-manifest/1",
+  "hash": "SHA-256",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "sha256": "b5f0498b8d3e6b8ca3246fbf550d8229593fe25f63bb09c0f29be63037a13620",
+      "bytes": 1462
+    },
+    {
+      "path": "README.md",
+      "sha256": "66d243f957d1e06a1106bfec8138bd87b91b03f04abc16257af413d3bc49ff43",
+      "bytes": 2161
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "622b45c07ce87ea68ad6d64de94bb56e5298dc4a4699a2e2f0a4714ceeef0560",
+      "bytes": 3255
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "1aa094ed0620bfc5da1a108496551ab53936779e0c3e747fdabdddd9d3713342",
+      "bytes": 1325
+    },
+    {
+      "path": "assets/cli-example.json",
+      "sha256": "600ef0927fa7b12ed762321834d116f471d67d0bf4a976aca5be3fd8cefce2d2",
+      "bytes": 736
+    },
+    {
+      "path": "assets/runtime-profile.json",
+      "sha256": "f9cf264ac0883f19685c791a4aba965e6bb714cebab79085b1415a5746afec31",
+      "bytes": 535
+    },
+    {
+      "path": "assets/sources.json",
+      "sha256": "a713a45a0970da129b60139b68bb286650ad494739e7d74a46a1408be5f8a790",
+      "bytes": 1726
+    },
+    {
+      "path": "assets/verification-record.example.json",
+      "sha256": "de1e04a13f29e0cc6c7e10cdb8b9f92a910ce2810409a515fbf7e5cf4a211535",
+      "bytes": 457
+    },
+    {
+      "path": "assets/verification-record.schema.json",
+      "sha256": "3f80d2ebd5003fc80e06df50eab4cb9a6dcef5c006abaad8c3722c11b8df1921",
+      "bytes": 2029
+    },
+    {
+      "path": "references/bounce-loudness-and-verification.md",
+      "sha256": "afb636faaadf7757624e3cc280dada87905e73a47d85ef2f87d4c478d1451e45",
+      "bytes": 1865
+    },
+    {
+      "path": "references/cli-and-session-files.md",
+      "sha256": "a1e6fe24c51220be75ec157e22a41c1ed3a68a9ddb2e6d8384ed143ed63e7648",
+      "bytes": 1947
+    },
+    {
+      "path": "references/mcp-and-time-bases.md",
+      "sha256": "bb883897786d5ab0c3bd720987f653ccc2d86b32532ad9227b90f49cdad30f1d",
+      "bytes": 1890
+    },
+    {
+      "path": "references/mixing-routing-and-automation.md",
+      "sha256": "60f36e988e57c7cec73ab6776600c595cefe6dcad5209e2b5ff48bcbfc92638c",
+      "bytes": 1962
+    },
+    {
+      "path": "references/runtime-and-evidence.md",
+      "sha256": "a498c8c792059445b2f256996b5cdbda0d24cbf4672c214894a1b88a9101f454",
+      "bytes": 4124
+    },
+    {
+      "path": "references/source-health-and-portability.md",
+      "sha256": "c586e8a90cf1643f4ee73cfa86cb7c9bd41e879ec6d30370532ca4b2c9880656",
+      "bytes": 2003
+    },
+    {
+      "path": "references/sources.md",
+      "sha256": "e9a6b133f3c4cf8fe363a5413a95125e9ebd41100295e7fb54b272e9657171cf",
+      "bytes": 1292
+    },
+    {
+      "path": "scripts/capture_capabilities.py",
+      "sha256": "7535996877f78b90a3f2028fd180b5b5802e742d1492513e4529e6c5cb340190",
+      "bytes": 17788
+    },
+    {
+      "path": "scripts/run_example.py",
+      "sha256": "368ddfb47d7fdc88de425a5c472e4a68c844b3eec793e62db9da25d280f252fd",
+      "bytes": 7075
+    },
+    {
+      "path": "scripts/test_helpers.py",
+      "sha256": "120640e2ed4904dd1510b1f9f7c6d4dcfa989dc55d10db08038ef11cdc6ac2fa",
+      "bytes": 10472
+    },
+    {
+      "path": "tests/evaluation-cases.json",
+      "sha256": "d4f46cebecf0ea44eed963baefbc94cdc05da151e1e51b96f6824f3eafc134cf",
+      "bytes": 2393
+    }
+  ]
+}

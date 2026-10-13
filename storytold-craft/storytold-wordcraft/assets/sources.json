@@ -1,0 +1,47 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "word-cli",
+      "repository": "storytold/wordcraft",
+      "path": "apps/wordcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/apps/wordcraft-cli/src/main.rs",
+      "git_blob_sha": "a0a2d5f233cc744d21970d976725cc14683ce5c3",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/wordcraft/git/blobs/a0a2d5f233cc744d21970d976725cc14683ce5c3",
+      "reviewed_lines": [
+        1,
+        95
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "word-mcp",
+      "repository": "storytold/wordcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/docs/mcp.md",
+      "git_blob_sha": "ae53a78a8d5daceb9cba9e2f0d851a1c48575f16",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/wordcraft/git/blobs/ae53a78a8d5daceb9cba9e2f0d851a1c48575f16",
+      "reviewed_lines": [
+        1,
+        160
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "wordcraft-readme",
+      "repository": "storytold/wordcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/wordcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

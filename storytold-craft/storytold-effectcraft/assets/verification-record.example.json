@@ -1,0 +1,18 @@
+{
+  "schema": "storytold-workflow-verification/1",
+  "app": "effectcraft",
+  "evidence_level": "source_reviewed",
+  "binary": null,
+  "inputs": [],
+  "outputs": [],
+  "checks": [
+    {
+      "name": "Local application workflow",
+      "status": "not_run",
+      "evidence": "This is an empty recording template, not a completed test."
+    }
+  ],
+  "limitations": [
+    "No application execution or fresh-agent evaluation represented by this template."
+  ]
+}

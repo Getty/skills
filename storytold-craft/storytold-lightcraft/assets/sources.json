@@ -1,0 +1,42 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "light-cli",
+      "repository": "storytold/lightcraft",
+      "path": "apps/lightcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/main/apps/lightcraft-cli/src/main.rs",
+      "git_blob_sha": "63a4deb764b63b6a8dd3de4d4e5561bc613c9ee1",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/lightcraft/git/blobs/63a4deb764b63b6a8dd3de4d4e5561bc613c9ee1",
+      "reviewed_lines": [
+        1,
+        155
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "light-mcp",
+      "repository": "storytold/lightcraft",
+      "path": "docs/mcp.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/701f78ea2e586d4748705f10fdf5c4181dc1fd49/docs/mcp.md",
+      "git_commit": "701f78ea2e586d4748705f10fdf5c4181dc1fd49",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "lightcraft-readme",
+      "repository": "storytold/lightcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/lightcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

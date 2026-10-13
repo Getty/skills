@@ -1,0 +1,26 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "artcraftx-readme",
+      "repository": "storytold/artcraftx",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraftx/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "artcraftx-ipc",
+      "repository": "storytold/artcraftx",
+      "path": "crates/artcraftx/src/lib.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation-search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/artcraftx/blob/98c2a48940aa0a54604637f665ee539c122fa707/crates/artcraftx/src/lib.rs",
+      "git_commit": "98c2a48940aa0a54604637f665ee539c122fa707",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    }
+  ]
+}

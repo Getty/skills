@@ -1,0 +1,43 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "cad-cli",
+      "repository": "storytold/cadcraft",
+      "path": "apps/cadcraft-cli/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/apps/cadcraft-cli/src/main.rs",
+      "git_blob_sha": "30292d59db63543223088bd4a6cff4225430ee75",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/cadcraft/git/blobs/30292d59db63543223088bd4a6cff4225430ee75",
+      "reviewed_lines": [
+        1,
+        125
+      ],
+      "review_scope": "Selected implementation lines or relevant documentation, as recorded; no runtime verification"
+    },
+    {
+      "id": "cad-readme-detail",
+      "repository": "storytold/cadcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/README.md",
+      "git_blob_sha": "3c5720b1a0d4ff301e6205d89d34b5c489406726",
+      "immutable_blob_api": "https://api.github.com/repos/storytold/cadcraft/git/blobs/3c5720b1a0d4ff301e6205d89d34b5c489406726",
+      "review_scope": "Relevant portions of a response that was partly truncated; not a complete-file review"
+    },
+    {
+      "id": "cadcraft-readme",
+      "repository": "storytold/cadcraft",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/cadcraft/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    }
+  ]
+}

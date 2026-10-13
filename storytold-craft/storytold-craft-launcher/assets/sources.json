@@ -1,0 +1,26 @@
+{
+  "schema": "storytold-source-ledger/1",
+  "sources": [
+    {
+      "id": "craft-launcher-readme",
+      "repository": "storytold/craft-launcher",
+      "path": "README.md",
+      "reviewed_on": "2026-10-12",
+      "kind": "product-documentation",
+      "reviewed": true,
+      "url": "https://github.com/storytold/craft-launcher/blob/main/README.md",
+      "review_scope": "Selected product/automation sections; not a full-file audit"
+    },
+    {
+      "id": "launcher-xtask",
+      "repository": "storytold/craft-launcher",
+      "path": "xtask/src/main.rs",
+      "reviewed_on": "2026-10-12",
+      "kind": "implementation-search-excerpt",
+      "reviewed": true,
+      "url": "https://github.com/storytold/craft-launcher/blob/1aaf7b27be2dba970d1a77f96aef6aad52352730/xtask/src/main.rs",
+      "git_commit": "1aaf7b27be2dba970d1a77f96aef6aad52352730",
+      "review_scope": "Targeted search excerpt only; not a complete implementation audit"
+    }
+  ]
+}

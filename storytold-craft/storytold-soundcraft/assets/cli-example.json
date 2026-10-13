@@ -1,0 +1,36 @@
+{
+  "schema": "storytold-cli-recipe/1",
+  "app": "soundcraft",
+  "input_required": false,
+  "evidence": "Source-reviewed command forms; not executed against the Craft application here",
+  "scope": "Smoke workflow only; output existence is not semantic or visual validation",
+  "steps": [
+    {
+      "name": "step-1",
+      "argv": [
+        "run",
+        "--demo",
+        "--save",
+        "@OUT@/working.scraft",
+        "--bounce",
+        "@OUT@/mix.wav",
+        "--inspect"
+      ]
+    }
+  ],
+  "expected_outputs": [
+    {
+      "path": "working.scraft",
+      "kind": "file"
+    },
+    {
+      "path": "mix.wav",
+      "kind": "file"
+    }
+  ],
+  "source_ids": [
+    "sound-cli",
+    "sound-mcp",
+    "soundcraft-readme"
+  ]
+}

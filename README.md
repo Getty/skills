@@ -23,8 +23,9 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
-| [perl](perl/README.md) | 11 | House style, object systems including Mojo::Base, typing, async, MCP, XS and Alien, release tooling |
+| [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
+| [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
 | [system-and-network-administration](system-and-network-administration/README.md) | 11 | Machines, networks, hosting, containers, Kubernetes, TLS and PKI, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
@@ -92,6 +93,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [getty-perl-distribution](perl/getty-perl-distribution/SKILL.md) | Creating a CPAN distribution, or bringing an existing one to house standard |
 | [getty-perl-moo](perl/getty-perl-moo/SKILL.md) | Moo classes and roles — roles for reuse, inheritance only for a stable is-a |
 | [getty-perl-moose](perl/getty-perl-moose/SKILL.md) | The same shape in Moose, plus `make_immutable` on every class |
+| [getty-perl-sugar](perl/getty-perl-sugar/SKILL.md) | Declarative DSL sugar: registering keywords, a metadata registry, one shared runner |
 | [getty-perl-typing](perl/getty-perl-typing/SKILL.md) | Whether a project needs a type system at all, and which one is cheap here |
 | [perl-alien](perl/perl-alien/SKILL.md) | `Alien::Build`: providing a C library or tool through CPAN |
 | [perl-io-async-future](perl/perl-io-async-future/SKILL.md) | PEVANS-style async Perl, and its unforgiving lifetime rules |
@@ -106,6 +108,27 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [linkedin](social-media/linkedin/SKILL.md) | Formats, how distribution actually works, and the DACH legal duties |
 | [twitch](social-media/twitch/SKILL.md) | Channel operation end to end: encoder, growth, chat, monetization, moderation |
+
+### [storytold-craft](storytold-craft/README.md)
+
+| Skill | What it is |
+|---|---|
+| [storytold-artcraft](storytold-craft/storytold-artcraft/SKILL.md) | ArtCraft's generative workflow and Rust client — an integration boundary, no operator CLI |
+| [storytold-artcraftx](storytold-craft/storytold-artcraftx/SKILL.md) | The experimental ArtCraft-X Tauri app: its IPC boundary and development lifecycle |
+| [storytold-cadcraft](storytold-craft/storytold-cadcraft/SKILL.md) | CADCraft drawings: geometry commands, units and layouts, DXF/DWG interchange |
+| [storytold-craft](storytold-craft/storytold-craft/SKILL.md) | The overview: which product owns which task, and where the twelve CLIs differ |
+| [storytold-craft-launcher](storytold-craft/storytold-craft-launcher/SKILL.md) | Installing, updating and locating the Craft applications |
+| [storytold-deckcraft](storytold-craft/storytold-deckcraft/SKILL.md) | DeckCraft presentations: slides, shapes, layouts, export coverage |
+| [storytold-designcraft](storytold-craft/storytold-designcraft/SKILL.md) | DesignCraft page layout: spreads, frames, threaded stories, publication export |
+| [storytold-effectcraft](storytold-craft/storytold-effectcraft/SKILL.md) | EffectCraft motion graphics: compositions, keyframes, expressions, render jobs |
+| [storytold-filmcraft](storytold-craft/storytold-filmcraft/SKILL.md) | FilmCraft timelines: media health, tick-based timing, export jobs |
+| [storytold-gridcraft](storytold-craft/storytold-gridcraft/SKILL.md) | GridCraft spreadsheets: formulas, calculation oracles, round-trip fidelity |
+| [storytold-lightcraft](storytold-craft/storytold-lightcraft/SKILL.md) | LightCraft photo catalogs: RAW development, originals and sidecars, exports |
+| [storytold-pdfcraft](storytold-craft/storytold-pdfcraft/SKILL.md) | PdfCraft: reading, organizing, annotating, editing and securing existing PDFs |
+| [storytold-photocraft](storytold-craft/storytold-photocraft/SKILL.md) | PhotoCraft layered raster images: PSD/PSB, masks, smart objects, exports |
+| [storytold-soundcraft](storytold-craft/storytold-soundcraft/SKILL.md) | SoundCraft multitrack sessions: media, routing, automation, offline bounces |
+| [storytold-vectorcraft](storytold-craft/storytold-vectorcraft/SKILL.md) | VectorCraft documents: object queries, live appearance, artboard export |
+| [storytold-wordcraft](storytold-craft/storytold-wordcraft/SKILL.md) | WordCraft documents: styles, sections, tracked changes, export |
 
 ### [system-and-network-administration](system-and-network-administration/README.md)
 

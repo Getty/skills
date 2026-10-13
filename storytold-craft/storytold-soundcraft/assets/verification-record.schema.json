@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Storytold skill workflow verification record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "app",
+    "evidence_level",
+    "binary",
+    "inputs",
+    "outputs",
+    "checks",
+    "limitations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "storytold-workflow-verification/1"
+    },
+    "app": {
+      "type": "string"
+    },
+    "evidence_level": {
+      "enum": [
+        "source_reviewed",
+        "metadata_observed",
+        "operation_executed",
+        "save_reopen_verified",
+        "delivery_inspected",
+        "fresh_agent_task_passed"
+      ]
+    },
+    "binary": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "status"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "passed",
+              "failed",
+              "not_run",
+              "uncertain"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

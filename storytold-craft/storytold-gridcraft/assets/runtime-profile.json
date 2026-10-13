@@ -1,0 +1,28 @@
+{
+  "schema": "storytold-runtime-profile/1",
+  "app": "gridcraft",
+  "skill_name": "storytold-gridcraft",
+  "reviewed_on": "2026-10-12",
+  "operator_cli_verified": true,
+  "operator_cli_evidence": "source_reviewed_not_executed",
+  "binary_name": "gridcraft-cli",
+  "catalog_argv": [
+    [
+      "commands",
+      "--json"
+    ],
+    [
+      "functions",
+      "--json"
+    ]
+  ],
+  "mcp_argv": [
+    "mcp"
+  ],
+  "native_confinement": "See this skill's product-specific reference; no universal sandbox contract",
+  "source_ids": [
+    "grid-mcp",
+    "grid-cli-guide",
+    "gridcraft-readme"
+  ]
+}
