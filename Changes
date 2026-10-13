@@ -1,0 +1,29 @@
+Revision history for skills
+
+{{$NEXT}}
+
+0.2.0     2026-10-13 05:16:08Z
+  - New group storytold-craft: sixteen skills for operating the Storytold
+    Craft editors as an agent, one per application plus an overview.
+  - New skill getty-perl-sugar: declarative Perl DSL sugar on
+    Moose::Exporter, with a metadata registry and one shared runner.
+  - New groups codex, databases, hermes-agent and social-media.
+  - New skills skill-mining, claude-cross-session,
+    claude-code-plugin-engineering, getty-perl-typing, perl-alien,
+    perl-mojo, perl-xs, docker-engine-api, hetzner-operator, ssl-tls-pki
+    and vllm-operator.
+  - docker, docker-registry, docker-engine-api and rex are routers over a
+    reference tree; getty-rex is named rex.
+  - getty-create-software lives in the development group.
+  - getty-perl-kubernetes-classes, getty-perl-release-author-getty and
+    perl-www-crawl4ai live in the repos that own their subject.
+  - Skills are installed with skilletor; bin/check-listings holds the
+    READMEs and both plugin manifests against the directories.
+  - getty-git-commit-style prescribes one Changes file in the CPAN format
+    for every repo.
+  - Skill descriptions state when to load the skill, not what it contains.
+
+0.1.0     2026-08-19 06:19:36Z
+  - Initial library: authoring, claude, development, git, perl and
+    system-and-network-administration, shipped as a plugin for Claude Code
+    and for Codex.

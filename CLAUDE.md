@@ -34,6 +34,10 @@ under "Old pattern".
   array — an unlisted skill cannot be installed. Then `claude plugin validate .` (a
   root-CLAUDE.md warning is expected; don't use `--strict`).
 - `bin/check-listings` verifies all listings at once; run it before committing.
+- A release bumps `version` in both plugin manifests and stamps the version line in
+  `Changes` in the same commit (format: skill `getty-git-commit-style`). Plugin
+  installs only see new or changed skills after that bump; skilletor consumers do not
+  need it. Until then an entry goes under `{{$NEXT}}`.
 - Renames ripple: consuming repos reference skills by name in `install.skills` of their
   `skilletor.json`, in `briefing.skills` and in `CLAUDE.md` files. Flag every rename in
   your summary.
