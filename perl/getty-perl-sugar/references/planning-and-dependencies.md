@@ -54,7 +54,7 @@ a single simultaneous group impossible. A group is not a way to bypass the DAG.
 
 The reference executor does not implement groups. Its registry deliberately rejects
 unknown group-related options rather than accepting declarations it cannot honor.
-See [parallelism](parallelism-and-futures.md) before adding such an adapter.
+See `parallelism-and-futures` before adding such an adapter.
 
 ## Inspectable output
 

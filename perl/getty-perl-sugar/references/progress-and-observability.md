@@ -50,7 +50,7 @@ health, lease renewal, operation progress, and application-level completion.
 
 A timeout should identify the responsible layer: request timeout, subprocess limit,
 step deadline, or overall run deadline. Cancellation requests and observed cancellation
-are separate events. See [parallelism](parallelism-and-futures.md) for adapter semantics.
+are separate events. See `parallelism-and-futures` for adapter semantics.
 
 ## Public views
 

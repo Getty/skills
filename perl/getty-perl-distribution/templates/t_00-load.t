@@ -1,7 +1,8 @@
+#!/usr/bin/env perl
 use strict;
 use warnings;
 use Test::More;
 
-BEGIN { use_ok('{{$module}}') };
+use_ok('{{$module}}');
 
-done_testing();
+done_testing;

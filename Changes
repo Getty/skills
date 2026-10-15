@@ -1,6 +1,17 @@
 Revision history for skills
 
 {{$NEXT}}
+  - getty-perl-core, getty-perl-moo and getty-perl-moose are smaller and
+    match the code they describe: multi-line lists end with a trailing
+    comma; `with` comes after the `use` lines and before `has`; Moo cleans
+    with namespace::clean, Moose with namespace::autoclean; Moose has no
+    `is => 'lazy'`. DBIC rules moved to getty-perl-core's references/dbic.md.
+  - getty-perl-typing is smaller; Moose uses Types::Standard in new code,
+    parameter validation is Params::ValidationCompiler.
+  - getty-perl-distribution: the author rule is fixed and the templates
+    match real dists (0.001, aligned dist.ini, no stale pins).
+  - getty-perl-sugar loads only when designing a new DSL; its authoring
+    artifacts moved to perl/.dev/ and are no longer installed.
 
 0.2.0     2026-10-13 05:16:08Z
   - New group storytold-craft: sixteen skills for operating the Storytold

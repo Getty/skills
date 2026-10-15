@@ -60,4 +60,3 @@ old runner.
 
 `DBIO::Candy` and `DBIO::Cake` are public examples of the same metadata-sugar idea
 applied to schema declarations; they are an analogy, not this workflow pattern.
-[S18](sources.md#s18), [S20](sources.md#s20)

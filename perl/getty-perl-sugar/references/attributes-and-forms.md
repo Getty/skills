@@ -9,7 +9,7 @@ A user-facing field commonly needs a label, help text, group, order, widget hint
 visibility rule, and sensitivity flag. Attaching those to the attribute avoids
 maintaining an independent form definition that drifts from the object model.
 Moose supports attribute traits that add metadata such as a label to the attribute
-metaclass. [S14](sources.md#s14)
+metaclass.
 
 Use `with_meta` for a declaration that normalizes your domain options and calls
 `$meta->add_attribute`. The trait stores custom metadata; it is not a new domain
@@ -57,7 +57,7 @@ new bound plan, not an invisible mutation to an ongoing run.
 
 Store label identifiers and render translations in the request's locale. The same
 class may serve several users with different locales. See
-[validation and localization](validation-and-localization.md).
+`validation-and-localization`.
 
 ## Test the projection, not just the declaration
 

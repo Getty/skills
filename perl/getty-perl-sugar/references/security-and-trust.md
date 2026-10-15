@@ -9,7 +9,6 @@ A Perl module can run arbitrary code during loading. Exporters, `BEGIN` blocks,
 top-level statements, attribute defaults/builders, and imported code can have effects.
 A registry-backed DSL reduces accidental work inside its own keywords; it does not
 turn arbitrary `.pm` files into a safe metadata format.
-[S04](sources.md#s04), [S05](sources.md#s05)
 
 Do not `require` untrusted packages into an administrator process to discover their
 steps. For an external catalogue, consume a signed or otherwise trusted data-only

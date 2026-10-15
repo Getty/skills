@@ -4,33 +4,16 @@ package {{$module}};
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.001';
 
 1;
 
-__END__
+=synopsis
 
-=head1 SYNOPSIS
+  use {{$module}};
 
-    use {{$module}};
-
-=head1 DESCRIPTION
+=description
 
 Description of your module.
-
-=head1 METHODS
-
-=head2 method_name
-
-Description of method.
-
-=head1 AUTHOR
-
-{{$author}}
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
 
 =cut

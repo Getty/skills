@@ -8,7 +8,7 @@ under the wrong package.
 With `Moose::Exporter`, `also` includes another Moose-style exporter's interface;
 `as_is` exports ordinary functions; `with_meta` prepends the importing target's
 metaclass to the keyword call. A custom `init_meta` can initialize the target and
-perform additional integration. These are distinct responsibilities. [S01](sources.md#s01)
+perform additional integration. These are distinct responsibilities.
 
 For new Moose-based sugar, prefer:
 
@@ -23,7 +23,7 @@ The class and role entry points each declare `with_meta => ['step']`. Normal hel
 calls are now safe because ownership is explicit. Use this for metadata-only
 keywords too; needing `$meta->add_attribute` is not the only reason to use
 `with_meta`. Package-generating integrations should examine `meta_lookup` rather
-than adding another fixed-depth `caller(N)` assumption. [S07](sources.md#s07)
+than adding another fixed-depth `caller(N)` assumption.
 
 For an established caller-based DSL, retain compatibility:
 
@@ -41,7 +41,6 @@ An ordinary intermediary changes that package. `goto &target` replaces the curre
 subroutine frame and passes its current `@_`; code after that transfer cannot run,
 and localized state in the discarded frame does not survive. Capture ownership
 explicitly when a wrapper needs logging or post-processing.
-[S02](sources.md#s02), [S03](sources.md#s03)
 
 Do not assert that every wrapper needs `goto`. Explicit-owner wrappers do not.
 Do not assume direct re-exports, custom import targets, parameterized role generators,
@@ -68,12 +67,10 @@ use `namespace::autoclean` when additional imported helpers also need removal.
 Verify `$class->can('step')` is false while actual runner methods remain available.
 `no Moose` alone does not describe cleanup of every custom export. Directly
 re-exported third-party functions have exporter-specific cleanup caveats.
-[S01](sources.md#s01), [S08](sources.md#s08)
 
 `make_immutable` optimizes/finalizes Moose class metadata; it neither freezes your
 separate registry nor substitutes for cleanup. Do it after class composition and
 attribute declarations, and define a separate DSL finalization policy.
-[S09](sources.md#s09)
 
 **Executable checks:** `t/10-caller.t` exercises real Perl call frames;
 `t/70-moose.t` exercises actual Moose integration when Moose is installed.

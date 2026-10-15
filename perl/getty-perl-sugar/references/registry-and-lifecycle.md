@@ -32,7 +32,7 @@ Merged conflicts need a later composition-aware check.
 unit. Ordinary top-level statements inside the required module execute as that
 module is loaded. A declaration is an ordinary function call when execution reaches
 it; it is not intrinsically a compile-time language construct. Loading via `require`
-can happen later. [S04](sources.md#s04), [S05](sources.md#s05)
+can happen later.
 
 Consequently, do not compile and cache a final plan in the exporter's `init_meta`:
 subsequent `step`, `with`, or `extends` statements may not have run. Do not put

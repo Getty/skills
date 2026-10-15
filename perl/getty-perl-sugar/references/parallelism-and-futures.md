@@ -8,7 +8,7 @@
 propagates immediately and cancels remaining pending components; successful result
 lists are concatenated in input order. `wait_all` instead waits for every component
 to become ready and returns component futures. Choose based on the required failure
-policy, not because both names contain “all.” [S12](sources.md#s12)
+policy, not because both names contain “all.”
 
 This does not make synchronous code concurrent:
 
@@ -56,7 +56,7 @@ adapter's contract. Distinguish fail-fast from collect-all-errors behavior.
 One layer must own the loop. Do not start nested blocking loops accidentally inside
 an already asynchronous application. IO::Async exposes loop-bound futures, timers,
 and an `await` facility for driving a future to readiness. An async application's
-outer execution boundary should own that wait. [S13](sources.md#s13)
+outer execution boundary should own that wait.
 
 Test concurrency by recording that both operations started before either completed,
 not only by asserting a small elapsed duration. Test failure propagation,

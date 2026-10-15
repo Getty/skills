@@ -62,6 +62,4 @@ Do not replace an established task engine merely to obtain a preferred syntax.
 A thin DSL that emits that engine's existing definition format may be sufficient.
 Do not invent parallel and persistent semantics before there is a concrete need.
 
-**Basis:** original engineering guidance distilled from a production Moose task DSL;
-Moose-style sugar is documented in [S01](sources.md#s01) and [S07](sources.md#s07).
-The public DBIO analogy is described in [S18](sources.md#s18).
+**Basis:** original engineering guidance distilled from a production Moose task DSL.

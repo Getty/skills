@@ -34,14 +34,12 @@ builder, not a full schema parser, reference resolver, or provider compatibility
 `properties` alone neither requires listed fields nor rejects unlisted ones.
 `required` concerns presence, not whether a present value is null. The JSON boolean
 `false` must serialize as a boolean rather than an integer or string.
-[S15](sources.md#s15), [S16](sources.md#s16)
 
 ## Nullable values and mutation
 
 Adding `'null'` to `type` can still reject null if the same schema's `enum` or `const`
 excludes it. A union of the original schema and a null-only schema correctly permits
 either branch. Preserve nested data when copying, not just the outer hash.
-[S17](sources.md#s17)
 
 For example, `nullable(enum_(qw(fast thorough)))` accepts those two strings and null,
 while an object may still require the property to be present. Numeric enums are

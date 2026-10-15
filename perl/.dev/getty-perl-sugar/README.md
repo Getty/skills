@@ -1,0 +1,1 @@
+Authoring artifacts of getty-perl-sugar as first written (pre-shrink); kept out of the installed skill. verify.py's constraints (20 references, 650-word body, MANIFEST hashes, local paths) no longer hold.

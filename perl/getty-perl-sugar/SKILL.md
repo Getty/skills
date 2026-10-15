@@ -1,23 +1,25 @@
 ---
 name: getty-perl-sugar
-description: Use when designing, refactoring or reviewing declarative Perl DSL sugar — Moose::Exporter keywords such as `step`, `with_meta` or `caller` ownership, metadata registries, role-shared declarations, a shared runner or plan.
+description: Use when designing a new Perl DSL or sugar — Moose::Exporter keywords, declarative structures, metadata registries. Not for using an existing one.
 ---
 
 # Getty Perl Sugar
 
+For the start of a structure: planning a new DSL, keyword exporter or declarative
+layer in Perl, so it is built right from its first keyword. Once the structure
+exists, using or extending it follows the project's own code, not this skill.
+
 Turn repeated domain structure into declarations; keep execution policy in one place.
-This is an architecture and implementation skill. The bundled `Example::Sugar` shows
-the mechanism; it is not a module to depend on, and project code follows
-`getty-perl-core` and `getty-perl-moose`.
+The bundled `Example::Sugar` shows the mechanism; it is not a module to depend on,
+and project code follows `getty-perl-core` and `getty-perl-moose`.
 
 ## Start here
 
-Read [architecture](references/architecture.md) and the relevant entries in the
-[reference index](references/index.md). Read only the references needed for the task.
-For a new DSL, read `Sugar.pm`, `Sugar/RoleDSL.pm` and `Sugar/Owners.pm` under
-`examples/reference/lib/Example/` first: class entry point, role entry point, and
-owner collection across parents and roles.
-For an existing caller-based DSL, start with the
+Read [architecture](references/architecture.md), then only the references the design
+needs (table below). For a new DSL, read `Sugar.pm`, `Sugar/RoleDSL.pm` and
+`Sugar/Owners.pm` under `examples/reference/lib/Example/` first: class entry point,
+role entry point, and owner collection across parents and roles.
+Replacing an existing caller-based DSL, start with the
 [correction and adoption map](references/corrections-and-adoption.md).
 
 Inspect the repository's actual exporters, consumers, role composition, Perl/Moose
@@ -81,12 +83,35 @@ __PACKAGE__->meta->make_immutable;
 This syntax belongs to the bundled reference implementation, not to any existing
 project's API. See [the implementation guide](examples/reference/README.md).
 
+## References
+
+Routes — new DSL: architecture → exporters → registry → planning → the example.
+Async or durable: planning → predicates → Futures or resume → observability →
+security. Agent-facing inspection: planning manifests → tool schemas → security.
+
+| Reference | Read when |
+|---|---|
+| [architecture](references/architecture.md) | Whether a DSL is justified and what belongs in each layer |
+| [exporters-and-caller](references/exporters-and-caller.md) | Class/role entry points, `with_meta`, `as_is`, `goto`, cleanup |
+| [registry-and-lifecycle](references/registry-and-lifecycle.md) | Validation, load timing, defensive copies, sealing, reloads |
+| [composition-and-inheritance](references/composition-and-inheritance.md) | Role discovery, parent buckets, diamonds, order, conflicts |
+| [planning-and-dependencies](references/planning-and-dependencies.md) | Phases, DAG checks, binding, group validation, manifests |
+| [predicates](references/predicates.md) | Readers, maps, callbacks, purity, equality, safe parsing |
+| [runner-and-results](references/runner-and-results.md) | Runner API, state, errors, output validation, same-instance reruns |
+| [parallelism-and-futures](references/parallelism-and-futures.md) | Real concurrency, aggregation, cancellation, loop integration |
+| [resume-and-idempotency](references/resume-and-idempotency.md) | Durable resume: checkpoint identity, crash windows, leases |
+| [progress-and-observability](references/progress-and-observability.md) | Active counts, dynamic gates, events, heartbeats, redaction |
+| [attributes-and-forms](references/attributes-and-forms.md) | Traits, UI projections, validation boundaries, secret fields |
+| [tool-schemas](references/tool-schemas.md) | Pure helpers, nullable enum, dialects, provider adapters |
+| [validation-and-localization](references/validation-and-localization.md) | Preflight reuse, freshness, message IDs, deferred translation |
+| [security-and-trust](references/security-and-trust.md) | Loading code, authorization, untrusted inputs, tool dispatch |
+| [testing-and-debugging](references/testing-and-debugging.md) | Negative tests, caller debugging, integration gates, determinism |
+| [performance](references/performance.md) | Measurement, safe caching, planner complexity, backpressure |
+| [corrections-and-adoption](references/corrections-and-adoption.md) | Common misstatements, migrating an existing DSL |
+| [recipes](references/recipes.md) | Incremental adoption and what to extract first |
+
 ## Deliverable contract
 
 Provide the domain contract, chosen module boundaries, public declaration example,
 ordering/conflict policy, focused tests, and compatibility notes. Separate proposed
 production extensions from implemented behavior.
-
-`scripts/verify.py` checks this skill package and its reference implementation, not
-your work: execute it after editing the skill. [VALIDATION.md](VALIDATION.md) records
-what it covers.

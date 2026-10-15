@@ -54,7 +54,7 @@ and authorization remain explicit even when forms or tools are generated.
 
 ## Recipe E: add durable execution only when required
 
-Read [resume](resume-and-idempotency.md) before adding persistence. Specify operation
+Read `resume-and-idempotency` before adding persistence. Specify operation
 identity, semantic revisions, input compatibility, uncertain side-effect recovery,
 and ownership of concurrent writes. Add one persistence adapter behind a narrow
 interface rather than database logic inside each declaration keyword.

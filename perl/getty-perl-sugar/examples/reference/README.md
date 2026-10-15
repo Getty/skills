@@ -14,7 +14,7 @@ production workflow engine. All code comments, examples, and documentation are E
 All names above are under `lib/`; helper names without a prefix are under
 `Example::Sugar::`. The five core modules use Perl/core-library dependencies only.
 The example code targets Perl 5.20 or later syntactically; it was executed only on
-the specific Perl version recorded in [VALIDATION.md](../../VALIDATION.md).
+a single Perl version.
 No untested version-range certification is implied.
 
 ## Run without Moose
@@ -49,8 +49,7 @@ integration skips across the suite:
 SUGAR_REQUIRE_INTEGRATIONS=1 prove -Ilib t
 ```
 
-The environment-variable spelling above is POSIX shell syntax. The package-root
-Python verifier sets the same flag portably with `--require-integrations`.
+The environment-variable spelling above is POSIX shell syntax.
 The `cpanfile` records dependencies, but no dependency installer runs automatically.
 
 ## Public declaration syntax
@@ -114,4 +113,4 @@ inputs. Results returned to callers are detached copies.
 | Class-plan caching and reload invalidation | Not implemented; structural lookup recomputes |
 
 Do not deploy the example as a security boundary or claim exactly-once execution.
-See the focused [references](../../references/index.md) before adding those features.
+See the focused references listed in [SKILL.md](../../SKILL.md) before adding those features.

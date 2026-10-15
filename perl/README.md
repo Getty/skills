@@ -21,7 +21,8 @@ together.
 The base layer every other Perl skill assumes: module loading, `strict`/`warnings`,
 which object system to reach for, singletons, subroutine shape, error handling with
 `croak`, string and control-flow style, configuration from prefixed environment
-variables, DBIC-ish result classes, comment density, and the `Changes` file.
+variables, comment density, and the `Changes` file. DBIC result-class rules sit in
+`references/dbic.md`, read when a class extends DBIx::Class.
 
 Two sections carry more weight than the rest. **Methods, not bare subs** — inside a
 class every helper is a method on `$self`, per-process caches are attributes on the
@@ -30,10 +31,6 @@ survives unless it is a true constant. And the **cpanfile rules for Getty-author
 dependencies**, which exist because pinning a Getty module's `$VERSION` as a
 requirement breaks in ways that are painful to unpick.
 
-Closes with a `Forbidden` list — `require Foo` inside a method, `'0'` as a version
-argument, 4-space indent, `File::Spec` in new code, `Data::Dumper` in shipped code,
-`die` where `croak` belongs.
-
 **Load when** editing any Perl code in a Getty project.
 
 ### [getty-perl-moo](getty-perl-moo/SKILL.md)
@@ -41,26 +38,25 @@ argument, 4-space indent, `File::Spec` in new code, `Data::Dumper` in shipped co
 Moo classes and roles. The core principle: inheritance sparingly for stable "is-a"
 contracts, roles heavily for horizontal reuse — when in doubt, role, not subclass.
 
-House conventions come first (`with '...'` directly under `use Moo;` because
-composition is a runtime action and not an import, `is => 'lazy'` plus a separate
-`_build_*` for anything non-trivial, `ro` as the default), then thirteen worked
-patterns: attribute override via `+attr`, roles with `requires`, thin classes,
-`Import::Into` house-style import modules, `handles` delegation, `Sub::HandlesVia`
-for native traits, method modifiers, lifecycle hooks, `MooX::StrictConstructor`,
-role conflict resolution, parameterized roles, and Moose interop. Ends with a
-decision table mapping a situation to the mechanism, plus the recurring pitfalls.
+House conventions come first (`with '...'` after the `use` lines and before `has`,
+`is => 'lazy'` plus a separate `_build_*` for anything non-trivial, `ro` as the
+default, `namespace::clean`), then short worked patterns: attribute override via
+`+attr`, roles with `requires`, thin classes, `Import::Into` house-style import
+modules, `handles` delegation, `Sub::HandlesVia` for native traits, method modifiers,
+lifecycle hooks, `MooX::StrictConstructor`, role conflict resolution, parameterized
+roles, and Moose interop. Whether to type attributes is `getty-perl-typing`'s call.
 
 **Load when** writing classes or roles in a Moo distribution.
 
 ### [getty-perl-moose](getty-perl-moose/SKILL.md)
 
 The same shape for Moose, and the same core principle — plus `make_immutable` on
-every class.
+every class, `lazy_build` or `lazy => 1` with a builder (Moose has no
+`is => 'lazy'`), `namespace::autoclean`, and `Types::Standard` for types in new code.
 
-Fourteen patterns, including the ones Moo does not have: `augment`/`inner` inverted
-inheritance, `MooseX::Role::Parameterized`, native-trait delegation, the full
-constructor lifecycle (`BUILDARGS`, `BUILD`, `DEMOLISH`), and Moose's own type
-constraints. The house convention worth calling out is **wrapping `has` when a shape
+Short patterns, including the ones Moo does not have: `augment`/`inner` inverted
+inheritance, `MooseX::Role::Parameterized`, native-trait delegation, and the full
+constructor lifecycle (`BUILDARGS`, `BUILD`, `DEMOLISH`). The house convention worth calling out is **wrapping `has` when a shape
 repeats**: many attributes sharing one pattern get a generator sub that calls `has`,
 rather than the declaration copied N times.
 
@@ -83,13 +79,12 @@ one is cheap enough here. Getting the order wrong is the common failure — pull
 `Type::Tiny` into a 200-line Moo distribution that had no shape problem to begin
 with.
 
-A table maps the situation to the tool: Moose already present means Moose's own
-types; a small Moo distribution with simple shapes means no type system at all;
+A table maps the situation to the tool: Moose means `Types::Standard` in new code; a small Moo distribution with simple shapes means no type system at all;
 genuinely complex data in Moo means `Type::Tiny`; and the same domain type appearing
 across many classes is what finally earns a `Type::Library`. Then where typing pays
 — data crossing a boundary, public parameters, closed value sets — and where it does
 not: an internal attribute your own lazy builder filled does not need a constraint
-that cannot fail.
+that cannot fail. Parameter validation is `Params::ValidationCompiler`.
 
 **Load when** typing attributes or parameters, or deciding whether a project needs
 types at all.
@@ -106,30 +101,31 @@ compilation and binding, execution — and settles the decisions that go wrong i
 practice: `with_meta` and an explicit owner for new Moose sugar, `goto &` only where
 an existing keyword reads `caller`; owner collection across parent classes and roles
 as a policy of its own, never Moose's role order; a key declared by two owners is a
-composition error, found before the first body runs. Twenty references carry the
-depth, each with a "read when": registry lifecycle, predicates, planning, results,
+composition error, found before the first body runs. Eighteen references carry the
+depth, routed by a "read when" table in the skill: registry lifecycle, predicates, planning, results,
 Futures, durable resume, attribute and form metadata, tool schemas, security,
 testing. An executable reference implementation — a core without Moose, Moose
 adapters on top, nine test files — shows the mechanism; it is not a module to
 depend on.
 
-**Load when** designing, refactoring or reviewing declaration keywords built on
-`Moose::Exporter`, the registry behind them, or the runner that executes them.
+**Load when** designing a new DSL or sugar layer — keywords on `Moose::Exporter`,
+the registry behind them, the runner. Not for using or maintaining one that exists;
+never force-load it into an agent's briefing.
 
 ## Distribution and release
 
 ### [getty-perl-distribution](getty-perl-distribution/SKILL.md)
 
 Creating a new CPAN distribution, or bringing an existing one in line. Resolves its
-inputs first (dist name, module name, abstract, author, licence, IRC channel), then
+inputs first (dist name, module name, abstract; IRC only if wanted — author and
+licence are fixed), then
 reads **one** existing sibling dist closest in topic and matches its layout exactly —
 copying from a real sibling beats a template, so the templates it ships are the
 fallback for when no sibling fits.
 
 Covers the `dist.ini` metadata block and why `author` carries the cpan.org address
-while `copyright_holder` carries the everyday one, test file conventions, the CI
-workflow including the Alien/XS variant, and a handcheck list for what to verify
-after writing.
+while `copyright_holder` carries the everyday one, test file conventions, and the CI
+workflow including the Alien/XS variant.
 
 **Load when** creating a new CPAN distribution or polishing an existing one.
 

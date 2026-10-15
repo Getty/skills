@@ -53,14 +53,10 @@ intentional. For changed behavior, add a regression test that demonstrates the o
 failure and the new policy. Do not conflate a syntax-only test with an integration
 or crash-safety test.
 
-## Running the bundle
+## Running the reference implementation
 
-From the package root, `python scripts/verify.py` checks package links and manifest
-hashes, runs Perl tests, runs the Python schema tests, and checks deterministic output.
-Use `python scripts/verify.py --require-integrations` in a prepared environment to
-fail rather than skip when Moose/Future/IO::Async are missing. `--require-schema`
-requires the Python JSON Schema validator too.
-
-Read [VALIDATION.md](../VALIDATION.md). A test marked `skip_all` is not executed;
-a green overall `prove` status can include skipped integrations. The bundle's
-validation report separates these facts explicitly.
+In `examples/reference/`, `prove -Ilib t` runs the core tests and skips the Moose,
+Future and IO::Async integrations when those are missing;
+`SUGAR_REQUIRE_INTEGRATIONS=1 prove -Ilib t` fails instead of skipping. A test marked
+`skip_all` is not executed: a green overall `prove` status can include skipped
+integrations, so report them separately.

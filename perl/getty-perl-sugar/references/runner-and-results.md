@@ -63,4 +63,4 @@ reattempts unfinished active steps. There is no automatic retry loop.
 It does not implement durable persistence, input fingerprints, timeouts, cancellation,
 leases, resource limits, or async bodies. Treat configuration as unchanged across
 same-instance reruns. A new input set requires a new subject and executor. See
-[resume](resume-and-idempotency.md) before adapting this to production checkpoints.
+`resume-and-idempotency` before adapting this to production checkpoints.

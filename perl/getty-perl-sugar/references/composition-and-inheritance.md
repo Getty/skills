@@ -9,7 +9,6 @@ surprising execution order.
 contract does not promise the business execution order of your workflow.
 `calculate_all_roles_with_inheritance` also includes ancestor roles, but does not
 thereby collect your separate parent-class declaration buckets.
-[S06](sources.md#s06)
 
 Define your own owner-discovery policy and schedule the merged declarations
 separately. Retain owner provenance so collisions can identify both sources.
@@ -27,7 +26,7 @@ This policy is deterministic; alphabetical role order is not meaningful domain
 ordering. Declare a phase or dependency whenever relative order matters. For
 multiple inheritance, review the chosen reverse-MRO policy rather than presenting
 it as Moose composition precedence. `linearized_isa` is a metadata facility, not
-a workflow schedule. [S10](sources.md#s10)
+a workflow schedule.
 
 An alternative is explicit DSL-level role priorities or an explicit ordered source
 list. That adds API surface but avoids giving unrelated names accidental ordering
@@ -44,7 +43,7 @@ Moose method aliases and exclusions act on methods. Your side registry is not
 automatically renamed or filtered when a role method is aliased or excluded.
 Either add explicit DSL-aware renaming/exclusion semantics or reject unsupported
 combinations. A role's method-conflict handling does not detect collisions between
-step keys stored only in your registry. [S11](sources.md#s11)
+step keys stored only in your registry.
 
 Two roles declaring the same key, a role and its consuming class declaring the same
 key, and a parent and child declaring the same key all require an explicit policy.

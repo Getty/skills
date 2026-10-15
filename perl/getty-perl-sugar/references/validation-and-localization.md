@@ -42,7 +42,7 @@ Those spellings are project/library conventions, not universal Perl functions.
 Use the selected localization library's marker and translator and configure its
 message extractor accordingly. Locale::TextDomain, for example, documents deferred
 extraction markers such as `N__`; do not mechanically substitute names without
-checking the library. [S19](sources.md#s19)
+checking the library.
 
 Do not use translated labels as step keys, database identifiers, cache keys, or
 metric dimensions. Stable identifiers survive locale changes and wording edits.

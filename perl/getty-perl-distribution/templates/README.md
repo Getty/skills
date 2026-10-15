@@ -31,7 +31,7 @@ dzil release
 
 ## Author
 
-{{$author}}
+Torsten Raudssus <getty@cpan.org>
 
 ## License
 

@@ -93,7 +93,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [getty-perl-distribution](perl/getty-perl-distribution/SKILL.md) | Creating a CPAN distribution, or bringing an existing one to house standard |
 | [getty-perl-moo](perl/getty-perl-moo/SKILL.md) | Moo classes and roles — roles for reuse, inheritance only for a stable is-a |
 | [getty-perl-moose](perl/getty-perl-moose/SKILL.md) | The same shape in Moose, plus `make_immutable` on every class |
-| [getty-perl-sugar](perl/getty-perl-sugar/SKILL.md) | Declarative DSL sugar: registering keywords, a metadata registry, one shared runner |
+| [getty-perl-sugar](perl/getty-perl-sugar/SKILL.md) | Designing a new DSL: registering keywords, a metadata registry, one shared runner |
 | [getty-perl-typing](perl/getty-perl-typing/SKILL.md) | Whether a project needs a type system at all, and which one is cheap here |
 | [perl-alien](perl/perl-alien/SKILL.md) | `Alien::Build`: providing a C library or tool through CPAN |
 | [perl-io-async-future](perl/perl-io-async-future/SKILL.md) | PEVANS-style async Perl, and its unforgiving lifetime rules |
