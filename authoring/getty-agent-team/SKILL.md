@@ -144,14 +144,22 @@ skills, referenced by name.
 
 ```json
 {
+  "extraKnownMarketplaces": {
+    "getty": { "source": { "source": "github", "repo": "Getty/marketplace" } }
+  },
   "enabledPlugins": {
     "briefing@getty": true
   }
 }
 ```
 
-Add `superpowers@claude-plugins-official` / `caveman@caveman` only if the user already
-uses them in sibling repos. `.claude/settings.local.json` is per-machine permission
+Every `<plugin>@<marketplace>` in `enabledPlugins` needs its marketplace declared in
+`extraKnownMarketplaces` (`claude-plugins-official` is built in) — user settings hide
+the gap here, a fresh machine cannot resolve the plugin. A committed
+`.claude/skilletor.json` → also `"skilletor@getty": true`. Add
+`superpowers@claude-plugins-official` / `caveman@caveman` (marketplace `"caveman": {
+"source": { "source": "github", "repo": "JuliusBrussee/caveman" } }`) only if the user
+already uses them in sibling repos. `.claude/settings.local.json` is per-machine permission
 noise — never author it, never commit decisions into it.
 
 ## Step 6 — CLAUDE.md pointer
@@ -233,14 +241,15 @@ skill. Anything else means the setup is silently unbriefed. Delete the throwaway
 
 Once a later session has the agents, the live check is behavioral: a briefed agent
 answers a question that is only in its skills without calling the `Skill` tool. If it
-reaches for `Skill`, the hook did not fire — check `enabledPlugins` in *this* project.
+reaches for `Skill`, the hook did not fire — check *this* project's settings against Step 5.
 
 ## Bringing an existing setup in line
 
 Same steps, but audit first and report before editing: agents whose bodies restate skill
 content (migrate to `briefing.skills`), agents still using the plain top-level `skills:`
 key (**briefing deliberately ignores it — it only reads `briefing.skills`**), a rules file
-that duplicates a skill, a missing delegation lock, shared skills copied by hand or
+that duplicates a skill, a missing delegation lock, an enabled plugin whose marketplace
+is not in `extraKnownMarketplaces` (Step 5), shared skills copied by hand or
 still hardlinked instead of installed (skill `getty-skill-library`, "Old pattern").
 
 Role drift to look for in older setups:
