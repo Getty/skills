@@ -17,6 +17,7 @@ to type; `getty-perl-moo` / `getty-perl-moose` cover the attribute mechanics.
 | Small Moo distribution, simple shapes | **No type system.** `required => 1` and a clear attribute name carry it. |
 | Moo, and the data genuinely is complex | **`Types::Standard`** (Type::Tiny). Moo has no types of its own. |
 | Moose | **`Types::Standard`** in new code — same vocabulary as Moo, better messages. |
+| A dist already typed with strings (`isa => 'ArrayRef[Int]'`) | **Keep the strings** — one type vocabulary per dist; no `Types::Standard` beside them. |
 | The same domain type across many classes | **A `<Dist>::Types` library** on `Type::Library` (below). |
 
 Start a type library when the same type is imported in several places and its

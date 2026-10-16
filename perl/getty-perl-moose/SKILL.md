@@ -32,7 +32,7 @@ __PACKAGE__->meta->make_immutable;
 - **`is => 'ro'` is the default**; `rw` needs a reason.
 - **`lazy_build => 1` + `sub _build_x`** for anything non-trivial (or `lazy => 1, builder => '_build_x'`); never `default => sub {...}`. `is => 'lazy'` is Moo — Moose rejects it.
 - **Reference defaults are coderefs:** `default => sub { [] }` — `default => []` is shared state.
-- **Types:** `Types::Standard` in new code (`use Types::Standard qw( Enum Str );`, `isa => Enum[qw( pending running done )]`). `MooseX::Types` is superseded — don't add it. Whether and where to type: `getty-perl-typing`.
+- **Types:** `Types::Standard` in new code (`use Types::Standard qw( Enum Str );`, `isa => Enum[qw( pending running done )]`) — unless the dist already uses string types (`isa => 'Str'`): then strings, never both. `MooseX::Types` is superseded — don't add it. Whether and where to type: `getty-perl-typing`.
 - **Repeated attribute shapes get a generator** — env-var config (see core) as `has_conf`:
 
 ```perl

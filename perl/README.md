@@ -52,7 +52,8 @@ roles, and Moose interop. Whether to type attributes is `getty-perl-typing`'s ca
 
 The same shape for Moose, and the same core principle — plus `make_immutable` on
 every class, `lazy_build` or `lazy => 1` with a builder (Moose has no
-`is => 'lazy'`), `namespace::autoclean`, and `Types::Standard` for types in new code.
+`is => 'lazy'`), `namespace::autoclean`, and `Types::Standard` for types in new code
+unless the dist already uses string types.
 
 Short patterns, including the ones Moo does not have: `augment`/`inner` inverted
 inheritance, `MooseX::Role::Parameterized`, native-trait delegation, and the full
@@ -79,7 +80,7 @@ one is cheap enough here. Getting the order wrong is the common failure — pull
 `Type::Tiny` into a 200-line Moo distribution that had no shape problem to begin
 with.
 
-A table maps the situation to the tool: Moose means `Types::Standard` in new code; a small Moo distribution with simple shapes means no type system at all;
+A table maps the situation to the tool: Moose means `Types::Standard` in new code, a dist already on string types keeps them; a small Moo distribution with simple shapes means no type system at all;
 genuinely complex data in Moo means `Type::Tiny`; and the same domain type appearing
 across many classes is what finally earns a `Type::Library`. Then where typing pays
 — data crossing a boundary, public parameters, closed value sets — and where it does

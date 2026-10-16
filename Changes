@@ -7,7 +7,8 @@ Revision history for skills
     with namespace::clean, Moose with namespace::autoclean; Moose has no
     `is => 'lazy'`. DBIC rules moved to getty-perl-core's references/dbic.md.
   - getty-perl-typing is smaller; Moose uses Types::Standard in new code,
-    parameter validation is Params::ValidationCompiler.
+    a dist already on string types (isa => 'Str') keeps them, parameter
+    validation is Params::ValidationCompiler.
   - getty-perl-distribution: the author rule is fixed and the templates
     match real dists (0.001, aligned dist.ini, no stale pins).
   - getty-perl-sugar loads only when designing a new DSL; its authoring
