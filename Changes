@@ -1,6 +1,11 @@
 Revision history for skills
 
 {{$NEXT}}
+  - model-routing: Opus 5.5 is the strong default and beats Fable 5.1 in
+    practice (docs and published benchmarks agree) at 40% of the cost; Fable
+    stays as an exception tier, escalated to only after Opus at higher effort
+    fails. Ladder updated to Opus 5.5, Sonnet 5.5, Haiku 5.5 (all 1M context).
+    claude-headless follows.
   - getty-perl-core, getty-perl-moo and getty-perl-moose are smaller and
     match the code they describe: multi-line lists end with a trailing
     comma; `with` comes after the `use` lines and before `has`; Moo cleans

@@ -17,7 +17,7 @@ user default (`~/.claude/settings.json`, key `model`; this is where `/model`
 saves). To guarantee the same model, pass it explicitly and verify:
 
 1. The system prompt's environment block states the exact model ID — e.g.
-   `MiniMax-M3-512k`, or `claude-fable-5` when on Claude. No environment
+   `MiniMax-M3-512k`, or `claude-opus-5-5` when on Claude. No environment
    variable carries it.
 2. Pass `--model <exact-id>` using that **exact string**, verbatim. Do not
    substitute an Anthropic-family alias (`fable`, `opus`, `sonnet`, `haiku`)
@@ -33,12 +33,12 @@ claude -p "Reply with exactly one word: PONG" \
   | jq -er '.result, (.modelUsage | keys[0])'
 ```
 
-**Default to the model you're already on.** The frontier tier
-(`fable` / `claude-fable-5`) is the most expensive slot in the Anthropic
-lineup and a reliable way to set your token budget on fire for no good
-reason — a one-shot `-p` call on `fable` writes a fresh cache before it
-even answers. Escalate to `fable` only when the task genuinely needs
-frontier reasoning; for everything else, let the parent's tier stand.
+**Default to the model you're already on.** `fable` / `claude-fable-5-1`
+is the most expensive slot in the Anthropic lineup and currently no better
+than `opus` (5.5) on most work — a one-shot `-p` call on `fable` writes a
+fresh cache before it even answers. Try `opus` at higher effort first;
+escalate to `fable` only when that falls short. Otherwise let the parent's
+tier stand.
 
 The system prompt's "alternative models" list (typically the recent Claude
 family plus Haiku) is the switch menu — your current model is often *not*
