@@ -1,7 +1,7 @@
 {
   "name": "skills",
   "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes and container operations, PostgreSQL with pgvector and Apache AGE, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Torsten Raudssus",
     "email": "getty@conflict.industries"

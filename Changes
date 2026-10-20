@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.3.0     2026-10-20 23:04:10Z
   - New skill gearman in system-and-network-administration.
   - New group `javascript` with electron-desktop-engineering and
     react-ecosystem-engineering, with its group image.
