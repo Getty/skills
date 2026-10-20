@@ -162,6 +162,9 @@ the gap here, a fresh machine cannot resolve the plugin. A committed
 already uses them in sibling repos. `.claude/settings.local.json` is per-machine permission
 noise — never author it, never commit decisions into it.
 
+Skilletor adds `skilletor@getty` to the committed `settings.json` itself on the
+first sync (`… updated — commit it`); commit that together with `skilletor.json`.
+
 ## Step 6 — CLAUDE.md pointer
 
 The repo's `CLAUDE.md` gets a short delegation table naming the agents and a line saying
@@ -199,6 +202,24 @@ fans work out:
   (Codeberg/GitHub), agents never read, comment on or close an issue on their own
   initiative — only on explicit instruction, because every write publishes under the
   maintainer's name.
+
+## Sharing a role or the rules across repos
+
+Agents and rules a repo writes for itself are plain tracked files — the default, and
+everything above assumes it. When the *same* file is wanted in several repos
+(`karr-coordinator` copied into every family member), skilletor can ship agents and
+rules like skills: put them in a source as `agents/<name>.md` / `rules/<name>.md`,
+install with `skilletor install agent:<name>@<source>` / `rule:<name>@<source>`, and
+vary per repo with `.njk` templates and `vars` (skill `skilletor`, its `templates` and
+`bundles` references). Installed copies land as `.claude/agents/.local.<name>.md` and
+are build artifacts — never edit them, change the source.
+
+- Put an agent and every skill in its `briefing.skills` into **one bundle**: a user-level
+  agent never sees project skills, and sync warns `briefing skills not installed`
+  when the two drift apart.
+- Codex agents are `.codex/agents/*.toml` with a `# briefing: skills = [...]` comment,
+  underscores in `name`, and no `[briefing]` table — skill `briefing` has the details.
+  This skill describes the Claude form.
 
 ## Step 8 — verify
 
