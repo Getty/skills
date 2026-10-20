@@ -1,3 +1,5 @@
+![javascript](../assets/javascript.png)
+
 # JavaScript skills
 
 Engineering knowledge for the JavaScript/TypeScript ecosystem, where the frameworks

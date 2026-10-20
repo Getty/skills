@@ -3,7 +3,7 @@ Revision history for skills
 {{$NEXT}}
   - New skill gearman in system-and-network-administration.
   - New group `javascript` with electron-desktop-engineering and
-    react-ecosystem-engineering.
+    react-ecosystem-engineering, with its group image.
   - getty-agent-team: covers skilletor shipping agents and rules (bundles for
     an agent plus its briefed skills), the settings.json entry skilletor
     writes itself, and the Codex agent form.
