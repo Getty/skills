@@ -1,0 +1,569 @@
+[
+  {
+    "id": "E01",
+    "title": "Electron security checklist",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/security",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E05",
+    "title": "Context isolation",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/context-isolation",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E06",
+    "title": "Process sandboxing",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/sandbox",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E07",
+    "title": "IPC tutorial",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/ipc",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E09",
+    "title": "Protocol API",
+    "url": "https://www.electronjs.org/docs/latest/api/protocol",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E31",
+    "title": "Native dialogs",
+    "url": "https://www.electronjs.org/docs/latest/api/dialog",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R01",
+    "title": "React reference",
+    "url": "https://react.dev/reference/react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R02",
+    "title": "React 19.3 release",
+    "url": "https://react.dev/blog/2026/09/09/react-19-3",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R03",
+    "title": "React Compiler 1.0",
+    "url": "https://react.dev/blog/2025/10/07/react-compiler-1",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R04",
+    "title": "Effects decision guide",
+    "url": "https://react.dev/learn/you-might-not-need-an-effect",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R05",
+    "title": "useEffectEvent",
+    "url": "https://react.dev/reference/react/useEffectEvent",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R06",
+    "title": "Activity",
+    "url": "https://react.dev/reference/react/Activity",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R07",
+    "title": "useActionState",
+    "url": "https://react.dev/reference/react/useActionState",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R08",
+    "title": "useOptimistic",
+    "url": "https://react.dev/reference/react/useOptimistic",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R09",
+    "title": "use",
+    "url": "https://react.dev/reference/react/use",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R10",
+    "title": "Server Components",
+    "url": "https://react.dev/reference/rsc/server-components",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R11",
+    "title": "hydrateRoot",
+    "url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R12",
+    "title": "React TypeScript guide",
+    "url": "https://react.dev/learn/typescript",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R13",
+    "title": "StrictMode",
+    "url": "https://react.dev/reference/react/StrictMode",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R14",
+    "title": "RSC security follow-up",
+    "url": "https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R15",
+    "title": "React Router modes",
+    "url": "https://reactrouter.com/start/modes",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R16",
+    "title": "TanStack Router overview",
+    "url": "https://tanstack.com/router/latest/docs/overview",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R17",
+    "title": "Next.js App Router",
+    "url": "https://nextjs.org/docs/app",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R18",
+    "title": "TanStack Query defaults",
+    "url": "https://tanstack.com/query/latest/docs/framework/react/guides/important-defaults",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R19",
+    "title": "SWR getting started",
+    "url": "https://swr.vercel.app/docs/getting-started",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R20",
+    "title": "Redux Toolkit",
+    "url": "https://redux.js.org/toolkit/introduction/getting-started",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R21",
+    "title": "Zustand official repository",
+    "url": "https://github.com/pmndrs/zustand",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R22",
+    "title": "Jotai documentation",
+    "url": "https://jotai.org/docs",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R23",
+    "title": "XState React integration",
+    "url": "https://stately.ai/docs/xstate-react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R24",
+    "title": "React Hook Form repository",
+    "url": "https://github.com/react-hook-form/react-hook-form",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R25",
+    "title": "Zod",
+    "url": "https://zod.dev/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R26",
+    "title": "TanStack Form",
+    "url": "https://tanstack.com/form/latest/docs/overview",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R27",
+    "title": "Apollo Client React",
+    "url": "https://www.apollographql.com/docs/react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R28",
+    "title": "Relay",
+    "url": "https://relay.dev/docs/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R29",
+    "title": "tRPC documentation overview",
+    "url": "https://trpc.io/docs/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R30",
+    "title": "Tailwind with Vite",
+    "url": "https://tailwindcss.com/docs/installation/using-vite",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R31",
+    "title": "Radix Primitives overview",
+    "url": "https://www.radix-ui.com/primitives/docs/overview/introduction",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R32",
+    "title": "shadcn/ui documentation",
+    "url": "https://ui.shadcn.com/docs",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R33",
+    "title": "React Aria getting started",
+    "url": "https://react-aria.adobe.com/getting-started",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R34",
+    "title": "Base UI quick start",
+    "url": "https://base-ui.com/react/overview/quick-start",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R35",
+    "title": "Material UI getting started",
+    "url": "https://mui.com/material-ui/getting-started/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R36",
+    "title": "Mantine getting started",
+    "url": "https://mantine.dev/getting-started/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R37",
+    "title": "Chakra installation",
+    "url": "https://chakra-ui.com/docs/get-started/installation",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R38",
+    "title": "Ant Design introduction",
+    "url": "https://ant.design/docs/react/introduce/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R39",
+    "title": "WAI-ARIA Authoring Practices patterns",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R40",
+    "title": "TanStack Table",
+    "url": "https://tanstack.com/table/latest",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R41",
+    "title": "AG Grid React",
+    "url": "https://www.ag-grid.com/react-data-grid/getting-started/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R42",
+    "title": "TanStack Virtual",
+    "url": "https://tanstack.com/virtual/latest",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R43",
+    "title": "React Virtuoso",
+    "url": "https://virtuoso.dev/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R44",
+    "title": "Recharts",
+    "url": "https://recharts.github.io/en-US/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R45",
+    "title": "Chart.js",
+    "url": "https://www.chartjs.org/docs/latest/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R46",
+    "title": "Apache ECharts",
+    "url": "https://echarts.apache.org/en/index.html",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R47",
+    "title": "Motion for React",
+    "url": "https://motion.dev/docs/react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R48",
+    "title": "dnd kit",
+    "url": "https://dndkit.com/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R49",
+    "title": "dnd kit React quickstart",
+    "url": "https://dndkit.com/react/quickstart/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R50",
+    "title": "React Flow learning index",
+    "url": "https://reactflow.dev/learn",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R51",
+    "title": "React Flow custom nodes",
+    "url": "https://reactflow.dev/learn/customization/custom-nodes",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R52",
+    "title": "React Flow handles",
+    "url": "https://reactflow.dev/learn/customization/handles",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R53",
+    "title": "React Flow layouting",
+    "url": "https://reactflow.dev/learn/layouting/layouting",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R54",
+    "title": "React Flow TypeScript",
+    "url": "https://reactflow.dev/learn/advanced-use/typescript",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R55",
+    "title": "React Flow performance",
+    "url": "https://reactflow.dev/learn/advanced-use/performance",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R56",
+    "title": "React Flow SSR and SSG",
+    "url": "https://reactflow.dev/learn/advanced-use/ssr-ssg-configuration",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R57",
+    "title": "React Flow testing",
+    "url": "https://reactflow.dev/learn/advanced-use/testing",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R58",
+    "title": "React Flow v12 migration",
+    "url": "https://reactflow.dev/learn/troubleshooting/migrate-to-v12",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R59",
+    "title": "React Flow computing flows",
+    "url": "https://reactflow.dev/learn/advanced-use/computing-flows",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R60",
+    "title": "React Flow external state",
+    "url": "https://reactflow.dev/learn/advanced-use/state-management",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R61",
+    "title": "React Flow subflows",
+    "url": "https://reactflow.dev/learn/layouting/sub-flows",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R62",
+    "title": "Tiptap React",
+    "url": "https://tiptap.dev/docs/editor/getting-started/install/react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R63",
+    "title": "Lexical React",
+    "url": "https://lexical.dev/docs/getting-started/react",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R64",
+    "title": "Yjs",
+    "url": "https://docs.yjs.dev/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R65",
+    "title": "React Three Fiber",
+    "url": "https://r3f.docs.pmnd.rs/getting-started/introduction",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R66",
+    "title": "react-i18next",
+    "url": "https://react.i18next.com/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R67",
+    "title": "React Intl",
+    "url": "https://formatjs.github.io/docs/react-intl/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R68",
+    "title": "DOMPurify official repository",
+    "url": "https://github.com/cure53/DOMPurify",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R69",
+    "title": "React Testing Library",
+    "url": "https://testing-library.com/docs/react-testing-library/intro/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R70",
+    "title": "Vitest",
+    "url": "https://vitest.dev/guide/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R71",
+    "title": "Playwright",
+    "url": "https://playwright.dev/docs/intro",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R72",
+    "title": "MSW",
+    "url": "https://mswjs.io/docs/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R73",
+    "title": "Storybook",
+    "url": "https://storybook.js.org/docs",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R74",
+    "title": "Vite",
+    "url": "https://vite.dev/guide/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "S01",
+    "title": "Agent Skills specification",
+    "url": "https://agentskills.io/specification",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  }
+]

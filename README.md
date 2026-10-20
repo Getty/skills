@@ -23,6 +23,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
+| [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
 | [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
@@ -84,6 +85,13 @@ Each group README describes every skill in it: what it covers, and when to load 
 | Skill | What it is |
 |---|---|
 | [hermes-plugin-engineering](hermes-agent/hermes-plugin-engineering/SKILL.md) | Extending Hermes Agent: tools, hooks, middleware, providers, gateway adapters, Desktop |
+
+### [javascript](javascript/README.md)
+
+| Skill | What it is |
+|---|---|
+| [electron-desktop-engineering](javascript/electron-desktop-engineering/SKILL.md) | Electron apps: process and trust boundaries, validated IPC, packaging, signing and updates |
+| [react-ecosystem-engineering](javascript/react-ecosystem-engineering/SKILL.md) | React and its library ecosystem: state, SSR/RSC, forms, UI systems, React Flow, testing |
 
 ### [perl](perl/README.md)
 

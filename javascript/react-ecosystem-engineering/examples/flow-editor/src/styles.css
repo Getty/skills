@@ -1,0 +1,9 @@
+html, body, #root { margin: 0; min-height: 100%; font-family: system-ui, sans-serif; }
+main { padding: 1rem; }
+nav { display: flex; flex-wrap: wrap; gap: .5rem; }
+button { font: inherit; padding: .5rem; }
+.canvas { height: 58vh; min-height: 320px; border: 1px solid; }
+.workflow-node { padding: 1rem; border: 1px solid; border-radius: .4rem; background: Canvas; color: CanvasText; min-width: 110px; }
+.workflow-node small { display: block; margin-top: .25rem; }
+textarea { display: block; width: 100%; box-sizing: border-box; font-family: monospace; }
+label { display: block; margin-top: 1rem; }

@@ -1,0 +1,6 @@
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+body { font-family: system-ui, sans-serif; background: Canvas; color: CanvasText; }
+main { max-width: 48rem; margin: 3rem auto; padding: 1rem; }
+button, select { font: inherit; padding: .6rem; margin: .5rem; }

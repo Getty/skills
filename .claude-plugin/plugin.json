@@ -28,6 +28,8 @@
     "./git/getty-git-commit-style",
     "./git/getty-git-usage",
     "./hermes-agent/hermes-plugin-engineering",
+    "./javascript/electron-desktop-engineering",
+    "./javascript/react-ecosystem-engineering",
     "./perl/getty-perl-core",
     "./perl/getty-perl-distribution",
     "./perl/getty-perl-moo",

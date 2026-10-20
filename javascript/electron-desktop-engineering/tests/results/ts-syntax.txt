@@ -1,0 +1,18 @@
+$ node /mnt/data/react-electron-skills/_authoring/check-syntax.cjs /mnt/data/react-electron-skills/electron-desktop-engineering
+
+{
+  "scope": "TypeScript syntax transpilation only; NOT dependency typechecking",
+  "typescript": "5.8.3",
+  "files": [
+    {
+      "file": "examples/react-adapter/use-preferences.ts",
+      "errors": []
+    },
+    {
+      "file": "tests/type-contracts.ts",
+      "errors": []
+    }
+  ]
+}
+
+Exit status: 0

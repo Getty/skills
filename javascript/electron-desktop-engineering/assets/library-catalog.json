@@ -1,0 +1,204 @@
+[
+  {
+    "category": "Build",
+    "name": "Electron Forge",
+    "packages": [
+      "@electron-forge/cli",
+      "@electron-forge/core"
+    ],
+    "tier": "C",
+    "reference": "references/25-forge-builder-electronvite.md",
+    "source_id": "E22",
+    "url": "https://www.electronforge.io/"
+  },
+  {
+    "category": "Build",
+    "name": "Forge Vite plugin",
+    "packages": [
+      "@electron-forge/plugin-vite"
+    ],
+    "tier": "C",
+    "reference": "references/25-forge-builder-electronvite.md",
+    "source_id": "E23",
+    "url": "https://www.electronforge.io/config/plugins/vite"
+  },
+  {
+    "category": "Build",
+    "name": "electron-builder",
+    "packages": [
+      "electron-builder"
+    ],
+    "tier": "C",
+    "reference": "references/25-forge-builder-electronvite.md",
+    "source_id": "E24",
+    "url": "https://www.electron.build/"
+  },
+  {
+    "category": "Build",
+    "name": "electron-vite",
+    "packages": [
+      "electron-vite"
+    ],
+    "tier": "C",
+    "reference": "references/25-forge-builder-electronvite.md",
+    "source_id": "E25",
+    "url": "https://electron-vite.org/guide/"
+  },
+  {
+    "category": "Hardening",
+    "name": "Electron fuses",
+    "packages": [
+      "@electron/fuses"
+    ],
+    "tier": "C",
+    "reference": "references/30-fuses-integrity.md",
+    "source_id": "E12",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/fuses"
+  },
+  {
+    "category": "Native build",
+    "name": "Electron rebuild",
+    "packages": [
+      "@electron/rebuild"
+    ],
+    "tier": "C",
+    "reference": "references/15-native-addons-abi.md",
+    "source_id": "E16",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules"
+  },
+  {
+    "category": "Testing",
+    "name": "Playwright Electron",
+    "packages": [
+      "playwright",
+      "@playwright/test"
+    ],
+    "tier": "C",
+    "reference": "references/24-testing-playwright-ci.md",
+    "source_id": "E26",
+    "url": "https://playwright.dev/docs/api/class-electron"
+  },
+  {
+    "category": "Updates",
+    "name": "electron-updater",
+    "packages": [
+      "electron-updater"
+    ],
+    "tier": "P",
+    "reference": "references/28-updates-rollouts-recovery.md",
+    "source_id": null,
+    "url": "https://www.electron.build/"
+  },
+  {
+    "category": "Storage",
+    "name": "electron-store",
+    "packages": [
+      "electron-store"
+    ],
+    "tier": "P",
+    "reference": "references/12-storage-databases-migrations.md",
+    "source_id": null,
+    "url": "https://github.com/sindresorhus/electron-store"
+  },
+  {
+    "category": "Logs",
+    "name": "electron-log",
+    "packages": [
+      "electron-log"
+    ],
+    "tier": "P",
+    "reference": "references/23-debugging-logging-crashes.md",
+    "source_id": null,
+    "url": "https://github.com/megahertz/electron-log"
+  },
+  {
+    "category": "Helpers",
+    "name": "electron-toolkit",
+    "packages": [
+      "@electron-toolkit/preload",
+      "@electron-toolkit/utils"
+    ],
+    "tier": "P",
+    "reference": "references/05-preload-contextbridge.md",
+    "source_id": null,
+    "url": "https://github.com/alex8088/electron-toolkit"
+  },
+  {
+    "category": "Native DB",
+    "name": "better-sqlite3",
+    "packages": [
+      "better-sqlite3"
+    ],
+    "tier": "P",
+    "reference": "references/15-native-addons-abi.md",
+    "source_id": null,
+    "url": "https://github.com/WiseLibs/better-sqlite3"
+  },
+  {
+    "category": "Native DB",
+    "name": "node-sqlite3",
+    "packages": [
+      "sqlite3"
+    ],
+    "tier": "P",
+    "reference": "references/15-native-addons-abi.md",
+    "source_id": null,
+    "url": "https://github.com/TryGhost/node-sqlite3"
+  },
+  {
+    "category": "Terminal backend",
+    "name": "node-pty",
+    "packages": [
+      "node-pty"
+    ],
+    "tier": "P",
+    "reference": "references/14-workers-utilityprocess-subprocesses.md",
+    "source_id": null,
+    "url": "https://github.com/microsoft/node-pty"
+  },
+  {
+    "category": "Notarization",
+    "name": "Electron notarize",
+    "packages": [
+      "@electron/notarize"
+    ],
+    "tier": "P",
+    "reference": "references/27-signing-notarization.md",
+    "source_id": null,
+    "url": "https://github.com/electron/notarize"
+  },
+  {
+    "category": "macOS signing",
+    "name": "Electron osx-sign",
+    "packages": [
+      "@electron/osx-sign"
+    ],
+    "tier": "P",
+    "reference": "references/27-signing-notarization.md",
+    "source_id": null,
+    "url": "https://github.com/electron/osx-sign"
+  },
+  {
+    "category": "Diagnostics",
+    "name": "Sentry Electron",
+    "packages": [
+      "@sentry/electron"
+    ],
+    "tier": "P",
+    "reference": "references/23-debugging-logging-crashes.md",
+    "source_id": null,
+    "url": "https://docs.sentry.io/platforms/javascript/guides/electron/"
+  },
+  {
+    "category": "Alternative scope",
+    "name": "Tauri",
+    "packages": [
+      "@tauri-apps/api",
+      "@tauri-apps/cli"
+    ],
+    "tier": "P",
+    "reference": "references/02-process-architecture-lifecycle.md",
+    "source_id": null,
+    "url": "https://tauri.app/"
+  }
+]

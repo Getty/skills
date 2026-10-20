@@ -1,0 +1,284 @@
+$ node --test tests/graph-model.test.mjs
+
+TAP version 13
+# Subtest: normalization produces independent data
+ok 1 - normalization produces independent data
+  ---
+  duration_ms: 4.985174
+  type: 'test'
+  ...
+# Subtest: JSON roundtrip
+ok 2 - JSON roundtrip
+  ---
+  duration_ms: 3.619921
+  type: 'test'
+  ...
+# Subtest: invalid JSON
+ok 3 - invalid JSON
+  ---
+  duration_ms: 0.84069
+  type: 'test'
+  ...
+# Subtest: oversized text rejected before parsing
+ok 4 - oversized text rejected before parsing
+  ---
+  duration_ms: 0.560316
+  type: 'test'
+  ...
+# Subtest: UTF8 bytes are bounded, not just characters
+ok 5 - UTF8 bytes are bounded, not just characters
+  ---
+  duration_ms: 20.577431
+  type: 'test'
+  ...
+# Subtest: unknown future schema
+ok 6 - unknown future schema
+  ---
+  duration_ms: 1.559819
+  type: 'test'
+  ...
+# Subtest: unknown document fields
+ok 7 - unknown document fields
+  ---
+  duration_ms: 0.502977
+  type: 'test'
+  ...
+# Subtest: prototype-like data fields rejected
+ok 8 - prototype-like data fields rejected
+  ---
+  duration_ms: 4.90961
+  type: 'test'
+  ...
+# Subtest: non-plain input rejected
+ok 9 - non-plain input rejected
+  ---
+  duration_ms: 0.647499
+  type: 'test'
+  ...
+# Subtest: duplicate node ids
+ok 10 - duplicate node ids
+  ---
+  duration_ms: 0.713825
+  type: 'test'
+  ...
+# Subtest: invalid ids
+ok 11 - invalid ids
+  ---
+  duration_ms: 0.240109
+  type: 'test'
+  ...
+# Subtest: unknown node types
+ok 12 - unknown node types
+  ---
+  duration_ms: 0.22204
+  type: 'test'
+  ...
+# Subtest: prototype name is not a node type
+ok 13 - prototype name is not a node type
+  ---
+  duration_ms: 0.255628
+  type: 'test'
+  ...
+# Subtest: nonfinite coordinates
+ok 14 - nonfinite coordinates
+  ---
+  duration_ms: 0.260267
+  type: 'test'
+  ...
+# Subtest: coordinate type
+ok 15 - coordinate type
+  ---
+  duration_ms: 0.421688
+  type: 'test'
+  ...
+# Subtest: coordinate bound
+ok 16 - coordinate bound
+  ---
+  duration_ms: 0.306714
+  type: 'test'
+  ...
+# Subtest: empty label
+ok 17 - empty label
+  ---
+  duration_ms: 0.394051
+  type: 'test'
+  ...
+# Subtest: label bound
+ok 18 - label bound
+  ---
+  duration_ms: 0.26734
+  type: 'test'
+  ...
+# Subtest: node count bound
+ok 19 - node count bound
+  ---
+  duration_ms: 1.019691
+  type: 'test'
+  ...
+# Subtest: edge count bound
+ok 20 - edge count bound
+  ---
+  duration_ms: 5.03428
+  type: 'test'
+  ...
+# Subtest: duplicate edge ids
+ok 21 - duplicate edge ids
+  ---
+  duration_ms: 0.321675
+  type: 'test'
+  ...
+# Subtest: duplicate connections
+ok 22 - duplicate connections
+  ---
+  duration_ms: 0.129608
+  type: 'test'
+  ...
+# Subtest: missing endpoint
+ok 23 - missing endpoint
+  ---
+  duration_ms: 0.106049
+  type: 'test'
+  ...
+# Subtest: self connection
+ok 24 - self connection
+  ---
+  duration_ms: 0.494952
+  type: 'test'
+  ...
+# Subtest: wrong output port
+ok 25 - wrong output port
+  ---
+  duration_ms: 0.553466
+  type: 'test'
+  ...
+# Subtest: sink cannot emit
+ok 26 - sink cannot emit
+  ---
+  duration_ms: 0.123777
+  type: 'test'
+  ...
+# Subtest: source cannot receive
+ok 27 - source cannot receive
+  ---
+  duration_ms: 0.17684
+  type: 'test'
+  ...
+# Subtest: wrong target port
+ok 28 - wrong target port
+  ---
+  duration_ms: 0.261582
+  type: 'test'
+  ...
+# Subtest: single input cardinality
+ok 29 - single input cardinality
+  ---
+  duration_ms: 0.410278
+  type: 'test'
+  ...
+# Subtest: cycle detection
+ok 30 - cycle detection
+  ---
+  duration_ms: 0.939881
+  type: 'test'
+  ...
+# Subtest: valid candidate accepted
+ok 31 - valid candidate accepted
+  ---
+  duration_ms: 0.541337
+  type: 'test'
+  ...
+# Subtest: invalid candidate rejected
+ok 32 - invalid candidate rejected
+  ---
+  duration_ms: 0.35333
+  type: 'test'
+  ...
+# Subtest: reconnection excludes original edge
+ok 33 - reconnection excludes original edge
+  ---
+  duration_ms: 0.128122
+  type: 'test'
+  ...
+# Subtest: unknown replacement edge rejected
+ok 34 - unknown replacement edge rejected
+  ---
+  duration_ms: 0.086611
+  type: 'test'
+  ...
+# Subtest: malformed candidate rejected
+ok 35 - malformed candidate rejected
+  ---
+  duration_ms: 0.156246
+  type: 'test'
+  ...
+# Subtest: delete removes incident edges
+ok 36 - delete removes incident edges
+  ---
+  duration_ms: 0.386699
+  type: 'test'
+  ...
+# Subtest: bounded iterative graph walk
+ok 37 - bounded iterative graph walk
+  ---
+  duration_ms: 63.167781
+  type: 'test'
+  ...
+# Subtest: history undo and redo
+ok 38 - history undo and redo
+  ---
+  duration_ms: 3.274433
+  type: 'test'
+  ...
+# Subtest: history discards redo branch
+ok 39 - history discards redo branch
+  ---
+  duration_ms: 1.384179
+  type: 'test'
+  ...
+# Subtest: history snapshots do not leak references
+ok 40 - history snapshots do not leak references
+  ---
+  duration_ms: 0.323557
+  type: 'test'
+  ...
+# Subtest: history limit enforced
+ok 41 - history limit enforced
+  ---
+  duration_ms: 1.972
+  type: 'test'
+  ...
+# Subtest: identical commits do not create history entries
+ok 42 - identical commits do not create history entries
+  ---
+  duration_ms: 0.550081
+  type: 'test'
+  ...
+# Subtest: history limit validates
+ok 43 - history limit validates
+  ---
+  duration_ms: 0.184445
+  type: 'test'
+  ...
+# Subtest: label limit counts Unicode code points
+ok 44 - label limit counts Unicode code points
+  ---
+  duration_ms: 1.048272
+  type: 'test'
+  ...
+# Subtest: candidate ID collision is isolated from document IDs
+ok 45 - candidate ID collision is isolated from document IDs
+  ---
+  duration_ms: 0.535382
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 476.04353
+
+Exit status: 0

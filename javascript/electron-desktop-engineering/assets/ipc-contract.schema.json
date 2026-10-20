@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Example theme request (authorization is separate)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "theme"
+  ],
+  "properties": {
+    "theme": {
+      "enum": [
+        "system",
+        "light",
+        "dark"
+      ]
+    }
+  }
+}

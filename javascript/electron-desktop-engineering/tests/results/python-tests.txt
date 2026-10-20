@@ -1,0 +1,23 @@
+$ /opt/pyvenv/bin/python -m unittest discover -s tests -p test_*.py -v
+
+test_catalog_lookup_matches_package (test_tooling.ToolingTests.test_catalog_lookup_matches_package) ... ok
+test_catalog_lookup_rejects_empty (test_tooling.ToolingTests.test_catalog_lookup_rejects_empty) ... ok
+test_heuristic_reports_but_does_not_rewrite (test_tooling.ToolingTests.test_heuristic_reports_but_does_not_rewrite) ... ok
+test_invalid_scan_bounds (test_tooling.ToolingTests.test_invalid_scan_bounds) ... ok
+test_local_markdown_link_resolution (test_tooling.ToolingTests.test_local_markdown_link_resolution) ... ok
+test_malformed_manifest_is_reported (test_tooling.ToolingTests.test_malformed_manifest_is_reported) ... ok
+test_manifest_is_read_without_running_scripts (test_tooling.ToolingTests.test_manifest_is_read_without_running_scripts) ... ok
+test_missing_and_escaping_links (test_tooling.ToolingTests.test_missing_and_escaping_links) ... ok
+test_multiple_lockfile_kinds_warn (test_tooling.ToolingTests.test_multiple_lockfile_kinds_warn) ... ok
+test_npm_resolved_versions_distinguished (test_tooling.ToolingTests.test_npm_resolved_versions_distinguished) ... ok
+test_oversized_file_is_not_read (test_tooling.ToolingTests.test_oversized_file_is_not_read) ... ok
+test_scan_is_bounded (test_tooling.ToolingTests.test_scan_is_bounded) ... ok
+test_skips_dependency_directories (test_tooling.ToolingTests.test_skips_dependency_directories) ... ok
+test_symlink_file_is_skipped (test_tooling.ToolingTests.test_symlink_file_is_skipped) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.019s
+
+OK
+
+Exit status: 0

@@ -1,0 +1,428 @@
+$ node --test tests/policy.test.cjs
+
+TAP version 13
+# Subtest: trusted document
+ok 1 - trusted document
+  ---
+  duration_ms: 4.864405
+  type: 'test'
+  ...
+# Subtest: same-document hash
+ok 2 - same-document hash
+  ---
+  duration_ms: 0.387049
+  type: 'test'
+  ...
+# Subtest: document rejects https://desktop/index.html
+ok 3 - document rejects https://desktop/index.html
+  ---
+  duration_ms: 0.179957
+  type: 'test'
+  ...
+# Subtest: document rejects file:///index.html
+ok 4 - document rejects file:///index.html
+  ---
+  duration_ms: 0.43729
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop.evil/index.html
+ok 5 - document rejects app://desktop.evil/index.html
+  ---
+  duration_ms: 0.203131
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop@evil/index.html
+ok 6 - document rejects app://desktop@evil/index.html
+  ---
+  duration_ms: 0.221107
+  type: 'test'
+  ...
+# Subtest: document rejects app://user@desktop/index.html
+ok 7 - document rejects app://user@desktop/index.html
+  ---
+  duration_ms: 0.159276
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop:123/index.html
+ok 8 - document rejects app://desktop:123/index.html
+  ---
+  duration_ms: 0.301384
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/other.html
+ok 9 - document rejects app://desktop/other.html
+  ---
+  duration_ms: 0.321613
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/index.html?admin=1
+ok 10 - document rejects app://desktop/index.html?admin=1
+  ---
+  duration_ms: 0.966387
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/../index.html
+ok 11 - document rejects app://desktop/../index.html
+  ---
+  duration_ms: 0.352979
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/%69ndex.html
+ok 12 - document rejects app://desktop/%69ndex.html
+  ---
+  duration_ms: 0.255573
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/%2e%2e/index.html
+ok 13 - document rejects app://desktop/%2e%2e/index.html
+  ---
+  duration_ms: 0.045366
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/%252e%252e/index.html
+ok 14 - document rejects app://desktop/%252e%252e/index.html
+  ---
+  duration_ms: 0.038545
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop\\index.html
+ok 15 - document rejects app://desktop\\index.html
+  ---
+  duration_ms: 0.033974
+  type: 'test'
+  ...
+# Subtest: document rejects  app://desktop/index.html
+ok 16 - document rejects  app://desktop/index.html
+  ---
+  duration_ms: 0.031119
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/index.html\\n
+ok 17 - document rejects app://desktop/index.html\\n
+  ---
+  duration_ms: 0.030979
+  type: 'test'
+  ...
+# Subtest: document rejects javascript:alert(1)
+ok 18 - document rejects javascript:alert(1)
+  ---
+  duration_ms: 0.044747
+  type: 'test'
+  ...
+# Subtest: document rejects not a url
+ok 19 - document rejects not a url
+  ---
+  duration_ms: 0.030663
+  type: 'test'
+  ...
+# Subtest: document rejects null
+ok 20 - document rejects null
+  ---
+  duration_ms: 0.030612
+  type: 'test'
+  ...
+# Subtest: document rejects app://desktop/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ok 21 - document rejects app://desktop/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  ---
+  duration_ms: 0.032435
+  type: 'test'
+  ...
+# Subtest: asset map returns only known files
+ok 22 - asset map returns only known files
+  ---
+  duration_ms: 1.098078
+  type: 'test'
+  ...
+# Subtest: HTML asset MIME
+ok 23 - HTML asset MIME
+  ---
+  duration_ms: 0.507531
+  type: 'test'
+  ...
+# Subtest: stylesheet MIME
+ok 24 - stylesheet MIME
+  ---
+  duration_ms: 0.132458
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/secret.txt
+ok 25 - asset rejects app://desktop/secret.txt
+  ---
+  duration_ms: 0.075239
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/constructor
+ok 26 - asset rejects app://desktop/constructor
+  ---
+  duration_ms: 0.074709
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/renderer.js?x=1
+ok 27 - asset rejects app://desktop/renderer.js?x=1
+  ---
+  duration_ms: 0.14322
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/renderer.js\#x
+ok 28 - asset rejects app://desktop/renderer.js\#x
+  ---
+  duration_ms: 0.052398
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/../../etc/passwd
+ok 29 - asset rejects app://desktop/../../etc/passwd
+  ---
+  duration_ms: 0.040323
+  type: 'test'
+  ...
+# Subtest: asset rejects app://desktop/%2fetc/passwd
+ok 30 - asset rejects app://desktop/%2fetc/passwd
+  ---
+  duration_ms: 0.264893
+  type: 'test'
+  ...
+# Subtest: asset rejects file:///etc/passwd
+ok 31 - asset rejects file:///etc/passwd
+  ---
+  duration_ms: 0.066626
+  type: 'test'
+  ...
+# Subtest: authorized top frame
+ok 32 - authorized top frame
+  ---
+  duration_ms: 0.163178
+  type: 'test'
+  ...
+# Subtest: other window denied
+ok 33 - other window denied
+  ---
+  duration_ms: 0.272721
+  type: 'test'
+  ...
+# Subtest: same URL in subframe denied
+ok 34 - same URL in subframe denied
+  ---
+  duration_ms: 0.063292
+  type: 'test'
+  ...
+# Subtest: navigated main frame denied
+ok 35 - navigated main frame denied
+  ---
+  duration_ms: 0.055363
+  type: 'test'
+  ...
+# Subtest: destroyed owner denied
+ok 36 - destroyed owner denied
+  ---
+  duration_ms: 0.054192
+  type: 'test'
+  ...
+# Subtest: missing frame denied
+ok 37 - missing frame denied
+  ---
+  duration_ms: 0.045628
+  type: 'test'
+  ...
+# Subtest: exception during sender inspection denied
+ok 38 - exception during sender inspection denied
+  ---
+  duration_ms: 0.08559
+  type: 'test'
+  ...
+# Subtest: no owner denied
+ok 39 - no owner denied
+  ---
+  duration_ms: 0.043817
+  type: 'test'
+  ...
+# Subtest: theme system
+ok 40 - theme system
+  ---
+  duration_ms: 0.088696
+  type: 'test'
+  ...
+# Subtest: theme light
+ok 41 - theme light
+  ---
+  duration_ms: 0.327558
+  type: 'test'
+  ...
+# Subtest: theme dark
+ok 42 - theme dark
+  ---
+  duration_ms: 0.066229
+  type: 'test'
+  ...
+# Subtest: invalid theme input null
+ok 43 - invalid theme input null
+  ---
+  duration_ms: 0.342215
+  type: 'test'
+  ...
+# Subtest: invalid theme input []
+ok 44 - invalid theme input []
+  ---
+  duration_ms: 0.053495
+  type: 'test'
+  ...
+# Subtest: invalid theme input {}
+ok 45 - invalid theme input {}
+  ---
+  duration_ms: 0.044303
+  type: 'test'
+  ...
+# Subtest: invalid theme input {"theme":"remote"}
+ok 46 - invalid theme input {"theme":"remote"}
+  ---
+  duration_ms: 0.381626
+  type: 'test'
+  ...
+# Subtest: invalid theme input {"theme":"dark","path":"/etc/passwd"}
+ok 47 - invalid theme input {"theme":"dark","path":"/etc/passwd"}
+  ---
+  duration_ms: 0.052198
+  type: 'test'
+  ...
+# Subtest: invalid theme input {"theme":1}
+ok 48 - invalid theme input {"theme":1}
+  ---
+  duration_ms: 0.042386
+  type: 'test'
+  ...
+# Subtest: invalid theme input {"theme":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ok 49 - invalid theme input {"theme":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  ---
+  duration_ms: 0.174296
+  type: 'test'
+  ...
+# Subtest: invalid theme input "2026-10-15T04:44:22.008Z"
+ok 50 - invalid theme input "2026-10-15T04:44:22.008Z"
+  ---
+  duration_ms: 0.04882
+  type: 'test'
+  ...
+# Subtest: prototype field rejected
+ok 51 - prototype field rejected
+  ---
+  duration_ms: 0.290578
+  type: 'test'
+  ...
+# Subtest: fixed docs URL allowed
+ok 52 - fixed docs URL allowed
+  ---
+  duration_ms: 0.344445
+  type: 'test'
+  ...
+# Subtest: external rejects http://www.electronjs.org/docs/
+ok 53 - external rejects http://www.electronjs.org/docs/
+  ---
+  duration_ms: 0.106261
+  type: 'test'
+  ...
+# Subtest: external rejects https://www.electronjs.org.evil/docs/
+ok 54 - external rejects https://www.electronjs.org.evil/docs/
+  ---
+  duration_ms: 0.039002
+  type: 'test'
+  ...
+# Subtest: external rejects https://www.electronjs.org@evil.test/docs/
+ok 55 - external rejects https://www.electronjs.org@evil.test/docs/
+  ---
+  duration_ms: 0.037317
+  type: 'test'
+  ...
+# Subtest: external rejects https://user@www.electronjs.org/docs/
+ok 56 - external rejects https://user@www.electronjs.org/docs/
+  ---
+  duration_ms: 0.040175
+  type: 'test'
+  ...
+# Subtest: external rejects https://www.electronjs.org:444/docs/
+ok 57 - external rejects https://www.electronjs.org:444/docs/
+  ---
+  duration_ms: 0.036074
+  type: 'test'
+  ...
+# Subtest: external rejects https://www.electronjs.org/not-docs/
+ok 58 - external rejects https://www.electronjs.org/not-docs/
+  ---
+  duration_ms: 0.070427
+  type: 'test'
+  ...
+# Subtest: external rejects file:///tmp/a
+ok 59 - external rejects file:///tmp/a
+  ---
+  duration_ms: 0.03643
+  type: 'test'
+  ...
+# Subtest: external rejects javascript:alert(1)
+ok 60 - external rejects javascript:alert(1)
+  ---
+  duration_ms: 0.037906
+  type: 'test'
+  ...
+# Subtest: external rejects https://www.electronjs.org/docs/?token=secret
+ok 61 - external rejects https://www.electronjs.org/docs/?token=secret
+  ---
+  duration_ms: 0.048959
+  type: 'test'
+  ...
+# Subtest: external rejects null
+ok 62 - external rejects null
+  ---
+  duration_ms: 0.033022
+  type: 'test'
+  ...
+# Subtest: rate bucket permits bounded burst
+ok 63 - rate bucket permits bounded burst
+  ---
+  duration_ms: 0.172465
+  type: 'test'
+  ...
+# Subtest: rate bucket refills by elapsed time
+ok 64 - rate bucket refills by elapsed time
+  ---
+  duration_ms: 0.218721
+  type: 'test'
+  ...
+# Subtest: refill does not exceed capacity
+ok 65 - refill does not exceed capacity
+  ---
+  duration_ms: 0.156694
+  type: 'test'
+  ...
+# Subtest: clock rollback cannot create tokens
+ok 66 - clock rollback cannot create tokens
+  ---
+  duration_ms: 0.075076
+  type: 'test'
+  ...
+# Subtest: invalid clock after start denies
+ok 67 - invalid clock after start denies
+  ---
+  duration_ms: 0.324181
+  type: 'test'
+  ...
+# Subtest: invalid rate policy rejects
+ok 68 - invalid rate policy rejects
+  ---
+  duration_ms: 0.103402
+  type: 'test'
+  ...
+# Subtest: invalid initial clock rejects
+ok 69 - invalid initial clock rejects
+  ---
+  duration_ms: 0.330492
+  type: 'test'
+  ...
+1..69
+# tests 69
+# suites 0
+# pass 69
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 206.259364
+
+Exit status: 0

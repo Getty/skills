@@ -1,0 +1,310 @@
+[
+  {
+    "id": "E01",
+    "title": "Electron security checklist",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/security",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E02",
+    "title": "Electron support timelines",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/electron-timelines",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E03",
+    "title": "Electron release dashboard",
+    "url": "https://releases.electronjs.org/",
+    "status": "pointer",
+    "reviewed": null
+  },
+  {
+    "id": "E04",
+    "title": "Electron process model",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/process-model",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E05",
+    "title": "Context isolation",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/context-isolation",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E06",
+    "title": "Process sandboxing",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/sandbox",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E07",
+    "title": "IPC tutorial",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/ipc",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E08",
+    "title": "ES modules",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/esm",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E09",
+    "title": "Protocol API",
+    "url": "https://www.electronjs.org/docs/latest/api/protocol",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E10",
+    "title": "Session API",
+    "url": "https://www.electronjs.org/docs/latest/api/session",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E11",
+    "title": "WebContentsView",
+    "url": "https://www.electronjs.org/docs/latest/api/web-contents-view",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E12",
+    "title": "Fuses",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/fuses",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E13",
+    "title": "safeStorage",
+    "url": "https://www.electronjs.org/docs/latest/api/safe-storage",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E14",
+    "title": "utilityProcess",
+    "url": "https://www.electronjs.org/docs/latest/api/utility-process",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E15",
+    "title": "Message ports",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/message-ports",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E16",
+    "title": "Native Node modules",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/using-native-node-modules",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E17",
+    "title": "ASAR archives",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/asar-archives",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E18",
+    "title": "Electron performance",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/performance",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E19",
+    "title": "Code signing",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/code-signing",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E20",
+    "title": "Application updates",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/updates",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E21",
+    "title": "autoUpdater API",
+    "url": "https://www.electronjs.org/docs/latest/api/auto-updater",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E22",
+    "title": "Electron Forge",
+    "url": "https://www.electronforge.io/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E23",
+    "title": "Forge Vite plugin",
+    "url": "https://www.electronforge.io/config/plugins/vite",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E24",
+    "title": "electron-builder",
+    "url": "https://www.electron.build/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E25",
+    "title": "electron-vite",
+    "url": "https://electron-vite.org/guide/",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E26",
+    "title": "Playwright Electron support",
+    "url": "https://playwright.dev/docs/api/class-electron",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E27",
+    "title": "Headless CI",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/testing-on-headless-ci",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E28",
+    "title": "App API",
+    "url": "https://www.electronjs.org/docs/latest/api/app",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E29",
+    "title": "BrowserWindow",
+    "url": "https://www.electronjs.org/docs/latest/api/browser-window",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E30",
+    "title": "WebContents",
+    "url": "https://www.electronjs.org/docs/latest/api/web-contents",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E31",
+    "title": "Native dialogs",
+    "url": "https://www.electronjs.org/docs/latest/api/dialog",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E32",
+    "title": "Networking",
+    "url": "https://www.electronjs.org/docs/latest/api/net",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E33",
+    "title": "Desktop capture",
+    "url": "https://www.electronjs.org/docs/latest/api/desktop-capturer",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E34",
+    "title": "Deep linking",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/launch-app-from-url-in-another-app",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E35",
+    "title": "ASAR integrity",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/asar-integrity",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E36",
+    "title": "Crash reporter",
+    "url": "https://www.electronjs.org/docs/latest/api/crash-reporter",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E37",
+    "title": "Content tracing",
+    "url": "https://www.electronjs.org/docs/latest/api/content-tracing",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E38",
+    "title": "webview tag",
+    "url": "https://www.electronjs.org/docs/latest/api/webview-tag",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E39",
+    "title": "BrowserView deprecation",
+    "url": "https://www.electronjs.org/docs/latest/api/browser-view",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E40",
+    "title": "Windows Store guide",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/windows-store-guide",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "E41",
+    "title": "Mac App Store guide",
+    "url": "https://www.electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R04",
+    "title": "Effects decision guide",
+    "url": "https://react.dev/learn/you-might-not-need-an-effect",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "R50",
+    "title": "React Flow learning index",
+    "url": "https://reactflow.dev/learn",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  },
+  {
+    "id": "S01",
+    "title": "Agent Skills specification",
+    "url": "https://agentskills.io/specification",
+    "status": "reviewed",
+    "reviewed": "2026-10-15"
+  }
+]

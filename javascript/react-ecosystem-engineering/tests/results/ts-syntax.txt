@@ -1,0 +1,34 @@
+$ node /mnt/data/react-electron-skills/_authoring/check-syntax.cjs /mnt/data/react-electron-skills/react-ecosystem-engineering
+
+{
+  "scope": "TypeScript syntax transpilation only; NOT dependency typechecking",
+  "typescript": "5.8.3",
+  "files": [
+    {
+      "file": "examples/flow-editor/src/App.tsx",
+      "errors": []
+    },
+    {
+      "file": "examples/flow-editor/src/main.tsx",
+      "errors": []
+    },
+    {
+      "file": "examples/patterns/form.tsx",
+      "errors": []
+    },
+    {
+      "file": "examples/patterns/query.ts",
+      "errors": []
+    },
+    {
+      "file": "examples/patterns/use-domain-events.ts",
+      "errors": []
+    },
+    {
+      "file": "tests/type-contracts.mts",
+      "errors": []
+    }
+  ]
+}
+
+Exit status: 0

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "examples/secure-shell/main.cjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "examples/secure-shell/policy.cjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "examples/secure-shell/preload.cjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "examples/secure-shell/renderer/renderer.js",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "examples/secure-shell/tests/desktop.spec.mjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "tests/policy.test.cjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  }
+]

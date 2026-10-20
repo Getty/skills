@@ -1,0 +1,537 @@
+[
+  {
+    "file": "references/01-version-and-evidence.md",
+    "title": "Version gates and evidence discipline",
+    "sources": [
+      "R01",
+      "R02",
+      "R03",
+      "R14",
+      "R15",
+      "R40",
+      "R48",
+      "R58",
+      "S01"
+    ]
+  },
+  {
+    "file": "references/02-project-intake-architecture.md",
+    "title": "Project intake and architecture selection",
+    "sources": [
+      "R01",
+      "R15",
+      "R16",
+      "R17",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/03-rendering-state-identity.md",
+    "title": "Rendering, state ownership, identity, and reconciliation",
+    "sources": [
+      "R01",
+      "R13"
+    ]
+  },
+  {
+    "file": "references/04-hooks-effects-lifecycle.md",
+    "title": "Hooks, effects, subscriptions, and resource ownership",
+    "sources": [
+      "R04",
+      "R05",
+      "R13"
+    ]
+  },
+  {
+    "file": "references/05-typescript-component-contracts.md",
+    "title": "TypeScript and component contracts",
+    "sources": [
+      "R12",
+      "R54",
+      "R25"
+    ]
+  },
+  {
+    "file": "references/06-concurrency-suspense-errors.md",
+    "title": "Concurrency, Suspense, Activity, and error boundaries",
+    "sources": [
+      "R01",
+      "R06",
+      "R09",
+      "R11"
+    ]
+  },
+  {
+    "file": "references/07-actions-forms-optimistic-ui.md",
+    "title": "Actions, pending states, and optimistic mutations",
+    "sources": [
+      "R07",
+      "R08",
+      "R09"
+    ]
+  },
+  {
+    "file": "references/08-compiler-and-performance.md",
+    "title": "React Compiler and evidence-led performance work",
+    "sources": [
+      "R03",
+      "R01",
+      "R55",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/09-ssr-hydration-rsc.md",
+    "title": "SSR, streaming, hydration, and Server Components",
+    "sources": [
+      "R10",
+      "R11",
+      "R14",
+      "R17"
+    ]
+  },
+  {
+    "file": "references/10-react-19-3-adoption.md",
+    "title": "React 19.3 adoption and older-version compatibility",
+    "sources": [
+      "R02",
+      "R01"
+    ]
+  },
+  {
+    "file": "references/11-frameworks-and-deployment.md",
+    "title": "Framework selection and deployment boundaries",
+    "sources": [
+      "R15",
+      "R16",
+      "R17",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/12-routing-and-url-state.md",
+    "title": "Routing, loaders, navigation, and URL state",
+    "sources": [
+      "R15",
+      "R16"
+    ]
+  },
+  {
+    "file": "references/13-server-state-query-swr.md",
+    "title": "Server state: TanStack Query, SWR, and cache design",
+    "sources": [
+      "R18",
+      "R19"
+    ]
+  },
+  {
+    "file": "references/14-redux-toolkit-rtk-query.md",
+    "title": "Redux Toolkit and RTK Query",
+    "sources": [
+      "R20"
+    ]
+  },
+  {
+    "file": "references/15-zustand-jotai-and-reactive-stores.md",
+    "title": "Zustand, Jotai, and other client-state choices",
+    "sources": [
+      "R21",
+      "R22"
+    ]
+  },
+  {
+    "file": "references/16-state-machines-and-streams.md",
+    "title": "XState, state machines, and reactive streams",
+    "sources": [
+      "R23"
+    ]
+  },
+  {
+    "file": "references/17-api-graphql-trpc-openapi.md",
+    "title": "API clients: REST, GraphQL, tRPC, and generated contracts",
+    "sources": [
+      "R27",
+      "R28",
+      "R29",
+      "R25"
+    ]
+  },
+  {
+    "file": "references/18-forms-and-runtime-schemas.md",
+    "title": "Forms: React Hook Form, TanStack Form, and schemas",
+    "sources": [
+      "R24",
+      "R25",
+      "R26",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/19-styling-design-tokens.md",
+    "title": "Styling, tokens, CSS architecture, and themes",
+    "sources": [
+      "R30",
+      "R31",
+      "R33",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/20-headless-primitives.md",
+    "title": "Headless UI: Radix, Base UI, React Aria, and composition",
+    "sources": [
+      "R31",
+      "R33",
+      "R34",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/21-shadcn-component-registries.md",
+    "title": "shadcn/ui and owned component registries",
+    "sources": [
+      "R32",
+      "R31",
+      "R34"
+    ]
+  },
+  {
+    "file": "references/22-component-suites.md",
+    "title": "Component suites: MUI, Mantine, Chakra, Ant Design, and alternatives",
+    "sources": [
+      "R35",
+      "R36",
+      "R37",
+      "R38",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/23-component-contracts-accessibility.md",
+    "title": "Component contracts and accessibility acceptance",
+    "sources": [
+      "R39",
+      "R33",
+      "R69",
+      "R73"
+    ]
+  },
+  {
+    "file": "references/24-tables-and-data-grids.md",
+    "title": "Tables, data grids, and high-density editing",
+    "sources": [
+      "R40",
+      "R41",
+      "R35",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/25-virtualization-large-lists.md",
+    "title": "Virtualization, infinite lists, and scroll correctness",
+    "sources": [
+      "R42",
+      "R43",
+      "R39",
+      "R55"
+    ]
+  },
+  {
+    "file": "references/26-charts-and-data-visualization.md",
+    "title": "Charts and data visualization",
+    "sources": [
+      "R44",
+      "R45",
+      "R46",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/27-animation-motion.md",
+    "title": "Animation, gestures, and view transitions",
+    "sources": [
+      "R47",
+      "R02",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/28-drag-and-drop.md",
+    "title": "Drag-and-drop, sorting, and accessible alternatives",
+    "sources": [
+      "R48",
+      "R49",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/29-react-flow-foundations.md",
+    "title": "React Flow foundations and controlled graph architecture",
+    "sources": [
+      "R50",
+      "R54",
+      "R58",
+      "R60"
+    ]
+  },
+  {
+    "file": "references/30-react-flow-custom-nodes-edges.md",
+    "title": "React Flow custom nodes, edges, handles, and inspectors",
+    "sources": [
+      "R51",
+      "R52",
+      "R54",
+      "R50"
+    ]
+  },
+  {
+    "file": "references/31-react-flow-layout-subflows.md",
+    "title": "React Flow layout, subflows, geometry, and grouping",
+    "sources": [
+      "R53",
+      "R61",
+      "R58"
+    ]
+  },
+  {
+    "file": "references/32-react-flow-domain-validation.md",
+    "title": "React Flow domain validation and execution boundaries",
+    "sources": [
+      "R59",
+      "R50",
+      "R52"
+    ]
+  },
+  {
+    "file": "references/33-react-flow-persistence-history-collaboration.md",
+    "title": "React Flow persistence, history, collaboration, and migrations",
+    "sources": [
+      "R60",
+      "R64",
+      "R50"
+    ]
+  },
+  {
+    "file": "references/34-react-flow-performance-testing-ssr.md",
+    "title": "React Flow performance, testing, SSR, and diagnostics",
+    "sources": [
+      "R55",
+      "R56",
+      "R57",
+      "R58"
+    ]
+  },
+  {
+    "file": "references/35-rich-text-markdown.md",
+    "title": "Rich-text editors, Markdown, and collaborative documents",
+    "sources": [
+      "R62",
+      "R63",
+      "R64",
+      "R68"
+    ]
+  },
+  {
+    "file": "references/36-code-editors-terminals.md",
+    "title": "Code editors, language tools, and terminal components",
+    "sources": [
+      "R04",
+      "R74",
+      "E01"
+    ]
+  },
+  {
+    "file": "references/37-maps-canvas-three.md",
+    "title": "Maps, canvas, diagrams, and 3D rendering",
+    "sources": [
+      "R65",
+      "R04",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/38-dates-calendars-i18n.md",
+    "title": "Dates, calendars, time zones, and internationalization",
+    "sources": [
+      "R66",
+      "R67",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/39-files-media-pdf.md",
+    "title": "Files, uploads, media, and PDF-related components",
+    "sources": [
+      "R39",
+      "R68",
+      "R74",
+      "E31"
+    ]
+  },
+  {
+    "file": "references/40-realtime-offline-localfirst.md",
+    "title": "Realtime, offline, local-first, and synchronization",
+    "sources": [
+      "R64",
+      "R18",
+      "R19"
+    ]
+  },
+  {
+    "file": "references/41-auth-security-trust.md",
+    "title": "Authentication, authorization, XSS, and client trust boundaries",
+    "sources": [
+      "R14",
+      "R17",
+      "R68",
+      "E01"
+    ]
+  },
+  {
+    "file": "references/42-unit-component-network-tests.md",
+    "title": "Unit, component, and network-boundary tests",
+    "sources": [
+      "R69",
+      "R70",
+      "R72",
+      "R13"
+    ]
+  },
+  {
+    "file": "references/43-browser-storybook-accessibility.md",
+    "title": "Browser tests, Storybook, visual checks, and accessibility",
+    "sources": [
+      "R71",
+      "R73",
+      "R39"
+    ]
+  },
+  {
+    "file": "references/44-debugging-observability.md",
+    "title": "Debugging and observability playbooks",
+    "sources": [
+      "R01",
+      "R11",
+      "R18",
+      "R55",
+      "R71"
+    ]
+  },
+  {
+    "file": "references/45-build-monorepos-packaging-ci.md",
+    "title": "Build systems, monorepos, package exports, and CI",
+    "sources": [
+      "R74",
+      "R12",
+      "R70",
+      "R71"
+    ]
+  },
+  {
+    "file": "references/46-migrations-legacy.md",
+    "title": "Migration planning and legacy React maintenance",
+    "sources": [
+      "R01",
+      "R02",
+      "R03",
+      "R15",
+      "R58"
+    ]
+  },
+  {
+    "file": "references/47-stack-recipes.md",
+    "title": "Constraint-driven stack recipes",
+    "sources": [
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R20",
+      "R24",
+      "R31",
+      "R32",
+      "R40",
+      "R50"
+    ]
+  },
+  {
+    "file": "references/48-react-electron-boundary.md",
+    "title": "React inside Electron: the renderer is not the main process",
+    "sources": [
+      "E01",
+      "E05",
+      "E06",
+      "E07",
+      "E09",
+      "R04"
+    ]
+  },
+  {
+    "file": "references/49-native-and-other-renderers.md",
+    "title": "React Native, Expo, alternative renderers, and scope limits",
+    "sources": [
+      "R01",
+      "R65"
+    ]
+  },
+  {
+    "file": "references/50-ecosystem-catalog.md",
+    "title": "React ecosystem and component routing catalog",
+    "sources": [
+      "R01",
+      "R50",
+      "R32",
+      "R40",
+      "R48"
+    ]
+  },
+  {
+    "file": "references/51-practical-cookbook.md",
+    "title": "Practical implementation patterns and example map",
+    "sources": [
+      "R04",
+      "R18",
+      "R24",
+      "R25",
+      "R54",
+      "E07"
+    ]
+  },
+  {
+    "file": "references/52-production-review-acceptance.md",
+    "title": "Production review and acceptance gates",
+    "sources": [
+      "R39",
+      "R69",
+      "R71",
+      "R74",
+      "E01"
+    ]
+  },
+  {
+    "file": "references/53-agent-workflows.md",
+    "title": "Agent workflows, loading discipline, and output contracts",
+    "sources": [
+      "S01",
+      "R01",
+      "R74"
+    ]
+  },
+  {
+    "file": "references/54-core-api-atlas.md",
+    "title": "React and React DOM API atlas",
+    "sources": [
+      "R01",
+      "R02",
+      "R03",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12"
+    ]
+  }
+]

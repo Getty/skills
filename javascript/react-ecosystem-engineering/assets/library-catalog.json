@@ -1,0 +1,1342 @@
+[
+  {
+    "category": "Routing",
+    "name": "React Router",
+    "packages": [
+      "react-router",
+      "react-router-dom"
+    ],
+    "tier": "D",
+    "reference": "references/12-routing-and-url-state.md",
+    "source_id": "R15",
+    "url": "https://reactrouter.com/start/modes"
+  },
+  {
+    "category": "Routing",
+    "name": "TanStack Router / Start",
+    "packages": [
+      "@tanstack/react-router",
+      "@tanstack/react-start"
+    ],
+    "tier": "C",
+    "reference": "references/11-frameworks-and-deployment.md",
+    "source_id": "R16",
+    "url": "https://tanstack.com/router/latest/docs/overview"
+  },
+  {
+    "category": "Framework",
+    "name": "Next.js",
+    "packages": [
+      "next"
+    ],
+    "tier": "D",
+    "reference": "references/09-ssr-hydration-rsc.md",
+    "source_id": "R17",
+    "url": "https://nextjs.org/docs/app"
+  },
+  {
+    "category": "Build",
+    "name": "Vite",
+    "packages": [
+      "vite",
+      "@vitejs/plugin-react"
+    ],
+    "tier": "D",
+    "reference": "references/45-build-monorepos-packaging-ci.md",
+    "source_id": "R74",
+    "url": "https://vite.dev/guide/"
+  },
+  {
+    "category": "Server state",
+    "name": "TanStack Query",
+    "packages": [
+      "@tanstack/react-query"
+    ],
+    "tier": "D",
+    "reference": "references/13-server-state-query-swr.md",
+    "source_id": "R18",
+    "url": "https://tanstack.com/query/latest/docs/framework/react/guides/important-defaults"
+  },
+  {
+    "category": "Server state",
+    "name": "SWR",
+    "packages": [
+      "swr"
+    ],
+    "tier": "C",
+    "reference": "references/13-server-state-query-swr.md",
+    "source_id": "R19",
+    "url": "https://swr.vercel.app/docs/getting-started"
+  },
+  {
+    "category": "State",
+    "name": "Redux Toolkit / RTK Query",
+    "packages": [
+      "@reduxjs/toolkit",
+      "react-redux"
+    ],
+    "tier": "D",
+    "reference": "references/14-redux-toolkit-rtk-query.md",
+    "source_id": "R20",
+    "url": "https://redux.js.org/toolkit/introduction/getting-started"
+  },
+  {
+    "category": "State",
+    "name": "Zustand",
+    "packages": [
+      "zustand"
+    ],
+    "tier": "D",
+    "reference": "references/15-zustand-jotai-and-reactive-stores.md",
+    "source_id": "R21",
+    "url": "https://github.com/pmndrs/zustand"
+  },
+  {
+    "category": "State",
+    "name": "Jotai",
+    "packages": [
+      "jotai"
+    ],
+    "tier": "C",
+    "reference": "references/15-zustand-jotai-and-reactive-stores.md",
+    "source_id": "R22",
+    "url": "https://jotai.org/docs"
+  },
+  {
+    "category": "State",
+    "name": "XState",
+    "packages": [
+      "xstate",
+      "@xstate/react"
+    ],
+    "tier": "D",
+    "reference": "references/16-state-machines-and-streams.md",
+    "source_id": "R23",
+    "url": "https://stately.ai/docs/xstate-react"
+  },
+  {
+    "category": "State",
+    "name": "MobX",
+    "packages": [
+      "mobx",
+      "mobx-react-lite"
+    ],
+    "tier": "P",
+    "reference": "references/15-zustand-jotai-and-reactive-stores.md",
+    "source_id": null,
+    "url": "https://mobx.js.org/README.html"
+  },
+  {
+    "category": "State",
+    "name": "Valtio",
+    "packages": [
+      "valtio"
+    ],
+    "tier": "P",
+    "reference": "references/15-zustand-jotai-and-reactive-stores.md",
+    "source_id": null,
+    "url": "https://valtio.dev/"
+  },
+  {
+    "category": "Streams",
+    "name": "RxJS",
+    "packages": [
+      "rxjs"
+    ],
+    "tier": "P",
+    "reference": "references/16-state-machines-and-streams.md",
+    "source_id": null,
+    "url": "https://rxjs.dev/"
+  },
+  {
+    "category": "Forms",
+    "name": "React Hook Form",
+    "packages": [
+      "react-hook-form",
+      "@hookform/resolvers"
+    ],
+    "tier": "D",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": "R24",
+    "url": "https://github.com/react-hook-form/react-hook-form"
+  },
+  {
+    "category": "Forms",
+    "name": "TanStack Form",
+    "packages": [
+      "@tanstack/react-form"
+    ],
+    "tier": "C",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": "R26",
+    "url": "https://tanstack.com/form/latest/docs/overview"
+  },
+  {
+    "category": "Schemas",
+    "name": "Zod",
+    "packages": [
+      "zod"
+    ],
+    "tier": "D",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": "R25",
+    "url": "https://zod.dev/"
+  },
+  {
+    "category": "Schemas",
+    "name": "Valibot",
+    "packages": [
+      "valibot"
+    ],
+    "tier": "P",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": null,
+    "url": "https://valibot.dev/"
+  },
+  {
+    "category": "Schemas",
+    "name": "Yup",
+    "packages": [
+      "yup"
+    ],
+    "tier": "P",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": null,
+    "url": "https://github.com/jquense/yup"
+  },
+  {
+    "category": "Forms legacy",
+    "name": "Formik",
+    "packages": [
+      "formik"
+    ],
+    "tier": "P",
+    "reference": "references/18-forms-and-runtime-schemas.md",
+    "source_id": null,
+    "url": "https://formik.org/"
+  },
+  {
+    "category": "API",
+    "name": "Apollo Client",
+    "packages": [
+      "@apollo/client"
+    ],
+    "tier": "C",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": "R27",
+    "url": "https://www.apollographql.com/docs/react"
+  },
+  {
+    "category": "API",
+    "name": "Relay",
+    "packages": [
+      "react-relay",
+      "relay-runtime"
+    ],
+    "tier": "C",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": "R28",
+    "url": "https://relay.dev/docs/"
+  },
+  {
+    "category": "API",
+    "name": "tRPC",
+    "packages": [
+      "@trpc/client",
+      "@trpc/react-query",
+      "@trpc/tanstack-react-query"
+    ],
+    "tier": "C",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": "R29",
+    "url": "https://trpc.io/docs/"
+  },
+  {
+    "category": "API",
+    "name": "urql",
+    "packages": [
+      "urql",
+      "@urql/core"
+    ],
+    "tier": "P",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": null,
+    "url": "https://urql.dev/"
+  },
+  {
+    "category": "API",
+    "name": "GraphQL Code Generator",
+    "packages": [
+      "@graphql-codegen/cli"
+    ],
+    "tier": "P",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": null,
+    "url": "https://the-guild.dev/graphql/codegen"
+  },
+  {
+    "category": "API",
+    "name": "OpenAPI TypeScript",
+    "packages": [
+      "openapi-typescript",
+      "openapi-fetch"
+    ],
+    "tier": "P",
+    "reference": "references/17-api-graphql-trpc-openapi.md",
+    "source_id": null,
+    "url": "https://openapi-ts.dev/"
+  },
+  {
+    "category": "CSS",
+    "name": "Tailwind CSS",
+    "packages": [
+      "tailwindcss",
+      "@tailwindcss/vite"
+    ],
+    "tier": "C",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": "R30",
+    "url": "https://tailwindcss.com/docs/installation/using-vite"
+  },
+  {
+    "category": "CSS",
+    "name": "CSS Modules",
+    "packages": [
+      "postcss"
+    ],
+    "tier": "C",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": "R74",
+    "url": "https://vite.dev/guide/"
+  },
+  {
+    "category": "CSS",
+    "name": "Emotion",
+    "packages": [
+      "@emotion/react",
+      "@emotion/styled"
+    ],
+    "tier": "P",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": null,
+    "url": "https://emotion.sh/docs/introduction"
+  },
+  {
+    "category": "CSS",
+    "name": "styled-components",
+    "packages": [
+      "styled-components"
+    ],
+    "tier": "P",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": null,
+    "url": "https://styled-components.com/docs"
+  },
+  {
+    "category": "CSS",
+    "name": "vanilla-extract",
+    "packages": [
+      "@vanilla-extract/css"
+    ],
+    "tier": "P",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": null,
+    "url": "https://vanilla-extract.style/"
+  },
+  {
+    "category": "CSS",
+    "name": "Panda CSS",
+    "packages": [
+      "@pandacss/dev"
+    ],
+    "tier": "P",
+    "reference": "references/19-styling-design-tokens.md",
+    "source_id": null,
+    "url": "https://panda-css.com/"
+  },
+  {
+    "category": "Primitives",
+    "name": "Radix UI",
+    "packages": [
+      "radix-ui",
+      "@radix-ui/react-dialog"
+    ],
+    "tier": "D",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": "R31",
+    "url": "https://www.radix-ui.com/primitives/docs/overview/introduction"
+  },
+  {
+    "category": "Primitives",
+    "name": "Base UI",
+    "packages": [
+      "@base-ui/react"
+    ],
+    "tier": "C",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": "R34",
+    "url": "https://base-ui.com/react/overview/quick-start"
+  },
+  {
+    "category": "Primitives",
+    "name": "React Aria Components",
+    "packages": [
+      "react-aria-components",
+      "react-aria"
+    ],
+    "tier": "D",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": "R33",
+    "url": "https://react-aria.adobe.com/getting-started"
+  },
+  {
+    "category": "Primitives",
+    "name": "Headless UI",
+    "packages": [
+      "@headlessui/react"
+    ],
+    "tier": "P",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": null,
+    "url": "https://headlessui.com/"
+  },
+  {
+    "category": "Components",
+    "name": "shadcn/ui",
+    "packages": [
+      "shadcn"
+    ],
+    "tier": "D",
+    "reference": "references/21-shadcn-component-registries.md",
+    "source_id": "R32",
+    "url": "https://ui.shadcn.com/docs"
+  },
+  {
+    "category": "Components",
+    "name": "Material UI / MUI X",
+    "packages": [
+      "@mui/material",
+      "@mui/x-data-grid",
+      "@mui/x-date-pickers"
+    ],
+    "tier": "C",
+    "reference": "references/22-component-suites.md",
+    "source_id": "R35",
+    "url": "https://mui.com/material-ui/getting-started/"
+  },
+  {
+    "category": "Components",
+    "name": "Mantine",
+    "packages": [
+      "@mantine/core",
+      "@mantine/hooks"
+    ],
+    "tier": "C",
+    "reference": "references/22-component-suites.md",
+    "source_id": "R36",
+    "url": "https://mantine.dev/getting-started/"
+  },
+  {
+    "category": "Components",
+    "name": "Chakra UI",
+    "packages": [
+      "@chakra-ui/react"
+    ],
+    "tier": "C",
+    "reference": "references/22-component-suites.md",
+    "source_id": "R37",
+    "url": "https://chakra-ui.com/docs/get-started/installation"
+  },
+  {
+    "category": "Components",
+    "name": "Ant Design",
+    "packages": [
+      "antd"
+    ],
+    "tier": "C",
+    "reference": "references/22-component-suites.md",
+    "source_id": "R38",
+    "url": "https://ant.design/docs/react/introduce/"
+  },
+  {
+    "category": "Components",
+    "name": "Fluent UI",
+    "packages": [
+      "@fluentui/react-components"
+    ],
+    "tier": "P",
+    "reference": "references/22-component-suites.md",
+    "source_id": null,
+    "url": "https://react.fluentui.dev/"
+  },
+  {
+    "category": "Components",
+    "name": "PrimeReact",
+    "packages": [
+      "primereact"
+    ],
+    "tier": "P",
+    "reference": "references/22-component-suites.md",
+    "source_id": null,
+    "url": "https://primereact.org/"
+  },
+  {
+    "category": "Components",
+    "name": "HeroUI",
+    "packages": [
+      "@heroui/react"
+    ],
+    "tier": "P",
+    "reference": "references/22-component-suites.md",
+    "source_id": null,
+    "url": "https://www.heroui.com/"
+  },
+  {
+    "category": "Components",
+    "name": "React Bootstrap",
+    "packages": [
+      "react-bootstrap"
+    ],
+    "tier": "P",
+    "reference": "references/22-component-suites.md",
+    "source_id": null,
+    "url": "https://react-bootstrap.github.io/"
+  },
+  {
+    "category": "Widgets",
+    "name": "Downshift",
+    "packages": [
+      "downshift"
+    ],
+    "tier": "P",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": null,
+    "url": "https://www.downshift-js.com/"
+  },
+  {
+    "category": "Widgets",
+    "name": "React Select",
+    "packages": [
+      "react-select"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://react-select.com/"
+  },
+  {
+    "category": "Widgets",
+    "name": "Floating UI",
+    "packages": [
+      "@floating-ui/react"
+    ],
+    "tier": "P",
+    "reference": "references/20-headless-primitives.md",
+    "source_id": null,
+    "url": "https://floating-ui.com/docs/react"
+  },
+  {
+    "category": "Widgets",
+    "name": "cmdk",
+    "packages": [
+      "cmdk"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://cmdk.paco.me/"
+  },
+  {
+    "category": "Widgets",
+    "name": "Sonner",
+    "packages": [
+      "sonner"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://sonner.emilkowal.ski/"
+  },
+  {
+    "category": "Widgets",
+    "name": "Embla Carousel",
+    "packages": [
+      "embla-carousel-react"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://www.embla-carousel.com/"
+  },
+  {
+    "category": "Widgets",
+    "name": "React Resizable Panels",
+    "packages": [
+      "react-resizable-panels"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://github.com/bvaughn/react-resizable-panels"
+  },
+  {
+    "category": "Tables",
+    "name": "TanStack Table",
+    "packages": [
+      "@tanstack/react-table"
+    ],
+    "tier": "D",
+    "reference": "references/24-tables-and-data-grids.md",
+    "source_id": "R40",
+    "url": "https://tanstack.com/table/latest"
+  },
+  {
+    "category": "Tables",
+    "name": "AG Grid",
+    "packages": [
+      "ag-grid-react",
+      "ag-grid-community",
+      "ag-grid-enterprise"
+    ],
+    "tier": "C",
+    "reference": "references/24-tables-and-data-grids.md",
+    "source_id": "R41",
+    "url": "https://www.ag-grid.com/react-data-grid/getting-started/"
+  },
+  {
+    "category": "Virtualization",
+    "name": "TanStack Virtual",
+    "packages": [
+      "@tanstack/react-virtual"
+    ],
+    "tier": "C",
+    "reference": "references/25-virtualization-large-lists.md",
+    "source_id": "R42",
+    "url": "https://tanstack.com/virtual/latest"
+  },
+  {
+    "category": "Virtualization",
+    "name": "React Virtuoso",
+    "packages": [
+      "react-virtuoso"
+    ],
+    "tier": "C",
+    "reference": "references/25-virtualization-large-lists.md",
+    "source_id": "R43",
+    "url": "https://virtuoso.dev/"
+  },
+  {
+    "category": "Virtualization",
+    "name": "react-window",
+    "packages": [
+      "react-window"
+    ],
+    "tier": "P",
+    "reference": "references/25-virtualization-large-lists.md",
+    "source_id": null,
+    "url": "https://github.com/bvaughn/react-window"
+  },
+  {
+    "category": "Charts",
+    "name": "Recharts",
+    "packages": [
+      "recharts"
+    ],
+    "tier": "C",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": "R44",
+    "url": "https://recharts.github.io/en-US/"
+  },
+  {
+    "category": "Charts",
+    "name": "Chart.js / react-chartjs-2",
+    "packages": [
+      "chart.js",
+      "react-chartjs-2"
+    ],
+    "tier": "C",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": "R45",
+    "url": "https://www.chartjs.org/docs/latest/"
+  },
+  {
+    "category": "Charts",
+    "name": "Apache ECharts",
+    "packages": [
+      "echarts",
+      "echarts-for-react"
+    ],
+    "tier": "C",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": "R46",
+    "url": "https://echarts.apache.org/en/index.html"
+  },
+  {
+    "category": "Charts",
+    "name": "Nivo",
+    "packages": [
+      "@nivo/core",
+      "@nivo/line"
+    ],
+    "tier": "P",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": null,
+    "url": "https://nivo.rocks/"
+  },
+  {
+    "category": "Charts",
+    "name": "visx",
+    "packages": [
+      "@visx/visx",
+      "@visx/shape"
+    ],
+    "tier": "P",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": null,
+    "url": "https://visx.airbnb.tech/"
+  },
+  {
+    "category": "Charts",
+    "name": "Victory",
+    "packages": [
+      "victory"
+    ],
+    "tier": "P",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": null,
+    "url": "https://commerce.nearform.com/open-source/victory/"
+  },
+  {
+    "category": "Charts",
+    "name": "D3",
+    "packages": [
+      "d3"
+    ],
+    "tier": "P",
+    "reference": "references/26-charts-and-data-visualization.md",
+    "source_id": null,
+    "url": "https://d3js.org/"
+  },
+  {
+    "category": "Motion",
+    "name": "Motion",
+    "packages": [
+      "motion",
+      "framer-motion"
+    ],
+    "tier": "D",
+    "reference": "references/27-animation-motion.md",
+    "source_id": "R47",
+    "url": "https://motion.dev/docs/react"
+  },
+  {
+    "category": "Motion",
+    "name": "React Spring",
+    "packages": [
+      "@react-spring/web"
+    ],
+    "tier": "P",
+    "reference": "references/27-animation-motion.md",
+    "source_id": null,
+    "url": "https://www.react-spring.dev/"
+  },
+  {
+    "category": "Gestures",
+    "name": "use-gesture",
+    "packages": [
+      "@use-gesture/react"
+    ],
+    "tier": "P",
+    "reference": "references/27-animation-motion.md",
+    "source_id": null,
+    "url": "https://use-gesture.netlify.app/"
+  },
+  {
+    "category": "Drag/drop",
+    "name": "dnd kit generations",
+    "packages": [
+      "@dnd-kit/react",
+      "@dnd-kit/core",
+      "@dnd-kit/sortable"
+    ],
+    "tier": "D",
+    "reference": "references/28-drag-and-drop.md",
+    "source_id": "R48",
+    "url": "https://dndkit.com/"
+  },
+  {
+    "category": "Drag/drop",
+    "name": "Pragmatic drag and drop",
+    "packages": [
+      "@atlaskit/pragmatic-drag-and-drop"
+    ],
+    "tier": "P",
+    "reference": "references/28-drag-and-drop.md",
+    "source_id": null,
+    "url": "https://atlassian.design/components/pragmatic-drag-and-drop/"
+  },
+  {
+    "category": "Drag/drop",
+    "name": "React DnD",
+    "packages": [
+      "react-dnd"
+    ],
+    "tier": "P",
+    "reference": "references/28-drag-and-drop.md",
+    "source_id": null,
+    "url": "https://react-dnd.github.io/react-dnd/"
+  },
+  {
+    "category": "Graphs",
+    "name": "React Flow",
+    "packages": [
+      "@xyflow/react",
+      "reactflow"
+    ],
+    "tier": "D",
+    "reference": "references/29-react-flow-foundations.md",
+    "source_id": "R50",
+    "url": "https://reactflow.dev/learn"
+  },
+  {
+    "category": "Layout",
+    "name": "Dagre",
+    "packages": [
+      "@dagrejs/dagre"
+    ],
+    "tier": "P",
+    "reference": "references/31-react-flow-layout-subflows.md",
+    "source_id": null,
+    "url": "https://github.com/dagrejs/dagre"
+  },
+  {
+    "category": "Layout",
+    "name": "ELK.js",
+    "packages": [
+      "elkjs"
+    ],
+    "tier": "P",
+    "reference": "references/31-react-flow-layout-subflows.md",
+    "source_id": null,
+    "url": "https://github.com/kieler/elkjs"
+  },
+  {
+    "category": "Editors",
+    "name": "Tiptap",
+    "packages": [
+      "@tiptap/react",
+      "@tiptap/core"
+    ],
+    "tier": "D",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": "R62",
+    "url": "https://tiptap.dev/docs/editor/getting-started/install/react"
+  },
+  {
+    "category": "Editors",
+    "name": "Lexical",
+    "packages": [
+      "lexical",
+      "@lexical/react"
+    ],
+    "tier": "C",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": "R63",
+    "url": "https://lexical.dev/docs/getting-started/react"
+  },
+  {
+    "category": "Editors",
+    "name": "ProseMirror",
+    "packages": [
+      "prosemirror-state",
+      "prosemirror-view"
+    ],
+    "tier": "P",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": null,
+    "url": "https://prosemirror.net/"
+  },
+  {
+    "category": "Editors",
+    "name": "Slate",
+    "packages": [
+      "slate",
+      "slate-react"
+    ],
+    "tier": "P",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": null,
+    "url": "https://docs.slatejs.org/"
+  },
+  {
+    "category": "Editors",
+    "name": "Plate",
+    "packages": [
+      "platejs",
+      "@udecode/plate"
+    ],
+    "tier": "P",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": null,
+    "url": "https://platejs.org/"
+  },
+  {
+    "category": "Markdown",
+    "name": "React Markdown / unified",
+    "packages": [
+      "react-markdown",
+      "unified",
+      "remark-gfm",
+      "rehype-sanitize"
+    ],
+    "tier": "P",
+    "reference": "references/35-rich-text-markdown.md",
+    "source_id": null,
+    "url": "https://github.com/remarkjs/react-markdown"
+  },
+  {
+    "category": "Collaboration",
+    "name": "Yjs",
+    "packages": [
+      "yjs",
+      "y-websocket"
+    ],
+    "tier": "D",
+    "reference": "references/33-react-flow-persistence-history-collaboration.md",
+    "source_id": "R64",
+    "url": "https://docs.yjs.dev/"
+  },
+  {
+    "category": "Collaboration",
+    "name": "Automerge",
+    "packages": [
+      "@automerge/automerge"
+    ],
+    "tier": "P",
+    "reference": "references/40-realtime-offline-localfirst.md",
+    "source_id": null,
+    "url": "https://automerge.org/"
+  },
+  {
+    "category": "Code",
+    "name": "Monaco",
+    "packages": [
+      "monaco-editor",
+      "@monaco-editor/react"
+    ],
+    "tier": "P",
+    "reference": "references/36-code-editors-terminals.md",
+    "source_id": null,
+    "url": "https://microsoft.github.io/monaco-editor/"
+  },
+  {
+    "category": "Code",
+    "name": "CodeMirror",
+    "packages": [
+      "codemirror",
+      "@codemirror/view"
+    ],
+    "tier": "P",
+    "reference": "references/36-code-editors-terminals.md",
+    "source_id": null,
+    "url": "https://codemirror.net/"
+  },
+  {
+    "category": "Terminal",
+    "name": "xterm.js",
+    "packages": [
+      "@xterm/xterm",
+      "xterm"
+    ],
+    "tier": "P",
+    "reference": "references/36-code-editors-terminals.md",
+    "source_id": null,
+    "url": "https://xtermjs.org/"
+  },
+  {
+    "category": "3D",
+    "name": "React Three Fiber",
+    "packages": [
+      "@react-three/fiber"
+    ],
+    "tier": "C",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": "R65",
+    "url": "https://r3f.docs.pmnd.rs/getting-started/introduction"
+  },
+  {
+    "category": "3D",
+    "name": "Drei",
+    "packages": [
+      "@react-three/drei"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://drei.docs.pmnd.rs/"
+  },
+  {
+    "category": "Canvas",
+    "name": "Konva",
+    "packages": [
+      "konva",
+      "react-konva"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://konvajs.org/docs/react/"
+  },
+  {
+    "category": "Canvas",
+    "name": "PixiJS",
+    "packages": [
+      "pixi.js",
+      "@pixi/react"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://pixijs.com/"
+  },
+  {
+    "category": "Maps",
+    "name": "MapLibre GL / react-map-gl",
+    "packages": [
+      "maplibre-gl",
+      "react-map-gl"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://maplibre.org/maplibre-gl-js/docs/"
+  },
+  {
+    "category": "Maps",
+    "name": "React Leaflet",
+    "packages": [
+      "leaflet",
+      "react-leaflet"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://react-leaflet.js.org/"
+  },
+  {
+    "category": "Maps",
+    "name": "deck.gl",
+    "packages": [
+      "@deck.gl/react"
+    ],
+    "tier": "P",
+    "reference": "references/37-maps-canvas-three.md",
+    "source_id": null,
+    "url": "https://deck.gl/"
+  },
+  {
+    "category": "Dates",
+    "name": "React DayPicker",
+    "packages": [
+      "react-day-picker"
+    ],
+    "tier": "P",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": null,
+    "url": "https://daypicker.dev/"
+  },
+  {
+    "category": "Dates",
+    "name": "FullCalendar",
+    "packages": [
+      "@fullcalendar/react"
+    ],
+    "tier": "P",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": null,
+    "url": "https://fullcalendar.io/docs/react"
+  },
+  {
+    "category": "Dates",
+    "name": "date-fns",
+    "packages": [
+      "date-fns"
+    ],
+    "tier": "P",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": null,
+    "url": "https://date-fns.org/"
+  },
+  {
+    "category": "Dates",
+    "name": "Day.js",
+    "packages": [
+      "dayjs"
+    ],
+    "tier": "P",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": null,
+    "url": "https://day.js.org/"
+  },
+  {
+    "category": "Dates",
+    "name": "Luxon",
+    "packages": [
+      "luxon"
+    ],
+    "tier": "P",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": null,
+    "url": "https://moment.github.io/luxon/"
+  },
+  {
+    "category": "i18n",
+    "name": "react-i18next",
+    "packages": [
+      "react-i18next",
+      "i18next"
+    ],
+    "tier": "C",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": "R66",
+    "url": "https://react.i18next.com/"
+  },
+  {
+    "category": "i18n",
+    "name": "React Intl",
+    "packages": [
+      "react-intl"
+    ],
+    "tier": "C",
+    "reference": "references/38-dates-calendars-i18n.md",
+    "source_id": "R67",
+    "url": "https://formatjs.github.io/docs/react-intl/"
+  },
+  {
+    "category": "Files",
+    "name": "Uppy",
+    "packages": [
+      "@uppy/react",
+      "@uppy/core"
+    ],
+    "tier": "P",
+    "reference": "references/39-files-media-pdf.md",
+    "source_id": null,
+    "url": "https://uppy.io/"
+  },
+  {
+    "category": "Files",
+    "name": "React Dropzone",
+    "packages": [
+      "react-dropzone"
+    ],
+    "tier": "P",
+    "reference": "references/39-files-media-pdf.md",
+    "source_id": null,
+    "url": "https://react-dropzone.js.org/"
+  },
+  {
+    "category": "PDF viewing",
+    "name": "React-PDF",
+    "packages": [
+      "react-pdf"
+    ],
+    "tier": "P",
+    "reference": "references/39-files-media-pdf.md",
+    "source_id": null,
+    "url": "https://github.com/wojtekmaj/react-pdf"
+  },
+  {
+    "category": "PDF generation",
+    "name": "React-pdf renderer",
+    "packages": [
+      "@react-pdf/renderer"
+    ],
+    "tier": "P",
+    "reference": "references/39-files-media-pdf.md",
+    "source_id": null,
+    "url": "https://react-pdf.org/"
+  },
+  {
+    "category": "Local DB",
+    "name": "Dexie",
+    "packages": [
+      "dexie",
+      "dexie-react-hooks"
+    ],
+    "tier": "P",
+    "reference": "references/40-realtime-offline-localfirst.md",
+    "source_id": null,
+    "url": "https://dexie.org/"
+  },
+  {
+    "category": "Local DB",
+    "name": "RxDB",
+    "packages": [
+      "rxdb"
+    ],
+    "tier": "P",
+    "reference": "references/40-realtime-offline-localfirst.md",
+    "source_id": null,
+    "url": "https://rxdb.info/"
+  },
+  {
+    "category": "Network",
+    "name": "Socket.IO",
+    "packages": [
+      "socket.io-client"
+    ],
+    "tier": "P",
+    "reference": "references/40-realtime-offline-localfirst.md",
+    "source_id": null,
+    "url": "https://socket.io/docs/v4/"
+  },
+  {
+    "category": "Security",
+    "name": "DOMPurify",
+    "packages": [
+      "dompurify"
+    ],
+    "tier": "C",
+    "reference": "references/41-auth-security-trust.md",
+    "source_id": "R68",
+    "url": "https://github.com/cure53/DOMPurify"
+  },
+  {
+    "category": "Testing",
+    "name": "React Testing Library",
+    "packages": [
+      "@testing-library/react",
+      "@testing-library/user-event"
+    ],
+    "tier": "D",
+    "reference": "references/42-unit-component-network-tests.md",
+    "source_id": "R69",
+    "url": "https://testing-library.com/docs/react-testing-library/intro/"
+  },
+  {
+    "category": "Testing",
+    "name": "Vitest",
+    "packages": [
+      "vitest"
+    ],
+    "tier": "D",
+    "reference": "references/42-unit-component-network-tests.md",
+    "source_id": "R70",
+    "url": "https://vitest.dev/guide/"
+  },
+  {
+    "category": "Testing",
+    "name": "MSW",
+    "packages": [
+      "msw"
+    ],
+    "tier": "C",
+    "reference": "references/42-unit-component-network-tests.md",
+    "source_id": "R72",
+    "url": "https://mswjs.io/docs/"
+  },
+  {
+    "category": "Testing",
+    "name": "Playwright",
+    "packages": [
+      "@playwright/test",
+      "playwright"
+    ],
+    "tier": "D",
+    "reference": "references/43-browser-storybook-accessibility.md",
+    "source_id": "R71",
+    "url": "https://playwright.dev/docs/intro"
+  },
+  {
+    "category": "Testing",
+    "name": "Storybook",
+    "packages": [
+      "storybook",
+      "@storybook/react-vite"
+    ],
+    "tier": "D",
+    "reference": "references/43-browser-storybook-accessibility.md",
+    "source_id": "R73",
+    "url": "https://storybook.js.org/docs"
+  },
+  {
+    "category": "Testing",
+    "name": "Jest",
+    "packages": [
+      "jest"
+    ],
+    "tier": "P",
+    "reference": "references/42-unit-component-network-tests.md",
+    "source_id": null,
+    "url": "https://jestjs.io/"
+  },
+  {
+    "category": "Testing",
+    "name": "Cypress",
+    "packages": [
+      "cypress"
+    ],
+    "tier": "P",
+    "reference": "references/43-browser-storybook-accessibility.md",
+    "source_id": null,
+    "url": "https://docs.cypress.io/"
+  },
+  {
+    "category": "Accessibility",
+    "name": "axe-core",
+    "packages": [
+      "axe-core",
+      "@axe-core/playwright"
+    ],
+    "tier": "P",
+    "reference": "references/43-browser-storybook-accessibility.md",
+    "source_id": null,
+    "url": "https://github.com/dequelabs/axe-core"
+  },
+  {
+    "category": "Icons",
+    "name": "Lucide",
+    "packages": [
+      "lucide-react"
+    ],
+    "tier": "P",
+    "reference": "references/23-component-contracts-accessibility.md",
+    "source_id": null,
+    "url": "https://lucide.dev/"
+  },
+  {
+    "category": "Mobile",
+    "name": "React Native / Expo",
+    "packages": [
+      "react-native",
+      "expo"
+    ],
+    "tier": "P",
+    "reference": "references/49-native-and-other-renderers.md",
+    "source_id": null,
+    "url": "https://reactnative.dev/"
+  },
+  {
+    "category": "CLI renderer",
+    "name": "Ink",
+    "packages": [
+      "ink"
+    ],
+    "tier": "P",
+    "reference": "references/49-native-and-other-renderers.md",
+    "source_id": null,
+    "url": "https://github.com/vadimdemedes/ink"
+  },
+  {
+    "category": "Observability",
+    "name": "Sentry React",
+    "packages": [
+      "@sentry/react"
+    ],
+    "tier": "P",
+    "reference": "references/44-debugging-observability.md",
+    "source_id": null,
+    "url": "https://docs.sentry.io/platforms/javascript/guides/react/"
+  }
+]

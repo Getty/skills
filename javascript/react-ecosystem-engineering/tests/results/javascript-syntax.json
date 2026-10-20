@@ -1,0 +1,12 @@
+[
+  {
+    "file": "examples/flow-editor/src/graph-model.mjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "file": "tests/graph-model.test.mjs",
+    "exit_code": 0,
+    "diagnostic": ""
+  }
+]

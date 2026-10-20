@@ -1,0 +1,11 @@
+{
+  "name": "constrained-electron-shell-example",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test:policy": "node --test ../../tests/policy.test.cjs",
+    "test:desktop": "playwright test tests/desktop.spec.mjs"
+  }
+}
