@@ -1,0 +1,88 @@
+{
+  "snapshot_date": "2026-10-14",
+  "server_source_baseline": "gearmand 2.1.0",
+  "environment": {
+    "python": "3.13.5",
+    "perl": "v5.40.1",
+    "php": "8.4.24",
+    "platform": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"",
+    "gearmand_available": false,
+    "docker_available": false,
+    "libgearman_pkg_config": false
+  },
+  "offline_tests": {
+    "passed": 85,
+    "failed": 0,
+    "skipped": 0,
+    "seconds_reported_by_unittest": 0.717,
+    "scope": "socket pairs, protocol/client/worker state, contracts, cross-language domain CLIs, SQLite local transactions and helper safety gates"
+  },
+  "native_language_syntax": {
+    "passed_files": 8,
+    "native_gearman_execution": false
+  },
+  "asset_static_checks": [
+    {
+      "file": "assets/containers/compose.yaml",
+      "check": "YAML parsing only; not cluster schema validation",
+      "documents": 1,
+      "passed": true
+    },
+    {
+      "file": "assets/kubernetes/network-policy.yaml",
+      "check": "YAML parsing only; not cluster schema validation",
+      "documents": 1,
+      "passed": true
+    },
+    {
+      "file": "assets/kubernetes/server.yaml",
+      "check": "YAML parsing only; not cluster schema validation",
+      "documents": 2,
+      "passed": true
+    },
+    {
+      "file": "assets/kubernetes/worker.yaml",
+      "check": "YAML parsing only; not cluster schema validation",
+      "documents": 1,
+      "passed": true
+    },
+    {
+      "file": "SKILL.md",
+      "check": "YAML frontmatter parse",
+      "passed": true
+    },
+    {
+      "file": "assets/contracts/job-request.schema.json",
+      "check": "Draft 2020-12 metaschema validation",
+      "passed": true
+    },
+    {
+      "file": "assets/contracts/job-result.schema.json",
+      "check": "Draft 2020-12 metaschema validation",
+      "passed": true
+    },
+    {
+      "file": "assets/contracts/sample-request.json",
+      "check": "validates against request schema",
+      "passed": true
+    }
+  ],
+  "live_integration": {
+    "executed": false,
+    "reason": "gearmand not installed; archive/dependency retrieval into execution container unavailable",
+    "attempt_exit_code": 2
+  },
+  "not_executed": [
+    "real gearmand/libgearman execution",
+    "C compile/link",
+    "Perl Gearman/XS native integration",
+    "PHP Gearman extension integration",
+    "live TLS/negative handshakes",
+    "all native persistence backends",
+    "container build/runtime",
+    "Kubernetes apply/schema/runtime checks",
+    "upstream Gearmand regression/sanitizer suites",
+    "load benchmarks",
+    "model execution of agent evaluation rubrics"
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "purpose": "Agent behavior evaluation prompts and rubrics; not automatically executed model evaluations",
+  "cases": [
+    {
+      "id": "retry-zero",
+      "prompt": "Can I copy job-retries=0 from gearmand 1.x to 2.1?",
+      "read": [
+        "references/version-compatibility.md",
+        "references/reliability.md"
+      ],
+      "expected": [
+        "Flag changed meaning",
+        "Verify positive threshold by assignment counts"
+      ],
+      "reject": [
+        "Claim zero is unlimited in 2.1"
+      ]
+    },
+    {
+      "id": "status",
+      "prompt": "status says total=9 running=4 workers=6; how many wait?",
+      "read": [
+        "references/observability-admin.md"
+      ],
+      "expected": [
+        "Waiting is 5",
+        "6 registrations are not 6 idle slots"
+      ],
+      "reject": [
+        "Waiting is 9"
+      ]
+    },
+    {
+      "id": "background",
+      "prompt": "Where is the completed result of a background handle?",
+      "read": [
+        "references/client-design.md",
+        "references/outbox-results.md"
+      ],
+      "expected": [
+        "Separate result store",
+        "Unknown status is not success"
+      ],
+      "reject": [
+        "Fetch durable result by ordinary handle polling"
+      ]
+    },
+    {
+      "id": "ha",
+      "prompt": "Put three replicas behind a load balancer for one shared queue.",
+      "read": [
+        "references/topology-failover.md",
+        "references/kubernetes.md"
+      ],
+      "expected": [
+        "Independent queues",
+        "Explicit routing/ownership",
+        "No implied replication"
+      ],
+      "reject": [
+        "Replicas automatically share jobs"
+      ]
+    },
+    {
+      "id": "shared-db",
+      "prompt": "Run two servers against one queue table for failover.",
+      "read": [
+        "references/topology-failover.md",
+        "references/persistence-model.md"
+      ],
+      "expected": [
+        "Require single owner/fencing or validated coordination"
+      ],
+      "reject": [
+        "Approve shared table as native HA"
+      ]
+    },
+    {
+      "id": "timeout",
+      "prompt": "Client timed out; kill the job by closing the socket.",
+      "read": [
+        "references/reliability.md",
+        "references/worker-design.md"
+      ],
+      "expected": [
+        "Timeout does not stop executing side effects",
+        "Reconcile request ID"
+      ],
+      "reject": [
+        "Disconnect guarantees cancellation"
+      ]
+    },
+    {
+      "id": "explicit-fail",
+      "prompt": "Worker sent WORK_FAIL; when does gearmand retry?",
+      "read": [
+        "references/protocol-worker.md",
+        "references/reliability.md"
+      ],
+      "expected": [
+        "Terminal failure differs from disconnect/requeue"
+      ],
+      "reject": [
+        "Automatic exponential retries"
+      ]
+    },
+    {
+      "id": "exceptions",
+      "prompt": "After WORK_EXCEPTION should a client always wait for WORK_FAIL?",
+      "read": [
+        "references/protocol-client.md",
+        "references/perl-classic.md"
+      ],
+      "expected": [
+        "2.1 server treats exception as terminal",
+        "Review exact binding"
+      ],
+      "reject": [
+        "Always wait for a second terminal event"
+      ]
+    },
+    {
+      "id": "unique",
+      "prompt": "Use the same unique forever to guarantee exactly-once.",
+      "read": [
+        "references/reliability.md",
+        "references/job-contracts.md"
+      ],
+      "expected": [
+        "Active function-scoped coalescing",
+        "Durable business idempotency separate"
+      ],
+      "reject": [
+        "Server keeps permanent dedup history"
+      ]
+    },
+    {
+      "id": "parser",
+      "prompt": "Split JOB_ASSIGN_UNIQ payload on every NUL.",
+      "read": [
+        "references/protocol-framing.md",
+        "references/protocol-worker.md"
+      ],
+      "expected": [
+        "Split only metadata delimiters",
+        "Preserve binary workload"
+      ],
+      "reject": [
+        "All fields are text"
+      ]
+    },
+    {
+      "id": "cron",
+      "prompt": "SUBMIT_JOB_SCHED constant means cron scheduling works.",
+      "read": [
+        "references/scheduling.md",
+        "references/server-internals.md"
+      ],
+      "expected": [
+        "Inspect implementation support",
+        "Reviewed server rejects packet"
+      ],
+      "reject": [
+        "Promise full recurring scheduling"
+      ]
+    },
+    {
+      "id": "tls",
+      "prompt": "Successful TLS handshake means hostname verification is correct.",
+      "read": [
+        "references/security-tls.md"
+      ],
+      "expected": [
+        "Wrong-name and wrong-CA negative tests per binding"
+      ],
+      "reject": [
+        "Only test successful handshake"
+      ]
+    },
+    {
+      "id": "public",
+      "prompt": "Expose port 4730 and isolate tenants with prefixes.",
+      "read": [
+        "references/security-tls.md"
+      ],
+      "expected": [
+        "Native admin shares listener",
+        "Prefix is not authorization"
+      ],
+      "reject": [
+        "Public unauthenticated listener is adequate"
+      ]
+    },
+    {
+      "id": "perl-api",
+      "prompt": "Port classic Perl do_task by treating XS do result as scalarref.",
+      "read": [
+        "references/perl-classic.md",
+        "references/perl-xs-async.md"
+      ],
+      "expected": [
+        "Classic scalarref versus XS code/value pair"
+      ],
+      "reject": [
+        "Mix callback and return conventions"
+      ]
+    },
+    {
+      "id": "php-error",
+      "prompt": "PHP sample returned ok=false; was that WORK_FAIL?",
+      "read": [
+        "references/php.md"
+      ],
+      "expected": [
+        "Sample intentionally returns domain error under transport completion"
+      ],
+      "reject": [
+        "All language samples share terminal failure semantics"
+      ]
+    },
+    {
+      "id": "memory",
+      "prompt": "Persistence enabled; pending payloads no longer consume RAM.",
+      "read": [
+        "references/persistence-model.md",
+        "references/performance-capacity.md"
+      ],
+      "expected": [
+        "Persistence does not imply memory eviction"
+      ],
+      "reject": [
+        "Unbounded memory-safe admission"
+      ]
+    },
+    {
+      "id": "backend",
+      "prompt": "Write a dynamically loaded backend assuming a stable plugin ABI.",
+      "read": [
+        "references/server-extensions.md",
+        "references/server-internals.md"
+      ],
+      "expected": [
+        "Inspect tagged registration/API",
+        "Ownership and add/flush/done/replay tests"
+      ],
+      "reject": [
+        "Invent universal dlopen interface"
+      ]
+    },
+    {
+      "id": "incident",
+      "prompt": "Automatically run shutdown and maxqueue to diagnose slowness.",
+      "read": [
+        "references/troubleshooting.md",
+        "references/observability-admin.md"
+      ],
+      "expected": [
+        "Start read-only",
+        "Require scoped change authorization"
+      ],
+      "reject": [
+        "Mutation hidden in diagnosis"
+      ]
+    },
+    {
+      "id": "validation",
+      "prompt": "All offline tests passed; native TLS and Kubernetes are certified.",
+      "read": [
+        "references/testing.md"
+      ],
+      "expected": [
+        "Different evidence layers",
+        "Unrun gates remain unverified"
+      ],
+      "reject": [
+        "Claim runtime coverage not executed"
+      ]
+    },
+    {
+      "id": "child-deadlock",
+      "prompt": "All workers submit child jobs to the same pool and block.",
+      "read": [
+        "references/application-patterns.md",
+        "references/performance-capacity.md"
+      ],
+      "expected": [
+        "Identify pool starvation/deadlock",
+        "Persist stages or separate capacity"
+      ],
+      "reject": [
+        "Increase blocking wait indefinitely"
+      ]
+    }
+  ]
+}

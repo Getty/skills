@@ -1,0 +1,19 @@
+# Same-namespace ingress example. Requires NetworkPolicy enforcement by the cluster.
+# This grants native-port access, NOT per-function or per-command authorization.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gearman-native-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app: gearman
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              gearman-access: allowed
+      ports:
+        - protocol: TCP
+          port: 4730

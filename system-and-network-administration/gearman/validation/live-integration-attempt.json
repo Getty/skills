@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "executed": false,
+  "error": "installed gearmand and Linux /proc required",
+  "exit_code": 2
+}

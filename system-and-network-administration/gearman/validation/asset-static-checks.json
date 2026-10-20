@@ -1,0 +1,46 @@
+[
+  {
+    "file": "assets/containers/compose.yaml",
+    "check": "YAML parsing only; not cluster schema validation",
+    "documents": 1,
+    "passed": true
+  },
+  {
+    "file": "assets/kubernetes/network-policy.yaml",
+    "check": "YAML parsing only; not cluster schema validation",
+    "documents": 1,
+    "passed": true
+  },
+  {
+    "file": "assets/kubernetes/server.yaml",
+    "check": "YAML parsing only; not cluster schema validation",
+    "documents": 2,
+    "passed": true
+  },
+  {
+    "file": "assets/kubernetes/worker.yaml",
+    "check": "YAML parsing only; not cluster schema validation",
+    "documents": 1,
+    "passed": true
+  },
+  {
+    "file": "SKILL.md",
+    "check": "YAML frontmatter parse",
+    "passed": true
+  },
+  {
+    "file": "assets/contracts/job-request.schema.json",
+    "check": "Draft 2020-12 metaschema validation",
+    "passed": true
+  },
+  {
+    "file": "assets/contracts/job-result.schema.json",
+    "check": "Draft 2020-12 metaschema validation",
+    "passed": true
+  },
+  {
+    "file": "assets/contracts/sample-request.json",
+    "check": "validates against request schema",
+    "passed": true
+  }
+]

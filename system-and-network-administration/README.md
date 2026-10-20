@@ -163,6 +163,24 @@ guidance.
 **Load when** writing, reviewing or debugging a Rexfile or Rex task, or choosing a
 Rex transport.
 
+### [gearman](gearman/SKILL.md)
+
+Designing, implementing, operating, securing, debugging and extending Gearman
+systems: gearmand servers, persistent queues, clients and workers, the binary and
+administrative protocols, retries, idempotency, scaling and upgrades. The skill treats
+Gearman as a work-distribution system, not a durable workflow engine with an implied
+result database, and makes the contract explicit first — foreground versus background,
+request identity, result ownership, who owns retries, where side effects begin.
+`SKILL.md` is a router over a reference tree (foundations, persistence backends,
+topology and failover, TLS, systemd/container/Kubernetes deployment, scheduling,
+reliability and outbox patterns, protocol state machines, server internals) and
+per-language notes for Perl, C/libgearman, PHP and Python. Ships protocol, ops and
+lab scripts. Its evidence baseline is gearmand 2.1.0, source-reviewed and not
+daemon-tested; installed versions are inspected before any command is applied.
+
+**Load when** building or running a Gearman queue, writing a client or worker in any
+language, debugging stuck or duplicated jobs, or touching the protocol.
+
 ## Hosting
 
 ### [hetzner-operator](hetzner-operator/SKILL.md)

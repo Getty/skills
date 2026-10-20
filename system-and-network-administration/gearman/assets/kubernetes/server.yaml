@@ -1,0 +1,82 @@
+# TEMPLATE, not deployed. Replace image, storage policy and measured resource budgets.
+apiVersion: v1
+kind: Service
+metadata:
+  name: gearman
+spec:
+  clusterIP: None
+  selector:
+    app: gearman
+  ports:
+    - name: gearman
+      port: 4730
+      targetPort: 4730
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: gearman
+spec:
+  serviceName: gearman
+  replicas: 1 # Multiple replicas would be independent queues, NOT replication.
+  selector:
+    matchLabels:
+      app: gearman
+  template:
+    metadata:
+      labels:
+        app: gearman
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 60
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+        - name: server
+          image: registry.example.invalid/gearman-skill:REPLACE_WITH_TESTED_DIGEST
+          ports:
+            - containerPort: 4730
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          volumeMounts:
+            - name: queue
+              mountPath: /var/lib/gearman-skill
+            - name: tmp
+              mountPath: /tmp
+          startupProbe:
+            exec:
+              command: [python3, -B, /opt/gearman-skill/scripts/gearman_ops.py, probe, --timeout, '2']
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 60
+          livenessProbe:
+            exec:
+              command: [python3, -B, /opt/gearman-skill/scripts/gearman_ops.py, probe, --timeout, '2']
+            periodSeconds: 15
+            timeoutSeconds: 3
+            failureThreshold: 5
+          readinessProbe:
+            exec:
+              command: [python3, -B, /opt/gearman-skill/scripts/gearman_ops.py, probe, --timeout, '2']
+            periodSeconds: 10
+            timeoutSeconds: 3
+      volumes:
+        - name: tmp
+          emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: queue
+      spec:
+        accessModes: [ReadWriteOnce]
+        resources:
+          requests:
+            storage: 1Gi

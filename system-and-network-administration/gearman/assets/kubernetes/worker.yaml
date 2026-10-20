@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gearman-sum-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gearman-sum-worker
+  template:
+    metadata:
+      labels:
+        app: gearman-sum-worker
+        gearman-access: allowed
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+        - name: worker
+          image: registry.example.invalid/gearman-skill:REPLACE_WITH_TESTED_DIGEST
+          command: [python3, -B, /opt/gearman-skill/examples/python/worker.py, --host, gearman-0.gearman]
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests: {cpu: 100m, memory: 64Mi}
+            limits: {cpu: '1', memory: 256Mi}

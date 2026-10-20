@@ -1,0 +1,42 @@
+# Start only after reviewing references/systemd-containers.md.
+services:
+  gearmand:
+    build:
+      context: ../..
+      dockerfile: assets/containers/Dockerfile
+    image: gearman-skill-lab:local
+    ports:
+      - "127.0.0.1:4730:4730"
+    volumes:
+      - queue:/var/lib/gearman-skill
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    healthcheck:
+      test: [CMD, python3, -B, /opt/gearman-skill/scripts/gearman_ops.py, probe, --timeout, '2']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+    networks: [jobs]
+  worker:
+    image: gearman-skill-lab:local
+    depends_on:
+      gearmand:
+        condition: service_healthy
+    command: [python3, -B, /opt/gearman-skill/examples/python/worker.py, --host, gearmand]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    restart: on-failure
+    stop_grace_period: 30s
+    networks: [jobs]
+volumes:
+  queue:
+networks:
+  jobs:
+    internal: true

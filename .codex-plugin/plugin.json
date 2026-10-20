@@ -63,6 +63,7 @@
     "./system-and-network-administration/docker",
     "./system-and-network-administration/docker-engine-api",
     "./system-and-network-administration/docker-registry",
+    "./system-and-network-administration/gearman",
     "./system-and-network-administration/hetzner-operator",
     "./system-and-network-administration/kubernetes-cilium-concepts",
     "./system-and-network-administration/kubernetes-concepts",

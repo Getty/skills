@@ -1,0 +1,82 @@
+[
+  {
+    "file": "examples/perl/client.pl",
+    "command": [
+      "perl",
+      "-c",
+      "PACKAGE/examples/perl/client.pl"
+    ],
+    "returncode": 0,
+    "output": "PACKAGE/examples/perl/client.pl syntax OK"
+  },
+  {
+    "file": "examples/perl/contract_cli.pl",
+    "command": [
+      "perl",
+      "-c",
+      "PACKAGE/examples/perl/contract_cli.pl"
+    ],
+    "returncode": 0,
+    "output": "PACKAGE/examples/perl/contract_cli.pl syntax OK"
+  },
+  {
+    "file": "examples/perl/lib/GearmanSkill/Contract.pm",
+    "command": [
+      "perl",
+      "-c",
+      "PACKAGE/examples/perl/lib/GearmanSkill/Contract.pm"
+    ],
+    "returncode": 0,
+    "output": "PACKAGE/examples/perl/lib/GearmanSkill/Contract.pm syntax OK"
+  },
+  {
+    "file": "examples/perl/worker.pl",
+    "command": [
+      "perl",
+      "-c",
+      "PACKAGE/examples/perl/worker.pl"
+    ],
+    "returncode": 0,
+    "output": "PACKAGE/examples/perl/worker.pl syntax OK"
+  },
+  {
+    "file": "examples/php/client.php",
+    "command": [
+      "php",
+      "-l",
+      "PACKAGE/examples/php/client.php"
+    ],
+    "returncode": 0,
+    "output": "No syntax errors detected in PACKAGE/examples/php/client.php"
+  },
+  {
+    "file": "examples/php/contract.php",
+    "command": [
+      "php",
+      "-l",
+      "PACKAGE/examples/php/contract.php"
+    ],
+    "returncode": 0,
+    "output": "No syntax errors detected in PACKAGE/examples/php/contract.php"
+  },
+  {
+    "file": "examples/php/contract_cli.php",
+    "command": [
+      "php",
+      "-l",
+      "PACKAGE/examples/php/contract_cli.php"
+    ],
+    "returncode": 0,
+    "output": "No syntax errors detected in PACKAGE/examples/php/contract_cli.php"
+  },
+  {
+    "file": "examples/php/worker.php",
+    "command": [
+      "php",
+      "-l",
+      "PACKAGE/examples/php/worker.php"
+    ],
+    "returncode": 0,
+    "output": "No syntax errors detected in PACKAGE/examples/php/worker.php"
+  }
+]

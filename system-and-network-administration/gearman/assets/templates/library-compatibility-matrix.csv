@@ -1,0 +1,2 @@
+implementation,server_version,runtime,binding_version,linked_libgearman,foreground,background,unique,priority,progress,TLS_client,TLS_worker,hostname_verification,reconnect,runtime_test_evidence
+selected-library,TO_RECORD,TO_RECORD,TO_RECORD,TO_RECORD,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,UNVERIFIED,NOT_RUN

@@ -1,0 +1,25 @@
+# TEMPLATE: Python demo only; adjust identities, paths, dependencies and deadlines.
+[Unit]
+Description=Gearman sum example worker
+After=network.target gearman-skill-server.service
+
+[Service]
+Type=simple
+User=gearman
+Group=gearman
+StateDirectory=gearman-skill-results
+StateDirectoryMode=0700
+UMask=0077
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 /opt/gearman-skill/examples/python/worker.py --host 127.0.0.1 --port 4730 --result-db /var/lib/gearman-skill-results/results.sqlite
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

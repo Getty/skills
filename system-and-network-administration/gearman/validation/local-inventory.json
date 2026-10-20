@@ -1,0 +1,11 @@
+{
+  "gearmand": {
+    "available": false
+  },
+  "gearman": {
+    "available": false
+  },
+  "gearadmin": {
+    "available": false
+  }
+}

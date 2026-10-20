@@ -1,0 +1,363 @@
+{
+  "evidence_date": "2026-10-14",
+  "files": {
+    ".dockerignore": {
+      "bytes": 83,
+      "sha256": "e2c1754af19bdf776b2e7ba2e61e82c3593e61dc7d466cf09c003597a48a3893"
+    },
+    ".gitignore": {
+      "bytes": 50,
+      "sha256": "0c38a492e1b7800cafe9a1252e93b51052a503feff6e63f6596bb1deb79d8839"
+    },
+    "CONTENTS.md": {
+      "bytes": 8267,
+      "sha256": "3da562e5f0b013a88c6553418cfd7c1820e057948f594ee3654102bcaad6712f"
+    },
+    "LICENSE": {
+      "bytes": 1010,
+      "sha256": "3e543fb6ff4da99300a841d1fa530f99514d4d7a19bb54d373dd641a728ba767"
+    },
+    "NOTICE.md": {
+      "bytes": 688,
+      "sha256": "06a14b62ad3d7b84fec3964e1d0ba3c9f0371bdfa075912ccb2f55dc0b13d4c8"
+    },
+    "README.md": {
+      "bytes": 2108,
+      "sha256": "4bb2638ee38ad53c2e81fae97e73a64273c391801ab93f99ce0946844c8f0907"
+    },
+    "SKILL.md": {
+      "bytes": 6338,
+      "sha256": "180ec993d8c53d76c4fc2e4615599c057ac800d62590e87e31c1270984d0e552"
+    },
+    "VALIDATION.md": {
+      "bytes": 5964,
+      "sha256": "9bf02824b21c9305cb81c0cda1189dfda65a9764974b7722d448660992dcfdcf"
+    },
+    "assets/containers/Dockerfile": {
+      "bytes": 959,
+      "sha256": "e7b4649aea504e055ccc05ba40c6075daa20c6b47cf83e7a7dcdaba13b0fb4ae"
+    },
+    "assets/containers/compose.yaml": {
+      "bytes": 1048,
+      "sha256": "025f845cc7b675004dd95d893558a9128778effb67a35e91be21a0f853e151af"
+    },
+    "assets/contracts/job-request.schema.json": {
+      "bytes": 1282,
+      "sha256": "452a82e86757d7952951f4c8f2668d79a7a43ee44017cf945fc9d97d79cb9131"
+    },
+    "assets/contracts/job-result.schema.json": {
+      "bytes": 820,
+      "sha256": "2e3c0010b775736a07a5c7030312c02d24f60b47eb88eb8d5738e9a5c414dd61"
+    },
+    "assets/contracts/sample-request.json": {
+      "bytes": 179,
+      "sha256": "f3c4d27790c1c143aff989fd50db321d41f0629a59527ce13b6c2ca343427b10"
+    },
+    "assets/kubernetes/network-policy.yaml": {
+      "bytes": 509,
+      "sha256": "e979ad14b34907a2a7bb0fa6a0b46ca61f99dd2957105220bc47755e1d804e83"
+    },
+    "assets/kubernetes/server.yaml": {
+      "bytes": 2286,
+      "sha256": "47f6a3f35ba457de95e92e9615f48ad5a31e2e02b9c659c3422587d59f005f17"
+    },
+    "assets/kubernetes/worker.yaml": {
+      "bytes": 959,
+      "sha256": "bd733083a16a1b6f8e5ee14e1deb252edc37954b93f523e9cb712e387dde2928"
+    },
+    "assets/systemd/gearman-skill-server.service": {
+      "bytes": 695,
+      "sha256": "9402232c57dd43d4cb2698103fbafa2fdea4aaf65ff4d874b65004677a3e6d17"
+    },
+    "assets/systemd/gearman-skill-worker.service": {
+      "bytes": 711,
+      "sha256": "656064e675338d3a5de7e764e32d4b007ed47133bee89f0b714a98d067596585"
+    },
+    "assets/templates/deployment-plan.md": {
+      "bytes": 1168,
+      "sha256": "4f0f2375540381506333f8dc82c3ecc35ef32dff2f2b39ceb93ef502f0f30c4d"
+    },
+    "assets/templates/incident-runbook.md": {
+      "bytes": 912,
+      "sha256": "183b86580a0c59e3af824ae8f10ba099dd235171c145be33567e034a8c82385a"
+    },
+    "assets/templates/job-design.md": {
+      "bytes": 949,
+      "sha256": "e3f20a679af2298d2c32918b261fc86daa1d4df3f1fb69933a580bc1aed64e2e"
+    },
+    "assets/templates/library-compatibility-matrix.csv": {
+      "bytes": 359,
+      "sha256": "281d500ddd3154ee0b59a6a5f6ae55333fa59916d094a13f760a985d6a3d56b9"
+    },
+    "assets/templates/upgrade-checklist.md": {
+      "bytes": 843,
+      "sha256": "3b6685d516dcbf1c801ed580ead718bbeea0eae0048c8b9b00e7ddb059a0246c"
+    },
+    "examples/README.md": {
+      "bytes": 4089,
+      "sha256": "9e69df0193090c87a34f8777a8623aa3fcc7c49ea658983631f7014248b9a8eb"
+    },
+    "examples/c/client.c": {
+      "bytes": 2011,
+      "sha256": "2b06239cb25a9f5d5f9d5f8bdda423c73d618c16dc8c5933d85d211ba18c74db"
+    },
+    "examples/c/worker.c": {
+      "bytes": 1876,
+      "sha256": "5109b52ec8d4b6e5bd9e8299e7f1bd6f89a2bc368606a32898eb46767276a2fa"
+    },
+    "examples/perl/client.pl": {
+      "bytes": 1593,
+      "sha256": "f3a051d5dcf25356e6d3951871100e9d40d88fdeb126498d61ad714f60370b90"
+    },
+    "examples/perl/contract_cli.pl": {
+      "bytes": 364,
+      "sha256": "93083f29f5feb1a601fa5059c723729ea38e239a72ba42e94da2c88da2791e6a"
+    },
+    "examples/perl/lib/GearmanSkill/Contract.pm": {
+      "bytes": 2764,
+      "sha256": "28ef56511f21f7044dce269fdd3c924d3df628cffe9d383ee1126ab48252ed8c"
+    },
+    "examples/perl/worker.pl": {
+      "bytes": 841,
+      "sha256": "f389aa980cd5e0de0e2cc6fafd358063309cebc294a5da23ed5a5760e0752639"
+    },
+    "examples/php/client.php": {
+      "bytes": 2057,
+      "sha256": "96637e7a035a703c463647ae8112f8214e566baabd4f9f1bf647de7d628b8261"
+    },
+    "examples/php/contract.php": {
+      "bytes": 2519,
+      "sha256": "6652fcdeb2c825650468e5d40d651172f6aa62854d44561868d9068c51658727"
+    },
+    "examples/php/contract_cli.php": {
+      "bytes": 259,
+      "sha256": "883579ad32c478b065b97ca1b527c9d2498ba6c7e43b4310996a0587ddf3e408"
+    },
+    "examples/php/worker.php": {
+      "bytes": 1768,
+      "sha256": "324a61edfd21db561f41aec2e7cdc38e1d0bf305e1415baf0086cc8890c88fab"
+    },
+    "examples/python/client.py": {
+      "bytes": 2396,
+      "sha256": "de0b4e6030d5799213c323f51e011b2974417f1407187f5f69ee58d914322bb4"
+    },
+    "examples/python/contract.py": {
+      "bytes": 3304,
+      "sha256": "b87732fc0fdc1be38241ef56f3b077a791e11eb191f7f3b28c6d496d22fb928a"
+    },
+    "examples/python/result_store.py": {
+      "bytes": 2543,
+      "sha256": "8770ec387df83c29e6cc598ea926a2947ee4a2b878cfc2514962c7c68bcc8b91"
+    },
+    "examples/python/worker.py": {
+      "bytes": 4304,
+      "sha256": "80a52e6899d1bed387ea539bf18ab5a8d0553ec2680853178a49640a75cb78f8"
+    },
+    "references/INDEX.md": {
+      "bytes": 3828,
+      "sha256": "d88ca4dbc97e2bb2dc982f7f12f134e848038a896edbd739ce57fdc79165019b"
+    },
+    "references/application-patterns.md": {
+      "bytes": 3830,
+      "sha256": "0a90fbdc020ad690c24ef15fd026723fd65fea2949a2428e86e54ce47dc1f3eb"
+    },
+    "references/c-libgearman.md": {
+      "bytes": 3819,
+      "sha256": "105b86d5a50f4df7344f4c23cbae6b636080e2423d748ee32bd14a401a420a81"
+    },
+    "references/client-design.md": {
+      "bytes": 3353,
+      "sha256": "bed40e32b172a9c9aac76030918534e9120cca7a03d5630385eb1308ed561e65"
+    },
+    "references/foundations.md": {
+      "bytes": 3351,
+      "sha256": "731ed1096086a8a465ac5d9366380d9036e71a3e6eb3bccc4f552b16eb5e9949"
+    },
+    "references/installation-build.md": {
+      "bytes": 3325,
+      "sha256": "ce4bec9d1d45cfe89eafe2e1729017fa627e4a6768144054c5919c972fb0ab32"
+    },
+    "references/job-contracts.md": {
+      "bytes": 3292,
+      "sha256": "f3040162ed0d5016d7b30d9d28e6d315c50dc85c500fa005486e8dd83b1d2c6f"
+    },
+    "references/kubernetes.md": {
+      "bytes": 3602,
+      "sha256": "56a8026c1cc07b3e62386730276752235358ba11331fccad069a575bd1429a2b"
+    },
+    "references/observability-admin.md": {
+      "bytes": 3246,
+      "sha256": "d67b28d65636fd83b007f95d9fad3fe9195f86f1136bdefe348b41e11390dce0"
+    },
+    "references/outbox-results.md": {
+      "bytes": 3549,
+      "sha256": "73ae2f05ec45bd75301067ee6b9eba2ec6f00b8408cfa7dcc5fb793f1973761f"
+    },
+    "references/performance-capacity.md": {
+      "bytes": 3383,
+      "sha256": "4da225dcd4fc53387dd04b0b386460b24de04d40cefe27f57415bbcd33f98270"
+    },
+    "references/perl-classic.md": {
+      "bytes": 3967,
+      "sha256": "2ea54bad78b7161cd99f5b5da86d8de7331994adcddc45ba0395bee1f348ad8a"
+    },
+    "references/perl-xs-async.md": {
+      "bytes": 3442,
+      "sha256": "2162ed1884fb37d7e02df475574f0fb284fb3f81239ba26b972b198e18abe0d8"
+    },
+    "references/persistence-backends.md": {
+      "bytes": 3822,
+      "sha256": "ed1e6ccaafe54bc10d82fe45fd62ad29b85762698fd215f83e1630dc53e454de"
+    },
+    "references/persistence-model.md": {
+      "bytes": 3181,
+      "sha256": "9548b183f12b5287c156dbf49dac77b5447165d94b22751ced4a41277fe4540d"
+    },
+    "references/php.md": {
+      "bytes": 3379,
+      "sha256": "726fd2333f71d00ec84a222a649542ae3a3655dfb8621acccc440efc54adf37c"
+    },
+    "references/protocol-client.md": {
+      "bytes": 3162,
+      "sha256": "7e4b7d3d0a91dd6bf4adbfe8aa5b08ead8d616dbe37a9520c4aba2c47b779521"
+    },
+    "references/protocol-framing.md": {
+      "bytes": 2977,
+      "sha256": "050356da12e6ab43d936da694ac21ad9b9a4fc3cb003907f33bac0c7f99c71d7"
+    },
+    "references/protocol-worker.md": {
+      "bytes": 3107,
+      "sha256": "e5e38050b8a8defd43bb9b9a1e0e70fc7d626fda086e92bec5c5edfabab6b109"
+    },
+    "references/python-other.md": {
+      "bytes": 3061,
+      "sha256": "72f0781297ddc8c29d5aeb91e1157bfc22fa9f229814fdf881d704fc9fec9429"
+    },
+    "references/reliability.md": {
+      "bytes": 3688,
+      "sha256": "5b140d2bfe1ff7b03283357d4eb76403b4fbf395f610a88087e6e18c953bdda0"
+    },
+    "references/scheduling.md": {
+      "bytes": 3106,
+      "sha256": "36135f624e0ac8a95640d419701fae11f2f6273718b4facc14d0f548808171da"
+    },
+    "references/security-tls.md": {
+      "bytes": 3793,
+      "sha256": "cd3f3be67892323746248febc13a36d06952e03a58d269bcc13e3f746b7cc8f9"
+    },
+    "references/server-configuration.md": {
+      "bytes": 3426,
+      "sha256": "1e8142f57b5e1456ae8c1f35018cbd0c652e7645a9c83d989d1f869f88b931cd"
+    },
+    "references/server-extensions.md": {
+      "bytes": 3658,
+      "sha256": "9ebbf726b6e44587265d6da7dd7eba9abc0b5f6340d82999bbabffdd8fb147de"
+    },
+    "references/server-internals.md": {
+      "bytes": 3207,
+      "sha256": "f9c208a498192b6709939e52d741458b0aadb8f2d1a251bbf89dfe56e4c48e4a"
+    },
+    "references/sources.md": {
+      "bytes": 6924,
+      "sha256": "2d7e5f64cddb49dde63bd17a18bc47ee43db4e4140c2495f8da62f4352ef573e"
+    },
+    "references/systemd-containers.md": {
+      "bytes": 2946,
+      "sha256": "2f961b1db6f6e218385e27fb6706e1f0ff07222f24a5d5a5b4132abf9f0c99fe"
+    },
+    "references/testing.md": {
+      "bytes": 3324,
+      "sha256": "20fc6a507b498f75848107c981997bce0e784f95a8688ada9b5ddc3f645fb719"
+    },
+    "references/topology-failover.md": {
+      "bytes": 3398,
+      "sha256": "195e04bb4d82079c65b358f4fa868de5168a06398a82f6cf570706e044182cbf"
+    },
+    "references/troubleshooting.md": {
+      "bytes": 3876,
+      "sha256": "6cbc730c1549bf85330f0d608325b2432ff32f81035912e0f493b3bb8da2952c"
+    },
+    "references/upgrades-recovery.md": {
+      "bytes": 2986,
+      "sha256": "01d2d320ac65bc8cf110c4e950fd822d5500f02948a8b032720895cfc93b7cf1"
+    },
+    "references/version-compatibility.md": {
+      "bytes": 3031,
+      "sha256": "644f7e707fe53760422450b22956c1696f0cecb1fc70bbef0ac47861ee69f047"
+    },
+    "references/worker-design.md": {
+      "bytes": 3375,
+      "sha256": "59774adfbd76ec472e99f7adbed1c56ed09260d1176c1390d90c9d760906b91f"
+    },
+    "scripts/gearman_ops.py": {
+      "bytes": 5314,
+      "sha256": "bbe904d80b2bc61b862320699c301fff01709345bc3e85c41cbc042318110d8c"
+    },
+    "scripts/gearman_wire.py": {
+      "bytes": 11413,
+      "sha256": "a9d7b57d8d24d08569ec7f6092d7f5e944de8009a46e7bf7b7cfca52bf450fc4"
+    },
+    "scripts/run_lab.py": {
+      "bytes": 11474,
+      "sha256": "c6bb5fbe5b93438b4c922280b22707ed698e46322e1ba9357eb45710db811859"
+    },
+    "scripts/verify.py": {
+      "bytes": 4311,
+      "sha256": "95caae308a66e49c971b56df06262304b6efb988c770f6d42197a0a58fe0b9de"
+    },
+    "tests/evaluation-cases.json": {
+      "bytes": 7806,
+      "sha256": "e3f0cef3ac1e6bbc040ccb7c4a7f98273db47cd07414809530d2ac548be8dcf5"
+    },
+    "tests/test_contract.py": {
+      "bytes": 8485,
+      "sha256": "2bcb3563b204c0198bdd887bceb8f5bedef8955058a8690f6d291d687c322c8a"
+    },
+    "tests/test_tools.py": {
+      "bytes": 2611,
+      "sha256": "51c4461a32b021348acd580787b83a5ccd34ceea664ebb30cb06f8f19426f477"
+    },
+    "tests/test_wire.py": {
+      "bytes": 10270,
+      "sha256": "2cd0d767081d11e76bab555ee566207cb6242d7d14d94fff868c84d0a04de26c"
+    },
+    "tests/test_worker.py": {
+      "bytes": 3465,
+      "sha256": "184bfe1a2aa715f1317d3a710e5ca38e1811686e018ccd8b7b034597df97cde8"
+    },
+    "validation/asset-static-checks.json": {
+      "bytes": 1135,
+      "sha256": "3f7451cbc5ea76ce751592607d1cbc5cdb371a03e958bbdb78562889b314ad0d"
+    },
+    "validation/lab-plan.json": {
+      "bytes": 669,
+      "sha256": "68b57e04b3c5cb72fe977a1126a1749b319a7d498ca3901b63ba68cad9b7738b"
+    },
+    "validation/language-syntax.json": {
+      "bytes": 1910,
+      "sha256": "80d6a38ab872feeb819e46003cbfec5421ed06f5a1be8091088b673108a2e192"
+    },
+    "validation/live-integration-attempt.json": {
+      "bytes": 115,
+      "sha256": "b59100f72adb7a4ea384bfa4c5a26a5cbb85587c348f7341dfe0abebcdeb9a06"
+    },
+    "validation/local-inventory.json": {
+      "bytes": 135,
+      "sha256": "c87f6952d6975a344825e11065ee554a1e96b2a43093aebdd6eeeee740847ea3"
+    },
+    "validation/offline-tests.txt": {
+      "bytes": 7854,
+      "sha256": "2fdbc44313b1f378aad38dd9cbc49b0accad8486f2f450282d5712896ca43c3e"
+    },
+    "validation/results.json": {
+      "bytes": 2590,
+      "sha256": "3812e8977db6f4ded20929cec4836327698b752f995e7116aa1c688f5389ae28"
+    }
+  },
+  "format_version": 1,
+  "hash_algorithm": "sha256",
+  "note": "Manifest excludes itself, .git and Python bytecode caches.",
+  "package": "gearman",
+  "package_version": "1.0.0",
+  "server_source_baseline": "gearmand 2.1.0"
+}

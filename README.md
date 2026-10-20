@@ -27,7 +27,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
-| [system-and-network-administration](system-and-network-administration/README.md) | 11 | Machines, networks, hosting, containers, Kubernetes, TLS and PKI, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 12 | Machines, networks, hosting, containers, Kubernetes, TLS and PKI, job queues, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
@@ -145,6 +145,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [docker](system-and-network-administration/docker/SKILL.md) | Docker images and Compose stacks: build, wiring, operation, recovery — routed by task |
 | [docker-engine-api](system-and-network-administration/docker-engine-api/SKILL.md) | Writing a client that speaks the Engine HTTP API instead of shelling out to `docker` |
 | [docker-registry](system-and-network-administration/docker-registry/SKILL.md) | Registries and pull-through caches: protocol, clients, mirror fallback, retention |
+| [gearman](system-and-network-administration/gearman/SKILL.md) | Gearman job queues: server, clients and workers, persistence, protocol, retries and idempotency |
 | [hetzner-operator](system-and-network-administration/hetzner-operator/SKILL.md) | Hetzner Cloud, Robot and managed hosting: networking, VPN access, storage, recovery, cost |
 | [kubernetes-cilium-concepts](system-and-network-administration/kubernetes-cilium-concepts/SKILL.md) | Cilium replacing CNI, kube-proxy, policy, encryption and ingress at once |
 | [kubernetes-concepts](system-and-network-administration/kubernetes-concepts/SKILL.md) | Control plane, resource hierarchy, and how ownership and selectors tie it together |

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "request_id": "a0000000-0000-4000-8000-000000000001",
+  "operation": "sum.v1",
+  "payload": {
+    "numbers": [
+      10,
+      20,
+      -3
+    ]
+  }
+}

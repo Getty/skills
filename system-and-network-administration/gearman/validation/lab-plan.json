@@ -1,0 +1,24 @@
+{
+  "executed": false,
+  "mode": "plan_only",
+  "requires": [
+    "Linux /proc ownership inspection",
+    "installed gearmand"
+  ],
+  "actions": [
+    "start owned foreground daemon on loopback with temporary state",
+    "ECHO, foreground, background/result, active unique, failure, interruption smoke tests",
+    "optional SQLite restart/replay",
+    "stop only owned processes and delete temporary state"
+  ],
+  "persistence_requested": false,
+  "not_covered": [
+    "all backends",
+    "native C/Perl/PHP integration",
+    "live TLS",
+    "multi-server failover",
+    "container/Kubernetes deployment",
+    "crash after external side effect"
+  ],
+  "exit_code": 0
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Demo successful sum result only",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "ok",
+    "result"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "ok": {
+      "const": true
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sum"
+      ],
+      "properties": {
+        "sum": {
+          "type": "integer",
+          "minimum": -1000000000000,
+          "maximum": 1000000000000
+        }
+      }
+    }
+  }
+}
