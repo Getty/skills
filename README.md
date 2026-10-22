@@ -29,7 +29,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
-| [system-and-network-administration](system-and-network-administration/README.md) | 13 | Machines, networks, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 19 | Machines, routers and switches, virtualization, directory services, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
@@ -177,6 +177,8 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
+| [cisco-ios-router](system-and-network-administration/cisco-ios-router/SKILL.md) | Classic IOS 15.x routers: ACLs, NAT, zone-based firewall, IP SLA failover, rollback safety net |
+| [cisco-small-business-switch](system-and-network-administration/cisco-small-business-switch/SKILL.md) | Cisco SG/SF/CBS switches: the IOS look-alike CLI, general ports, system mode, firmware path |
 | [docker](system-and-network-administration/docker/SKILL.md) | Docker images and Compose stacks: build, wiring, operation, recovery — routed by task |
 | [docker-engine-api](system-and-network-administration/docker-engine-api/SKILL.md) | Writing a client that speaks the Engine HTTP API instead of shelling out to `docker` |
 | [docker-registry](system-and-network-administration/docker-registry/SKILL.md) | Registries and pull-through caches: protocol, clients, mirror fallback, retention |
@@ -186,9 +188,13 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [kubernetes-concepts](system-and-network-administration/kubernetes-concepts/SKILL.md) | Control plane, resource hierarchy, and how ownership and selectors tie it together |
 | [kubernetes-gpu](system-and-network-administration/kubernetes-gpu/SKILL.md) | The four layers that must line up before a pod can use a GPU |
 | [kubernetes-rke2](system-and-network-administration/kubernetes-rke2/SKILL.md) | RKE2 and K3s as one topic, with the differences named where they exist |
+| [mikrotik-routeros](system-and-network-administration/mikrotik-routeros/SKILL.md) | RouterOS 7: one CLI grammar, safe mode, firewall, NAT, bridge VLANs, failover, WireGuard |
+| [network-device-ssh-cli](system-and-network-administration/network-device-ssh-cli/SKILL.md) | Scripted SSH to routers and switches: legacy algorithms, in-band logins, pagers, netcli.py |
+| [proxmox-ve](system-and-network-administration/proxmox-ve/SKILL.md) | Proxmox VE and Backup Server: VMs and containers, storage, PBS jobs, bridges, upgrades |
 | [rex](system-and-network-administration/rex/SKILL.md) | Perl Rex automation: Rexfiles, transports, idempotency, and operating it safely |
-| [storage-engineering](system-and-network-administration/storage-engineering/SKILL.md) | Storage from the access contract and failure model: block, file, object, HA, DR, backup, Kubernetes, sizing |
+| [samba-active-directory](system-and-network-administration/samba-active-directory/SKILL.md) | Samba AD DCs and member file servers: provisioning, DNS, FSMO, SYSVOL, client joins, ACLs |
 | [ssl-tls-pki](system-and-network-administration/ssl-tls-pki/SKILL.md) | TLS, public Web PKI, private CAs, ACME and mTLS — design, operation, debugging |
+| [storage-engineering](system-and-network-administration/storage-engineering/SKILL.md) | Storage from the access contract and failure model: block, file, object, HA, DR, backup, Kubernetes, sizing |
 | [vllm-operator](system-and-network-administration/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning (German) |
 
 ## Using this repo

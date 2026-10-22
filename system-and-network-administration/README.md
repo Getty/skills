@@ -210,6 +210,20 @@ itself.
 backups, sizing a cluster or rebuild, wiring Kubernetes volumes, or debugging storage
 that loses or corrupts data.
 
+## Virtualization
+
+### [proxmox-ve](proxmox-ve/SKILL.md)
+
+Proxmox VE hosts over CLI and SSH: `qm`/`pct` lifecycle for VMs and containers,
+config files under the cluster filesystem `/etc/pve`, `pvesm` storage (ZFS,
+LVM-thin, directory), Proxmox Backup Server datastores with sync, prune, garbage
+collection and verify, `vmbr` bridges and VLANs, clustering, and the no-subscription
+repositories in the deb822 format for PVE 9 on trixie. Read the machine first, address
+disks by `/dev/disk/by-id/`, and confirm anything destructive before running it.
+
+**Load when** reading, auditing or changing a Proxmox VE host or a Proxmox Backup
+Server.
+
 ## Hosting
 
 ### [hetzner-operator](hetzner-operator/SKILL.md)
@@ -237,6 +251,61 @@ be rechecked live.
 
 **Load when** designing, building or debugging anything on Hetzner — Cloud, Robot,
 private networks, VPN access, storage or cost.
+
+## Network devices
+
+### [mikrotik-routeros](mikrotik-routeros/SKILL.md)
+
+RouterOS 7 as one menu tree with one grammar: `print`/`find`/`set`/`export`,
+`[find …]` ids instead of positional numbers, safe mode for every remote change, and
+rule order in firewall, NAT and DNS. References for firewall filter, NAT and hairpin,
+bridge VLAN filtering in a lockout-safe order, static routes and WAN failover, DHCP
+and DNS, WireGuard, scripting, and export/backup/API.
+
+**Load when** working on a MikroTik router or switch, or reading an `/export` dump.
+
+### [cisco-ios-router](cisco-ios-router/SKILL.md)
+
+Classic IOS 15.x routers (ISR 900, ISR G2, 800 series): modes and filters, the
+`reload in` / archive rollback safety net, built-in switch ports with SVIs, ACLs
+including reflexive ones, NAT and port forwards, the zone-based firewall,
+IP SLA failover, management-plane hardening and the securityk9 licence. Changes are
+live but not saved until `write memory`.
+
+**Load when** reading, auditing or changing a classic Cisco IOS router.
+
+### [cisco-small-business-switch](cisco-small-business-switch/SKILL.md)
+
+The Cisco Small Business switch OS (Sx300/Sx500 on 1.x, Sx350/Sx550/CBS on 2.x/3.x),
+which imitates IOS but is not IOS: in-band `User Name:` login, `general` port mode
+next to access and trunk, `terminal datadump`, the L2/L3 system-mode switch that
+wipes the startup config, and the boot-code step a 1.3 → 1.4 upgrade needs.
+
+**Load when** configuring or auditing a Cisco SG/SF/CBS managed switch.
+
+### [network-device-ssh-cli](network-device-ssh-cli/SKILL.md)
+
+Scripted SSH to network gear: enabling legacy algorithms a device offers ("no
+matching key exchange method", `ssh-rsa`), devices that ignore the exec channel, in-band
+logins, pagers and prompts. A per-family table says when plain `ssh host cmd` works;
+`scripts/netcli.py` (pexpect) drives the rest with profiles for IOS, Small Business and
+RouterOS, reading passwords only from a file.
+
+**Load when** a script or agent must run commands on a router or switch over SSH and
+plain `ssh host cmd` fails.
+
+## Directory and file services
+
+### [samba-active-directory](samba-active-directory/SKILL.md)
+
+Samba as an AD domain controller or SMB file server: the four mutually exclusive
+server roles (the DC runs `samba`, a member runs `smbd`/`winbindd` — file shares belong
+on a member), provisioning with a realm that can never be renamed, internal DNS versus
+BIND9_DLZ, FSMO, SYSVOL replication across DCs, GPO, joining Windows and Linux
+clients, share ACLs, idmap and central Windows software deployment.
+
+**Load when** setting up or operating a Samba AD domain, a domain member file
+server, or joining clients to one.
 
 ## TLS and PKI
 

@@ -25,7 +25,7 @@ cdp device-id format hostname           # advertise hostname instead of MAC
 show mac address-table                  # 1.4+/2.x; privilege 15 (level 1 → "% Unrecognized command")
 show mac address-table interface gi22
 show mac address-table vlan 65
-show mac address-table address 44:37:e6:91:e8:a9
+show mac address-table address 00:00:5e:00:53:01
 show bridge address-table               # firmware ≤1.3 wording, also privilege 15 only
 mac address-table aging-time 600
 show bridge multicast address-table / show ip igmp snooping

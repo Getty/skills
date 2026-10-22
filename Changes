@@ -1,6 +1,10 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New skills in system-and-network-administration: mikrotik-routeros,
+    cisco-ios-router, cisco-small-business-switch and network-device-ssh-cli
+    for routers and switches, proxmox-ve for Proxmox VE and Backup Server,
+    samba-active-directory for Samba AD domains and file servers.
   - smart-home-devices: every vendor reference maps the manufacturer's whole
     range by line and generation (radio, HA route, caveat) and how to place a
     device from its label or model ID; Hue, Shelly, THIRDREALITY, Tuya,
