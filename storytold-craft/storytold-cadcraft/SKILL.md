@@ -1,6 +1,6 @@
 ---
 name: storytold-cadcraft
-description: "Use this skill when the user requests CADCraft operations, CLI/MCP automation, output verification or troubleshooting. Create and verify drawings with CADCraft using geometry commands, structured inspection, layouts and DXF/DWG interchange."
+description: "Use when creating, inspecting or verifying a CAD drawing with CADCraft — cadcraft-cli or its MCP server, geometry commands, layouts, viewports, DXF/DWG interchange, or a CADCraft run that fails."
 ---
 
 # CADCraft: AI operation

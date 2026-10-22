@@ -1,6 +1,6 @@
 ---
 name: storytold-craft
-description: "Use this skill for Storytold Craft Overview routing, integration boundaries and operational planning. Route AI-operated creative work to the correct Storytold product and coordinate CLI/MCP workflows without assuming a shared API."
+description: "Use when a creative task needs a Storytold Craft application and it is unclear which one, or when work is split across several Craft editors — routing between products, comparing their CLIs and MCP servers, handing assets from one editor to another."
 ---
 
 # Storytold Craft Overview: AI operation

@@ -1,6 +1,6 @@
 ---
 name: storytold-photocraft
-description: "Use this skill when the user requests PhotoCraft operations, CLI/MCP automation, output verification or troubleshooting. Edit layered raster images, PSD/PSB documents, masks, adjustments, smart objects and exports through PhotoCraft."
+description: "Use when editing or exporting layered raster images with PhotoCraft — photocraft-cli or its MCP server, PSD/PSB, masks, adjustments, smart objects, or a PhotoCraft run that fails or exports the wrong result."
 ---
 
 # PhotoCraft: AI operation

@@ -1,6 +1,6 @@
 ---
 name: storytold-lightcraft
-description: "Use this skill when the user requests LightCraft operations, CLI/MCP automation, output verification or troubleshooting. Operate a persistent photo catalog, develop RAW files, manage originals/sidecars, and export images with LightCraft."
+description: "Use when importing, developing or exporting photos with LightCraft — lightcraft-cli or its MCP server, the photo catalog, RAW development, originals and sidecars, or a LightCraft run that fails."
 ---
 
 # LightCraft: AI operation

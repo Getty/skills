@@ -1,6 +1,6 @@
 ---
 name: electron-desktop-engineering
-description: Engineer, secure, review, debug, test, package, sign, update, and maintain Electron desktop applications. Covers main/preload/renderer boundaries, sandboxing, contextBridge, validated IPC, custom protocols/CSP, sessions and permissions, files, storage, credentials, native modules, workers, windows, OS integration, React integration, Forge, electron-builder, electron-vite, fuses, signing/notarization, update recovery, and platform-specific acceptance.
+description: "Use when building, securing, debugging, packaging or updating an Electron app — main, preload and renderer, contextBridge, IPC, sandbox, CSP, custom protocols, native modules, Electron Forge, electron-builder, electron-vite, fuses, code signing and notarization, auto-update."
 license: MIT
 compatibility: Agent with local file access. Offline utilities require Python 3.10+ and Node.js 20+. Electron, signing, packaging, and OS tests require separately reviewed runtimes, tools, and target environments.
 metadata:

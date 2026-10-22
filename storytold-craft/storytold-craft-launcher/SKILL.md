@@ -1,6 +1,6 @@
 ---
 name: storytold-craft-launcher
-description: "Use this skill for Craft Launcher routing, integration boundaries and operational planning. Manage discovery, installation, version compatibility and safe update handoffs for Storytold Craft applications via the ArtCraft Launcher."
+description: "Use when installing, updating, locating or checking version compatibility of Storytold Craft applications — the ArtCraft Launcher (artcraft-launcher), a Craft CLI missing from PATH, update handoffs."
 ---
 
 # Craft Launcher: AI operation

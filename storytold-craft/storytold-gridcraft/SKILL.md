@@ -1,6 +1,6 @@
 ---
 name: storytold-gridcraft
-description: "Use this skill when the user requests GridCraft operations, CLI/MCP automation, output verification or troubleshooting. Inspect and edit spreadsheets, evaluate formulas, validate calculation oracles and measure workbook round-trip fidelity using GridCraft."
+description: "Use when editing a spreadsheet or validating its calculation with GridCraft — gridcraft-cli or its MCP server, cells, formulas, calculation oracles, XLSX, XLSB or ODS round-trips, or a GridCraft run that fails."
 ---
 
 # GridCraft: AI operation

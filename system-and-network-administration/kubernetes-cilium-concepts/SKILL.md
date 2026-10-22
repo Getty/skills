@@ -1,6 +1,6 @@
 ---
 name: kubernetes-cilium-concepts
-description: "Use on a Cilium cluster — kube-proxy replacement, CiliumNetworkPolicy, Gateway API, LB-IPAM, Hubble, or broken service routing."
+description: "Use when working on a Cilium cluster — kube-proxy replacement, CiliumNetworkPolicy, Gateway API, LB-IPAM, Hubble, or broken service routing."
 user-invocable: true
 ---
 

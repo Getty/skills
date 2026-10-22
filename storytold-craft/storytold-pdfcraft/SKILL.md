@@ -1,6 +1,6 @@
 ---
 name: storytold-pdfcraft
-description: "Use this skill when the user requests PdfCraft operations, CLI/MCP automation, output verification or troubleshooting. Read, inspect, organize, annotate, edit, secure and verify PDFs through PdfCraft's CLI and schema-described automation tools."
+description: "Use when reading, organizing, annotating, filling, editing, securing or redacting a PDF with PdfCraft — pdfcraft-cli or its MCP server, pages, forms, annotations, or a PdfCraft run that fails."
 ---
 
 # PdfCraft: AI operation

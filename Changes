@@ -12,6 +12,10 @@ Revision history for skills
     fritzbox-operator, smart-home-architecture, smart-home-devices,
     smart-home-radio, smart-home-esphome-mqtt and smart-home-video-media,
     with its group image.
+  - Every skill description names only when to load the skill ("Use when …"):
+    rewritten for electron-desktop-engineering, react-ecosystem-engineering,
+    gearman, hetzner-operator, rex, ssl-tls-pki, kubernetes-cilium-concepts
+    and all storytold-craft skills, with their MANIFEST.json hashes updated.
 
 0.3.0     2026-10-20 23:04:10Z
   - New skill gearman in system-and-network-administration.

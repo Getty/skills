@@ -1,6 +1,6 @@
 ---
 name: ssl-tls-pki
-description: Design, deploy, audit, operate, and debug SSL/TLS, public Web PKI, private certificate authorities, ACME/Let's Encrypt, mTLS, certificate chains, trust stores, and TLS clients across operating systems and runtimes. Use for HTTPS, STARTTLS, QUIC/DTLS boundaries, certificate renewal, CA rotation, client interoperability, and TLS incident analysis.
+description: "Use when setting up or debugging HTTPS, TLS or certificates — chains and trust stores, ACME/Let's Encrypt renewal, a private CA or CA rotation, mTLS, STARTTLS, QUIC, handshake errors such as \"unable to get local issuer certificate\" or \"certificate verify failed\", TLS incidents."
 ---
 
 # SSL, TLS & PKI Engineering

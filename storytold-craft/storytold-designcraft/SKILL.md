@@ -1,6 +1,6 @@
 ---
 name: storytold-designcraft
-description: "Use this skill when the user requests DesignCraft operations, CLI/MCP automation, output verification or troubleshooting. Compose page-layout documents with threaded stories, frames, styles, images and publication exports in DesignCraft."
+description: "Use when composing or exporting page layouts with DesignCraft — designcraft-cli or its MCP server, spreads, frames, threaded stories, overset text, styles, publication export, or a DesignCraft run that fails."
 ---
 
 # DesignCraft: AI operation

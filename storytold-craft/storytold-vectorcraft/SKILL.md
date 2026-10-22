@@ -1,6 +1,6 @@
 ---
 name: storytold-vectorcraft
-description: "Use this skill when the user requests VectorCraft operations, CLI/MCP automation, output verification or troubleshooting. Create and transform vector documents, inspect objects, control live appearance and export artboards with VectorCraft."
+description: "Use when creating, transforming or exporting vector artwork with VectorCraft — vectorcraft-cli or its MCP server, objects, live appearance, artboards, import warnings, or a VectorCraft run that fails."
 ---
 
 # VectorCraft: AI operation

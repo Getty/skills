@@ -1,6 +1,6 @@
 ---
 name: storytold-wordcraft
-description: "Use this skill when the user requests WordCraft operations, CLI/MCP automation, output verification or troubleshooting. Write, revise and review structured documents with WordCraft, preserving style, tracked changes and export intent."
+description: "Use when writing, revising or reviewing a document with WordCraft — wordcraft-cli or its MCP server, paragraphs and styles, sections, tracked changes, export, or a WordCraft run that fails."
 ---
 
 # WordCraft: AI operation

@@ -1,6 +1,6 @@
 ---
 name: storytold-deckcraft
-description: "Use this skill when the user requests DeckCraft operations, CLI/MCP automation, output verification or troubleshooting. Build, inspect and export presentations with DeckCraft while preserving editable shapes, slide structure and presentation intent."
+description: "Use when building, inspecting or exporting a presentation with DeckCraft — deckcraft-cli or its MCP server, slides, shapes, layouts, export, or a DeckCraft run that fails."
 ---
 
 # DeckCraft: AI operation

@@ -1,6 +1,6 @@
 ---
 name: storytold-artcraftx
-description: "Use this skill for ArtCraft-X routing, integration boundaries and operational planning. Understand and integrate the experimental ArtCraft-X Tauri generation application, its IPC boundary and development lifecycle."
+description: "Use when integrating with or developing ArtCraft-X — the experimental Tauri generation app, its IPC and invoke handlers, the Vite development server, its development lifecycle."
 ---
 
 # ArtCraft-X: AI operation

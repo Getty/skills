@@ -1,6 +1,6 @@
 ---
 name: storytold-soundcraft
-description: "Use this skill when the user requests SoundCraft operations, CLI/MCP automation, output verification or troubleshooting. Operate multitrack audio sessions, source media, mixing, routing, automation and offline bounces with SoundCraft."
+description: "Use when editing, mixing or bouncing multitrack audio with SoundCraft — soundcraft-cli or its MCP server, sessions, source media, routing, automation, offline bounces, or a SoundCraft session that fails."
 ---
 
 # SoundCraft: AI operation

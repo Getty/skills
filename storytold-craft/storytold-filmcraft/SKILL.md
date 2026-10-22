@@ -1,6 +1,6 @@
 ---
 name: storytold-filmcraft
-description: "Use this skill when the user requests FilmCraft operations, CLI/MCP automation, output verification or troubleshooting. Inspect, edit and render video projects and timelines with FilmCraft, including media health, timing and export jobs."
+description: "Use when inspecting, editing or rendering video with FilmCraft — filmcraft-cli or its MCP server, timelines, clips, media health, offline media, export jobs, or a FilmCraft render that fails."
 ---
 
 # FilmCraft: AI operation

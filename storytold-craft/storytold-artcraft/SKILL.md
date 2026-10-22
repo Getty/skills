@@ -1,6 +1,6 @@
 ---
 name: storytold-artcraft
-description: "Use this skill for ArtCraft routing, integration boundaries and operational planning. Inspect and integrate Storytold ArtCraft's generative desktop workflow and Rust client without inventing a Craft-style operator CLI."
+description: "Use when integrating with Storytold ArtCraft or its Rust client, or judging a claim that ArtCraft can be automated — the generative desktop workflow, generation uploads and costs, the missing artcraft-cli."
 ---
 
 # ArtCraft: AI operation

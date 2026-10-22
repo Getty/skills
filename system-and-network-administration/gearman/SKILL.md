@@ -1,6 +1,6 @@
 ---
 name: gearman
-description: Design, implement, operate, secure, debug, test, and extend Gearman systems. Use for gearmand servers, persistent queues, clients and workers, Perl/PHP/C/Python integration, the binary and administrative protocols, retries, idempotency, scaling, deployment, and upgrades.
+description: "Use when building, running or debugging Gearman — gearmand, persistent queues, clients and workers in Perl, PHP, C or Python, the binary or admin protocol, retries, idempotency, stuck or lost jobs, scaling, deployment, upgrades."
 ---
 # Gearman engineering and operations
 

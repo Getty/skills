@@ -1,6 +1,6 @@
 ---
 name: react-ecosystem-engineering
-description: Engineer, review, debug, migrate, and test React applications and their library ecosystem. Covers React and React DOM, TypeScript, hooks, compiler, concurrency, SSR/RSC, frameworks, routing, state, queries, forms, UI systems, accessibility, tables, charts, editors, and a deep React Flow workflow including nodes, handles, layout, validation, persistence, history, collaboration, performance, and testing. Use for dependency decisions and React/Electron renderer integration.
+description: "Use when building, reviewing, debugging, migrating or testing a React app — hooks, React Compiler, SSR/RSC, Next.js and other frameworks, routing, state, data fetching, forms, UI libraries, choosing dependencies, React in an Electron renderer, or React Flow (nodes, edges, handles, layout)."
 license: MIT
 compatibility: Agent with local file access. Offline utilities require Python 3.10+ and Node.js 20+. Framework examples require separately reviewed dependencies and runtime testing.
 metadata:

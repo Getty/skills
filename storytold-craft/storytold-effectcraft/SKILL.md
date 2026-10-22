@@ -1,6 +1,6 @@
 ---
 name: storytold-effectcraft
-description: "Use this skill when the user requests EffectCraft operations, CLI/MCP automation, output verification or troubleshooting. Build motion graphics, animate composition/layer properties, manage expressions and render jobs with EffectCraft."
+description: "Use when animating motion graphics or running render jobs with EffectCraft — effectcraft-cli or its MCP server, compositions, layers, keyframes, expressions, or an EffectCraft render that fails."
 ---
 
 # EffectCraft: AI operation

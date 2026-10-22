@@ -1,6 +1,6 @@
 ---
 name: hetzner-operator
-description: Plan, provision, connect, secure, optimize, and troubleshoot Hetzner infrastructure. Use for Hetzner Cloud, Console, Robot, dedicated and auction servers, public IPv4/IPv6, Primary and Floating IPs, private Networks, VPN gateways and headquarters connectivity, WireGuard, Tailscale, NAT, Load Balancers, vSwitch hybrid networking, firewalls, DNS, storage, backups, managed hosting, hcloud, API, Terraform/OpenTofu, Ansible, Kubernetes, costs, and recovery. Distinguish documented capabilities from community workarounds and verify changing product, pricing, and API facts.
+description: "Use when planning, building or debugging anything on Hetzner — Cloud, Robot, dedicated or auction servers, Primary and Floating IPs, private Networks, vSwitch, WireGuard or Tailscale VPN, NAT, Load Balancers, firewalls, DNS, Volumes, Storage Box, Object Storage, backups, hcloud, Terraform/OpenTofu, costs, recovery."
 ---
 
 # Hetzner Operator
