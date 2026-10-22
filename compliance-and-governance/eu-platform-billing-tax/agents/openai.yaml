@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Billing and Tax"
+  short_description: "Scope VAT, invoicing and payment integration controls"
+  default_prompt: "Use $eu-platform-billing-tax to review our EU billing, invoicing, tax evidence and payment architecture."

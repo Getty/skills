@@ -1,0 +1,64 @@
+{
+  "template_kind": "incident-record",
+  "incident_id": null,
+  "simulation": false,
+  "detected_at": null,
+  "timezone": "UTC",
+  "incident_lead": null,
+  "deputy": null,
+  "facts": [],
+  "unknowns": [],
+  "affected_entities": [],
+  "tenants": [],
+  "products_versions": [],
+  "personal_data_categories": [],
+  "awareness_events": [
+    {
+      "regime": null,
+      "event_type": null,
+      "time": null,
+      "rationale": null,
+      "evidence_refs": []
+    }
+  ],
+  "assessments": [
+    {
+      "regime": null,
+      "applicability": "unknown",
+      "threshold_result": "unknown",
+      "source_refs": [],
+      "reviewer": null
+    }
+  ],
+  "deadlines": [
+    {
+      "obligation": null,
+      "source_ref": null,
+      "start_event": null,
+      "due_at": null,
+      "calendar_rule": null,
+      "owner": null,
+      "status": "not_assessed"
+    }
+  ],
+  "containment": [],
+  "evidence_location": null,
+  "legal_hold": {
+    "scope": null,
+    "basis": null,
+    "review_on": null
+  },
+  "communications": [
+    {
+      "recipient_role": null,
+      "verified_destination": null,
+      "authorization_ref": null,
+      "draft_ref": null,
+      "submitted_at": null,
+      "receipt_ref": null
+    }
+  ],
+  "decision_log": [],
+  "next_update_at": null,
+  "closure": null
+}

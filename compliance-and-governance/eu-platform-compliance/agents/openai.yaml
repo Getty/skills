@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Compliance"
+  short_description: "Scope obligations and govern platform compliance"
+  default_prompt: "Use $eu-platform-compliance to assess our EU AI platform, identify applicable obligations and create an evidence-backed implementation plan."

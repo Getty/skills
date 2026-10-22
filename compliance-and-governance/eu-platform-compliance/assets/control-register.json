@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "profile_revision": null,
+  "controls": [],
+  "required_fields_per_control": [
+    "id",
+    "feature",
+    "jurisdictions",
+    "legal_role",
+    "source_url",
+    "source_version",
+    "provision",
+    "normative_type",
+    "applicability",
+    "applicability_reason",
+    "implementation_status",
+    "owner",
+    "evidence_refs",
+    "reviewed_on",
+    "reopen_triggers"
+  ],
+  "note": "Author the selected controls from an approved applicability review. An empty register is incomplete."
+}

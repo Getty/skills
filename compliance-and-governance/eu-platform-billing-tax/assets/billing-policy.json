@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "policy_version": null,
+  "effective_from": null,
+  "approved_by": null,
+  "seller": null,
+  "merchant_of_record": null,
+  "establishments": [],
+  "tax_registrations": [],
+  "supported_countries": [],
+  "product_tax_classes": [],
+  "tax_decisions": [
+    {
+      "customer_class": "unknown",
+      "customer_country": null,
+      "location_evidence": [],
+      "place_of_supply": null,
+      "rate": null,
+      "exemption_or_reverse_charge_basis": null,
+      "oss_scheme": null,
+      "source": null,
+      "checked_on": null
+    }
+  ],
+  "metering": {
+    "billable_event_definition": null,
+    "deduplication_key": null,
+    "rounding_policy": null,
+    "retry_policy": null
+  },
+  "invoicing": {
+    "profile": null,
+    "profile_version": null,
+    "validator_version": null,
+    "issuance_obligation": "unknown",
+    "exception_basis": null,
+    "transition_end": null
+  },
+  "retention_categories": [],
+  "payment_perimeter": "unknown",
+  "unresolved_facts": [],
+  "release_decision": "pending"
+}

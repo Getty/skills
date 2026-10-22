@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Privacy"
+  short_description: "Engineer GDPR controls with national overlays"
+  default_prompt: "Use $eu-platform-privacy to review our platform data processing and implement proportionate privacy controls."

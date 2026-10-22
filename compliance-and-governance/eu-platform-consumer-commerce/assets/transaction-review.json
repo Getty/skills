@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewed_on": null,
+  "reviewer": null,
+  "seller": null,
+  "target_countries": [],
+  "contract_id": null,
+  "contract_version": null,
+  "customer_class": "unknown",
+  "customer_class_evidence": [],
+  "performance_type": "unknown",
+  "consideration": {
+    "money": null,
+    "personal_data_purposes": []
+  },
+  "purchase_paths": [],
+  "renewal_policy": null,
+  "early_performance_branch": "unknown",
+  "obligations": [
+    {
+      "id": "CONSUMER-WITHDRAWAL",
+      "jurisdiction": null,
+      "applicability": "unknown",
+      "reason": null,
+      "legal_source": null,
+      "provision": null,
+      "effective_from": null,
+      "checked_on": null,
+      "implementation": [],
+      "evidence": [],
+      "owner": null,
+      "review_required": true
+    }
+  ],
+  "release_decision": "pending",
+  "unresolved_facts": []
+}

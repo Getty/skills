@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Business Contracts"
+  short_description: "Align B2B contracts, processing and service delivery"
+  default_prompt: "Use $eu-platform-business-contracts to review our enterprise contracts, supplier terms and switching commitments against implementation."

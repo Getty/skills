@@ -1,0 +1,55 @@
+{
+  "template_kind": "moderation-case",
+  "case_id": null,
+  "simulation": false,
+  "service_id": null,
+  "received_at": null,
+  "timezone": "UTC",
+  "intake_type": null,
+  "reporter_contact_ref": null,
+  "item_locations": [],
+  "allegation": null,
+  "good_faith_declaration": null,
+  "urgent_risk": null,
+  "jurisdiction": null,
+  "classification": {
+    "illegal_content": "unknown",
+    "terms_breach": "unknown",
+    "legal_sources": [],
+    "policy_version": null
+  },
+  "evidence_refs": [],
+  "restricted_evidence_location": null,
+  "automation": {
+    "used": null,
+    "model_version": null,
+    "role": null,
+    "limitations": []
+  },
+  "decision": {
+    "action": null,
+    "scope": null,
+    "duration": null,
+    "reason": null,
+    "reviewer": null,
+    "decided_at": null
+  },
+  "communications": [],
+  "appeal": {
+    "available_basis": null,
+    "deadline": null,
+    "received_at": null,
+    "human_supervisor": null,
+    "outcome": null,
+    "reinstatement_verified": null
+  },
+  "government_order_ref": null,
+  "reporting_fields": {},
+  "retention": {
+    "purpose": null,
+    "basis": null,
+    "review_on": null,
+    "hold_ref": null
+  },
+  "history": []
+}

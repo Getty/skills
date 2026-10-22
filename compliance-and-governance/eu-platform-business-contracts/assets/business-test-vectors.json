@@ -1,0 +1,56 @@
+[
+  {
+    "id": "B-FALLBACK",
+    "scenario": "EU-only enterprise tenant falls back to an unapproved model endpoint",
+    "assertions": [
+      "Apply tenant contract policy to fallback",
+      "Prevent disallowed route",
+      "Record incident and affected requests"
+    ]
+  },
+  {
+    "id": "B-BESPOKE",
+    "scenario": "Standard SaaS with a customer logo is called custom-built to avoid Data Act switching",
+    "assertions": [
+      "Assess actual Article 31 conditions",
+      "Do not accept label as evidence",
+      "Keep non-exempt obligations in scope"
+    ]
+  },
+  {
+    "id": "B-EXIT",
+    "scenario": "Customer requests migration; billing termination would immediately delete its workspace",
+    "assertions": [
+      "Separate termination, transition, retrieval and erasure states",
+      "Honor applicable timelines",
+      "Verify successful export and access authorization"
+    ]
+  },
+  {
+    "id": "B-CERTIFICATE",
+    "scenario": "Vendor supplies a valid certificate covering a different subsidiary",
+    "assertions": [
+      "Record scope mismatch",
+      "Request product/legal-entity evidence",
+      "Do not mark the AI service verified"
+    ]
+  },
+  {
+    "id": "B-BANK",
+    "scenario": "Bank requests DORA Article 30 schedule for an AI tool",
+    "assertions": [
+      "Review actual customer function and contract requirements",
+      "Assess supplier direct status independently",
+      "Avoid asserting every vendor is a financial entity"
+    ]
+  },
+  {
+    "id": "B-CONTRACT-DRIFT",
+    "scenario": "Sales signs no-training terms but telemetry pipeline reuses prompts",
+    "assertions": [
+      "Detect contract/config mismatch",
+      "Stop affected reuse",
+      "Route privacy and contract remediation"
+    ]
+  }
+]

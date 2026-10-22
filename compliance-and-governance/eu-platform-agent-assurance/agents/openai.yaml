@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Agent Assurance"
+  short_description: "Connect development changes to compliance evidence"
+  default_prompt: "Use $eu-platform-agent-assurance to review a proposed platform change and create scoped release checks with evidence and unresolved findings."

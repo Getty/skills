@@ -1,0 +1,44 @@
+{
+  "template_kind": "security-control-register",
+  "research_snapshot": "2026-10-22",
+  "assessment_id": null,
+  "entity": null,
+  "service": null,
+  "environment": null,
+  "release": null,
+  "applicability": [
+    {
+      "regime": "GDPR Art32",
+      "status": "unknown",
+      "facts": [],
+      "source_id": "SEC-GDPR",
+      "reviewer": null,
+      "checked_on": null
+    }
+  ],
+  "controls": [
+    {
+      "control_id": "SEC-TEN-01",
+      "objective": "Prevent unauthorized cross-tenant retrieval",
+      "requirement_class": "risk_based_implementation",
+      "legal_sources": [
+        "SEC-GDPR"
+      ],
+      "applicability": "unknown",
+      "owner": null,
+      "implementation_status": "not_assessed",
+      "implementation_refs": [],
+      "evidence_status": "not_tested",
+      "tests": [],
+      "residual_risk": null,
+      "next_review": null,
+      "change_triggers": [
+        "tenant authorization",
+        "retrieval pipeline",
+        "cache partition",
+        "model gateway"
+      ]
+    }
+  ],
+  "notes": "Populate facts and legal applicability; sample IDs are not verified findings. Do not mark a template as passed."
+}

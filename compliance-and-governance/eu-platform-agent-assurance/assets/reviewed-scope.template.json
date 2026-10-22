@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profile_id": "REPLACE_WITH_REAL_PROFILE",
+  "profile_revision": "REPLACE_WITH_REVIEWED_REVISION",
+  "release_id": "REPLACE_WITH_EXACT_REVISION",
+  "environment": "REPLACE_WITH_ENVIRONMENT",
+  "review": {
+    "status": "unreviewed",
+    "reviewer": null,
+    "reviewed_on": null,
+    "review_due": null
+  },
+  "required_control_ids": [],
+  "note": "Intentionally incomplete. Select controls from actual applicability review; this template must fail the gate."
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A-STREAM",
+    "scenario": "AI answer streams 1000 tokens while input retains focus",
+    "assertions": [
+      "Announcements are useful and controllable",
+      "Focus is not moved per token",
+      "Stop and history navigation work by keyboard"
+    ]
+  },
+  {
+    "id": "A-CANCEL",
+    "scenario": "Screen-reader user cancels paid subscription after losing password",
+    "assertions": [
+      "Discoverable accessible route",
+      "Minimal identification and clear final action",
+      "Readable durable receipt"
+    ]
+  },
+  {
+    "id": "A-APPROVE",
+    "scenario": "Agent proposes a paid external action in a modal",
+    "assertions": [
+      "Name target and consequence",
+      "Accessible reject/cancel",
+      "No timeout-to-approval",
+      "Focus restored"
+    ]
+  },
+  {
+    "id": "A-PSP",
+    "scenario": "Own checkout passes scanner but PSP iframe is keyboard inaccessible",
+    "assertions": [
+      "Treat complete journey as failing",
+      "Record vendor dependency",
+      "Provide reviewed remediation route"
+    ]
+  },
+  {
+    "id": "A-STANDARD",
+    "scenario": "Team claims new published EN edition automatically proves EAA conformity",
+    "assertions": [
+      "Verify OJ citation for correct instrument",
+      "Check actual clauses and implementation",
+      "Keep publication separate from legal effect"
+    ]
+  },
+  {
+    "id": "A-MICRO",
+    "scenario": "Nine employees and high turnover, balance-sheet total unknown",
+    "assertions": [
+      "Do not decide from headcount alone",
+      "Check statutory financial alternative and enterprise facts",
+      "Mark scope unknown until evidence exists"
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "T-RETRY",
+    "scenario": "Model response retries and PSP webhook delivered three times",
+    "assertions": [
+      "Usage deduplicated according to contract",
+      "One payment posted",
+      "Reconciliation detects disagreement"
+    ]
+  },
+  {
+    "id": "T-2027",
+    "scenario": "German domestic B2B supply in 2027; prior-year issuer turnover EUR 900000",
+    "assertions": [
+      "Assess mandatory structured invoice absent applicable exception/EDI branch",
+      "Do not apply small-issuer extension",
+      "Plain PDF is not sufficient structured format"
+    ]
+  },
+  {
+    "id": "T-800000",
+    "scenario": "Same supply but prior-year turnover exactly EUR 800000",
+    "assertions": [
+      "Evaluate no-more-than threshold correctly",
+      "Retain scope and other transition conditions",
+      "Record legal policy version"
+    ]
+  },
+  {
+    "id": "T-SMALL",
+    "scenario": "Small-business issuer requests deletion of structured invoice receiving support",
+    "assertions": [
+      "Separate issuing exception from receiving and retention",
+      "Check current statute/guidance",
+      "Do not use exemption label as global bypass"
+    ]
+  },
+  {
+    "id": "T-COUNTRY",
+    "scenario": "Consumer declares France, card and IP indicate different countries",
+    "assertions": [
+      "Apply reviewed evidence/exception policy",
+      "Do not use LLM guess or automatic zero VAT",
+      "Queue unresolved facts"
+    ]
+  },
+  {
+    "id": "T-ERASURE",
+    "scenario": "User deletes account containing invoices and AI prompts",
+    "assertions": [
+      "Apply separate record categories",
+      "Retain legally required financial data with restricted purpose",
+      "Do not keep all prompts because invoices are retained"
+    ]
+  },
+  {
+    "id": "T-WALLET",
+    "scenario": "AI credits become transferable and accepted by independent sellers",
+    "assertions": [
+      "Reassess payment/e-money perimeter",
+      "Reassess voucher/tax treatment independently",
+      "Require resolved structure before launch"
+    ]
+  },
+  {
+    "id": "T-HYBRID",
+    "scenario": "PDF total differs from embedded XML total",
+    "assertions": [
+      "Quarantine mismatch",
+      "Apply authoritative data/correction rules",
+      "Do not silently pay the prettier representation"
+    ]
+  }
+]

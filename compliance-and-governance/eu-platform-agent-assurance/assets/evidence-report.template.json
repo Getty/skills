@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "profile_id": null,
+  "profile_revision": null,
+  "release_id": null,
+  "environment": null,
+  "scope_sha256": null,
+  "controls": [
+    {
+      "id": "EXAMPLE-REPLACE",
+      "normative_type": "binding_law",
+      "applicability": "unknown",
+      "applicability_reason": null,
+      "status": "planned",
+      "owner": null,
+      "reviewer": null,
+      "reviewed_on": null,
+      "source": {
+        "reference": null,
+        "provision": null,
+        "version": null,
+        "verified_on": null,
+        "review_due": null
+      },
+      "evidence": [
+        {
+          "path": null,
+          "sha256": null,
+          "method": null,
+          "outcome": "not_run",
+          "observed_on": null,
+          "expires_on": null,
+          "release_id": null,
+          "environment": null
+        }
+      ]
+    }
+  ],
+  "note": "Intentionally failing example. Supply authentic sources, observations and reviewed applicability."
+}

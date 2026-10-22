@@ -1,6 +1,12 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New group `compliance-and-governance`: EU compliance engineering for AI
+    platforms with German overlays, entry point eu-platform-compliance and
+    specialists for privacy, data governance, tracking and marketing, the AI
+    Act, data and IP, consumer commerce, business contracts, billing and tax,
+    accessibility, content safety, cybersecurity, agent assurance and
+    regulatory watch, with its group image.
 
 0.3.0     2026-10-20 23:04:10Z
   - New skill gearman in system-and-network-administration.

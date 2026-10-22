@@ -1,0 +1,58 @@
+{
+  "template_kind": "government-order-or-urgent-report",
+  "case_id": null,
+  "simulation": false,
+  "route": null,
+  "received_or_aware_at": null,
+  "timezone": "UTC",
+  "source_channel": null,
+  "claimed_authority": null,
+  "independently_verified": false,
+  "verification_evidence": [],
+  "legal_basis": null,
+  "instrument_version": null,
+  "jurisdiction": null,
+  "service_scope": null,
+  "order_certificate_id": null,
+  "data_or_content_scope": [],
+  "urgency_basis": null,
+  "deadlines": [
+    {
+      "action": null,
+      "start_event": null,
+      "legal_rule": null,
+      "due_at": null,
+      "owner": null
+    }
+  ],
+  "legal_reviewer": null,
+  "authorized_actor": null,
+  "authorization_reference": null,
+  "preservation": {
+    "required": "unknown",
+    "scope": [],
+    "secured_at": null,
+    "location": null,
+    "expiry_or_review": null
+  },
+  "disclosure": {
+    "permitted": "unknown",
+    "scope": [],
+    "destination_verified": false,
+    "submitted_at": null,
+    "receipt": null
+  },
+  "content_action": {
+    "required": "unknown",
+    "scope": [],
+    "performed_at": null,
+    "verified_effect": null
+  },
+  "objections_or_impossibility": [],
+  "secrecy_and_user_notification": {
+    "assessment": null,
+    "action": null
+  },
+  "decision_history": [],
+  "next_action": null
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "adoption_status": "needs_adoption",
+  "snapshot_date": "2026-10-22",
+  "note": "Illustrative starter subset, not a complete or assigned platform watch. Review dates are internal examples. Add all relevant national, contractual and legal sources, assign real owners and check operative text before adoption.",
+  "sources": [
+    {
+      "id": "AI-ACT-CURRENT",
+      "title": "AI Act current consolidated application rules",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113",
+      "issuer": "European Commission official article reproduction",
+      "version": "Consolidation 2026-07-27",
+      "status": "enacted_law",
+      "verification": "official_reproduction",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": [
+        {
+          "type": "application",
+          "on": "2027-12-02",
+          "scope": "Chapter III Sections 1-3 (except 6(5)), Article6(2)/AnnexIII cohort; assess actual platform scope",
+          "disposition": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "AI-TRANSITION",
+      "title": "Specific synthetic-content transition",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111",
+      "issuer": "European Commission official article reproduction",
+      "version": "Consolidation 2026-07-27 Article111(4)",
+      "status": "enacted_law",
+      "verification": "official_reproduction",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": [
+        {
+          "type": "transition_deadline",
+          "on": "2026-12-02",
+          "scope": "Article50(2), covered systems placed on market before 2026-08-02 only",
+          "disposition": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "DE-WITHDRAWAL",
+      "title": "German electronic withdrawal function",
+      "url": "https://www.gesetze-im-internet.de/bgb/__356a.html",
+      "issuer": "German federal legal collection",
+      "version": "BGB \u00a7356a current accessed 2026-10-22",
+      "status": "enacted_law",
+      "verification": "full_text",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": []
+    },
+    {
+      "id": "CRA-OVERVIEW",
+      "title": "CRA role-specific phase-in",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
+      "issuer": "European Commission",
+      "version": "Overview updated 2026-09-07; operative act 2024/2847",
+      "status": "enacted_law",
+      "verification": "official_summary",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": [
+        {
+          "type": "application",
+          "on": "2026-09-11",
+          "scope": "Manufacturer reporting under the applicable CRA provisions, not every online service",
+          "disposition": "unreviewed"
+        },
+        {
+          "type": "application",
+          "on": "2027-12-11",
+          "scope": "Main CRA obligations, subject to product/actor/transitional scope",
+          "disposition": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "EDPB-ANON-DRAFT",
+      "title": "Guidelines02/2026 anonymisation consultation",
+      "url": "https://www.edpb.europa.eu/public-consultations/guidelines-022026-on-anonymisation_en",
+      "issuer": "EDPB",
+      "version": "Consultation v1",
+      "status": "draft_guidance",
+      "verification": "full_text",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": [
+        {
+          "type": "consultation_end",
+          "on": "2026-10-30",
+          "scope": "Consultation close, not a platform legal-compliance deadline",
+          "disposition": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "EN301549-REVISION",
+      "title": "EN301549 V4.1.1 and citation check",
+      "url": "https://accessible-eu-centre.ec.europa.eu/content-corner/news/european-accessibility-standard-en-301-549-has-been-updated-2026-09-07_en",
+      "issuer": "European Commission AccessibleEU",
+      "version": "Announcement 2026-09-07; verify current OJ citation separately",
+      "status": "standard",
+      "verification": "official_summary",
+      "checked_on": "2026-10-22",
+      "next_review_on": "2026-11-05",
+      "owner": "ASSIGN_ACCOUNTABLE_OWNER",
+      "reviewed_content_sha256": null,
+      "observed_content_sha256": null,
+      "events": []
+    }
+  ]
+}

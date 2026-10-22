@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "assessment_date": null,
+  "systems": [],
+  "models": [],
+  "required_system_fields": [
+    "system_id",
+    "operator_entity",
+    "version",
+    "intended_purpose",
+    "countries",
+    "affected_persons",
+    "upstream_models",
+    "roles",
+    "placing_on_market_date",
+    "putting_into_service_date",
+    "article_5_screen",
+    "article_6_assessment",
+    "article_50_by_paragraph",
+    "applicable_duties",
+    "sources",
+    "reviewer",
+    "change_triggers"
+  ],
+  "required_model_fields": [
+    "model_id",
+    "version",
+    "provider",
+    "licence",
+    "gpai_assessment",
+    "systemic_risk_assessment",
+    "market_date",
+    "documentation",
+    "training_summary",
+    "modification_history"
+  ],
+  "note": "Empty template is incomplete; absence of an assessment is not absence of a duty."
+}

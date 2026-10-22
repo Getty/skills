@@ -1,0 +1,26 @@
+{
+  "collection": "EU AI Platform Compliance",
+  "version": "2026.10.22",
+  "language": "en",
+  "research_snapshot": "2026-10-22",
+  "entry_point": "eu-platform-compliance",
+  "jurisdiction_model": "EU core with German national overlays; other national adapters require verification",
+  "modules": [
+    "eu-ai-act",
+    "eu-ai-data-ip",
+    "eu-platform-accessibility",
+    "eu-platform-agent-assurance",
+    "eu-platform-billing-tax",
+    "eu-platform-business-contracts",
+    "eu-platform-compliance",
+    "eu-platform-consumer-commerce",
+    "eu-platform-content-safety",
+    "eu-platform-cybersecurity",
+    "eu-platform-data-governance",
+    "eu-platform-privacy",
+    "eu-platform-regulatory-watch",
+    "eu-platform-tracking-marketing"
+  ],
+  "automation": "No background monitoring, CI hooks or schedules are enabled by this collection.",
+  "legal_status": "Operational guidance and evidence workflows; no certification or platform-specific legal approval."
+}

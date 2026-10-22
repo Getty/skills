@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Content and Safety"
+  short_description: "Classify platform duties and operate content safety"
+  default_prompt: "Use $eu-platform-content-safety to classify our platform features and design proportionate content and minor protection processes."

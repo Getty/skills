@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "profile_id": "platform-profile",
+  "revision": "draft-1",
+  "status": "incomplete",
+  "as_of": "2026-10-22",
+  "operator": {
+    "legal_name": null,
+    "establishment_countries": [],
+    "group_entities": [],
+    "employees": null,
+    "annual_turnover_eur": null,
+    "balance_sheet_eur": null
+  },
+  "markets": {
+    "targeted_countries": [],
+    "customer_types": [],
+    "consumer_languages": [],
+    "national_adapters": [
+      "DE"
+    ],
+    "unreviewed_countries": []
+  },
+  "features": [],
+  "ai_systems": [],
+  "data_flows": [],
+  "vendors": [],
+  "roles_by_feature": [],
+  "regime_assessments": [],
+  "special_contexts": {
+    "children": null,
+    "public_content": null,
+    "marketplace": null,
+    "employment_decisions": null,
+    "health": null,
+    "financial_decisions": null,
+    "public_sector": null,
+    "distributed_software": null,
+    "holds_customer_funds": null
+  },
+  "owners": {
+    "product": null,
+    "engineering": null,
+    "privacy": null,
+    "security": null,
+    "legal": null,
+    "finance": null
+  },
+  "open_questions": [
+    "Identify actual legal entities, countries, features, intended purposes and customer segments before applicability decisions."
+  ],
+  "note": "Template only. Null, empty and unknown are not negative facts. Do not use this uncompleted profile as release evidence."
+}

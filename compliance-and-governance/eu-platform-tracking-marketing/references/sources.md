@@ -1,0 +1,20 @@
+# Primary source register
+
+Research snapshot: **2026-10-22**. Use the current national implementation and applicable amendments for each market.
+
+| ID | Official source | Status and purpose |
+| --- | --- | --- |
+| T1 | [ePrivacy Directive 2002/58/EC](https://eur-lex.europa.eu/eli/dir/2002/58/oj/eng), [consolidated text route](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219) | Directive, especially Arts 5(3) and 13; implemented through national law. Check subsequent amendments and local scope rather than treating this historical consolidation date as current-law verification. |
+| T2 | [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng) | Binding regulation; Arts 4(11), 5–9, 12–14, 21, 25, 28 and 44 onward. Automated EUR-Lex full-text retrieval encountered an anti-bot page in this research; verify operative text for disputed/current amendment questions. |
+| T3 | [TDDDG §25](https://www.gesetze-im-internet.de/ttdsg/__25.html) and [TDDDG index](https://www.gesetze-im-internet.de/ttdsg/) | German law; official §25 text retrieved 22 October 2026. The legacy URL directory still says `ttdsg`; the statute is TDDDG. |
+| T4 | [UWG official consolidated text](https://www.gesetze-im-internet.de/uwg_2004/BJNR141400004.html), [§7a](https://www.gesetze-im-internet.de/uwg_2004/__7a.html) | German law, §§7/7a; full text retrieved identifies latest amendment 12 May 2026. Contact rules, existing-customer exception and telephone-consent proof. |
+| T5 | [EDPB consent Guidelines 05/2020](https://www.edpb.europa.eu/documents/guideline/guidelines-052020-on-consent-under-regulation-2016679_en) | Adopted guidance, 4 May 2020; valid consent and withdrawal. |
+| T6 | [EDPB technical scope Guidelines 2/2023](https://www.edpb.europa.eu/documents/guideline/guidelines-22023-on-technical-scope-of-art-53-of-eprivacy-directive_en) | Final v2.0 adopted 7 October 2024; modern terminal-access/tracking technologies beyond cookies. |
+| T7 | [EDPB Cookie Banner Taskforce report](https://www.edpb.europa.eu/documents/task-force-report/report-of-the-work-undertaken-by-the-cookie-banner-taskforce_en) | January 2023 report on authority approaches; not a regulation prescribing universal button pixels. |
+| T8 | [DSK Digital Services guidance](https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf) | German supervisory guidance, November 2024; updated terminology and analysis for digital services. |
+| T9 | [DSK direct-marketing guidance](https://www.datenschutzkonferenz-online.de/media/oh/OH-Werbung_Februar%202022_final.pdf) | German supervisory guidance, February 2022; GDPR and marketing. Reconcile with current statute/judgments. |
+| T10 | [Einwilligungsverwaltungsverordnung](https://www.gesetze-im-internet.de/einwv/BJNR0200B0025.html), [BfDI recognition information](https://www.bfdi.bund.de/DE/Fachthemen/Themen-Positionen/Einwilligungsverwaltung/Einwilligungsverwaltung_node.html) | German 2025 regulation and official guidance on recognised consent-management services; not a general abolition of consent requirements. |
+| T11 | [CNIL audience-measurement guidance](https://www.cnil.fr/fr/cookies-solutions-pour-les-outils-de-mesure-daudience) | French authority guidance, page dated 4 July 2025; example of a conditional national interpretation, not a product-wide or EU-wide exemption. |
+| T12 | [DSA, Regulation (EU) 2022/2065](https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng) | Binding regulation; conditional online-platform advertising duties/restrictions under Arts 26/28. Route full applicability to the platform-services workflow and verify current text. |
+
+For a live control record include source URL, version, legal status, relevant article, jurisdiction, assessment date, exact proposition and uncertainty. A consent-management vendor's certification or template is not a substitute for this analysis. Do not claim that a proposed Digital Omnibus change is operative from a proposal/opinion alone; conversely, check whether an amendment has since been enacted before using an older rule.

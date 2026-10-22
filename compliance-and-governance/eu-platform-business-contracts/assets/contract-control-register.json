@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "agreement_id": null,
+  "reviewed_on": null,
+  "parties": [],
+  "governing_law": null,
+  "documents": [
+    {
+      "id": null,
+      "version": null,
+      "sha256": null,
+      "priority": null,
+      "signed": false
+    }
+  ],
+  "controls": [
+    {
+      "id": "B2B-REGION",
+      "clause_ref": null,
+      "promise": "Allowed processing and access locations",
+      "applicability": "unknown",
+      "implementation": [],
+      "evidence": [],
+      "upstream_dependencies": [],
+      "owner": null,
+      "status": "unverified",
+      "exceptions": [],
+      "next_review_trigger": null
+    }
+  ],
+  "data_act": {
+    "scope": "unknown",
+    "scope_reason": null,
+    "law_version": null,
+    "source_verified_on": null,
+    "notice_rule": null,
+    "transition_rule": null,
+    "retrieval_rule": null,
+    "fee_rule": null,
+    "exception_basis": null
+  },
+  "decision": {
+    "legal_review": "pending",
+    "commercial_approval": "pending",
+    "technical_acceptance": "pending"
+  }
+}

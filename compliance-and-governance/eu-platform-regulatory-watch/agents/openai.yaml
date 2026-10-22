@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Regulatory Watch"
+  short_description: "Track legal versions, applicability and change impact"
+  default_prompt: "Use $eu-platform-regulatory-watch to refresh the authoritative legal sources for our platform and identify concrete implementation changes."

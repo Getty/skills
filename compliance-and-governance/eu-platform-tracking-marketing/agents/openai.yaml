@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Tracking and Marketing"
+  short_description: "Review consent, tracking and direct marketing"
+  default_prompt: "Use $eu-platform-tracking-marketing to review our analytics, consent flows and marketing for EU and German requirements."

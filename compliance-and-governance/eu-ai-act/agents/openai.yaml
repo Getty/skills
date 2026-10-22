@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU AI Act Engineering"
+  short_description: "Classify AI roles and implement applicable duties"
+  default_prompt: "Use $eu-ai-act to classify our AI features and translate applicable AI Act duties into engineering evidence."

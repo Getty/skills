@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU AI Data and IP"
+  short_description: "Check rights for AI datasets, models and outputs"
+  default_prompt: "Use $eu-ai-data-ip to assess rights and provenance for our AI models, RAG content and generated outputs."

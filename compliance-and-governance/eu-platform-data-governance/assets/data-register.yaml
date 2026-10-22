@@ -1,0 +1,44 @@
+schema_version: 1
+data_class_id: null
+owner: null
+assessment_date: null
+status: needs-evidence
+entity_and_role: null
+countries_and_sector: []
+purpose_and_processing_record: null
+origin:
+  source_system: null
+  provenance_or_licence: null
+  legal_basis_reference: null
+  customer_instructions: null
+subjects_and_sensitivity: null
+identifiers:
+  tenant_key: null
+  subject_lookup: null
+  lineage_keys: []
+permitted_uses: []
+prohibited_or_unapproved_uses: []
+stores_and_derivatives: []
+recipients_and_remote_access: []
+transfer_review_references: []
+access_and_isolation_controls: []
+retention:
+  trigger: null
+  duration_or_criterion: null
+  legal_or_policy_rationale: null
+  source_version: null
+  enforcement_job: null
+  scoped_hold_process: null
+rights_and_disposal:
+  correction_route: null
+  restriction_route: null
+  erasure_route: null
+  recipient_instructions: null
+  backup_expiry_and_restore_suppression: null
+evidence:
+  synthetic_tests: []
+  production_completion_records: []
+  supplier_assurances: []
+  limitations: []
+review_triggers: []
+decision_owner_and_date: null

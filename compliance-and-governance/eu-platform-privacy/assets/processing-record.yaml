@@ -1,0 +1,54 @@
+record_version: 1
+processing_id: null
+assessment_date: null
+owner: null
+status: needs-evidence
+entity: null
+countries:
+  establishments: []
+  targeted_markets: []
+  national_overlays: []
+feature_and_environment: null
+purpose: null
+data_subject_categories: []
+data_categories: []
+special_categories: []
+criminal_offence_data: false
+children_or_vulnerable_people: null
+roles:
+  platform: null
+  customer: null
+  suppliers: []
+  factual_rationale: null
+lawfulness:
+  article_6_basis: null
+  necessity_evidence: null
+  article_9_condition: null
+  article_10_authority: null
+  lia_or_consent_record: null
+  further_processing_assessment: null
+flows:
+  collection_sources: []
+  stores_and_derivatives: []
+  recipients: []
+  international_transfers: []
+  support_and_admin_access: []
+retention:
+  schedule_reference: null
+  deletion_and_hold_mechanism: null
+rights:
+  notice_versions: []
+  fulfilment_routes: []
+  automated_decision_assessment: null
+accountability:
+  ropa_controller_or_processor_record: null
+  current_exemption_assessment_if_claimed: null
+  dpia_screen_or_assessment: null
+  dpo_assessment: null
+  security_measures: []
+  evidence: []
+  source_versions: []
+  unresolved_issues: []
+  review_triggers: []
+  decision_owner: null
+  decision_and_date: null

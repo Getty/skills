@@ -1,0 +1,38 @@
+schema_version: 1
+operation_id: null
+assessment_date: null
+owner: null
+status: needs-evidence
+entity_and_countries: []
+surface_and_trigger: null
+purpose: null
+vendors_and_exact_entities: []
+terminal_operations:
+  storage_or_access: []
+  information_and_lifetime: []
+  national_rule_and_source: null
+  required_consent_or_exception: null
+  requested_service_and_necessity_evidence: null
+personal_data:
+  fields_and_identity_joins: []
+  lawful_basis_reference: null
+  special_categories_or_children: null
+  recipients_and_transfers: []
+  retention_rule: null
+choice:
+  notice_and_purpose_version: null
+  affirmative_action: null
+  refusal_path: null
+  withdrawal_path: null
+  proof_and_proportionate_retention: null
+enforcement:
+  prechoice_block: null
+  browser_mobile_backend_gates: []
+  queue_and_vendor_propagation: null
+  changed_purpose_reconsent_rule: null
+verification:
+  tested_commit_and_configuration: null
+  scenarios_and_evidence: []
+  limitations: []
+decision_and_owner: null
+review_triggers: []

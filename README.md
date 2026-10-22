@@ -19,6 +19,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
+| [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
@@ -59,6 +60,25 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [codex-cross-session](codex/codex-cross-session/SKILL.md) | Reaching an existing Codex thread: the queue, the daemon, `--remote` |
 | [codex-headless](codex/codex-headless/SKILL.md) | `codex exec` non-interactively: JSONL events, sandboxes, resuming a thread |
 | [codex-plugin-engineering](codex/codex-plugin-engineering/SKILL.md) | Building a Codex plugin: package formats, hooks, MCP, and what each host actually runs |
+
+### [compliance-and-governance](compliance-and-governance/README.md)
+
+| Skill | What it is |
+|---|---|
+| [eu-ai-act](compliance-and-governance/eu-ai-act/SKILL.md) | AI Act classification and duties per feature, actor and model version, on the 2026-amended timeline |
+| [eu-ai-data-ip](compliance-and-governance/eu-ai-data-ip/SKILL.md) | Rights for training data, RAG sources, scraping, model weights and outputs, with German copyright overlay |
+| [eu-platform-accessibility](compliance-and-governance/eu-platform-accessibility/SKILL.md) | EAA and BFSG scope, then complete user journeys tested with keyboard and screen reader |
+| [eu-platform-agent-assurance](compliance-and-governance/eu-platform-agent-assurance/SKILL.md) | Compliance evidence, release gates and agent permissions for agent-built software |
+| [eu-platform-billing-tax](compliance-and-governance/eu-platform-billing-tax/SKILL.md) | Metering, VAT and OSS, German e-invoicing, retention, credits and payment-regulation screening |
+| [eu-platform-business-contracts](compliance-and-governance/eu-platform-business-contracts/SKILL.md) | B2B contracts in both directions: DPAs, SLAs, vendor terms, Data Act switching, promises as controls |
+| [eu-platform-compliance](compliance-and-governance/eu-platform-compliance/SKILL.md) | The entry point: platform profile, applicability register, routing to the specialists |
+| [eu-platform-consumer-commerce](compliance-and-governance/eu-platform-consumer-commerce/SKILL.md) | B2C checkout, pricing, withdrawal, cancellation and digital-product remedies, German adapter |
+| [eu-platform-content-safety](compliance-and-governance/eu-platform-content-safety/SKILL.md) | DSA classification, notices and appeals, minors, government orders, German DDG and youth law |
+| [eu-platform-cybersecurity](compliance-and-governance/eu-platform-cybersecurity/SKILL.md) | Security controls and evidence, NIS2/BSIG and CRA scope, incident reporting clocks |
+| [eu-platform-data-governance](compliance-and-governance/eu-platform-data-governance/SKILL.md) | Data lifecycle: inventory, retention, deletion, RAG and training provenance, vendors and transfers |
+| [eu-platform-privacy](compliance-and-governance/eu-platform-privacy/SKILL.md) | GDPR roles, lawful bases, DPIA, rights, automated decisions and breaches, BDSG overlay |
+| [eu-platform-regulatory-watch](compliance-and-governance/eu-platform-regulatory-watch/SKILL.md) | Versioned legal source register and change-impact review, without self-installed monitoring |
+| [eu-platform-tracking-marketing](compliance-and-governance/eu-platform-tracking-marketing/SKILL.md) | Cookies, SDKs, consent and direct marketing — device access, processing and contact kept apart |
 
 ### [databases](databases/README.md)
 

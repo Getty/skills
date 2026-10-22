@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Accessibility"
+  short_description: "Scope accessibility duties and verify user journeys"
+  default_prompt: "Use $eu-platform-accessibility to assess EAA and German BFSG applicability and test our critical customer journeys."

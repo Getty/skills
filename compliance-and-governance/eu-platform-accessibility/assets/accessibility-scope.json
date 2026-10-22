@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewed_on": null,
+  "entity": null,
+  "countries": [],
+  "service_categories": [],
+  "customer_classes": [],
+  "applicability": "unknown",
+  "reason": null,
+  "sources": [],
+  "microenterprise": {
+    "claimed": false,
+    "persons": null,
+    "annual_turnover_eur": null,
+    "balance_sheet_eur": null,
+    "evidence": [],
+    "reviewer": null
+  },
+  "exception": {
+    "basis": null,
+    "scope": null,
+    "assessment_ref": null,
+    "approved_by": null,
+    "review_trigger": null
+  },
+  "technical_target": {
+    "standard": null,
+    "edition": null,
+    "level": null,
+    "oj_citation": null,
+    "citation_status": "unverified",
+    "checked_on": null
+  },
+  "journeys": [],
+  "assessment_status": "not_started",
+  "release_decision": "pending"
+}

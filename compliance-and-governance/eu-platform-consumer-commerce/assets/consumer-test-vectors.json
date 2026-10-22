@@ -1,0 +1,65 @@
+[
+  {
+    "id": "C-WITHDRAW-SERVICE",
+    "scenario": "Paid monthly AI service used for one day; early-performance consent exists",
+    "assertions": [
+      "Do not automatically extinguish withdrawal because access began",
+      "Apply service branch and separately reviewed compensation policy",
+      "Keep withdrawal function available while right subsists"
+    ]
+  },
+  {
+    "id": "C-WITHDRAW-CONTENT",
+    "scenario": "Paid downloadable content supplied immediately",
+    "assertions": [
+      "Evaluate content branch cumulatively",
+      "Record express consent, acknowledgement and required confirmation",
+      "Do not reuse service waiver state"
+    ]
+  },
+  {
+    "id": "C-CANCEL-LOCKED",
+    "scenario": "Consumer has lost account password and wants to cancel",
+    "assertions": [
+      "Provide legally reviewed accessible route",
+      "Do not demand a support call as the only path",
+      "Preserve receipt and send durable confirmation"
+    ]
+  },
+  {
+    "id": "C-RETRY",
+    "scenario": "Payment or withdrawal response times out and customer retries",
+    "assertions": [
+      "No duplicate charge or refund",
+      "First legal receipt timestamp retained",
+      "Delivery failures monitored"
+    ]
+  },
+  {
+    "id": "C-MODEL-CHANGE",
+    "scenario": "Advertised model replaced with lower capability during annual subscription",
+    "assertions": [
+      "Assess conformity and material change",
+      "Identify affected contract cohort",
+      "Evaluate notice and remedy before rollout"
+    ]
+  },
+  {
+    "id": "C-CROSS-BORDER",
+    "scenario": "German company markets a French-language plan to French consumers",
+    "assertions": [
+      "Load French national adapter",
+      "Assess mandatory consumer law",
+      "Do not transplant German button text as proof of compliance"
+    ]
+  },
+  {
+    "id": "C-FREE-DATA",
+    "scenario": "Free AI workspace requires use of prompts for advertising",
+    "assertions": [
+      "Assess digital-service scope for personal-data consideration",
+      "Separately review GDPR lawfulness",
+      "Do not declare all free accounts exempt"
+    ]
+  }
+]

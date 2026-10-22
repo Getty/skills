@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Cybersecurity"
+  short_description: "Map cyber duties to tested engineering controls"
+  default_prompt: "Use $eu-platform-cybersecurity to assess cybersecurity scope, incident obligations and security evidence for our platform."

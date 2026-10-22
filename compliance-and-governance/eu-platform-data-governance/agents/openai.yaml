@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Platform Data Governance"
+  short_description: "Govern retention, vendors, transfers and deletion"
+  default_prompt: "Use $eu-platform-data-governance to audit our data lifecycle, processors, transfers and verifiable deletion."

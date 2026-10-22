@@ -1,0 +1,46 @@
+{
+  "template_kind": "service-classification",
+  "research_snapshot": "2026-10-22",
+  "assessment_id": null,
+  "operator_entity": null,
+  "establishments": [],
+  "target_countries": [],
+  "reviewed_on": null,
+  "reviewer": null,
+  "enterprise_size": {
+    "status": "unknown",
+    "group_evidence": [],
+    "status_since": null
+  },
+  "services": [
+    {
+      "service_id": null,
+      "description": null,
+      "content_origin": null,
+      "stored_at_user_request": null,
+      "disseminated_at_user_request": null,
+      "audience": "unknown",
+      "admission_method": null,
+      "editorial_control": null,
+      "minors_accessible": "unknown",
+      "third_party_consumer_contracts": null,
+      "classification": "unknown",
+      "sources": [],
+      "evidence": [],
+      "dsa_tiers": [],
+      "exceptions": [],
+      "national_overlays": [],
+      "owner": null
+    }
+  ],
+  "change_triggers": [
+    "public sharing",
+    "marketplace",
+    "minors",
+    "country",
+    "enterprise size",
+    "designation",
+    "AI output publication"
+  ],
+  "note": "This is an unassessed template, not a legal conclusion."
+}

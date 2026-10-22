@@ -1,0 +1,4 @@
+interface:
+  display_name: "EU Consumer Commerce"
+  short_description: "Build compliant consumer signup and subscription flows"
+  default_prompt: "Use $eu-platform-consumer-commerce to audit our consumer checkout, withdrawal, cancellation and digital service terms."
