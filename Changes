@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.4.0     2026-10-22 21:41:08Z
   - New group `compliance-and-governance`: EU compliance engineering for AI
     platforms with German overlays, entry point eu-platform-compliance and
     specialists for privacy, data governance, tracking and marketing, the AI
