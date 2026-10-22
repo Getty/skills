@@ -1,0 +1,4 @@
+interface:
+  display_name: "Home Assistant Operator"
+  short_description: "Install, operate, secure, and troubleshoot Home Assistant"
+  default_prompt: "Inspect this Home Assistant installation and propose a verified recovery or improvement using $home-assistant-operator."

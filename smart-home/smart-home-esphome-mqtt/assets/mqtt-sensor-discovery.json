@@ -1,0 +1,17 @@
+{
+  "name": "Temperature",
+  "unique_id": "lab_sensor_01_temperature",
+  "state_topic": "house/lab_sensor_01/state",
+  "value_template": "{{ value_json.temperature }}",
+  "availability_topic": "house/lab_sensor_01/availability",
+  "payload_available": "online",
+  "payload_not_available": "offline",
+  "device_class": "temperature",
+  "unit_of_measurement": "°C",
+  "state_class": "measurement",
+  "expire_after": 300,
+  "device": {
+    "identifiers": ["lab_sensor_01"],
+    "name": "Lab Sensor 01"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Home Devices"
+  short_description: "Integrate vendors and diagnose exact device variants"
+  default_prompt: "Use $smart-home-devices to plan and verify this smart home task."

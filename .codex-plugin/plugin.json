@@ -1,6 +1,6 @@
 {
   "name": "skills",
-  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes, container and storage operations, PostgreSQL with pgvector and Apache AGE, EU compliance engineering for AI platforms, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
+  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes, container and storage operations, PostgreSQL with pgvector and Apache AGE, EU compliance engineering for AI platforms, Home Assistant and the smart home, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
   "version": "0.3.0",
   "author": {
     "name": "Torsten Raudssus",
@@ -56,6 +56,15 @@
     "./perl/perl-mojo",
     "./perl/perl-release-dist-ini",
     "./perl/perl-xs",
+    "./smart-home/fritzbox-operator",
+    "./smart-home/home-assistant-automations",
+    "./smart-home/home-assistant-hacs",
+    "./smart-home/home-assistant-operator",
+    "./smart-home/smart-home-architecture",
+    "./smart-home/smart-home-devices",
+    "./smart-home/smart-home-esphome-mqtt",
+    "./smart-home/smart-home-radio",
+    "./smart-home/smart-home-video-media",
     "./social-media/linkedin",
     "./social-media/twitch",
     "./storytold-craft/storytold-artcraft",

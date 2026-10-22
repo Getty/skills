@@ -26,6 +26,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
 | [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
+| [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
 | [system-and-network-administration](system-and-network-administration/README.md) | 13 | Machines, networks, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
@@ -129,6 +130,20 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [perl-mojo](perl/perl-mojo/SKILL.md) | `Mojo::Base` as an object system, plus the `Mojo::*` toolkit around it |
 | [perl-release-dist-ini](perl/perl-release-dist-ini/SKILL.md) | Dist::Zilla for any distribution, independent of the author bundle |
 | [perl-xs](perl/perl-xs/SKILL.md) | The Perl/C boundary, and why an `.xs` file is C behind a preprocessor |
+
+### [smart-home](smart-home/README.md)
+
+| Skill | What it is |
+|---|---|
+| [fritzbox-operator](smart-home/fritzbox-operator/SKILL.md) | FRITZ!Box APIs, HA integrations, DECT heating and buttons, presence, provider firmware, recovery |
+| [home-assistant-automations](smart-home/home-assistant-automations/SKILL.md) | Automations as behaviour contracts: triggers, restart-safe timing, manual override, presence, Assist and MCP |
+| [home-assistant-hacs](smart-home/home-assistant-hacs/SKILL.md) | HACS and community extensions: when to install, frontend debugging, updates and recovery |
+| [home-assistant-operator](smart-home/home-assistant-operator/SKILL.md) | Running Home Assistant: install types, backups, registries, APIs, recorder, performance, integration development |
+| [smart-home-architecture](smart-home/smart-home-architecture/SKILL.md) | The whole home: subsystems and control ownership, protocol and hub choice, purchasing, migration |
+| [smart-home-devices](smart-home/smart-home-devices/SKILL.md) | Exact-model integration decisions for Hue, Shelly, Tuya, SONOFF, Aqara and other device families |
+| [smart-home-esphome-mqtt](smart-home/smart-home-esphome-mqtt/SKILL.md) | ESPHome firmware and MQTT: boards, API and OTA, broker design, discovery, availability |
+| [smart-home-radio](smart-home/smart-home-radio/SKILL.md) | Zigbee, ZHA, Zigbee2MQTT, Matter and Thread, BLE, Z-Wave — commissioning, diagnosis, migration |
+| [smart-home-video-media](smart-home/smart-home-video-media/SKILL.md) | Cameras, NVRs, doorbells, go2rtc and Frigate, TVs and media players in Home Assistant |
 
 ### [social-media](social-media/README.md)
 

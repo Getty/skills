@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Home Architecture"
+  short_description: "Design resilient homes and verify device purchases"
+  default_prompt: "Use $smart-home-architecture to plan and verify this smart home task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "FRITZ!Box Operator"
+  short_description: "Operate FRITZ! APIs, networks, and smart home devices"
+  default_prompt: "Use $fritzbox-operator to plan and verify this smart home task."

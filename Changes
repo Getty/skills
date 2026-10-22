@@ -8,6 +8,10 @@ Revision history for skills
     accessibility, content safety, cybersecurity, agent assurance and
     regulatory watch, with its group image.
   - New skill storage-engineering in system-and-network-administration.
+  - New group `smart-home`: Home Assistant (operator, automations, HACS),
+    fritzbox-operator, smart-home-architecture, smart-home-devices,
+    smart-home-radio, smart-home-esphome-mqtt and smart-home-video-media,
+    with its group image.
 
 0.3.0     2026-10-20 23:04:10Z
   - New skill gearman in system-and-network-administration.

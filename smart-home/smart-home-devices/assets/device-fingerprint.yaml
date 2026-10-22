@@ -1,0 +1,53 @@
+# Task-local template. Fill only necessary fields; never include passwords,
+# local keys, Matter setup codes, exact home address, account tokens or Wi-Fi PSKs.
+schema_version: 1
+reviewed_at: null
+inventory_status: user_reported  # user_reported | label_checked | diagnostics_checked
+alias: null                    # non-identifying task alias
+quantity: null
+manufacturer:
+  retail_brand: null
+  manufacturer_label: null
+  product_family: null
+  exact_model: null
+  article_ean: null
+  region: null
+  hardware_revision: null
+  firmware: null
+transport:
+  radio_or_network: null        # zigbee | thread | wifi | ble | zwave | dect | wired | unknown
+  application_protocol: null  # Matter is not the same field as Thread
+  current_hub: null
+  current_integration: null
+  candidate_integration: null
+zigbee:
+  raw_model_id: null
+  raw_manufacturer_name: null
+  raw_string_encoding_notes: null
+  endpoints_and_clusters: []
+  installed_converter_or_quirk: null
+  interview_complete: null
+bluetooth:
+  advertisement_name_pattern: null
+  service_uuids: []
+  passive_or_active: unknown
+network:
+  access_route: null            # describe subnet reachability without publishing private addresses
+  cloud_needed_for_setup: unknown
+  cloud_needed_for_operation: unknown
+  credentials_stored_in: null  # secret-store reference only; never the value
+software:
+  home_assistant_version: null
+  integration_version: null
+  gateway_or_coordinator_model: null
+  coordinator_firmware: null
+required_functions: []
+evidence:
+  - claim: null
+    confidence: unknown       # documented | reproduced | reported | inferred | unknown
+    source_url: null
+    source_date: null
+    model_version_match: null
+    checked_at: null
+    limitation: null
+unresolved_questions: []

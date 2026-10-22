@@ -1,0 +1,39 @@
+# Development-board example for ESPHome 2026.10 or a compatible later release.
+# Verify that esp32dev matches the actual classic ESP32 board before building.
+# No external load, GPIO actuator, fallback AP or web server is configured.
+# Populate secrets.yaml locally with a unique valid API key and Wi-Fi secrets.
+# This final-state OTA configuration is for a new controlled serial install.
+# An existing device requires the migration in references/api-and-ota.md first.
+# YAML parsing is not compilation or hardware verification.
+esphome:
+  name: esp32-lab
+  friendly_name: ESP32 Lab
+  min_version: 2026.10.0
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret esp32_lab_api_key
+
+ota:
+  - platform: esphome
+    encryption:
+
+wifi:
+  ssid: !secret lab_wifi_ssid
+  password: !secret lab_wifi_password
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    update_interval: 60s
+
+binary_sensor:
+  - platform: status
+    name: Connection

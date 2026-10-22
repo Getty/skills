@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Home Video and Media"
+  short_description: "Integrate Reolink, cameras, televisions, and media"
+  default_prompt: "Use $smart-home-video-media to plan and verify this smart home task."

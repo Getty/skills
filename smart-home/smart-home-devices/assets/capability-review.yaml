@@ -1,0 +1,66 @@
+# Use for one exact product plus one integration route.
+# Values are observations or explicit unknowns, not brand-wide guarantees.
+schema_version: 1
+device_alias: null
+exact_model: null
+firmware: null
+route: null
+reviewed_at: null
+required_capabilities:
+  - name: null
+    essential: true
+    support: unknown          # documented | tested | reported | unavailable | unknown
+    exposed_entity_or_action: null
+    physical_test: null
+    result: null
+    observed_state_freshness: null
+    source_url: null
+    caveat: null
+failure_cases:
+  - condition: internet_unavailable
+    expected_behavior: null
+    tested: false
+    observed_behavior: null
+  - condition: home_assistant_unavailable
+    expected_behavior: null
+    tested: false
+    observed_behavior: null
+  - condition: gateway_or_radio_unavailable
+    expected_behavior: null
+    tested: false
+    observed_behavior: null
+  - condition: sensor_stale_or_battery_low
+    expected_behavior: null
+    tested: false
+    observed_behavior: null
+manual_control:
+  available: unknown
+  tested: false
+  limitations: null
+migration:
+  pilot_device: null
+  saved_configuration_reference: null
+  entity_id_changes: []
+  feature_losses: []
+  rollback_steps: []
+  successful_rollback_verified: false
+purchase_if_relevant:
+  selected_variant: null
+  market: null
+  price_checked_at: null
+  total_system_cost: null
+  required_adapters_or_hub: []
+community_reports:
+  - url: null
+    original_date: null
+    exact_model_and_versions: null
+    symptom: null
+    reported_workaround: null
+    status: unknown            # open | reporter_resolved | fixed_in_release | duplicate | stale | unknown
+    verified_fixed_version: null
+    applicability_limit: null
+recommendation:
+  choice: null
+  reasoning: null
+  remaining_unknowns: []
+  acceptance_conditions: []

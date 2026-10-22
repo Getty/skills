@@ -1,0 +1,4 @@
+interface:
+  display_name: "Home Assistant Automations"
+  short_description: "Build reliable automations, dashboards, and controls"
+  default_prompt: "Use $home-assistant-automations to build this behavior with manual override and restart recovery."

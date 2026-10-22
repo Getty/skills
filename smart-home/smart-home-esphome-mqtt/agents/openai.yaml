@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Home ESPHome and MQTT"
+  short_description: "Build local ESPHome devices and MQTT integrations"
+  default_prompt: "Use $smart-home-esphome-mqtt to plan and verify this smart home task."

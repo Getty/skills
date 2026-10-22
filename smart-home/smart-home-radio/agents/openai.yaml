@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Home Radio"
+  short_description: "Engineer Zigbee, Thread, Matter, and Bluetooth networks"
+  default_prompt: "Use $smart-home-radio to plan and verify this smart home task."

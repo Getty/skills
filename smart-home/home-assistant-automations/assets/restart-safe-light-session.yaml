@@ -1,0 +1,89 @@
+# Package-style example. Map light.study_lamp before use.
+# Call script.study_light_session with operation: start, cancel, or reconcile.
+# A session owns this lamp's off deadline until cancelled or completed.
+# Cancel removes the deadline without changing lamp power.
+# All helper mutations pass through one queued script to serialize requests.
+# Static example, not hardware-tested; not intended for critical actuators.
+input_datetime:
+  study_light_off_at:
+    name: Study light off deadline
+    has_date: true
+    has_time: true
+input_boolean:
+  study_light_off_pending:
+    name: Study light deadline active
+
+script:
+  study_light_session:
+    alias: Manage study light session
+    mode: queued
+    max: 10
+    fields:
+      operation:
+        description: Start or renew ten minutes, cancel, or reconcile overdue work
+        required: true
+        selector:
+          select:
+            options:
+              - start
+              - cancel
+              - reconcile
+    sequence:
+      - choose:
+          - conditions: "{{ operation | default('') == 'start' }}"
+            sequence:
+              - action: input_datetime.set_datetime
+                target:
+                  entity_id: input_datetime.study_light_off_at
+                data:
+                  timestamp: "{{ as_timestamp(now()) + 600 }}"
+              - action: input_boolean.turn_on
+                target:
+                  entity_id: input_boolean.study_light_off_pending
+              - action: light.turn_on
+                target:
+                  entity_id: light.study_lamp
+          - conditions: "{{ operation | default('') == 'cancel' }}"
+            sequence:
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.study_light_off_pending
+          - conditions:
+              - condition: template
+                value_template: "{{ operation | default('') == 'reconcile' }}"
+              - condition: state
+                entity_id: input_boolean.study_light_off_pending
+                state: "on"
+              - condition: template
+                value_template: >-
+                  {% set due = state_attr('input_datetime.study_light_off_at', 'timestamp') %}
+                  {{ due is number and due <= as_timestamp(now()) }}
+              - condition: template
+                value_template: "{{ has_value('light.study_lamp') }}"
+            sequence:
+              - action: light.turn_off
+                target:
+                  entity_id: light.study_lamp
+              - wait_template: "{{ is_state('light.study_lamp', 'off') }}"
+                timeout: "00:00:10"
+                continue_on_timeout: false
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: input_boolean.study_light_off_pending
+
+automation:
+  - id: reconcile_study_light_deadline
+    alias: Reconcile study light deadline
+    triggers:
+      - trigger: time
+        at: input_datetime.study_light_off_at
+      - trigger: homeassistant
+        event: start
+      - trigger: time_pattern
+        minutes: "/1"
+    conditions: []
+    actions:
+      - action: script.study_light_session
+        data:
+          operation: reconcile
+    mode: single

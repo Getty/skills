@@ -1,0 +1,4 @@
+interface:
+  display_name: "Home Assistant HACS"
+  short_description: "Manage HACS and evaluate community extensions"
+  default_prompt: "Use $home-assistant-hacs to choose and safely maintain the community extensions needed for this home."
