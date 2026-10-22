@@ -1,0 +1,11 @@
+scenario,failed_domain,readable_data,remaining_voters,write_permission,fencing_or_exclusion,service_effect,recovery_source,expected_data_loss,recovery_time_budget,failback_owner,acceptance_evidence
+drive_loss,,,,,,,,,,,
+host_loss,,,,,,,,,,,
+storage_server_or_metadata_loss,,,,,,,,,,,
+asymmetric_network_partition,,,,,,,,,,,
+site_loss,,,,,,,,,,,
+account_or_credential_compromise,,,,,,,,,,,
+logical_deletion_or_corruption,,,,,,,,,,,
+key_or_catalog_loss,,,,,,,,,,,
+second_failure_during_rebuild,,,,,,,,,,,
+capacity_or_quota_exhaustion,,,,,,,,,,,

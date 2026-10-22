@@ -28,7 +28,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
-| [system-and-network-administration](system-and-network-administration/README.md) | 12 | Machines, networks, hosting, containers, Kubernetes, TLS and PKI, job queues, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 13 | Machines, networks, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
@@ -172,6 +172,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [kubernetes-gpu](system-and-network-administration/kubernetes-gpu/SKILL.md) | The four layers that must line up before a pod can use a GPU |
 | [kubernetes-rke2](system-and-network-administration/kubernetes-rke2/SKILL.md) | RKE2 and K3s as one topic, with the differences named where they exist |
 | [rex](system-and-network-administration/rex/SKILL.md) | Perl Rex automation: Rexfiles, transports, idempotency, and operating it safely |
+| [storage-engineering](system-and-network-administration/storage-engineering/SKILL.md) | Storage from the access contract and failure model: block, file, object, HA, DR, backup, Kubernetes, sizing |
 | [ssl-tls-pki](system-and-network-administration/ssl-tls-pki/SKILL.md) | TLS, public Web PKI, private CAs, ACME and mTLS — design, operation, debugging |
 | [vllm-operator](system-and-network-administration/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning (German) |
 

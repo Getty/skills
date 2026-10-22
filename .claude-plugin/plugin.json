@@ -1,6 +1,6 @@
 {
   "name": "skills",
-  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes and container operations, PostgreSQL with pgvector and Apache AGE, EU compliance engineering for AI platforms, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
+  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes, container and storage operations, PostgreSQL with pgvector and Apache AGE, EU compliance engineering for AI platforms, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
   "version": "0.3.0",
   "author": {
     "name": "Torsten Raudssus",
@@ -85,6 +85,7 @@
     "./system-and-network-administration/kubernetes-rke2",
     "./system-and-network-administration/rex",
     "./system-and-network-administration/ssl-tls-pki",
+    "./system-and-network-administration/storage-engineering",
     "./system-and-network-administration/vllm-operator"
   ]
 }

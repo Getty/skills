@@ -181,6 +181,35 @@ daemon-tested; installed versions are inspected before any command is applied.
 **Load when** building or running a Gearman queue, writing a client or worker in any
 language, debugging stuck or duplicated jobs, or touching the protocol.
 
+## Storage
+
+### [storage-engineering](storage-engineering/SKILL.md)
+
+Storage design from the application's access contract and the failures it must
+survive, across local, network, cloud and distributed storage. Interface,
+implementation, placement and service guarantee are four separate things: a mounted
+path may be local, networked, object-backed, cached or transient, and an S3 API says
+little about durability or consistency. Availability, durability, integrity,
+consistency and recoverability are different properties; replication, snapshots, RAID,
+versioning and backup each solve a different failure class.
+
+The workflow runs workload contract → semantics before products → a failure matrix
+with quorum, fencing and failback named per failure → sizing for normal, degraded and
+rebuild operation → platform match → a testable decision. Writer exclusion is proven
+before any failover. A router over 26 references: block, file and object semantics,
+S3, local filesystems, NAS/SAN and NVMe-oF, NFS/SMB, RAID and erasure coding,
+consistency and HA, geo-replication and DR, backup, Kubernetes CSI and recovery, cloud
+disk lifecycles, Hetzner, other providers, caching, sizing, migration, security and
+specialised storage. Ships an architecture brief, a failure-matrix template and
+`storage_budget.py` for capacity and transfer arithmetic — planning math, not proof of
+availability. For Hetzner product specifics it overlaps with
+[hetzner-operator](hetzner-operator/SKILL.md), which stays the authority on Hetzner
+itself.
+
+**Load when** choosing between block, file and object storage, designing HA, DR or
+backups, sizing a cluster or rebuild, wiring Kubernetes volumes, or debugging storage
+that loses or corrupts data.
+
 ## Hosting
 
 ### [hetzner-operator](hetzner-operator/SKILL.md)

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storage Engineering"
+  short_description: "Design resilient local, network, and cloud storage"
+  default_prompt: "Use $storage-engineering to compare storage architectures, explain their access semantics, and design a recoverable system for my workload."
