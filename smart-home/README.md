@@ -98,9 +98,13 @@ devices.
 Device-by-device integration decisions from exact model and fingerprint: a capability
 matrix per device and route (native, Matter, HomeKit, Zigbee, BLE, MQTT, cloud,
 HACS), verified in both directions — command to physical effect, physical action to
-HA state. Vendor references for Hue, Shelly, THIRDREALITY, Tuya Zigbee and Wi-Fi,
-SONOFF, Zengge, ThermoBeacon, Aqara/Xiaomi, OSRAM/LEDVANCE, Govee and Paulmann, plus
-heating, plugs, locks, covers, presence, garden, solar and EV families.
+HA state. Each vendor reference maps the manufacturer's whole range — lines,
+generations, radio, HA route and caveat per line — and shows how to place a device
+from its label or model ID (Shelly `SN…`/`S3…`/`S4…`, Tuya `TS0601` with `_TZE2…`,
+Hue `LCA`/`LTW`, `lumi.*`, `3R…`, SNZB). Vendors: Hue, Shelly, THIRDREALITY, Tuya
+Zigbee and Wi-Fi, SONOFF, Zengge/Magic Home, BLE thermometers, Aqara/Xiaomi,
+OSRAM/LEDVANCE, Govee and Paulmann, plus heating, plugs, locks, covers, presence,
+garden, solar and EV families.
 
 **Load when** identifying, choosing, integrating or debugging a specific smart-home
 product.

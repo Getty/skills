@@ -21,18 +21,18 @@ Build a device-specific integration decision. Identify the physical product befo
 
 | Device family or question | Read |
 | --- | --- |
-| Hue bulbs, strips, dimmers, motion sensors, rooms, Bridge generations | [philips-hue.md](references/philips-hue.md) |
-| Shelly Plus Plug S, Flood, relay/meter/generation/API differences | [shelly.md](references/shelly.md) |
-| THIRDREALITY 3RSPE01044BZ and other product families | [third-reality.md](references/third-reality.md) |
-| Tuya TS0201, TS0203, TS0601, `_TZ…` signatures and data points | [tuya-zigbee.md](references/tuya-zigbee.md) |
-| Smart Life/Tuya cloud, LocalTuya, tuya-local, Wi-Fi LAN keys | [tuya-wifi-local-cloud.md](references/tuya-wifi-local-cloud.md) |
-| SONOFF SNZB-02P, SNZB-01P, ambiguous MS01, eWeLink and SonoffLAN | [sonoff-ewelink.md](references/sonoff-ewelink.md) |
-| Zengge, LEDnet/LEDnetWF, Magic Home, RGB controllers | [zengge-lighting.md](references/zengge-lighting.md) |
-| ThermoBeacon, SensorBlue, Bluetooth temperature/humidity sensors | [thermobeacon-and-ble-sensors.md](references/thermobeacon-and-ble-sensors.md) |
-| LUMI, Xiaomi, Aqara Zigbee/Thread/HomeKit/MIoT variants | [aqara-xiaomi-lumi.md](references/aqara-xiaomi-lumi.md) |
-| OSRAM, LIGHTIFY and LEDVANCE SMART+ variants | [osram-ledvance.md](references/osram-ledvance.md) |
-| Govee lights, sensors, LAN/BLE/cloud/Matter paths | [govee.md](references/govee.md) |
-| Paulmann smik, Plug & Shine, URail, LED controllers | [paulmann.md](references/paulmann.md) |
+| Hue bulbs/strips/luminaires (LCT/LCA/LTW/LWB… modelIDs), Essential, Bridge v1/v2/Pro (BSB00x), dimmers/Tap dial/buttons/wall modules, motion/contact sensors, MotionAware, Hue Secure cameras, Sync Box, Hue BLE, Hue Matter/Thread | [philips-hue.md](references/philips-hue.md) |
+| Any Shelly: Gen1/Plus/Pro/Gen3/Gen4, BLU, Wave, Wall Display; model codes SH…/SN…/SP…/S3…/S4…/SB…/QN…; Plug S, Flood, 1PM, 3EM, Zigbee/Matter mode | [shelly.md](references/shelly.md) |
+| THIRDREALITY plugs (E2 3RSPE01044BZ, Gen3/E3), sensors, lights, blinds, Matter Wi-Fi/Thread lines, MZ1 bridge, 3R… IDs | [third-reality.md](references/third-reality.md) |
+| Tuya Zigbee `TSxxxx` model IDs, `_TZ3000_`/`_TZE2xx_` prefixes, 0xEF00 data points, TS0601 | [tuya-zigbee.md](references/tuya-zigbee.md) |
+| Tuya Wi-Fi/BLE white-label, Smart Life cloud, LocalTuya, tuya-local, protocol 3.1–3.5, local keys, BK72xx/RTL reflash, cloudcutter | [tuya-wifi-local-cloud.md](references/tuya-wifi-local-cloud.md) |
+| SONOFF SNZB/ZBMINI/ZBM5/TRVZB Zigbee, Wi-Fi BASIC/MINI/POW/TH/NSPanel, Matter lines, dongles, iHost, MS01, eWeLink/SonoffLAN | [sonoff-ewelink.md](references/sonoff-ewelink.md) |
+| Zengge/Surplife OEM: Magic Home, Magic Hue, LEDnet/LEDnetWF, Hao Deng mesh, AK001-ZJ modules, reflash | [zengge-lighting.md](references/zengge-lighting.md) |
+| ThermoBeacon, Xiaomi MiBeacon, pvvx/ATC, BTHome/Shelly BLU, Govee, Inkbird, SwitchBot, Qingping, Ruuvi BLE sensors | [thermobeacon-and-ble-sensors.md](references/thermobeacon-and-ble-sensors.md) |
+| Aqara/Xiaomi `lumi.*` Zigbee, Aqara hubs, Thread/Matter, FP2, Xiaomi gateways, MIoT Wi-Fi, model-code lookup | [aqara-xiaomi-lumi.md](references/aqara-xiaomi-lumi.md) |
+| OSRAM LIGHTIFY (ZLL, gateway), SMART+ Zigbee (Z3/“T” modelIDs, 4058075… EANs), SYLVANIA US, SMART+ Wi-Fi/SUN@HOME (Tuya), SMART+ Bluetooth/HomeKit, SMART+ Matter over Wi-Fi, OSRAM IR remote lamps | [osram-ledvance.md](references/osram-ledvance.md) |
+| Govee H-numbers: strips, neon, bars, lamps, bulbs, outdoor, TV sync, BLE sensors, leak, appliances; LAN/BLE/cloud/Matter | [govee.md](references/govee.md) |
+| Paulmann Zigbee 3.0, smik gateway, Plug & Shine, URail, remotes, Bluetooth line, article numbers | [paulmann.md](references/paulmann.md) |
 
 ## Load broader market references
 

@@ -1,6 +1,11 @@
 Revision history for skills
 
 {{$NEXT}}
+  - smart-home-devices: every vendor reference maps the manufacturer's whole
+    range by line and generation (radio, HA route, caveat) and how to place a
+    device from its label or model ID; Hue, Shelly, THIRDREALITY, Tuya,
+    SONOFF, Zengge, BLE thermometers, Aqara/Xiaomi, OSRAM/LEDVANCE, Govee and
+    Paulmann, with their sources.
 
 0.4.0     2026-10-22 21:41:08Z
   - New group `compliance-and-governance`: EU compliance engineering for AI
