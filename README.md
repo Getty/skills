@@ -22,6 +22,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
+| [game-development](game-development/README.md) | 3 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
@@ -93,6 +94,14 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [feedback-loop-debugging](development/feedback-loop-debugging/SKILL.md) | A six-phase discipline for hard bugs, built on a fast pass/fail signal |
 | [getty-create-software](development/getty-create-software/SKILL.md) | Scaffolding a new project from the signals that reveal its type |
+
+### [game-development](game-development/README.md)
+
+| Skill | What it is |
+|---|---|
+| [ai-playable-games](game-development/ai-playable-games/SKILL.md) | One seat protocol for humans, bots and LLM agents: views, orders, rejections, replay, untrusted player text |
+| [game-balance-math](game-development/game-balance-math/SKILL.md) | Economy flow graphs, money loops, feedback loops, cost curves, payoff matrices |
+| [simulation-balancing](game-development/simulation-balancing/SKILL.md) | The sim as balance instrument: policy league, paired runs, sample sizes, mechanic ablation |
 
 ### [git](git/README.md)
 

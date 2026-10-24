@@ -1,6 +1,10 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New group game-development: ai-playable-games for the seat interface
+    that lets bots and LLM agents play a game, simulation-balancing for
+    balancing through bot leagues and mechanic ablation, game-balance-math
+    for economy flows, cost curves and payoff matrices.
 
 0.5.0     2026-10-22 22:38:58Z
   - New skills in system-and-network-administration: mikrotik-routeros,
