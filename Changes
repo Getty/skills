@@ -1,6 +1,11 @@
 Revision history for skills
 
 {{$NEXT}}
+  - Shared house rules: engineering-discipline, getty-agent-delegation,
+    getty-publish-gate, getty-cpan-release and karr-coordination under
+    rules/, installed through the bundles getty-house and getty-cpan-dist.
+    getty-agent-team installs the bundle and keeps the project rules file to
+    what is true in that repo.
   - New group game-development: ai-playable-games for the seat interface
     that lets bots and LLM agents play a game, simulation-balancing for
     balancing through bot leagues and mechanic ablation, game-balance-math

@@ -227,6 +227,28 @@ directly on every sync:
 The same files also ship as a plugin for Claude Code (`.claude-plugin/`) and for
 Codex (`.codex-plugin/`) — three distribution routes, one source of truth.
 
+## House rules
+
+Besides skills, the repo ships the rules every Getty repo with an agent team loads on
+every turn — `rules/`, grouped by `bundles/`. A project declares one bundle in
+`install.bundles` of its `skilletor.json`; its own `.claude/rules/<prefix>-rules.md` then
+holds only what is true there.
+
+| Rule | Holds |
+|---|---|
+| [engineering-discipline](rules/engineering-discipline.md) | How to think, change, test and report — for any coding agent |
+| [getty-agent-delegation](rules/getty-agent-delegation.md) | The delegation lock: the main agent delegates, only team agents are spawned, only the release-manager commits |
+| [getty-publish-gate](rules/getty-publish-gate.md) | Nothing leaves the machine or speaks in the maintainer's name without a go-ahead |
+| [getty-cpan-release](rules/getty-cpan-release.md) | CPAN distributions: what is safe to run, why the CPAN state never blocks |
+| [karr-coordination](rules/karr-coordination.md) | Working the karr board: always in scope, serialized writes, cross-repo tickets |
+
+| Bundle | Rules |
+|---|---|
+| [getty-house](bundles/getty-house.yaml) | engineering-discipline, getty-agent-delegation, getty-publish-gate, karr-coordination |
+| [getty-cpan-dist](bundles/getty-cpan-dist.yaml) | getty-house + getty-cpan-release |
+
+A change here reaches every consuming repo at its next sync — review it like a release.
+
 ## Naming
 
 `getty-` prefixed skills **prescribe** — a house convention chosen over other valid

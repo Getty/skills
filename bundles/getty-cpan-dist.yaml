@@ -1,0 +1,5 @@
+description: Getty's house rules for a CPAN distribution — getty-house plus the CPAN release specifics
+rules:
+  - getty-cpan-release
+bundles:
+  - getty-house

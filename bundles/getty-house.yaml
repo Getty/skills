@@ -1,0 +1,6 @@
+description: Getty's house rules for a repo with an agent team — engineering discipline, delegation lock, publish gate, karr coordination
+rules:
+  - engineering-discipline
+  - getty-agent-delegation
+  - getty-publish-gate
+  - karr-coordination

@@ -25,9 +25,10 @@ skills the agents need at runtime, not this one. A project's `.claude/` never me
 3. **`briefing` (plugin) force-loads those skills** into the subagent's context *before*
    its first turn, and **hard-fails the spawn** if a name doesn't resolve. No
    "MANDATORY: load X first" pleading, no silent skips.
-4. **`.claude/rules/<prefix>-rules.md` carries discipline + the delegation lock** — it is
-   auto-loaded for the orchestrating main agent, which gets no briefing and therefore
-   must delegate instead of touching internals itself.
+4. **Rules carry discipline + the delegation lock** — auto-loaded for the orchestrating
+   main agent, which gets no briefing and therefore must delegate instead of touching
+   internals itself. The shared house rules come as a skilletor bundle; the project's
+   own `.claude/rules/<prefix>-rules.md` adds only what is true there.
 
 `karr` sits underneath as the coordination layer: a git-native board per repo, tickets
 as the only legal cross-repo channel.
@@ -37,7 +38,7 @@ Bundled references — read the one you need, not all four:
 | File | Holds |
 |---|---|
 | `references/agents.md` | role catalogue, frontmatter contract, agent templates |
-| `references/rules-template.md` | the house-rules file, with the delegation lock |
+| `references/rules-template.md` | the shared house-rules bundles and the project rules file |
 | `references/karr.md` | karr install, `.karr`, `karr-foundation`, board discipline |
 | `references/coordination-skill-template.md` | the `<prefix>-coordination` skill (families only) |
 
@@ -132,11 +133,19 @@ Two rules that decide whether this setup works or rots:
 
 ## Step 4 — house rules
 
-Write `.claude/rules/<prefix>-rules.md` from `references/rules-template.md`. Keep it
-under ~90 lines; it is loaded on every single turn. It carries engineering discipline,
-the **delegation lock** (the part that makes the main agent delegate), coordination, and
-the release-permission rule. It does **not** carry language conventions — those are
-skills, referenced by name.
+Install the shared house rules — engineering discipline, the **delegation lock** (the
+part that makes the main agent delegate), the publish gate, karr coordination — as one
+bundle:
+
+```bash
+skilletor install bundle:getty-cpan-dist@getty --project   # a CPAN distribution
+skilletor install bundle:getty-house@getty --project       # anything else
+```
+
+Then write `.claude/rules/<prefix>-rules.md` from `references/rules-template.md`: what
+the repo is, the lane table, deviations, hazards — ~30–50 lines, loaded on every turn.
+It never restates a shared rule (change that in Getty/skills) and carries no language
+conventions — those are skills, referenced by name.
 
 ## Step 5 — settings
 
@@ -175,13 +184,16 @@ duplicated rule is a rule that will drift.
 ## Delegation
 
 Delegate behavior-relevant code to the right agent instead of touching it yourself —
-principle and lane are in `.claude/rules/<prefix>-rules.md`.
+principle in the shared rule `getty-agent-delegation`, lanes in `.claude/rules/<prefix>-rules.md`.
 
 | Task | Agent |
 |---|---|
 | Implement / refactor / debug behavior-relevant code | `<prefix>-worker` (default) |
 | Write/extend tests | `<prefix>-test-writer` |
 | Commits, changelog, card → done, pre-release audit | `<prefix>-release-manager` |
+| Read-only research, audit, gap analysis | `<prefix>-worker` ("read-only, change nothing") |
+
+Every subagent is a `<prefix>-*` agent — never the built-in `general-purpose`/`Explore`/`Plan`.
 
 The agents carry their skills via `briefing.skills` (see `.claude/agents/`); the main
 agent delegates rather than loading them. Skill sources live under `.claude/skills/`.
@@ -192,16 +204,9 @@ agent delegates rather than loading them. Skill sources live under `.claude/skil
 `karr init`, the `.karr` agent-execution file, the board conventions, cross-repo handoff
 and the `karr-foundation` drain loop: `references/karr.md`.
 
-Two hard-won operational rules go with it, and belong in the rules file of any repo that
-fans work out:
-
-- **Serialize karr mutations when fanning out.** Parallel implementation is fine;
-  N concurrent `karr move`/`handoff`/`sync` calls landing together have OOM-rebooted a
-  host. Collect results, then loop the board writes sequentially.
-- **Public trackers are not a queue.** If the project has a public issue tracker
-  (Codeberg/GitHub), agents never read, comment on or close an issue on their own
-  initiative — only on explicit instruction, because every write publishes under the
-  maintainer's name.
+The board discipline that goes with it — serialized board writes when fanning out,
+public trackers are not a queue — ships in the shared rules `karr-coordination` and
+`getty-publish-gate` (Step 4); the project file does not repeat it.
 
 ## Sharing a role or the rules across repos
 
@@ -269,7 +274,10 @@ reaches for `Skill`, the hook did not fire — check *this* project's settings a
 Same steps, but audit first and report before editing: agents whose bodies restate skill
 content (migrate to `briefing.skills`), agents still using the plain top-level `skills:`
 key (**briefing deliberately ignores it — it only reads `briefing.skills`**), a rules file
-that duplicates a skill, a missing delegation lock, an enabled plugin whose marketplace
+that duplicates a skill, no house-rules bundle in `install.bundles` (Step 4), a project
+rules file that still carries its own discipline list, delegation lock, karr block or
+release/public-issue gate (cut them to the template; keep what differs as a deviation,
+move project-specific discipline points to hazards), an enabled plugin whose marketplace
 is not in `extraKnownMarketplaces` (Step 5), shared skills copied by hand or
 still hardlinked instead of installed (skill `getty-skill-library`, "Old pattern").
 
