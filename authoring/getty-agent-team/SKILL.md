@@ -131,6 +131,8 @@ Two rules that decide whether this setup works or rots:
 - **Every agent body ends the conventions paragraph with**: *"The conventions above are
   non-negotiable — apply silently, do not restate."*
 
+The agent files are tracked and ship with the release, like the code.
+
 ## Step 4 — house rules
 
 Install the shared house rules — engineering discipline, the **delegation lock** (the

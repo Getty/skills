@@ -86,6 +86,9 @@ copyright_year   = 2026
 Then the plugin bundle. For Getty's own CPAN work that is `[@Author::GETTY]` —
 its options are documented in `getty-perl-release-author-getty`.
 
+The tarball ships the agent and CI files with the code (`.claude/`, `CLAUDE.md`,
+`.github/`, `misc/agent-context/`); keep them in.
+
 ## CI workflow
 
 Every dist gets a `.github/workflows/ci.yml`. The Dist::Zilla CI mechanics live
