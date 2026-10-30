@@ -3,3 +3,6 @@ mining/
 
 # Claude Code worktrees (claude --worktree / isolated agents) -- never commit
 /.claude/worktrees/
+
+# Python bytecode from running skill scripts and tests
+__pycache__/

@@ -1,6 +1,6 @@
 {
   "name": "skills",
-  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes, container and storage operations, routers, switches, Proxmox and Samba AD, PostgreSQL with pgvector and Apache AGE, EU compliance engineering for AI platforms, Home Assistant and the smart home, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
+  "description": "Cross-project skills for Claude Code and Codex \u2014 Perl house style and release tooling, git conventions, Kubernetes, container and storage operations, routers, switches, Proxmox and Samba AD, PostgreSQL with pgvector and Apache AGE, AI-assisted web scraping and vLLM serving, EU compliance engineering for AI platforms, Home Assistant and the smart home, plugin engineering for Claude Code, Codex and Hermes Agent, and the craft of writing skills themselves. Only what has no single home of its own.",
   "version": "0.5.0",
   "author": {
     "name": "Torsten Raudssus",
@@ -10,6 +10,8 @@
   "homepage": "https://github.com/Getty/skills",
   "repository": "https://github.com/Getty/skills",
   "skills": [
+    "./ai-engineering/ai-web-scraping",
+    "./ai-engineering/vllm-operator",
     "./authoring/getty-agent-team",
     "./authoring/getty-skill-library",
     "./authoring/skill-authoring",
@@ -103,7 +105,6 @@
     "./system-and-network-administration/rex",
     "./system-and-network-administration/samba-active-directory",
     "./system-and-network-administration/ssl-tls-pki",
-    "./system-and-network-administration/storage-engineering",
-    "./system-and-network-administration/vllm-operator"
+    "./system-and-network-administration/storage-engineering"
   ]
 }

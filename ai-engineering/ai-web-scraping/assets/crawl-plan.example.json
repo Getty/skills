@@ -1,0 +1,50 @@
+{
+  "template_version": "1.0",
+  "purpose": "Collect a bounded public product catalog; adapt before use",
+  "configuration_status": "illustrative design contract; not executable crawler settings",
+  "scope": {
+    "seed_urls": ["https://catalog.example/products"],
+    "allowed_origins": ["https://catalog.example"],
+    "include_path_prefixes": ["/products"],
+    "allow_subdomains": false,
+    "identity": "public-anonymous",
+    "locale": "en-GB",
+    "redirect_policy": "revalidate every destination",
+    "subresource_policy": "separate explicit browser egress policy"
+  },
+  "budgets": {
+    "max_unique_pages": 50,
+    "max_discovery_depth": 3,
+    "max_total_request_attempts": 250,
+    "per_origin_concurrency": 1,
+    "minimum_request_interval_seconds": 2,
+    "max_attempts_per_url": 3,
+    "max_browser_actions_per_page": 15,
+    "max_model_calls": 20,
+    "max_model_input_tokens": 100000,
+    "max_model_output_tokens": 20000,
+    "max_total_download_bytes": 100000000,
+    "max_elapsed_seconds": 1800,
+    "monetary_budget": {"amount": "5.00", "currency": "EUR"}
+  },
+  "records": {
+    "identity_rule": "source product ID plus explicit variant",
+    "required_fields": ["name", "price", "currency"],
+    "non_observed_values": "null plus explicit status and reason",
+    "evidence": "snapshot hash plus record-local field spans",
+    "inference": "separate derived layer"
+  },
+  "acceptance": {
+    "known_inventory": null,
+    "completeness_claim": "unknown until a trusted inventory is supplied",
+    "all_exported_records_must_validate": true,
+    "retain_rejected_counts_and_reasons": true
+  },
+  "stop_conditions": [
+    "verified exhaustion",
+    "repeated cursor or no new IDs",
+    "budget or deadline reached",
+    "access failure requiring a different authorized source"
+  ],
+  "schedule": null
+}

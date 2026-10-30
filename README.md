@@ -16,6 +16,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 
 | Group | Skills | What it holds |
 |---|---|---|
+| [ai-engineering](ai-engineering/README.md) | 2 | Building and running systems on top of models — inference serving with vLLM, AI-assisted scraping and extraction with evidence-backed records |
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
@@ -30,11 +31,18 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
-| [system-and-network-administration](system-and-network-administration/README.md) | 19 | Machines, routers and switches, virtualization, directory services, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
+| [system-and-network-administration](system-and-network-administration/README.md) | 18 | Machines, routers and switches, virtualization, directory services, hosting, storage, containers, Kubernetes, TLS and PKI, job queues, admin automation |
 
 Each group README describes every skill in it: what it covers, and when to load it.
 
 ## Every skill
+
+### [ai-engineering](ai-engineering/README.md)
+
+| Skill | What it is |
+|---|---|
+| [ai-web-scraping](ai-engineering/ai-web-scraping/SKILL.md) | Websites into datasets or RAG corpora: acquisition and extraction chosen apart, field states, evidence spans, crawl policy |
+| [vllm-operator](ai-engineering/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning |
 
 ### [authoring](authoring/README.md)
 
@@ -204,7 +212,6 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [samba-active-directory](system-and-network-administration/samba-active-directory/SKILL.md) | Samba AD DCs and member file servers: provisioning, DNS, FSMO, SYSVOL, client joins, ACLs |
 | [ssl-tls-pki](system-and-network-administration/ssl-tls-pki/SKILL.md) | TLS, public Web PKI, private CAs, ACME and mTLS — design, operation, debugging |
 | [storage-engineering](system-and-network-administration/storage-engineering/SKILL.md) | Storage from the access contract and failure model: block, file, object, HA, DR, backup, Kubernetes, sizing |
-| [vllm-operator](system-and-network-administration/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning (German) |
 
 ## Using this repo
 

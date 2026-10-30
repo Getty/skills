@@ -1,0 +1,14 @@
+interface:
+  display_name: AI Web Scraping
+  short_description: Build reliable AI-assisted web extraction pipelines
+  default_prompt: Use $ai-web-scraping to choose a scraping approach and build an
+    evidence-backed extraction pipeline for these websites.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

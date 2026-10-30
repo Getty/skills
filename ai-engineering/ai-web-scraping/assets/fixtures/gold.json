@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    {
+      "record_id": "product-aurora",
+      "fields": {
+        "name": {
+          "status": "observed",
+          "value": "Café Aurora ☕"
+        },
+        "price": {
+          "status": "observed",
+          "value": "19.95"
+        },
+        "currency": {
+          "status": "observed",
+          "value": "EUR"
+        },
+        "stock_count": {
+          "status": "observed",
+          "value": 0
+        },
+        "is_available": {
+          "status": "observed",
+          "value": false
+        }
+      }
+    },
+    {
+      "record_id": "product-berg",
+      "fields": {
+        "name": {
+          "status": "observed",
+          "value": "Berglampe Äther"
+        },
+        "price": {
+          "status": "observed",
+          "value": "0.00"
+        },
+        "currency": {
+          "status": "observed",
+          "value": "EUR"
+        },
+        "stock_count": {
+          "status": "observed",
+          "value": 12
+        },
+        "is_available": {
+          "status": "observed",
+          "value": true
+        }
+      }
+    },
+    {
+      "record_id": "product-sea",
+      "fields": {
+        "name": {
+          "status": "observed",
+          "value": "海風 Lamp 🪔"
+        },
+        "price": {
+          "status": "absent",
+          "value": null
+        },
+        "currency": {
+          "status": "observed",
+          "value": "JPY"
+        },
+        "stock_count": {
+          "status": "explicit_null",
+          "value": null
+        },
+        "is_available": {
+          "status": "observed",
+          "value": false
+        }
+      }
+    }
+  ]
+}

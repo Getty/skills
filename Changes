@@ -10,6 +10,10 @@ Revision history for skills
     that lets bots and LLM agents play a game, simulation-balancing for
     balancing through bot leagues and mechanic ablation, game-balance-math
     for economy flows, cost curves and payoff matrices.
+  - New group ai-engineering: ai-web-scraping for scraping, crawling and
+    LLM-assisted extraction with field states and evidence-backed records;
+    vllm-operator lives there now instead of
+    system-and-network-administration.
   - getty-perl-distribution and getty-agent-team: the agent and CI files ship
     with the release.
 
