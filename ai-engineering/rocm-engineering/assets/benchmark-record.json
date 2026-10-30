@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": null,
+  "stack_record": null,
+  "experiment": {
+    "hypothesis": null,
+    "baseline": null,
+    "single_change": null,
+    "command": null,
+    "artifact_or_model_revision": null,
+    "seed": null,
+    "dtype_and_backend": null,
+    "shapes_or_token_lengths": null,
+    "concurrency": null,
+    "warmup_and_compile_policy": null,
+    "measurement_seconds": null,
+    "repetitions": null
+  },
+  "correctness": {
+    "reference": null,
+    "metric_and_tolerance": null,
+    "result": null,
+    "application_quality": null
+  },
+  "measurements": {
+    "ttft_ms_p50": null,
+    "ttft_ms_p95": null,
+    "inter_token_latency_ms_p95": null,
+    "throughput_with_units": null,
+    "peak_allocated_gib_per_device": [],
+    "peak_reserved_gib_per_device": [],
+    "peak_device_memory_gib_from_telemetry": [],
+    "power_temperature_clocks": null,
+    "errors_and_timeouts": null
+  },
+  "interpretation": {
+    "bottleneck_supported_by_trace": null,
+    "comparison_is_like_for_like": null,
+    "decision": null,
+    "remaining_uncertainty": null
+  }
+}

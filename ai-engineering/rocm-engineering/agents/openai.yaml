@@ -1,0 +1,14 @@
+interface:
+  display_name: AMD ROCm Engineering
+  short_description: Plan, build, tune and troubleshoot AMD GPU workloads
+  default_prompt: Use $rocm-engineering to assess my AMD GPU stack and build a supported,
+    reproducible ROCm workflow with measured validation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

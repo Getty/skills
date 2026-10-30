@@ -16,7 +16,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 
 | Group | Skills | What it holds |
 |---|---|---|
-| [ai-engineering](ai-engineering/README.md) | 2 | Building and running systems on top of models — inference serving with vLLM, AI-assisted scraping and extraction with evidence-backed records |
+| [ai-engineering](ai-engineering/README.md) | 3 | Building and running systems on top of models — the AMD ROCm GPU stack, inference serving with vLLM, AI-assisted scraping and extraction with evidence-backed records |
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
@@ -42,6 +42,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | Skill | What it is |
 |---|---|
 | [ai-web-scraping](ai-engineering/ai-web-scraping/SKILL.md) | Websites into datasets or RAG corpora: acquisition and extraction chosen apart, field states, evidence spans, crawl policy |
+| [rocm-engineering](ai-engineering/rocm-engineering/SKILL.md) | AMD GPU workloads on ROCm: support boundaries, install, HIP and CUDA porting, AI frameworks, multi-GPU, profiling |
 | [vllm-operator](ai-engineering/vllm-operator/SKILL.md) | Running vLLM on small GPU hardware: capacity, caching, benchmarking, tuning |
 
 ### [authoring](authoring/README.md)

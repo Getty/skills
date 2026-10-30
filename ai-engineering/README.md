@@ -1,12 +1,13 @@
 # AI engineering skills
 
-Building and running systems on top of models — serving them, feeding them data,
-measuring what comes out. A skill belongs here when the model is the subject of the
-engineering work. Skills that only use a model elsewhere stay in their own domain:
-the agent harnesses in [claude](../claude/README.md), [codex](../codex/README.md) and
+Building and running systems on top of models — the GPU stack they run on, serving
+them, feeding them data, measuring what comes out. A skill belongs here when the model,
+or the accelerator stack beneath it, is the subject of the engineering work. Skills
+that only use a model elsewhere stay in their own domain: the agent harnesses in
+[claude](../claude/README.md), [codex](../codex/README.md) and
 [hermes-agent](../hermes-agent/README.md), AI law in
 [compliance-and-governance](../compliance-and-governance/README.md), vector storage in
-[databases](../databases/README.md), GPU nodes in
+[databases](../databases/README.md), GPU nodes in Kubernetes in
 [system-and-network-administration](../system-and-network-administration/README.md).
 
 ## [ai-web-scraping](ai-web-scraping/SKILL.md)
@@ -27,6 +28,24 @@ validator and evaluator with synthetic fixtures; no network or model calls.
 
 **Load when** scraping, crawling or extracting from websites — especially with an LLM
 in the loop — or when a scraper returns empty, partial, duplicated or invented records.
+
+## [rocm-engineering](rocm-engineering/SKILL.md)
+
+AMD GPU workloads on ROCm, from the support question to a measured result — Instinct,
+Radeon and Ryzen APU graphics on Linux, Windows and WSL. Every claim carries a support
+label (vendor validated, upstream supported, preview, community, unsupported,
+unverified) for the exact intersection of hardware, OS and kernel, driver, ROCm release
+and framework, kept apart from what was actually run on the machine. 28 references
+cover installation and containers, PyTorch, JAX and ONNX, LLM inference (vLLM, SGLang,
+llama.cpp, Ollama), diffusion and video, training, quantization and attention kernels,
+HIP programming and CUDA migration, HPC libraries, RCCL and multi-GPU topology,
+profiling, Kubernetes and partitioning, operations and upgrades. Ships an inventory
+helper, PyTorch and RCCL smoke tests, a memory budget estimator, a HIP smoke program,
+and stack and benchmark records. Researched against ROCm Core SDK 10.1.0 (2026-10-30).
+
+**Load when** running or building anything on an AMD GPU, porting CUDA code to HIP,
+choosing AMD hardware, or when a ROCm install, kernel or multi-GPU job fails or is slow.
+For tuning vLLM itself, combine with vllm-operator.
 
 ## [vllm-operator](vllm-operator/SKILL.md)
 

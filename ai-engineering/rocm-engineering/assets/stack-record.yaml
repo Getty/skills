@@ -1,0 +1,59 @@
+# Copy for a specific environment. Null means not established, never a default.
+schema_version: 1
+recorded_at_utc: null
+goal: null
+hardware:
+  product_sku: null
+  pci_device_id: null
+  gfx_target: null
+  physical_device_count: null
+  logical_device_count: null
+  usable_memory_gib_per_logical_device: null
+  memory_kind: null  # discrete HBM/GDDR or shared system memory
+  interconnect_and_numa: null
+  partition_mode: null
+platform:
+  execution_surface: null  # native-linux/native-windows/wsl/vm/container
+  host_os: null
+  guest_or_container_os: null
+  kernel_or_windows_build: null
+  wsl_version: null
+  driver_version: null
+  firmware: null
+software:
+  rocm_stream: null  # legacy/Core-SDK/TheRock-nightly/custom
+  rocm_version: null
+  install_method: null
+  install_prefix: null
+  artifact_url_or_image_digest: null
+  compiler_version: null
+  python_version: null
+  framework_version: null
+  framework_hip_version: null
+  runtime_and_revision: null
+  attention_and_quantization_backends: null
+  custom_extensions_and_targets: []
+  dependency_lock_or_manifest: null
+workload:
+  model_or_application_revision: null
+  dtype_and_quantization: null
+  shapes_context_batch_concurrency: null
+  placement_and_sharding: null
+  quality_threshold: null
+  latency_throughput_objective: null
+evidence:
+  support_status: unverified
+  support_scope: null
+  sources: []  # entries: url, page_version, checked_at, relevant_row/footnote
+  known_issues: []
+validation:
+  status: not_run
+  commands_and_results: []
+  hardware_tests_not_performed: []
+  benchmark_record: null
+operations:
+  selected_environment_controls: {}  # only deliberate, relevant controls
+  startup_and_shutdown: null
+  recovery_and_rollback: null
+  isolation_boundary: null
+  maintenance_constraints: null
