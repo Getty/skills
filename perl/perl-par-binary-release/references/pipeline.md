@@ -42,7 +42,10 @@ PAR_VERBATIM=1 pp -o "$OUT" -I lib "${mods[@]}" -M 'Dist::**' bin/<name>
   on the macOS runner), add one `-X` per module of its family found in `@INC` on the
   build host. `loaded-modules.pl` omits the family from the set, and verify rejects any
   file of the family inside the archive, so every binary has the same features on every
-  platform. The CLI then reports the missing module for that option, the same everywhere.
+  platform. Walking the `<Path>/` directory leaves out the whole namespace, sibling dists
+  included (for `YAML`: `YAML::PP`, `YAML::XS`, `YAML::Tiny`); a module the CLI needs from
+  that namespace stays in the loaded set, so verify fails the build and the walk is
+  narrowed then. The CLI then reports the missing module for that option, the same everywhere.
 - Guards at the top refuse to build when a precondition is missing: Alien not a `share`
   build, a runtime dependency not installed, not at the checkout root.
 - Each `-M`/`-a`/`-X` line carries a comment naming the runtime failure it prevents.

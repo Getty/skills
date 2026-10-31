@@ -23,10 +23,9 @@ links a lib the target lacks. Each of those passes `--help`. The build is done w
 
 ## Workflow
 
-Three jobs, `build`, then `smoke`, then `release`.
+Three jobs, `build`, then `smoke`, then `release`. Triggers: `release: types: [published]`
+and `workflow_dispatch` with an optional `tag` input.
 
-- Triggers: `release: types: [published]` and `workflow_dispatch` with an optional
-  `tag` input.
 - **Least privilege.** The workflow default is `permissions: contents: read`; only the
   `release` job sets `contents: write`. Every `actions/checkout` sets
   `persist-credentials: false`, so no job leaves a token in the checkout.
@@ -43,7 +42,7 @@ Three jobs, `build`, then `smoke`, then `release`.
   `lib/` ships with the next release; a fix in the workflow file applies to a rebuild of
   an existing tag.
 - Hygiene: a `concurrency` group per tag with `cancel-in-progress: false` (two runs for
-  one tag queue instead of racing on `--clobber`); `timeout-minutes` on every job (build
+  one tag queue, not race on `--clobber`); `timeout-minutes` on every job (build
   30, smoke 30, release 15; the timeouts leave room for a slow package mirror).
 - **Tag values reach shell only through `env`.** Set
   `TAG: ${{ github.event.release.tag_name || inputs.tag }}` at job level and write
@@ -85,9 +84,10 @@ Rules and reasons: [pipeline.md](references/pipeline.md#build-binarysh-and-loade
   optional module only some runners have (an output format such as `YAML` on macOS), add
   one `-X` per module of its family found in `@INC` on the build host, and let verify
   reject any file of the family in the archive. Every binary then has the same features
-  on every platform. Template: [scripts.md](references/scripts.md).
-- Guards at the top refuse to build when a precondition is missing; each `-M`/`-a`/`-X`
-  line carries a comment naming the failure it prevents.
+  everywhere. The walk spans the namespace, siblings included; a module the CLI needs
+  from it fails verify, and the walk narrows then. Template: [scripts.md](references/scripts.md).
+- Guards at the top refuse a build with a missing precondition; each `-M`/`-a`/`-X` line
+  carries a comment naming the failure it prevents.
 
 ## verify-binary.sh
 
@@ -123,7 +123,8 @@ Perl is absent.
   `cmp`-identical to the bare asset, `LICENSE`, `README`).
 - **Smoke every subcommand.** Each runs on a fixture and its output is compared byte for
   byte with a checked-in expectation; a `t/` test keeps that expectation equal to what
-  the Perl code writes, so it cannot rot. One error path as well. See [pipeline.md](references/pipeline.md#smoke-binarysh-and-the-smoke-job).
+  the Perl code writes, so it cannot rot. One error path as well. See
+  [pipeline.md](references/pipeline.md#smoke-binarysh-and-the-smoke-job).
 
 ## Packaging, checksums, users
 

@@ -1,16 +1,20 @@
 # Script skeletons
 
-Five files under `scripts/` and a keeper test under `t/` (end of this page). The bash scripts start with `#!/usr/bin/env bash` and
-`set -euo pipefail`, and stay bash-3.2 compatible (macOS). Replace the `__NAME__` (binary
+Five files under `scripts/` and a keeper test under `t/` (end of this page). The bash
+scripts start with `#!/usr/bin/env bash` and `set -euo pipefail`, and stay bash-3.2
+compatible (macOS). Replace the `__NAME__` (binary
 name, e.g. `locale-simple`), `__NAME_UC__` (env prefix, `LOCALE_SIMPLE`), `__Module__`
 (the file holding `$VERSION` as a path below `lib/` without `.pm`, `Locale/Simple`),
 `__Dist__` (top namespace as a package, `Locale::Simple`) and `__Dist-Name__` (the
 distribution name, `Locale-Simple`) slots with the dist's own. Prose and YAML spell the
 same slots `<name>`, `<NAME>`, `<Module>` and `<Dist-Name>`: `<name>` = `__NAME__`,
-`<NAME>_BIN_OUT` = `__NAME_UC___BIN_OUT`, `<Module>` = `__Module__`. `__Optional__` is the optional module left out of every build (`YAML`) and
-`__Optional_Path__` its directory below `@INC` (`YAML`); drop those lines when the dist has
-none. Comment every `-M`,
-`-a` and `-X` line with the failure it prevents.
+`<NAME>_BIN_OUT` = `__NAME_UC___BIN_OUT`, `<Module>` = `__Module__`. `__Optional__` is
+the optional module left out of every build (`YAML`) and `__Optional_Path__` its directory
+below `@INC` (`YAML`). A dist with no such module drops all of these together: the
+`nofam` block and the `"${nofam[@]}"` line of the `pp` call in build-binary.sh, the
+`next if $m eq '__Optional__'` line in loaded-modules.pl, and the `famfiles` check with
+its `echo` in verify-binary.sh. Comment every `-M`, `-a` and `-X` line with the failure
+it prevents.
 
 ## build-binary.sh
 
@@ -96,7 +100,7 @@ Installed dependency modules can come from the dist's `.packlist`
 
 ## loaded-modules.pl
 
-Drop the module family from the printed set (see the last loop, `next if $m eq '__Optional__'`),
+Skip the optional module in the printed set (see the last loop, `next if $m eq '__Optional__'`),
 so verify does not require a file the build leaves out. A module the CLI really needs stays
 in the set and fails the build there.
 
@@ -236,7 +240,7 @@ done
 [ -z "$missing" ] || fail "modules missing inside the PAR archive:$missing"
 echo "packed module set: OK ($nloaded modules)"
 # Left-out family: no file of it inside the archive, so every platform has the same features.
-famfiles="$(cd "$work/archive" && { find lib arch \( -name __Optional__.pm -o -path '*/__Optional_Path__/*' \) 2>/dev/null || true; } | head -5)"
+famfiles="$(cd "$work/archive" && { find lib arch \( -path '*/__Optional_Path__.pm' -o -path '*/__Optional_Path__/*' \) 2>/dev/null || true; } | head -5)"
 [ -z "$famfiles" ] || fail "__Optional__ packed ($(echo $famfiles)); build-binary.sh must leave out the family"
 echo "no __Optional__ packed: OK"
 echo "verify: OK"
@@ -402,15 +406,15 @@ echo "smoke --version: OK ($out)"
 
 # Every subcommand on a fixture, compared byte for byte with a checked-in expectation.
 # Repeat this block per subcommand; the t/ test below keeps each expectation true.
-bin subcommand t/data/input >"$work/got" || fail "subcommand failed"
-cmp -s "$work/got" t/data/expected.out || fail "subcommand: output differs from t/data/expected.out"
-echo "smoke subcommand: OK (byte-identical)"
-# A subcommand that reads a directory: run it inside the fixture directory.
-#   ( cd t/data/fixtures && bin other ) >"$work/other.out" 2>/dev/null || fail "other failed"
-#   cmp -s "$work/other.out" t/data/other.expected || fail "other: output differs"
+# `other` reads the current directory, so it runs inside the fixture directory; a
+# subcommand that takes a file argument runs as `bin other t/data/input`.
+( cd t/data/fixtures && bin other ) >"$work/other.out" 2>/dev/null || fail "other failed"
+cmp -s "$work/other.out" t/data/other.expected \
+  || fail "other: output differs from t/data/other.expected"
+echo "smoke other: OK (byte-identical)"
 
-rc=0; bin subcommand nope >/dev/null 2>&1 || rc=$?
-[ "$rc" -ne 0 ] || fail "subcommand nope exits 0, want non-zero"
+rc=0; bin other nope >/dev/null 2>&1 || rc=$?
+[ "$rc" -ne 0 ] || fail "other nope exits 0, want non-zero"
 echo "smoke error path: OK (exit $rc)"
 echo "smoke: OK"
 ```

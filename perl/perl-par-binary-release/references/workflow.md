@@ -2,9 +2,9 @@
 
 Replace `<name>` (binary and asset prefix), `<Module>` (the file holding `$VERSION`, as a
 path below `lib/` without `.pm`, e.g. `Locale/Simple`; the same slot is `__Module__` in
-the script templates) with the dist's own. The shape is the
-one a working dist shipped (locale-simple is an example): an optional `tag` input
-(empty = probe run), a smoke job on clean machines, and a tag-only release job.
+the script templates) with the dist's own. The shape is the one a working dist shipped
+(locale-simple is an example): an optional `tag` input (empty = probe run), a smoke job
+on clean machines, and a tag-only release job.
 
 ```yaml
 name: release-binaries
