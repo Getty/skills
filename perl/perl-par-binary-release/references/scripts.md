@@ -67,7 +67,7 @@ A shared namespace takes explicit names instead of the glob:
 pm_to_mod() { sed -e 's#\.pm$##' -e 's#/#::#g'; }
 mods=()
 while IFS= read -r m; do mods+=(-M "$m"); done \
-  < <(cd lib && find __Dist__ -name '*.pm' | sort | pm_to_mod)
+  < <(cd lib && find "$(echo '__Dist__' | sed 's#::#/#g')" -name '*.pm' | sort | pm_to_mod)
 ```
 
 Installed dependency modules can come from the dist's `.packlist`
