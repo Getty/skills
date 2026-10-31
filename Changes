@@ -1,6 +1,9 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New perl skill perl-par-binary-release: shipping a standalone PAR::Packer
+    binary in a dist's GitHub release, from the release-binaries workflow to
+    the build, verify and runtime-lib scripts.
   - Shared house rules: engineering-discipline, getty-agent-delegation,
     getty-publish-gate, getty-cpan-release and karr-coordination under
     rules/, installed through the bundles getty-house and getty-cpan-dist.

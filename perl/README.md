@@ -141,6 +141,24 @@ does on top.
 
 **Load when** reading, editing or debugging any `dist.ini`.
 
+### [perl-par-binary-release](perl-par-binary-release/SKILL.md)
+
+Shipping a standalone `PAR::Packer` binary in a dist's GitHub release, the way karr,
+knarr and raider do. The workflow runs on `release: published` and on
+`workflow_dispatch` with an optional `tag`; without a tag it is a probe run that keeps
+Actions artifacts only. It builds in a pinned `perl:5.40-bookworm` container on x86_64
+and aarch64, then packages the tarball and one checksums file.
+
+Three scripts carry the substance: `build-binary.sh` turns the loaded module set into
+`-M` options (with `PAR_VERBATIM=1`, `-I lib` and share directories via `-a`),
+`verify-binary.sh` runs the binary from a fresh `PAR_GLOBAL_TEMP` under `env -i` and
+compares it with `perl -Ilib`, and `check-binary-libs.sh` runs `ldd` over every packed
+`.so` against a documented list. Tag values reach shell only through `env`. Two
+references hold the workflow YAML and the script skeletons.
+
+**Load when** a Perl dist should ship a standalone binary, or its `release-binaries`
+workflow or `pp` scripts need work.
+
 ## XS and C libraries
 
 ### [perl-xs](perl-xs/SKILL.md)

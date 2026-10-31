@@ -27,7 +27,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
-| [perl](perl/README.md) | 12 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling |
+| [perl](perl/README.md) | 13 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling, standalone PAR binaries |
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
@@ -146,6 +146,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [perl-io-async-future](perl/perl-io-async-future/SKILL.md) | PEVANS-style async Perl, and its unforgiving lifetime rules |
 | [perl-mcp](perl/perl-mcp/SKILL.md) | Building an MCP server in Perl with `MCP::Server` |
 | [perl-mojo](perl/perl-mojo/SKILL.md) | `Mojo::Base` as an object system, plus the `Mojo::*` toolkit around it |
+| [perl-par-binary-release](perl/perl-par-binary-release/SKILL.md) | A standalone `PAR::Packer` binary in the GitHub release: workflow, build, verify, lib check |
 | [perl-release-dist-ini](perl/perl-release-dist-ini/SKILL.md) | Dist::Zilla for any distribution, independent of the author bundle |
 | [perl-xs](perl/perl-xs/SKILL.md) | The Perl/C boundary, and why an `.xs` file is C behind a preprocessor |
 
