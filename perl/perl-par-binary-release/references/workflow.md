@@ -1,9 +1,10 @@
 # release-binaries.yml skeleton
 
-Replace `<name>` (binary and asset prefix), `<Module>` (the file holding `$VERSION`) and
-the `apt-get` packages with the dist's own. The shape is the one a working dist shipped
-(locale-simple is an example). The optional `tag`, the probe branch and the smoke job are
-what this skill prescribes.
+Replace `<name>` (binary and asset prefix), `<Module>` (the file holding `$VERSION`, as a
+path below `lib/` without `.pm`, e.g. `Locale/Simple`; the same slot is `__Module__` in
+the script templates) and the `apt-get` packages with the dist's own. The shape is the
+one a working dist shipped (locale-simple is an example): an optional `tag` input
+(empty = probe run), a smoke job on clean machines, and a tag-only release job.
 
 ```yaml
 name: release-binaries
@@ -105,7 +106,7 @@ jobs:
         env:
           BASE: ${{ steps.v.outputs.base }}
         run: |
-          # No pipe into tee: without pipefail its 0 would replace the check's 1.
+          # A plain command: its exit code decides the step.
           ./scripts/check-binary-libs.sh "$BASE"
           for lib in $(./scripts/check-binary-libs.sh --list); do
             grep -qF "\`$lib\`" README.md \

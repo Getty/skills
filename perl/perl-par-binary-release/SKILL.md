@@ -36,13 +36,12 @@ Three jobs, `build`, then `smoke`, then `release`.
   when it cannot (`[ -n "$want" ] || fail`), and stops when the tag does not match it.
 - Hygiene: a `concurrency` group per tag with `cancel-in-progress: false` (two runs for
   one tag queue instead of racing on `--clobber`); `timeout-minutes` on every job (build
-  30, smoke 30, release 15; a slow package mirror took 11 minutes once).
+  30, smoke 30, release 15; the timeouts leave room for a slow package mirror).
 - **Tag values reach shell only through `env`.** Set
   `TAG: ${{ github.event.release.tag_name || inputs.tag }}` at job level and write
   `"$TAG"` in `run:` bodies, so a crafted tag name cannot inject shell. Step outputs
   travel the same way, as `env:` entries.
-- Run the lib check as a plain command: the default shell has no `pipefail`, and a
-  `tee` after it would replace the check's exit 1 with 0.
+- Run the lib check as a plain command, so its exit code decides the step.
 - **The build image sets the glibc floor.** Linux builds run in a pinned old-glibc image
   (`perl:5.40-bullseye`, glibc 2.31): the packed XS modules need the build image's glibc
   or newer, and the image decides which optional libs they link (a `-dev` package in a

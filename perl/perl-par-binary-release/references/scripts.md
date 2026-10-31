@@ -2,9 +2,13 @@
 
 Five files under `scripts/`. The bash scripts start with `#!/usr/bin/env bash` and
 `set -euo pipefail`, and stay bash-3.2 compatible (macOS). Replace the `__NAME__` (binary
-name), `__NAME_UC__` (env prefix), `__Module__` (module path holding `$VERSION`) and
-`__Dist__` (top namespace) slots with the dist's own; comment every `-M`, `-a` and `-X`
-line with the failure it prevents.
+name, e.g. `locale-simple`), `__NAME_UC__` (env prefix, `LOCALE_SIMPLE`), `__Module__`
+(the file holding `$VERSION` as a path below `lib/` without `.pm`, `Locale/Simple`),
+`__Dist__` (top namespace as a package, `Locale::Simple`) and `__Dist-Name__` (the
+distribution name, `Locale-Simple`) slots with the dist's own. Prose and YAML spell the
+same slots `<name>`, `<NAME>`, `<Module>` and `<Dist-Name>`: `<name>` = `__NAME__`,
+`<NAME>_BIN_OUT` = `__NAME_UC___BIN_OUT`, `<Module>` = `__Module__`. Comment every `-M`,
+`-a` and `-X` line with the failure it prevents.
 
 ## build-binary.sh
 
@@ -41,8 +45,9 @@ done
 # PAR_VERBATIM=1: pp's POD-stripping filter corrupts files with POD between code.
 # -I lib: the checkout's lib/ wins over any installed copy.
 # -M '__Dist__::**': members of the namespace that load on some path only.
-# -a: share tree where File::ShareDir looks in an installed dist (add one per dependency
-#     that reads a share tree: -a "$(perl -MFile::ShareDir=dist_dir -e 'print dist_dir("Dep-Dist")');lib/auto/share/dist/Dep-Dist").
+# -a: share tree where File::ShareDir looks in an installed dist; drop this line when
+#     the dist has no share/ directory. Add one per dependency that reads a share tree:
+#     -a "$(perl -MFile::ShareDir=dist_dir -e 'print dist_dir("Dep-Dist")');lib/auto/share/dist/Dep-Dist"
 # -X: an optional module that links a lib the target may lack; the code falls back.
 PAR_VERBATIM=1 pp -o "$OUT" \
   -I lib \
@@ -82,15 +87,16 @@ use strict; use warnings;
 use File::Find ();
 use File::Temp ();
 my %mods;
+( my $path = '__Dist__' ) =~ s{::}{/}g;      # Locale::Simple -> Locale/Simple
 # The dist's own namespace, from every @INC dir that holds it.
 for my $dir ( grep { !ref } @INC ) {
-  next unless -d "$dir/__Dist__";
+  next unless -d "$dir/$path";
   File::Find::find( { no_chdir => 1, wanted => sub {
     return unless /\.pm\z/;
     ( my $m = substr $_, length($dir) + 1 ) =~ s{/}{::}g;
     $m =~ s/\.pm\z//;
     $mods{$m} = 1;
-  } }, "$dir/__Dist__" );
+  } }, "$dir/$path" );
 }
 # Backends chosen at run time (the scanner cannot see them); list each one.
 $mods{$_} = 1 for qw( Some::Backend Some::Backend::Pure );
@@ -174,6 +180,7 @@ out=$(bin --version) || fail "--version failed on a fresh cache"
 [ "$out" = "__NAME__ $want_version" ] || fail "--version prints '$out'"
 echo "startup (--version, fresh cache): OK"
 out=$(bin --version) || fail "--version failed on the second start"
+[ "$out" = "__NAME__ $want_version" ] || fail "second start prints '$out'"
 echo "second start (same cache): OK"
 
 same_as_perl "--help" --help
