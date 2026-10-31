@@ -1,13 +1,15 @@
 # Script skeletons
 
-Five files under `scripts/`. The bash scripts start with `#!/usr/bin/env bash` and
+Five files under `scripts/` and a keeper test under `t/` (end of this page). The bash scripts start with `#!/usr/bin/env bash` and
 `set -euo pipefail`, and stay bash-3.2 compatible (macOS). Replace the `__NAME__` (binary
 name, e.g. `locale-simple`), `__NAME_UC__` (env prefix, `LOCALE_SIMPLE`), `__Module__`
 (the file holding `$VERSION` as a path below `lib/` without `.pm`, `Locale/Simple`),
 `__Dist__` (top namespace as a package, `Locale::Simple`) and `__Dist-Name__` (the
 distribution name, `Locale-Simple`) slots with the dist's own. Prose and YAML spell the
 same slots `<name>`, `<NAME>`, `<Module>` and `<Dist-Name>`: `<name>` = `__NAME__`,
-`<NAME>_BIN_OUT` = `__NAME_UC___BIN_OUT`, `<Module>` = `__Module__`. Comment every `-M`,
+`<NAME>_BIN_OUT` = `__NAME_UC___BIN_OUT`, `<Module>` = `__Module__`. `__Optional__` is the optional module left out of every build (`YAML`) and
+`__Optional_Path__` its directory below `@INC` (`YAML`); drop those lines when the dist has
+none. Comment every `-M`,
 `-a` and `-X` line with the failure it prevents.
 
 ## build-binary.sh
@@ -49,11 +51,30 @@ done
 #     the dist has no share/ directory. Add one per dependency that reads a share tree:
 #     -a "$(perl -MFile::ShareDir=dist_dir -e 'print dist_dir("Dep-Dist")');lib/auto/share/dist/Dep-Dist"
 # -X: an optional module that links a lib the target may lack; the code falls back.
+# -X family: `pp -X Name` drops exactly Name.pm (no wildcard) and the scanner still follows
+#     `require Name` into the module's own dependencies, so a module installed on one runner
+#     only (here __Optional__, say an output format) takes one -X per family member found in
+#     @INC on this host. Every binary then has the same features on every platform.
+nofam=(-X __Optional__)
+while IFS= read -r m; do nofam+=(-X "$m"); done < <(perl -MFile::Find -e '
+  my %m;
+  for my $dir (grep { !ref } @INC) {
+    next unless -d "$dir/__Optional_Path__";
+    find({ no_chdir => 1, wanted => sub {
+      return unless /\.pm\z/;
+      (my $n = substr $_, length($dir) + 1) =~ s{/}{::}g;
+      $n =~ s/\.pm\z//;
+      $m{$n} = 1;
+    } }, "$dir/__Optional_Path__");
+  }
+  print "$_\n" for sort keys %m;')
+
 PAR_VERBATIM=1 pp -o "$OUT" \
   -I lib \
   "${mods[@]}" \
   ${optional[@]+"${optional[@]}"} \
   -M '__Dist__::**' \
+  "${nofam[@]}" \
   -a "share;lib/auto/share/dist/__Dist-Name__" \
   bin/__NAME__
 
@@ -74,6 +95,10 @@ Installed dependency modules can come from the dist's `.packlist`
 (`$INC/auto/<Dist>/.packlist`), filtered with `grep -v` for the siblings to leave out.
 
 ## loaded-modules.pl
+
+Drop the module family from the printed set (see the last loop, `next if $m eq '__Optional__'`),
+so verify does not require a file the build leaves out. A module the CLI really needs stays
+in the set and fails the build there.
 
 Run as `perl -Ilib scripts/loaded-modules.pl` from the checkout root; the list goes to
 STDOUT, problems to STDERR.
@@ -124,6 +149,7 @@ for my $file ( sort keys %INC ) {
   next unless defined $INC{$file} && !ref $INC{$file} && $INC{$file} =~ m{/\Q$file\E\z};
   ( my $m = $file ) =~ s{/}{::}g;
   $m =~ s/\.pm\z//;
+  next if $m eq '__Optional__';    # left out of every build (-X in build-binary.sh)
   print "$m\n";
 }
 ```
@@ -209,6 +235,10 @@ for m in $(cat "$work/loaded") ${EXTRA_PACKED_CHECK:-}; do
 done
 [ -z "$missing" ] || fail "modules missing inside the PAR archive:$missing"
 echo "packed module set: OK ($nloaded modules)"
+# Left-out family: no file of it inside the archive, so every platform has the same features.
+famfiles="$(cd "$work/archive" && { find lib arch \( -name __Optional__.pm -o -path '*/__Optional_Path__/*' \) 2>/dev/null || true; } | head -5)"
+[ -z "$famfiles" ] || fail "__Optional__ packed ($(echo $famfiles)); build-binary.sh must leave out the family"
+echo "no __Optional__ packed: OK"
 echo "verify: OK"
 ```
 
@@ -370,13 +400,46 @@ out=$(bin --version) || fail "--version failed"
 [ "$out" = "__NAME__ $want" ] || fail "--version prints '$out', want '__NAME__ $want'"
 echo "smoke --version: OK ($out)"
 
-# One real conversion against a checked-in expected file, byte for byte.
+# Every subcommand on a fixture, compared byte for byte with a checked-in expectation.
+# Repeat this block per subcommand; the t/ test below keeps each expectation true.
 bin subcommand t/data/input >"$work/got" || fail "subcommand failed"
 cmp -s "$work/got" t/data/expected.out || fail "subcommand: output differs from t/data/expected.out"
 echo "smoke subcommand: OK (byte-identical)"
+# A subcommand that reads a directory: run it inside the fixture directory.
+#   ( cd t/data/fixtures && bin other ) >"$work/other.out" 2>/dev/null || fail "other failed"
+#   cmp -s "$work/other.out" t/data/other.expected || fail "other: output differs"
 
 rc=0; bin subcommand nope >/dev/null 2>&1 || rc=$?
 [ "$rc" -ne 0 ] || fail "subcommand nope exits 0, want non-zero"
 echo "smoke error path: OK (exit $rc)"
 echo "smoke: OK"
+```
+
+### The keeper test
+
+A `t/` test runs the same subcommand through the Perl code and compares with the same
+expectation file, so the file equals what the Perl code writes and smoke never rots.
+
+```perl
+use strict; use warnings;
+use Test::More;
+use Test::InDistDir;
+use Capture::Tiny 'capture';
+use File::pushd;
+use Path::Tiny;
+use __Dist__::CLI;
+
+# scripts/smoke-binary.sh runs this subcommand with the packed binary and compares the output
+# byte for byte with t/data/other.expected; this test keeps that file true.
+my $expected = path('t/data/other.expected')->absolute->slurp_raw;
+my ( $out, $rc );
+{
+    my $g = pushd('t/data/fixtures');
+    ( $out, undef, $rc ) = capture { __Dist__::CLI::run('other') };
+}
+is $rc, 0, 'exits 0';
+ok length $expected > 500, 'the expectation is not empty';
+is $out, $expected, 'expectation equals the output'
+  or diag 'regenerate: (cd t/data/fixtures && perl -I../../../lib ../../../bin/__NAME__ other 2>/dev/null > ../other.expected)';
+done_testing;
 ```

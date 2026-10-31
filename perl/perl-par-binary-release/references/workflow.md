@@ -2,7 +2,7 @@
 
 Replace `<name>` (binary and asset prefix), `<Module>` (the file holding `$VERSION`, as a
 path below `lib/` without `.pm`, e.g. `Locale/Simple`; the same slot is `__Module__` in
-the script templates) and the `apt-get` packages with the dist's own. The shape is the
+the script templates) with the dist's own. The shape is the
 one a working dist shipped (locale-simple is an example): an optional `tag` input
 (empty = probe run), a smoke job on clean machines, and a tag-only release job.
 
@@ -18,8 +18,9 @@ on:
         description: Existing tag to build and attach assets to; empty = probe run (Actions artifacts only)
         required: false
 
+# Least privilege: read by default; only the release job gets write.
 permissions:
-  contents: write
+  contents: read
 
 # Two runs for the same tag would race on gh release upload --clobber; they queue instead.
 concurrency:
@@ -48,20 +49,20 @@ jobs:
     # Linux builds run in the pinned bullseye image (glibc 2.31 sets the floor of the packed
     # XS modules, and the image decides which optional libs they link); macOS builds run on
     # the runner. The container has no gh; the release job runs on the plain runner.
+    # The perl:5.40-bullseye image already carries git, unzip, gcc, g++, make, binutils and
+    # cpanm, so there is no apt step (the build keeps working after bullseye moves to
+    # archive.debian.org). Check a changed image first:
+    #   docker run --rm <image> sh -c 'command -v git unzip gcc g++ make objdump cpanm'
     container: ${{ matrix.image || null }}
     # Values that reach a shell go through env, never inline ${{ }} in a run: body.
     env:
       TAG: ${{ github.event.release.tag_name || inputs.tag }}
       PLATFORM: ${{ matrix.os }}-${{ matrix.arch }}
     steps:
-      - name: Install system build deps (Linux)
-        if: matrix.os == 'linux'
-        run: |
-          apt-get update
-          apt-get install -y build-essential git unzip      # plus the dist's -dev packages
       - uses: actions/checkout@v5
         with:
           ref: ${{ env.TAG }}          # empty on a probe run: the dispatched ref
+          persist-credentials: false
       - name: Fix safe.directory (Linux)
         if: matrix.os == 'linux'
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -180,6 +181,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ env.TAG }}          # empty on a probe run: the dispatched ref
+          persist-credentials: false
       - uses: actions/download-artifact@v4
         with:
           pattern: <name>-*-${{ env.PLATFORM }}
@@ -219,6 +221,9 @@ jobs:
     if: github.event.release.tag_name != '' || inputs.tag != ''
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # The only job that writes: it uploads the assets to the release.
+    permissions:
+      contents: write
     env:
       TAG: ${{ github.event.release.tag_name || inputs.tag }}
       GH_TOKEN: ${{ github.token }}
@@ -251,7 +256,8 @@ Each GitHub release carries `<name>` as one standalone binary per platform
 (a directory `<name>-<V>-<platform>/` with `<name>`, `LICENSE` and `README`), and
 `<name>-<V>-checksums.txt` holds the `sha256sum` line of every asset. The bare binary
 arrives without the executable bit, as HTTP downloads carry no file mode;
-`install -m 755` (or `chmod +x`) sets it, and the `.tar.gz` keeps it.
+`install -m 755` (or `chmod +x`) sets it, and the `.tar.gz` keeps it. The `mkdir -p`
+before `install` serves a fresh account, and BSD `install` on macOS has no `-D`.
 
 ```bash
 V=1.2.3 P=linux-x86_64
@@ -259,6 +265,7 @@ base=https://github.com/<owner>/<repo>/releases/download/v$V
 curl -fLO "$base/<name>-$V-$P"
 curl -fLO "$base/<name>-$V-checksums.txt"
 grep " <name>-$V-$P\$" "<name>-$V-checksums.txt" | sha256sum -c
+mkdir -p ~/.local/bin
 install -m 755 "<name>-$V-$P" ~/.local/bin/<name>
 <name> --version
 ```
