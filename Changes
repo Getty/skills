@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+  - getty-agent-team: superpowers is the one optional plugin the settings step
+    adds, when sibling repos already use it.
   - The Claude Code plugin takes its version from the commit, so every push
     to main reaches marketplace users with auto-update.
   - getty-create-software: the claude.gitignore template lets .claude/rules/,

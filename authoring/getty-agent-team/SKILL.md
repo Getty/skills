@@ -168,10 +168,9 @@ Every `<plugin>@<marketplace>` in `enabledPlugins` needs its marketplace declare
 `extraKnownMarketplaces` (`claude-plugins-official` is built in) — user settings hide
 the gap here, a fresh machine cannot resolve the plugin. A committed
 `.claude/skilletor.json` → also `"skilletor@getty": true`. Add
-`superpowers@claude-plugins-official` / `caveman@caveman` (marketplace `"caveman": {
-"source": { "source": "github", "repo": "JuliusBrussee/caveman" } }`) only if the user
-already uses them in sibling repos. `.claude/settings.local.json` is per-machine permission
-noise — never author it, never commit decisions into it.
+`superpowers@claude-plugins-official` only if the user already uses it in sibling repos.
+`.claude/settings.local.json` is per-machine permission noise — never author it, never
+commit decisions into it.
 
 Skilletor adds `skilletor@getty` to the committed `settings.json` itself on the
 first sync (`… updated — commit it`); commit that together with `skilletor.json`.
