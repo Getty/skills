@@ -1,6 +1,10 @@
 Revision history for skills
 
 {{$NEXT}}
+  - getty-create-software: the claude.gitignore template lets .claude/rules/,
+    .claude/skilletor.json and .claude/.gitignore through. Behind the
+    .claude/* allowlist the project rules file and the skilletor config were
+    silently never committed.
   - New perl skill perl-par-binary-release: shipping a standalone PAR::Packer
     binary in a dist's GitHub release, from the release-binaries workflow to
     the build, verify, runtime-lib and smoke scripts.
