@@ -4,7 +4,8 @@ Revision history for skills
   - claude-headless: new section for driving Claude Code over ssh on a Windows
     host: Git Bash as the OpenSSH shell, administrators_authorized_keys,
     keyboard-interactive, Windows paths and PIDs in the session files, msys
-    argument rewriting, PowerShell quoting.
+    argument rewriting, the mangled remote command line (send it base64-wrapped),
+    PowerShell quoting.
   - getty-agent-team: superpowers is the one optional plugin the settings step
     adds, when sibling repos already use it.
   - The Claude Code plugin takes its version from the commit, so every push

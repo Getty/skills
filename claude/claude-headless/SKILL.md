@@ -178,6 +178,19 @@ claude 2.1.319:
 - **msys rewrites slash arguments.** An argument that starts with `/`, passed to
   a native `.exe`, is turned into a path (`tasklist /FI` becomes
   `C:/Program Files/Git/FI`). Write `//FI`, or set `MSYS_NO_PATHCONV=1`.
+- **The command line itself gets mangled.** Windows sshd hands the remote
+  command to the shell through a Windows command line, and double quotes and
+  backslashes inside it arrive broken: `perl -e '<script>'` fails to compile,
+  and an `--append-system-prompt` with quotes in it comes out wrong. Send
+  anything non-trivial base64-wrapped and unpack it with process
+  substitution, which keeps stdin free for the prompt:
+
+  ```bash
+  b=$(printf %s "$cmd" | base64 -w0)
+  printf %s "$prompt" | ssh -T host "bash <(echo $b | base64 -d)"
+  ```
+
+  The same line works unchanged against a Linux host.
 - **PowerShell through ssh is a quoting trap.** Nesting `powershell -Command "…"`
   inside bash inside ssh breaks on `$`, quotes and backslashes. For anything
   longer than one line, `scp` a `.ps1` file over and run
