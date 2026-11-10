@@ -6,7 +6,7 @@ shared house rules skilletor installs from Getty/skills:
 | Bundle | Rules |
 |---|---|
 | `getty-house` | `engineering-discipline`, `getty-agent-delegation`, `getty-publish-gate`, `karr-coordination` |
-| `getty-cpan-dist` | `getty-house` + `getty-cpan-release` |
+| `getty-cpan-dist` | `getty-house` + `getty-cpan-release`, and the skills `getty-perl-pod` and `getty-perl-release-author-getty` |
 
 ```bash
 skilletor install bundle:getty-cpan-dist@getty --project   # a CPAN distribution

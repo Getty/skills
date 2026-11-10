@@ -27,7 +27,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
-| [perl](perl/README.md) | 13 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling, standalone PAR binaries |
+| [perl](perl/README.md) | 15 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling, standalone PAR binaries |
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
@@ -140,6 +140,8 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [getty-perl-distribution](perl/getty-perl-distribution/SKILL.md) | Creating a CPAN distribution, or bringing an existing one to house standard |
 | [getty-perl-moo](perl/getty-perl-moo/SKILL.md) | Moo classes and roles — roles for reuse, inheritance only for a stable is-a |
 | [getty-perl-moose](perl/getty-perl-moose/SKILL.md) | The same shape in Moose, plus `make_immutable` on every class |
+| [getty-perl-pod](perl/getty-perl-pod/SKILL.md) | POD under `[@Author::GETTY]`: the `=attr`/`=method`/`=opt` commands and what Pod::Weaver generates |
+| [getty-perl-release-author-getty](perl/getty-perl-release-author-getty/SKILL.md) | What `[@Author::GETTY]` adds to a `dist.ini`: options, versioning, the release workflow |
 | [getty-perl-sugar](perl/getty-perl-sugar/SKILL.md) | Designing a new DSL: registering keywords, a metadata registry, one shared runner |
 | [getty-perl-typing](perl/getty-perl-typing/SKILL.md) | Whether a project needs a type system at all, and which one is cheap here |
 | [perl-alien](perl/perl-alien/SKILL.md) | `Alien::Build`: providing a C library or tool through CPAN |
@@ -251,10 +253,10 @@ holds only what is true there.
 | [getty-cpan-release](rules/getty-cpan-release.md) | CPAN distributions: what is safe to run, why the CPAN state never blocks |
 | [karr-coordination](rules/karr-coordination.md) | Working the karr board: always in scope, serialized writes, cross-repo tickets |
 
-| Bundle | Rules |
+| Bundle | Contents |
 |---|---|
 | [getty-house](bundles/getty-house.yaml) | engineering-discipline, getty-agent-delegation, getty-publish-gate, karr-coordination |
-| [getty-cpan-dist](bundles/getty-cpan-dist.yaml) | getty-house + getty-cpan-release |
+| [getty-cpan-dist](bundles/getty-cpan-dist.yaml) | getty-house + getty-cpan-release, and the skills getty-perl-pod and getty-perl-release-author-getty |
 
 A change here reaches every consuming repo at its next sync — review it like a release.
 

@@ -141,6 +141,23 @@ does on top.
 
 **Load when** reading, editing or debugging any `dist.ini`.
 
+### [getty-perl-release-author-getty](getty-perl-release-author-getty/SKILL.md)
+
+What the `[@Author::GETTY]` bundle adds on top of plain Dist::Zilla: the required
+metadata and the LICENSE file, every bundle option (feature toggles, Alien, Docker, run
+hooks), the next-version convention with a `$VERSION` in every file, and the release
+workflow. Ships to a CPAN distribution with the `getty-cpan-dist` bundle.
+
+**Load when** a `dist.ini` contains `[@Author::GETTY]`.
+
+### [getty-perl-pod](getty-perl-pod/SKILL.md)
+
+POD in a distribution under `[@Author::GETTY]`: the `=attr`/`=method`/`=opt` shortcut
+commands, the `# ABSTRACT` line, and the sections Pod::Weaver generates and a module
+must therefore not write itself. Ships with the `getty-cpan-dist` bundle as well.
+
+**Load when** writing or editing POD in such a distribution.
+
 ### [perl-par-binary-release](perl-par-binary-release/SKILL.md)
 
 Shipping a standalone `PAR::Packer` binary in a dist's GitHub release, the way karr,

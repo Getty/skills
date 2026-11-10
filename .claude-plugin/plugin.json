@@ -53,6 +53,8 @@
     "./perl/getty-perl-distribution",
     "./perl/getty-perl-moo",
     "./perl/getty-perl-moose",
+    "./perl/getty-perl-pod",
+    "./perl/getty-perl-release-author-getty",
     "./perl/getty-perl-sugar",
     "./perl/getty-perl-typing",
     "./perl/perl-alien",

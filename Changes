@@ -1,6 +1,10 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New perl skills getty-perl-release-author-getty and getty-perl-pod: what
+    the [@Author::GETTY] bundle adds to a dist.ini, and POD under it. The
+    getty-cpan-dist bundle ships both, so a CPAN distribution installs them
+    with the bundle instead of listing them.
   - claude-headless: new section for driving Claude Code over ssh on a Windows
     host: Git Bash as the OpenSSH shell, administrators_authorized_keys,
     keyboard-interactive, Windows paths and PIDs in the session files, msys

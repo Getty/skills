@@ -1,5 +1,8 @@
-description: Getty's house rules for a CPAN distribution — getty-house plus the CPAN release specifics
+description: Getty's house setup for a CPAN distribution — getty-house plus the CPAN release rule and the [@Author::GETTY] skills
 rules:
   - getty-cpan-release
+skills:
+  - getty-perl-pod
+  - getty-perl-release-author-getty
 bundles:
   - getty-house
