@@ -5,6 +5,9 @@ Revision history for skills
     the [@Author::GETTY] bundle adds to a dist.ini, and POD under it. The
     getty-cpan-dist bundle ships both, so a CPAN distribution installs them
     with the bundle instead of listing them.
+  - getty-perl-release-author-getty: the binary keys of the bundle (binary,
+    binary_modules, binary_require and the rest), the Binary subsection, the
+    caller workflow and DZIL_BINARY_SKIP.
   - claude-headless: new section for driving Claude Code over ssh on a Windows
     host: Git Bash as the OpenSSH shell, administrators_authorized_keys,
     keyboard-interactive, Windows paths and PIDs in the session files, msys
