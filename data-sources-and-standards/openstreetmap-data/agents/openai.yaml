@@ -1,0 +1,14 @@
+interface:
+  display_name: OpenStreetMap Data
+  short_description: Use OSM objects, tags, extracts and change formats
+  default_prompt: Use $openstreetmap-data to explain the standard and apply it correctly
+    to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

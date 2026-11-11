@@ -1,0 +1,14 @@
+interface:
+  display_name: GS1 EPCIS and CBV
+  short_description: Model supply-chain visibility events and vocabularies
+  default_prompt: Use $gs1-epcis to explain the standard and apply it correctly to
+    this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: JSON-LD Processing
+  short_description: Understand contexts and transform JSON-LD safely
+  default_prompt: Use $jsonld-processing to explain JSON-LD and inspect, transform,
+    or debug this document with explicit context and RDF semantics.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

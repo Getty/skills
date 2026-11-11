@@ -1,6 +1,13 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New group semantic-web with seven skills, one W3C standard each:
+    rdf-linked-data, jsonld-processing, owl2-engineering, shacl-standards,
+    sparql-querying, skos-vocabularies and prov-o-provenance.
+  - New group data-sources-and-standards with eight skills for data that
+    arrives from outside: wikibase-data, openstreetmap-data,
+    geospatial-standards, financial-identifiers, xbrl-reporting-standards,
+    fibo-integration, gs1-epcis and iptc-news-standards.
   - New perl skills getty-perl-release-author-getty and getty-perl-pod: what
     the [@Author::GETTY] bundle adds to a dist.ini, and POD under it. The
     getty-cpan-dist bundle ships both, so a CPAN distribution installs them

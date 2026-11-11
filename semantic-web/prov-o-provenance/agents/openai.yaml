@@ -1,0 +1,14 @@
+interface:
+  display_name: PROV and PROV-O
+  short_description: Describe provenance, derivation and responsibility
+  default_prompt: Use $prov-o-provenance to explain the standard and apply it correctly
+    to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

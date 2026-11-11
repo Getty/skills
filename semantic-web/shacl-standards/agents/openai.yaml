@@ -1,0 +1,14 @@
+interface:
+  display_name: SHACL Standards
+  short_description: Define RDF shapes and interpret validation reports
+  default_prompt: Use $shacl-standards to explain the standards and apply their data
+    model, versions, examples, and limitations to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

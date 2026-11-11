@@ -1,0 +1,14 @@
+interface:
+  display_name: Wikidata and Wikibase Standards
+  short_description: Understand entities, statements, dumps and updates
+  default_prompt: Use $wikibase-data to explain the standards and apply their data
+    model, versions, examples, and limitations to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

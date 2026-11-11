@@ -1,0 +1,14 @@
+interface:
+  display_name: SKOS Vocabularies
+  short_description: Build and map controlled concept vocabularies
+  default_prompt: Use $skos-vocabularies to explain the standard and apply it correctly
+    to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

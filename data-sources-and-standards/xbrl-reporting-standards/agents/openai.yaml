@@ -1,0 +1,14 @@
+interface:
+  display_name: XBRL Reporting Standards
+  short_description: Understand XBRL reports, taxonomies and validation
+  default_prompt: Use $xbrl-reporting-standards to explain the standard and apply
+    it correctly to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

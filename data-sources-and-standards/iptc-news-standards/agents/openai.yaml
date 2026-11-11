@@ -1,0 +1,14 @@
+interface:
+  display_name: IPTC News Standards
+  short_description: Use NewsML-G2, ninjs and news vocabularies
+  default_prompt: Use $iptc-news-standards to explain the standards and apply their
+    data model, versions, examples, and limitations to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

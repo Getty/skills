@@ -1,0 +1,14 @@
+interface:
+  display_name: RDF and Linked Data
+  short_description: Model, publish and interpret RDF and Linked Data
+  default_prompt: Use $rdf-linked-data to explain RDF and apply its data model, formats,
+    and publication principles to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

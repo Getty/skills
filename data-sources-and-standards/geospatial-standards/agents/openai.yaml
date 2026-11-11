@@ -1,0 +1,14 @@
+interface:
+  display_name: Geospatial Standards
+  short_description: Understand spatial models, formats and CRS rules
+  default_prompt: Use $geospatial-standards to explain the standard and apply it correctly
+    to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: Financial Identifiers
+  short_description: Resolve entities, securities and market identifiers
+  default_prompt: Use $financial-identifiers to explain the standard and apply it
+    correctly to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

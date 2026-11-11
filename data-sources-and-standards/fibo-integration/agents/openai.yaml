@@ -1,0 +1,14 @@
+interface:
+  display_name: FIBO Financial Ontology
+  short_description: Understand and apply financial ontology semantics
+  default_prompt: Use $fibo-integration to explain the standard and apply it correctly
+    to this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

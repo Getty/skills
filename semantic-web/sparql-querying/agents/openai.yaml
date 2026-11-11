@@ -1,0 +1,14 @@
+interface:
+  display_name: SPARQL Querying
+  short_description: Write and explain correct RDF queries and updates
+  default_prompt: Use $sparql-querying to explain or build this query with explicit
+    dataset, multiplicity, optional-value, and execution assumptions.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

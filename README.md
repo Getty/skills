@@ -21,6 +21,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
 | [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
+| [data-sources-and-standards](data-sources-and-standards/README.md) | 8 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [game-development](game-development/README.md) | 3 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices |
@@ -28,6 +29,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
 | [perl](perl/README.md) | 15 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling, standalone PAR binaries |
+| [semantic-web](semantic-web/README.md) | 7 | The W3C graph stack, one standard per skill — RDF, JSON-LD, OWL 2, SHACL, SPARQL, SKOS and PROV-O, independent of any store or library |
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
 | [storytold-craft](storytold-craft/README.md) | 16 | Operating the Storytold Craft editors as an agent — one skill per application, its CLI and MCP server, plus an overview that routes between them |
@@ -91,6 +93,19 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [eu-platform-regulatory-watch](compliance-and-governance/eu-platform-regulatory-watch/SKILL.md) | Versioned legal source register and change-impact review, without self-installed monitoring |
 | [eu-platform-tracking-marketing](compliance-and-governance/eu-platform-tracking-marketing/SKILL.md) | Cookies, SDKs, consent and direct marketing — device access, processing and contact kept apart |
 
+### [data-sources-and-standards](data-sources-and-standards/README.md)
+
+| Skill | What it is |
+|---|---|
+| [fibo-integration](data-sources-and-standards/fibo-integration/SKILL.md) | FIBO as a vocabulary of financial concepts: modules, IRIs, releases and imports, mappings, extensions |
+| [financial-identifiers](data-sources-and-standards/financial-identifiers/SKILL.md) | LEI and GLEIF, ISIN, MIC, CFI, FISN, tickers — entity, instrument and listing identity kept apart |
+| [geospatial-standards](data-sources-and-standards/geospatial-standards/SKILL.md) | Coordinate reference systems, Simple Features, GeoJSON, GeoPackage, GeoParquet, GeoSPARQL, OGC API Features |
+| [gs1-epcis](data-sources-and-standards/gs1-epcis/SKILL.md) | EPCIS 2.x traceability events and the Core Business Vocabulary: identifiers, corrections, sensors, interfaces |
+| [iptc-news-standards](data-sources-and-standards/iptc-news-standards/SKILL.md) | NewsML-G2, ninjs, NewsCodes and Media Topics: revisions, corrections, embargo, taxonomy mapping |
+| [openstreetmap-data](data-sources-and-standards/openstreetmap-data/SKILL.md) | The OSM data model, extracts and updates, geometry assembly, service boundaries, ODbL obligations |
+| [wikibase-data](data-sources-and-standards/wikibase-data/SKILL.md) | Wikidata and Wikibase: entity JSON, dumps and RDF, ranks, qualifiers and references, updates, reconciliation |
+| [xbrl-reporting-standards](data-sources-and-standards/xbrl-reporting-standards/SKILL.md) | XBRL 2.1, Dimensions, Inline XBRL and OIM: facts and contexts, taxonomies, SEC and ESEF filing profiles |
+
 ### [databases](databases/README.md)
 
 | Skill | What it is |
@@ -151,6 +166,18 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [perl-par-binary-release](perl/perl-par-binary-release/SKILL.md) | A standalone `PAR::Packer` binary in the GitHub release: workflow, build, verify, lib check |
 | [perl-release-dist-ini](perl/perl-release-dist-ini/SKILL.md) | Dist::Zilla for any distribution, independent of the author bundle |
 | [perl-xs](perl/perl-xs/SKILL.md) | The Perl/C boundary, and why an `.xs` file is C behind a preprocessor |
+
+### [semantic-web](semantic-web/README.md)
+
+| Skill | What it is |
+|---|---|
+| [jsonld-processing](semantic-web/jsonld-processing/SKILL.md) | JSON-LD 1.1: contexts, expansion, compaction, flattening, framing, RDF conversion, remote loading |
+| [owl2-engineering](semantic-web/owl2-engineering/SKILL.md) | OWL 2 ontologies: axioms, restrictions, open-world semantics, profiles, imports, reasoning |
+| [prov-o-provenance](semantic-web/prov-o-provenance/SKILL.md) | W3C PROV and PROV-O: entities, activities, agents, derivation, qualified relations, bundles |
+| [rdf-linked-data](semantic-web/rdf-linked-data/SKILL.md) | The RDF data model and its serializations, RDFS, graph identity, Linked Data publication |
+| [shacl-standards](semantic-web/shacl-standards/SKILL.md) | SHACL validation: shapes, targets, paths, Core constraints, SHACL-SPARQL, validation reports |
+| [skos-vocabularies](semantic-web/skos-vocabularies/SKILL.md) | SKOS thesauri and taxonomies: labels, hierarchy, mappings, collections, SKOS-XL, migration |
+| [sparql-querying](semantic-web/sparql-querying/SKILL.md) | SPARQL queries and updates: patterns, aggregates, property paths, datasets, federation, pagination |
 
 ### [smart-home](smart-home/README.md)
 

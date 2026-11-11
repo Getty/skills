@@ -1,0 +1,14 @@
+interface:
+  display_name: OWL 2 Engineering
+  short_description: Model ontology semantics, profiles and reasoning
+  default_prompt: Use $owl2-engineering to explain OWL 2 and model this domain with
+    explicit axioms, profiles, imports, and reasoning checks.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
