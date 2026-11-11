@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.6.0     2026-11-11 05:32:33Z
   - New group semantic-web with seven skills, one W3C standard each:
     rdf-linked-data, jsonld-processing, owl2-engineering, shacl-standards,
     sparql-querying, skos-vocabularies and prov-o-provenance.
