@@ -41,8 +41,8 @@ kit's `ack-team check`.
 - board: karr
 - committer: release-manager
 - publish_gate: on
-- fremdeingaben: on
-- quellen: getty=Getty/skills, karr=Getty/karr
+- outside_input: on
+- sources: getty=Getty/skills, karr=Getty/karr
 - bundles: getty-house
 - bundles when "dist.ini exists": getty-cpan-dist
 - provider: minimax, openai, kimi, ollama, fireworks
@@ -50,7 +50,7 @@ kit's `ack-team check`.
 - headless when family: on
 - headless when hub: on
 
-| rollen | skills | when |
+| roles | skills | when |
 |---|---|---|
 | worker | + `getty-perl-core`, `getty-perl-pod` | "dist.ini exists" |
 | test-writer | + `getty-perl-core` | "dist.ini exists" |
@@ -64,7 +64,7 @@ Project-specific stack skills (`getty-perl-moo`, `getty-perl-moose`,
 `perl-io-async-future`, ...) are added per project when the analysis shows the code
 uses them.
 
-`fremdeingaben: on` is the house rule `publish-gate`: public trackers are not a queue;
+`outside_input: on` is the house rule `publish-gate`: public trackers are not a queue;
 single entries come in as cards the user writes.
 
 The `getty-cpan-dist` bundle already ships `getty-perl-pod` and
