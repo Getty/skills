@@ -6,7 +6,7 @@
 ---
 name: <prefix>-<role>            # must equal the filename stem
 description: "…"                 # one paragraph; this is what the main agent routes on
-model: inherit | opus | sonnet
+model: inherit | fable | opus | sonnet
 disallowedTools: Edit, Write, NotebookEdit   # read-only roles only; omit otherwise
 briefing:
   skills:
@@ -19,8 +19,9 @@ briefing:
   trigger keywords. A vague description means the main agent does the work itself.
 - `model`: `inherit` for the default worker (it should be as strong as the session),
   `sonnet` for checklist/routing/audit lanes, `opus` where judgment about architecture
-  is the whole job (ADR auditor). `opus` (Opus 5.5) is also the strong pick — `fable`
-  costs 2.5× and is currently no better; sizing rules: skill `model-routing`.
+  is the whole job (ADR auditor). `fable` (Fable 5.2) is stronger than `opus` at twice
+  the price — for a lane whose routine load is long-horizon autonomous work; sizing
+  rules: skill `model-routing`.
 - **Tool restriction: `disallowedTools`, never `allowed-tools`.** In an agent file
   `allowed-tools:` is not a key at all — Claude Code ignores it silently and the agent
   gets every tool (it is a *skill* frontmatter key). `tools:` is a hard allowlist:

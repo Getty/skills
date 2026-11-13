@@ -1,8 +1,11 @@
 Revision history for skills
 
 {{$NEXT}}
+  - model-routing: Fable 5.2 is stronger than Opus 5.5 and a regular
+    frontier tier at 8/40 per MTok, twice Opus; work at the top of the rubric
+    goes there directly. claude-headless and getty-agent-team follow.
 
-0.6.0     2026-11-11 05:32:33Z
+0.6.0    2026-11-11 05:32:33Z
   - New group semantic-web with seven skills, one W3C standard each:
     rdf-linked-data, jsonld-processing, owl2-engineering, shacl-standards,
     sparql-querying, skos-vocabularies and prov-o-provenance.
