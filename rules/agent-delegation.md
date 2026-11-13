@@ -1,5 +1,5 @@
 ---
-description: Getty's agent-team delegation lock — who may change what, which subagents to spawn, who commits.
+description: The agent-team delegation lock — who may change what, which subagents to spawn, who commits.
 ---
 
 # Delegation — the agent team
@@ -27,10 +27,15 @@ lane table (task → agent) and say what counts as behavior-relevant there.
   tool. Work your lane; subagents you spawn are yours to direct. Work outside your lane
   goes back to the main agent instead of being done across.
 
-**Only the release-manager commits.** A worker leaves a commit-ready tree and a report; the
-main agent then dispatches the release-manager to cut the commit. A team without a
-release-manager: the main agent commits, after reviewing the diff — unless the project rules
-name another committer.
+**One agent commits.** That is the release-manager; a worker leaves a commit-ready tree
+and a report, and the main agent then dispatches the release-manager to cut the commit. A
+team without a release-manager: the committer the project rules name commits; if they name
+none, the main agent commits, after reviewing the diff.
 
-**Card life cycle:** the main agent claims and hands out → the worker notes and ends at
-`review` → the release-manager commits and moves the card to `done`.
+**Card life cycle:** the main agent hands out a card → the worker notes its progress and
+hands it to `review` → the reviewer checks it → the committer commits and marks it `done`.
+
+**The reviewer checks before the commit.** The team's reviewer (without one: the main
+agent) runs the checks itself (build, tests, whatever the project rules name) rather than
+trusting the worker's report. A red run sends the card back to the worker. Without a green
+run, no commit and no `done`.

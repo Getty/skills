@@ -51,7 +51,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [getty-agent-team](authoring/getty-agent-team/SKILL.md) | A whole multi-agent setup for a project: subagents, briefing-preloaded skills, karr wiring |
+| [getty-agent-team](authoring/getty-agent-team/SKILL.md) | Getty's preset for the plugin agent-construction-kit: his answers, role skills and karr habits for a repo's agent team |
 | [getty-skill-library](authoring/getty-skill-library/SKILL.md) | Where a skill lives, what it is named, and how an edit reaches its consumers |
 | [skill-authoring](authoring/skill-authoring/SKILL.md) | Writing a SKILL.md that fires from its description and then gets followed |
 | [skill-compressor](authoring/skill-compressor/SKILL.md) | Shrinking or merging skills without losing the rules that drive behaviour |
@@ -275,14 +275,15 @@ holds only what is true there.
 | Rule | Holds |
 |---|---|
 | [engineering-discipline](rules/engineering-discipline.md) | How to think, change, test and report — for any coding agent |
-| [getty-agent-delegation](rules/getty-agent-delegation.md) | The delegation lock: the main agent delegates, only team agents are spawned, only the release-manager commits |
-| [getty-publish-gate](rules/getty-publish-gate.md) | Nothing leaves the machine or speaks in the maintainer's name without a go-ahead |
+| [agent-delegation](rules/agent-delegation.md) | The delegation lock: the main agent delegates, only team agents are spawned, only the release-manager (or the committer the project names) commits, the reviewer checks before done |
+| [publish-gate](rules/publish-gate.md) | Nothing leaves the machine or speaks in the maintainer's name without a go-ahead |
 | [getty-cpan-release](rules/getty-cpan-release.md) | CPAN distributions: what is safe to run, why the CPAN state never blocks |
-| [karr-coordination](rules/karr-coordination.md) | Working the karr board: always in scope, serialized writes, cross-repo tickets |
+| [board-karr](rules/board-karr.md) | Working the karr board: always in scope, serialized writes, cross-repo tickets |
 
 | Bundle | Contents |
 |---|---|
-| [getty-house](bundles/getty-house.yaml) | engineering-discipline, getty-agent-delegation, getty-publish-gate, karr-coordination |
+| [house](bundles/house.yaml) | engineering-discipline, agent-delegation, publish-gate |
+| [getty-house](bundles/getty-house.yaml) | house + board-karr |
 | [getty-cpan-dist](bundles/getty-cpan-dist.yaml) | getty-house + getty-cpan-release, and the skills getty-perl-pod and getty-perl-release-author-getty |
 
 A change here reaches every consuming repo at its next sync — review it like a release.

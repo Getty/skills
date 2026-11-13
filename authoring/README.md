@@ -77,17 +77,13 @@ with skilletor, or before editing an installed SKILL.md.
 
 ## [getty-agent-team](getty-agent-team/SKILL.md)
 
-Installs a whole multi-agent setup into a project: subagents whose skills are
-force-loaded at spawn time by the [briefing](https://github.com/Getty/briefing)
-plugin, a house-rules file carrying engineering discipline and the delegation lock,
-and the skill base those agents are briefed from.
+Getty's preset on top of the public plugin `agent-construction-kit`
+(`agent-construction-kit@getty`): the skill names the plugin as prerequisite, sends the
+session into the kit's procedure and hands it Getty's answer sheet: karr board,
+release-manager as the only committer, publish gate, sources, house bundles, provider
+list and the role-to-skills table. What stays in the skill itself: the CPAN specifics,
+Getty's karr habits (`.karr`, `karr-foundation`) and the list for bringing an old,
+drifted setup in line.
 
-The order matters and the skill enforces it — the skill base is settled *first*,
-because briefing hard-fails a spawn when a declared skill name does not resolve.
-Ships role templates (worker, test-writer, release-checker, doc-writer,
-karr-coordinator) and an audit mode for bringing an existing, drifted setup back in
-line. Coordination via [karr](https://github.com/Getty/karr) is a documented
-optional layer.
-
-**Load when** a repo needs subagents, or when `.claude/agents` is missing or has
-drifted. Runs user-level only — never install this one into a project.
+**Load when** one of Getty's repos needs an agent team, or when `.claude/agents` is
+missing or has drifted. Runs user-level only; never install this one into a project.

@@ -1,0 +1,5 @@
+description: House rules for a repo with an agent team — engineering discipline, delegation lock, publish gate
+rules:
+  - engineering-discipline
+  - agent-delegation
+  - publish-gate

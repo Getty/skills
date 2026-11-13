@@ -1,298 +1,158 @@
 ---
 name: getty-agent-team
-description: "Use when a repo needs subagents — setting one up, wiring briefing, adding karr, or when .claude/agents is missing or drifted from the house pattern."
+description: "Use when one of Getty's repos needs subagents or an agent team — setting one up, wiring briefing or karr, or when .claude/agents is missing or drifted. Getty's preset: load it before the skill of the plugin agent-construction-kit."
 ---
 
-# Setup: agent team, skill base, house rules
+# Agent team, Getty's preset
 
-Installs the setup Getty projects share. Nothing here is language-specific — the
-Perl repos are just where it grew up.
+Getty's answers to the questions of the public plugin `agent-construction-kit`: which
+board, who commits, which sources, bundles and skills per role. The procedure itself
+(analysis, agents, rules, settings, board, verification) lives in the kit; this skill
+holds only what is Getty's own.
 
 **This skill is user-level only.** Its home is the shared library
 ([Getty/skills](https://github.com/Getty/skills), group `authoring/`); it runs
-user-level, changes the target project, and is
-done. Never install or copy it into a project — what Step 2 installs are the *briefed*
-skills the agents need at runtime, not this one. A project's `.claude/` never mentions
-`getty-agent-team`.
+user-level and changes the target project. Never install or copy it into a project —
+a project's `.claude/` never mentions `getty-agent-team`.
 
-## The architecture in four sentences
+## Prerequisite
 
-1. **Skills are the knowledge base.** Conventions, architecture, tooling. One source of
-   truth per skill, installed into each repo that needs it (skill `skilletor`, from
-   [Getty/skilletor](https://github.com/Getty/skilletor)).
-2. **Agents are roles, not knowledge.** An agent file is a role sentence + a
-   `briefing.skills` list + whatever is genuinely repo-specific and lives in no skill.
-3. **`briefing` (plugin) force-loads those skills** into the subagent's context *before*
-   its first turn, and **hard-fails the spawn** if a name doesn't resolve. No
-   "MANDATORY: load X first" pleading, no silent skips.
-4. **Rules carry discipline + the delegation lock** — auto-loaded for the orchestrating
-   main agent, which gets no briefing and therefore must delegate instead of touching
-   internals itself. The shared house rules come as a skilletor bundle; the project's
-   own `.claude/rules/<prefix>-rules.md` adds only what is true there.
+The plugin `agent-construction-kit` must be installed and enabled, from whichever
+marketplace: this session then lists the skill `agent-construction-kit:agent-construction-kit`.
 
-`karr` sits underneath as the coordination layer: a git-native board per repo, tickets
-as the only legal cross-repo channel.
-
-Bundled references — read the one you need, not all four:
-
-| File | Holds |
-|---|---|
-| `references/agents.md` | role catalogue, frontmatter contract, agent templates |
-| `references/rules-template.md` | the shared house-rules bundles and the project rules file |
-| `references/karr.md` | karr install, `.karr`, `karr-foundation`, board discipline |
-| `references/coordination-skill-template.md` | the `<prefix>-coordination` skill (families only) |
-
-## Step 0 — prerequisites
-
-```bash
-ls -d ~/.claude/plugins/cache/*/briefing >/dev/null 2>&1 && echo "briefing installed: ok"
-command -v karr >/dev/null && echo "karr: ok"
-command -v skilletor >/dev/null && echo "skilletor: ok"
-```
-
-If `briefing` is missing, ask the user to run these two slash commands (Claude cannot
-run them):
+Not listed: ask the user to run these two slash commands (Claude cannot run them),
+then continue in a new session:
 
 ```
 /plugin marketplace add Getty/marketplace
-/plugin install briefing@getty
+/plugin install agent-construction-kit@getty
 ```
 
-The same marketplace ships `skilletor` (`/plugin install skilletor@getty`),
-which Step 2 needs. `Getty/briefing` as its own marketplace is the old route — an
-existing install from it keeps working, don't churn it.
+Without the plugin, do not rebuild its procedure from memory.
 
-Without briefing the whole setup degrades to prompt-stuffing — do not proceed by
-inlining skill bodies into agent files as a workaround.
+## Procedure
 
-## Step 1 — discover the project
+Load the skill `agent-construction-kit:agent-construction-kit` and follow it with the
+answer sheet below; ask the user only what the sheet leaves open. Verification is the
+kit's `ack-team check`.
 
-Before writing anything, establish:
+## Answer sheet
 
-| Question | How |
-|---|---|
-| Build / test / lint commands | `dist.ini`, `Makefile`, `justfile`, `package.json`, `Cargo.toml`, `pyproject.toml`, CI config |
-| Recursive test gotchas | do subdirs under `t/` / `tests/` exist that the naive runner skips? |
-| Single repo or family? | sibling repos with a shared prefix → family, needs cross-repo routing |
-| Existing skills to brief from | `.claude/skills/`, `~/.claude/skills/`, and what `skilletor available` offers |
-| Existing conventions worth encoding | `CLAUDE.md`, `CONTEXT.md`, `docs/adr/`, the code itself |
-| Release path | CPAN / npm / container / deploy-only — determines whether a release role is needed |
+- board: karr
+- committer: release-manager
+- publish_gate: on
+- fremdeingaben: on
+- quellen: getty=Getty/skills, karr=Getty/karr
+- bundles: getty-house
+- bundles when "dist.ini exists": getty-cpan-dist
+- provider: minimax, openai, kimi, ollama, fireworks
+- headless: off
+- headless when family: on
+- headless when hub: on
 
-**Prefix**: everything is named `<prefix>-<role>` where `<prefix>` is the project or
-family name in kebab-case. Family repos suffix the worker:
-`<prefix>-worker-postgresql`. `karr-coordinator` is the one role that keeps its own name.
+| rollen | skills | when |
+|---|---|---|
+| worker | + `getty-perl-core`, `getty-perl-pod` | "dist.ini exists" |
+| test-writer | + `getty-perl-core` | "dist.ini exists" |
+| reviewer | + `getty-perl-core` | "dist.ini exists" |
+| release-manager | + `getty-git-commit-style`, `getty-git-usage` | |
+| release-manager | + `getty-perl-release-author-getty`, `perl-release-dist-ini` | "dist.ini exists" |
+| doc-writer | + `getty-perl-pod` | "dist.ini exists" |
+| coordinator | + `kanban-issues-karr-ticket` | |
 
-## Step 2 — settle the skill base first
+Project-specific stack skills (`getty-perl-moo`, `getty-perl-moose`,
+`perl-io-async-future`, ...) are added per project when the analysis shows the code
+uses them.
 
-`briefing` hard-fails on an unresolvable name, so every skill an agent lists must exist
-before the agent file does. For each skill an agent needs:
+`fremdeingaben: on` is the house rule `publish-gate`: public trackers are not a queue;
+single entries come in as cards the user writes.
 
-- **Already shared** (the shared library, or another project that owns it) →
-  install it, never copy by hand: `skilletor install <name>@<source> --project`.
-  Wiring, sourcing and what to commit: skills `getty-skill-library` and `skilletor`.
-  **Never edit an installed SKILL.md** — the next sync overwrites it; change the
-  skill in its source.
-- **Project-owned and missing** → write it (skill `skill-authoring`). The two that most
-  projects end up needing:
-  - `<prefix>-core` — architecture, vocabulary, the invariants an implementer must know.
-  - `<prefix>-coordination` — only for a repo *family*: who owns what, how tickets are
-    routed. Template: `references/coordination-skill-template.md`.
-- **Genuinely repo-specific and tiny** → put it in the agent body instead of inventing a
-  skill for three lines.
+The `getty-cpan-dist` bundle already ships `getty-perl-pod` and
+`getty-perl-release-author-getty`; the rows add them to the roles, the bundle installs
+them. The kit keeps `<prefix>-core`, the coordinator's `<family>-coordination` and the
+karr card skills on top.
 
-Verify every name resolves before moving on:
+## CPAN specifics
 
-```bash
-for s in <skill> <skill> …; do
-  ls .claude/skills/$s/SKILL.md ~/.claude/skills/$s/SKILL.md 2>/dev/null | head -1 \
-    || echo "MISSING: $s"
-done
-```
+- A brand-new distribution has no `dist.ini` yet, so the `"dist.ini exists"` lines would
+  not apply. Tell the kit "this will be a CPAN distribution", or create `dist.ini` first
+  (skill `getty-perl-distribution`).
+- Commit style, `Changes` mechanics and release knowledge go into the release-manager
+  alone (rows above); workers and writers leave a commit-ready tree.
+- The doc-format skill is `getty-perl-pod` (`@Author::GETTY` POD commands, `# ABSTRACT`),
+  not `getty-perl-release-author-getty`, which is release knowledge.
+- The release-manager never pushes to a remote, tags or releases (`dzil release`) unless
+  the project rules allow it (the kit's drive copy, the karr board to `origin`).
 
-## Step 3 — write the agents
+**Goes into the release-manager's body** (release audit, report and do not release):
 
-Role catalogue, frontmatter contract, model/tool choices and full templates:
-`references/agents.md`.
+1. `cpanfile`: every dependency declared, none declared that is not used (POD blocks
+   excluded from the grep); Getty-authored dependencies pinned to their latest *released*
+   CPAN version (`cpanm --info`), never to the unreleased `$VERSION` in the sibling repo.
+2. `dist.ini`: version strategy consistent with `[@Author::GETTY]`; `copyright_year`
+   current; `$VERSION` present in every module under `lib/`, the same literal.
+3. `dzil build` clean, no missing files, no warnings.
+4. `Changes` has an unreleased `{{$NEXT}}` section covering the user-visible changes
+   since the last tag.
 
-Minimum viable team: **worker** (always) + **release-manager** if the project ships
-anything + **karr-coordinator** if it's a family. Add test-writer, doc-writer and
-adr-auditor when the project has enough surface to warrant a lane.
+**The "pins ahead of CPAN" exception.** A coordinated family release stages pins ahead
+of what CPAN knows, and an auditor not told "fixes" that every time. Record the
+exception in the project's `<prefix>-core` (or `<prefix>-hazards`) skill, and name that
+skill in the release-manager's body.
 
-**Only the release-manager commits.** Workers and writers leave a commit-ready tree and
-a report; commit style, changelog and release skills are briefed into the
-release-manager alone. Card ownership and the karr skill split: "Who writes shared
-state" in `references/agents.md`.
+## Karr and the board
 
-Two rules that decide whether this setup works or rots:
+`.karr` agent execution, `karr-foundation` and the board habits:
+[references/karr.md](references/karr.md). The karr install, skills and rule are the
+kit's ("The board").
 
-- **Never restate skill content in the agent body.** The skills are already in context.
-  The body says who the agent is, what its lane is, and what is true about *this repo*
-  and written down nowhere else.
-- **Every agent body ends the conventions paragraph with**: *"The conventions above are
-  non-negotiable — apply silently, do not restate."*
+## Owner notes
 
-The agent files are tracked and ship with the release, like the code.
+[references/owner-notes.md](references/owner-notes.md), read when:
 
-## Step 4 — house rules
+- the project is a large application that outgrows one worker (domain specialists);
+- you write the hazards section of a project rules file;
+- you write an ADR-auditor or a Codex agent, edit settings, or need the live check of a
+  briefed agent.
 
-Install the shared house rules — engineering discipline, the **delegation lock** (the
-part that makes the main agent delegate), the publish gate, karr coordination — as one
-bundle:
+## Sharing a role across repos
 
-```bash
-skilletor install bundle:getty-cpan-dist@getty --project   # a CPAN distribution
-skilletor install bundle:getty-house@getty --project       # anything else
-```
+When the same agent or rule file is wanted in several repos, ship it through skilletor
+(`agent:<name>@<source>`, `rule:<name>@<source>`; skill `skilletor`). Put an agent and
+every skill in its `briefing.skills` into one bundle: a user-level agent never sees
+project skills, and sync warns `briefing skills not installed` when they drift apart.
+Installed copies (`.claude/agents/.local.*`) are build artifacts; change the source.
 
-Then write `.claude/rules/<prefix>-rules.md` from `references/rules-template.md`: what
-the repo is, the lane table, deviations, hazards — ~30–50 lines, loaded on every turn.
-It never restates a shared rule (change that in Getty/skills) and carries no language
-conventions — those are skills, referenced by name.
+## Briefing, as it works now
 
-## Step 5 — settings
-
-`.claude/settings.json` (committed, project-wide):
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "getty": { "source": { "source": "github", "repo": "Getty/marketplace" } }
-  },
-  "enabledPlugins": {
-    "briefing@getty": true
-  }
-}
-```
-
-Every `<plugin>@<marketplace>` in `enabledPlugins` needs its marketplace declared in
-`extraKnownMarketplaces` (`claude-plugins-official` is built in) — user settings hide
-the gap here, a fresh machine cannot resolve the plugin. A committed
-`.claude/skilletor.json` → also `"skilletor@getty": true`. Add
-`superpowers@claude-plugins-official` only if the user already uses it in sibling repos.
-`.claude/settings.local.json` is per-machine permission noise — never author it, never
-commit decisions into it.
-
-Skilletor adds `skilletor@getty` to the committed `settings.json` itself on the
-first sync (`… updated — commit it`); commit that together with `skilletor.json`.
-
-## Step 6 — CLAUDE.md pointer
-
-The repo's `CLAUDE.md` gets a short delegation table naming the agents and a line saying
-where the rules and skills live. It must not duplicate rule or skill content — a
-duplicated rule is a rule that will drift.
-
-```markdown
-## Delegation
-
-Delegate behavior-relevant code to the right agent instead of touching it yourself —
-principle in the shared rule `getty-agent-delegation`, lanes in `.claude/rules/<prefix>-rules.md`.
-
-| Task | Agent |
-|---|---|
-| Implement / refactor / debug behavior-relevant code | `<prefix>-worker` (default) |
-| Write/extend tests | `<prefix>-test-writer` |
-| Commits, changelog, card → done, pre-release audit | `<prefix>-release-manager` |
-| Read-only research, audit, gap analysis | `<prefix>-worker` ("read-only, change nothing") |
-
-Every subagent is a `<prefix>-*` agent — never the built-in `general-purpose`/`Explore`/`Plan`.
-
-The agents carry their skills via `briefing.skills` (see `.claude/agents/`); the main
-agent delegates rather than loading them. Skill sources live under `.claude/skills/`.
-```
-
-## Step 7 — karr coordination (optional, default yes)
-
-`karr init`, the `.karr` agent-execution file, the board conventions, cross-repo handoff
-and the `karr-foundation` drain loop: `references/karr.md`.
-
-The board discipline that goes with it — serialized board writes when fanning out,
-public trackers are not a queue — ships in the shared rules `karr-coordination` and
-`getty-publish-gate` (Step 4); the project file does not repeat it.
-
-## Sharing a role or the rules across repos
-
-Agents and rules a repo writes for itself are plain tracked files — the default, and
-everything above assumes it. When the *same* file is wanted in several repos
-(`karr-coordinator` copied into every family member), skilletor can ship agents and
-rules like skills: put them in a source as `agents/<name>.md` / `rules/<name>.md`,
-install with `skilletor install agent:<name>@<source>` / `rule:<name>@<source>`, and
-vary per repo with `.njk` templates and `vars` (skill `skilletor`, its `templates` and
-`bundles` references). Installed copies land as `.claude/agents/.local.<name>.md` and
-are build artifacts — never edit them, change the source.
-
-- Put an agent and every skill in its `briefing.skills` into **one bundle**: a user-level
-  agent never sees project skills, and sync warns `briefing skills not installed`
-  when the two drift apart.
-- Codex agents are `.codex/agents/*.toml` with a `# briefing: skills = [...]` comment,
-  underscores in `name`, and no `[briefing]` table — skill `briefing` has the details.
-  This skill describes the Claude form.
-
-## Step 8 — verify
-
-```bash
-ls .claude/agents/ .claude/rules/ .claude/skills/ 2>/dev/null
-python3 - <<'EOF'
-import glob, re, os, sys
-missing = []
-for f in glob.glob('.claude/agents/*.md'):
-    fm = open(f).read().split('---')[1]
-    if 'briefing:' not in fm: print(f'{f}: no briefing block'); continue
-    for name in re.findall(r'^\s*-\s*([\w:-]+)\s*$', fm.split('briefing:')[1], re.M):
-        if not any(os.path.exists(p) for p in (
-            f'.claude/skills/{name}/SKILL.md',
-            os.path.expanduser(f'~/.claude/skills/{name}/SKILL.md'))):
-            missing.append((f, name))
-for f, n in missing: print(f'UNRESOLVED {n} in {f}')
-print('all skills resolve' if not missing else 'FIX THESE — briefing will deny the spawn')
-EOF
-```
-
-The plugin-namespaced form (`plugin:skill`) and plugin caches also resolve — the check
-above only knows the two common locations, so treat its output as a first pass.
-
-**You cannot spawn the new agents in the session that created them.** Claude Code reads
-`.claude/agents/` at startup, so a fresh agent file is `not found` until the next
-session. Drive the hook directly instead — it proves both halves without a restart:
-
-```bash
-HOOK=$(ls -d ~/.claude/plugins/cache/briefing/briefing/*/hooks/briefing-preload | tail -1)
-printf '%s' '{"session_id":"t","cwd":"'"$PWD"'","tool_name":"Agent","tool_input":
-{"subagent_type":"<prefix>-worker","description":"x","prompt":"MARKER"}}' \
-  | tr -d '\n' | "$HOOK" | python3 -m json.tool | head -20
-```
-
-Expect an `updatedInput.prompt` many KB long, containing each briefed skill's body and
-still carrying `MARKER`. Then repeat with a throwaway agent file listing a skill that
-does not exist: the hook must answer `"permissionDecision": "deny"` naming the unknown
-skill. Anything else means the setup is silently unbriefed. Delete the throwaway after.
-
-Once a later session has the agents, the live check is behavioral: a briefed agent
-answers a question that is only in its skills without calling the `Skill` tool. If it
-reaches for `Skill`, the hook did not fire — check *this* project's settings against Step 5.
+The `briefing` plugin denies the spawn of an agent that names an unknown skill
+(PreToolUse) and injects the skills when the subagent starts (SubagentStart); it does
+not rewrite the prompt. Codex agents are `.codex/agents/*.toml` with a
+`# briefing: skills = [...]` comment; skill `briefing` has the details.
 
 ## Bringing an existing setup in line
 
-Same steps, but audit first and report before editing: agents whose bodies restate skill
-content (migrate to `briefing.skills`), agents still using the plain top-level `skills:`
-key (**briefing deliberately ignores it — it only reads `briefing.skills`**), a rules file
-that duplicates a skill, no house-rules bundle in `install.bundles` (Step 4), a project
-rules file that still carries its own discipline list, delegation lock, karr block or
-release/public-issue gate (cut them to the template; keep what differs as a deviation,
-move project-specific discipline points to hazards), an enabled plugin whose marketplace
-is not in `extraKnownMarketplaces` (Step 5), shared skills copied by hand or
-still hardlinked instead of installed (skill `getty-skill-library`, "Old pattern").
+`ack-team check` reports what is missing (unresolved skills, `allowed-tools`, a top-level
+`skills:` key, undeclared marketplaces, the hook). Audit by hand, and report before
+editing, what it does not see:
 
-Role drift to look for in older setups:
-
-- `allowed-tools:` in an agent file → ignored by Claude Code, the agent has every tool.
-  Drop it on writing roles; on read-only roles replace it with
-  `disallowedTools: Edit, Write, NotebookEdit` (see the frontmatter contract);
-
-- a read-only `<prefix>-release-checker` → replace with `<prefix>-release-manager`
-  (the audit becomes part of its lane; there is no third role);
-- workers or writers briefed with commit-style, changelog or release skills, or whose
-  body tells them to commit → strip both, the release-manager owns them;
-- doc-writers briefed with a whole release skill just for the doc format → brief the
+- agent bodies that restate skill content: migrate to `briefing.skills`;
+- a project rules file that duplicates a skill, lacks the house-rules bundle in
+  `install.bundles` (`getty-house` or `getty-cpan-dist`), or still carries its own
+  discipline list, delegation lock, karr block or release/public-issue gate: cut to what
+  differs goes into the hazards or the lane table (the kit's rules file has no
+  deviations section), project-specific discipline points go to hazards. If the house
+  rules are missing, run `skilletor sync` and publish nothing until they load. The shared
+  rules are `engineering-discipline`, `agent-delegation`, `publish-gate`, `board-karr`
+  (older names: `getty-agent-delegation`, `getty-publish-gate`, `karr-coordination`);
+- a read-only `<prefix>-release-checker`: replace with `<prefix>-release-manager`.
+  An existing `karr-coordinator` is not drift (the kit names new ones
+  `<family>-coordinator`);
+- workers or writers briefed with commit-style, changelog or release skills, or told to
+  commit: strip both, the release-manager owns them;
+- doc-writers briefed with a whole release skill just for the doc format: brief the
   doc-format skill instead;
-- `kanban-issues-karr-cli` in a working role's briefing → `kanban-issues-karr-ticket`;
-  in the karr-coordinator → `kanban-issues-karr-coordination` + `-ticket`.
+- `kanban-issues-karr-cli` in a working role: replace with `kanban-issues-karr-ticket`;
+  in the coordinator: `kanban-issues-karr-coordination` plus `-ticket`;
+- shared skills copied by hand or still hardlinked instead of installed (skill
+  `getty-skill-library`, "Old pattern").

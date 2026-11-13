@@ -71,8 +71,8 @@ instead of restating the linter's config.
 ## Workflow
 
 **When:** a multi-step procedure where order matters, steps can be skipped
-under pressure, or half-done work looks done. Examples: `getty-agent-team`,
-`getty-create-software`, `getty-perl-distribution`.
+under pressure, or half-done work looks done. Examples: `getty-create-software`,
+`getty-perl-distribution`.
 
 **Skeleton:**
 
@@ -105,8 +105,7 @@ Validation loops beat trust: run the check, fix, re-run, only then proceed.
 **When:** the agent needs a mental model to make many small decisions
 correctly — an architecture, a vocabulary, a set of invariants. No steps to
 follow; the payoff is that other skills and prompts can use the vocabulary.
-Example: `getty-agent-team`'s four-sentence architecture; a project's
-`<prefix>-core` skill.
+Example: a project's `<prefix>-core` skill.
 
 **Skeleton:**
 

@@ -1,42 +1,9 @@
-# karr coordination layer
+# karr, Getty's habits
 
-`karr` is a git-native kanban board: state lives in `refs/karr/*` inside the repo, not in
-checked-in files. One board per repo. It is the coordination substrate for every project
-that uses this setup, so install it unless the user says otherwise.
+Install, board seeding, the skills and the rule `board-karr` are the kit's
+(`team-board.md` of `agent-construction-kit`). What stays here is how Getty runs karr.
 
-Two skills, which `karr skill install` drops into the repo (source:
-[Getty/karr](https://github.com/Getty/karr)): `kanban-issues-karr-ticket` — working one
-handed-over card, briefed into every working role — and
-`kanban-issues-karr-coordination` — the full command surface, for the main agent and
-the karr-coordinator. They combine; neither repeats the other. (Older installs ship the
-single `kanban-issues-karr-cli`.)
-
-## Install into a repo
-
-```bash
-cd <repo>
-karr init --name "<Project>"            # creates refs/karr/*
-karr skill install --agent claude-code  # drops .claude/skills/karr/SKILL.md
-karr board                              # verify
-```
-
-`karr init --claude-skill` does both in one step. In a repo that uses skilletor, install
-the two skills from the karr source instead (`kanban-issues-karr-ticket@karr`,
-`kanban-issues-karr-coordination@karr`) — they then follow karr on every sync. For a
-copy karr installed itself, `karr skill check` / `karr skill update` tell you whether
-it is current.
-
-Statuses default to `backlog → todo → in-progress → review → done → archived`, with
-`in-progress` and `review` requiring a claim. Change via `karr config set` only if the
-project genuinely needs a different flow.
-
-## Seeding the board
-
-A fresh board with nothing on it gets ignored. Seed it from what already exists — open
-TODOs in the code, the roadmap section of the README, the known-broken list — one ticket
-each, priority set, so the first `karr pick` has something real to grab.
-
-## The `.karr` file — headless agent execution
+## The `.karr` file and `karr-foundation`
 
 `karr-foundation` (ships with App::karr) scans configured boards, pulls, and **drains**
 each board that has open work by running a headless agent until nothing actionable
@@ -54,11 +21,11 @@ karr-foundation --dry-run --verbose    # preview
 karr-foundation                        # scan, then drain
 ```
 
-Config lives in `~/.config/karr-foundation/config.yml` — `dirs:` (explicit repos) and/or
+Config lives in `~/.config/karr-foundation/config.yml`: `dirs:` (explicit repos) and/or
 `scan:` (parent dirs; any child with a `.karr` file or karr refs counts).
 
 > **Trap:** a global `default_command` in that config **wins over every repo's `.karr`**
-> and turns every discovered board into an agent board — a repo cannot opt out. Prefer
+> and turns every discovered board into an agent board; a repo cannot opt out. Prefer
 > per-repo `.karr` files, and leave boards that must not be touched (abandoned
 > components, anything with a production blast radius) without agent config.
 
@@ -66,21 +33,12 @@ Each run is classified (progress / stall / common-error / idle): stalled tasks a
 auto-blocked after `max_attempts`, API errors put the repo in exponential cooldown, a
 lock file keeps concurrent runs safe.
 
-## Repo families — the `<prefix>-coordination` skill
+## Board habits
 
-A family of independent repos has **no shared board**. Cross-repo work is a ticket on the
-*other* repo's board — never a direct edit. That protocol belongs in a project-owned
-skill, briefed into the worker and the `karr-coordinator`.
-
-Template: `coordination-skill-template.md` (next to this file). Source of truth lives in
-the family's core repo; the other repos install it from there with skilletor.
-
-## Operational rules that go in the rules file
-
-- **Serialize board mutations when fanning out.** Confirmed incident: 8 concurrent
-  cross-repo fix agents, each ending in its own `karr move ... review`, OOM-rebooted the
-  host. A single `karr handoff` is ~46MB RSS / ~18s — cheap alone, not cheap ×8. Keep
-  implementation parallel, then loop the board writes sequentially.
-- **No background poll loops** on the board. Check once, act on the result.
-- **A board is not a public tracker.** Never mirror karr tickets into a public issue
-  tracker, and never drain a public tracker into karr, without explicit instruction.
+- Seed a fresh board from what exists (open TODOs, the README roadmap, the known-broken
+  list), one card each with a priority; an empty board gets ignored.
+- Statuses stay `backlog, todo, in-progress, review, done, archived`; change them with
+  `karr config set` only when the project needs a different flow.
+- A board is not a public tracker: never mirror karr cards into one, never drain one
+  into karr, without explicit instruction (rule `publish-gate`).
+- A family has no shared board: cross-repo work is a card on the other repo's board.
