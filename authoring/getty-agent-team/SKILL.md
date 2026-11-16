@@ -1,6 +1,6 @@
 ---
 name: getty-agent-team
-description: "Use when one of Getty's repos needs subagents or an agent team — setting one up, wiring briefing or karr, or when .claude/agents is missing or drifted. Getty's preset: load it before the skill of the plugin agent-construction-kit."
+description: "Use when one of Getty's repos needs subagents or an agent team — setting one up, wiring briefing or karr, or when .claude/agents is missing or drifted. Getty's preset for agent-construction-kit (/agent-setup, /agent-machine)."
 ---
 
 # Agent team, Getty's preset
@@ -17,10 +17,10 @@ a project's `.claude/` never mentions `getty-agent-team`.
 
 ## Prerequisite
 
-The plugin `agent-construction-kit` must be installed and enabled, from whichever
-marketplace: this session then lists the skill `agent-construction-kit:agent-construction-kit`.
+The plugin `agent-construction-kit` is installed and enabled, from whichever
+marketplace: `ack-doctor` then runs in the Bash tool (the plugin's `bin/` is on its PATH).
 
-Not listed: ask the user to run these two slash commands (Claude cannot run them),
+Missing: ask the user to run these two slash commands (Claude cannot run them),
 then continue in a new session:
 
 ```
@@ -28,13 +28,16 @@ then continue in a new session:
 /plugin install agent-construction-kit@getty
 ```
 
-Without the plugin, do not rebuild its procedure from memory.
+The install brings skilletor and briefing along. The procedure lives in the plugin;
+install it first.
 
 ## Procedure
 
-Load the skill `agent-construction-kit:agent-construction-kit` and follow it with the
-answer sheet below; ask the user only what the sheet leaves open. Verification is the
-kit's `ack-team check`.
+The kit runs as commands the user types: `/agent-setup` builds or checks the team,
+`/agent-machine` sets up the machine and the `claude_with_*` starters. Both load this
+preset themselves and take the answer sheet below; ask the user only what the sheet
+leaves open. Loaded outside a command: ask the user to type `/agent-setup` (Claude cannot
+start it). Verification is the kit's `ack-team check`.
 
 ## Answer sheet
 
