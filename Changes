@@ -19,6 +19,11 @@ Revision history for skills
   - New bundle house: engineering-discipline, agent-delegation and
     publish-gate, for teams that do not use karr. getty-house now consists of
     house plus board-karr and delivers the same four rules as before.
+  - publish-gate and board-karr say that the team's board is outside the
+    gate: board writes and their push are durably authorized, a "don't push"
+    in a brief means commits and tags, `--local-only` is for an unreachable
+    remote only, and a failed push is reported first and caught up with
+    `karr sync`. Agents had been holding board writes back or asking first.
   - New skill ruml-engineering in data-sources-and-standards: RUML, the
     Rulemapping Logic Format for Law as Code rulemaps, with operators and
     evaluation modes, JSONata, modules, results, containers and validation,
