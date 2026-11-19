@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.7.0     2026-11-19 18:20:57Z
   - model-routing: Fable 5.2 is stronger than Opus 5.5 and a regular
     frontier tier at 8/40 per MTok, twice Opus; work at the top of the rubric
     goes there directly. claude-headless and getty-agent-team follow.
