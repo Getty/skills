@@ -19,6 +19,11 @@ Revision history for skills
   - New bundle house: engineering-discipline, agent-delegation and
     publish-gate, for teams that do not use karr. getty-house now consists of
     house plus board-karr and delivers the same four rules as before.
+  - New skill ruml-engineering in data-sources-and-standards: RUML, the
+    Rulemapping Logic Format for Law as Code rulemaps, with operators and
+    evaluation modes, JSONata, modules, results, containers and validation,
+    plus offline helper scripts and examples. The prose is CC BY-SA 4.0, the
+    scripts and examples Apache-2.0.
 
 0.6.0    2026-11-11 05:32:33Z
   - New group semantic-web with seven skills, one W3C standard each:

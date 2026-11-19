@@ -1,0 +1,112 @@
+{
+  "$format": "RUML",
+  "$specVersion": "1.0",
+  "metadata": {
+    "id": "e661d7f0-454c-4a04-8064-8c88331f159b",
+    "version": "1.0.0",
+    "created": "2026-11-19T00:00:00Z",
+    "modified": "2026-11-19T00:00:00Z",
+    "status": "draft",
+    "title": "Two of three training criteria",
+    "description": "Synthetic educational fixture. Not a legal norm or an operational policy.",
+    "language": "en"
+  },
+  "capabilities": [
+    {
+      "id": "ruml:datapoints",
+      "required": true,
+      "payload": {
+        "data": {
+          "dp_criterion_1": {
+            "name": "Criterion 1",
+            "type": "boolean",
+            "binding": {
+              "type": "input"
+            }
+          },
+          "dp_criterion_2": {
+            "name": "Criterion 2",
+            "type": "boolean",
+            "binding": {
+              "type": "input"
+            }
+          },
+          "dp_criterion_3": {
+            "name": "Criterion 3",
+            "type": "boolean",
+            "binding": {
+              "type": "input"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ruml:query",
+      "required": true
+    },
+    {
+      "id": "ruml:expression",
+      "required": true
+    }
+  ],
+  "rulemap": {
+    "nodes": {
+      "1": {
+        "id": "dfb849b8-b1ca-440a-bf3a-0de31490571d",
+        "label": "At least two criteria hold",
+        "operator": "DELEGATED",
+        "children": [
+          "2",
+          "3",
+          "4"
+        ],
+        "capabilities": [
+          {
+            "id": "ruml:expression",
+            "payload": {
+              "description": "At least two of three criteria must be true. Any undetermined child prevents the combiner from running.",
+              "expression": "$count($children[status = 'true']) >= 2"
+            }
+          }
+        ]
+      },
+      "2": {
+        "id": "73765605-3ea5-4305-9b86-a663e023cd0d",
+        "label": "Criterion 1",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_criterion_1) ? dp_criterion_1 : ()"
+            }
+          }
+        ]
+      },
+      "3": {
+        "id": "b32356a0-a897-423d-bfa7-9b27aee2284f",
+        "label": "Criterion 2",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_criterion_2) ? dp_criterion_2 : ()"
+            }
+          }
+        ]
+      },
+      "4": {
+        "id": "ed9ecbfe-c2c1-4bc9-801d-4de67102e2f7",
+        "label": "Criterion 3",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_criterion_3) ? dp_criterion_3 : ()"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

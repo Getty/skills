@@ -1,0 +1,54 @@
+{
+  "specification": {
+    "name": "RUML",
+    "publication_version": "1.0.0",
+    "envelope_version": "1.0",
+    "publication_date": "2026-11-15",
+    "verified_on": "2026-11-19",
+    "repository": "https://github.com/Law-as-Code-Institute/ruml",
+    "commit": "d2ac818f6ed87c2bcf5b69430adf2efa8ba3c6a4"
+  },
+  "schemas": [
+    {
+      "path": "schemas/ruml-ext.schema.json",
+      "raw_file_sha256": "33ed6eb04d5cbdce8c1276920fec34e312c9e991fa7f12938529c32337a5da4a"
+    },
+    {
+      "path": "schemas/ruml-result.schema.json",
+      "raw_file_sha256": "1f0d9038a99e1f0b88b36c99f67a630dc1b2900bca01931f1b4d78aa9b25a14c"
+    },
+    {
+      "path": "schemas/ruml.schema.json",
+      "raw_file_sha256": "27678378185886554d8c8eb601877ffaf532919656410f9d5ffb68d91acc893b"
+    }
+  ],
+  "parser_source_inspection": [
+    {
+      "repository": "https://github.com/Law-as-Code-Institute/ruml-python",
+      "commit": "1a421333ba0a2b4d134054417dc418c1142916ec",
+      "package": "ruml-parser",
+      "manifest_version": "1.0.0",
+      "executed": false
+    },
+    {
+      "repository": "https://github.com/Law-as-Code-Institute/ruml-js",
+      "commit": "cb7d754b42ff53940e154ae924b7f72f7fa8b218",
+      "package": "@law-as-code/ruml-parser",
+      "manifest_version": "1.0.0",
+      "executed": false
+    }
+  ],
+  "verified_helpers": {
+    "schema_examples": 6,
+    "jsonschema_version": "4.26.0",
+    "json_schema_formats_enabled": true,
+    "upstream_builtin_operator_cases": 96,
+    "upstream_status_assertions": 384,
+    "jsonata_version": "2.2.0",
+    "jsonata_leaf_evaluations": 24,
+    "access_case_mode_combinations": 10,
+    "threshold_cases": 3,
+    "rfc8785_python_version": "0.1.4"
+  },
+  "scope": "Helper and fixture checks only; not complete runtime or legal conformance. No LLM, actions, signature trust chain, or container processor executed."
+}

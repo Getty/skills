@@ -1,0 +1,54 @@
+{
+  "$format": "RUML-Result",
+  "$specVersion": "1.0",
+  "rumlReference": {
+    "id": "8b81eac4-d3be-4491-aa34-088085e443f1",
+    "hash": "sha3-256:d197540fd6c4349aaf29e8d3c3a315c2952a9a32979c7925abfa0138f6623a8e"
+  },
+  "evaluation": {
+    "id": "158d5ed5-5a6e-4db1-8b84-0d719989ac2f",
+    "timestamp": "2026-11-19T00:00:01Z",
+    "mode": "optimized",
+    "caseId": "missing-score-optimized",
+    "toolId": "authored-example",
+    "toolVersion": "1.0.0",
+    "results": {
+      "1": {
+        "lexId": "1",
+        "status": "undefined",
+        "reason": {
+          "type": "default",
+          "message": "Training score is missing in this synthetic case."
+        }
+      },
+      "1.1": {
+        "lexId": "2",
+        "status": "undefined",
+        "reason": {
+          "type": "default",
+          "message": "Training score is missing in this synthetic case."
+        }
+      },
+      "1.2": {
+        "lexId": "3",
+        "status": "ignored",
+        "reason": {
+          "type": "shortCircuit",
+          "trigger": "1.1",
+          "operator": "AND",
+          "mode": "optimized"
+        }
+      },
+      "1.3": {
+        "lexId": "4",
+        "status": "ignored",
+        "reason": {
+          "type": "shortCircuit",
+          "trigger": "1.1",
+          "operator": "AND",
+          "mode": "optimized"
+        }
+      }
+    }
+  }
+}

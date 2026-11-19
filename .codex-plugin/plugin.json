@@ -45,6 +45,7 @@
     "./data-sources-and-standards/gs1-epcis",
     "./data-sources-and-standards/iptc-news-standards",
     "./data-sources-and-standards/openstreetmap-data",
+    "./data-sources-and-standards/ruml-engineering",
     "./data-sources-and-standards/wikibase-data",
     "./data-sources-and-standards/xbrl-reporting-standards",
     "./databases/postgres-vector-graph",

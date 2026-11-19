@@ -1,0 +1,14 @@
+interface:
+  display_name: RUML Engineering
+  short_description: Model, validate, and implement RUML decision logic
+  default_prompt: Use $ruml-engineering to model and validate a rulemap, explain its
+    evaluation behavior, and identify implementation limits.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

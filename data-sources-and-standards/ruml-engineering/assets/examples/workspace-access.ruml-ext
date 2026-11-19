@@ -1,0 +1,22 @@
+{
+  "$format": "RUML-EXT",
+  "$specVersion": "1.0",
+  "$base": {
+    "id": "8b81eac4-d3be-4491-aa34-088085e443f1",
+    "hash": "sha3-256:d197540fd6c4349aaf29e8d3c3a315c2952a9a32979c7925abfa0138f6623a8e"
+  },
+  "capabilities": [
+    {
+      "id": "org.example/review-note",
+      "role": "data"
+    }
+  ],
+  "nodes": {
+    "52a71bc7-1960-47de-8df7-c4ff260893d5": {
+      "org.example/review-note": {
+        "note": "Synthetic review annotation. No execution behavior.",
+        "reviewState": "example"
+      }
+    }
+  }
+}

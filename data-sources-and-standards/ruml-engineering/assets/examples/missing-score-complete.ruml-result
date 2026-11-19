@@ -1,0 +1,41 @@
+{
+  "$format": "RUML-Result",
+  "$specVersion": "1.0",
+  "rumlReference": {
+    "id": "8b81eac4-d3be-4491-aa34-088085e443f1",
+    "hash": "sha3-256:d197540fd6c4349aaf29e8d3c3a315c2952a9a32979c7925abfa0138f6623a8e"
+  },
+  "evaluation": {
+    "id": "c02e111a-a720-4489-91f5-d4419f11731e",
+    "timestamp": "2026-11-19T00:00:01Z",
+    "mode": "complete",
+    "caseId": "missing-score-complete",
+    "toolId": "authored-example",
+    "toolVersion": "1.0.0",
+    "results": {
+      "1": {
+        "lexId": "1",
+        "status": "false",
+        "reason": "Expected outcome for the documented synthetic test inputs."
+      },
+      "1.1": {
+        "lexId": "2",
+        "status": "undefined",
+        "reason": {
+          "type": "default",
+          "message": "Training score is missing in this synthetic case."
+        }
+      },
+      "1.2": {
+        "lexId": "3",
+        "status": "true",
+        "reason": "Expected outcome for the documented synthetic test inputs."
+      },
+      "1.3": {
+        "lexId": "4",
+        "status": "false",
+        "reason": "Expected outcome for the documented synthetic test inputs."
+      }
+    }
+  }
+}

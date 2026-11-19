@@ -1,0 +1,130 @@
+{
+  "$format": "RUML",
+  "$specVersion": "1.0",
+  "metadata": {
+    "id": "8b81eac4-d3be-4491-aa34-088085e443f1",
+    "version": "1.0.0",
+    "created": "2026-11-19T00:00:00Z",
+    "modified": "2026-11-19T00:00:00Z",
+    "status": "draft",
+    "title": "Demo workspace access",
+    "description": "Synthetic educational fixture. Not a legal norm or an operational policy.",
+    "language": "en"
+  },
+  "capabilities": [
+    {
+      "id": "ruml:datapoints",
+      "required": true,
+      "payload": {
+        "data": {
+          "dp_training_score": {
+            "name": "Training score",
+            "type": "integer",
+            "binding": {
+              "type": "input"
+            },
+            "validation": {
+              "min": 0,
+              "max": 100
+            }
+          },
+          "dp_acknowledged": {
+            "name": "Policy acknowledged",
+            "type": "boolean",
+            "binding": {
+              "type": "input"
+            }
+          },
+          "dp_suspended": {
+            "name": "Account suspended",
+            "type": "boolean",
+            "binding": {
+              "type": "input"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ruml:text-reference",
+      "payload": {
+        "data": {
+          "text_demo_policy": {
+            "title": "Synthetic workspace access rule",
+            "timestamp": "2026-11-19T00:00:00Z",
+            "status": "draft",
+            "text": "Permit access when the training score is at least 80, the policy has been acknowledged, and the account is not suspended. An unknown input leaves the corresponding requirement undetermined."
+          }
+        }
+      }
+    },
+    {
+      "id": "ruml:query",
+      "required": true
+    }
+  ],
+  "rulemap": {
+    "nodes": {
+      "1": {
+        "id": "52a71bc7-1960-47de-8df7-c4ff260893d5",
+        "label": "Workspace access permitted",
+        "operator": "AND",
+        "children": [
+          "2",
+          "3",
+          "4"
+        ],
+        "capabilities": [
+          {
+            "id": "ruml:text-reference",
+            "payload": {
+              "refs": [
+                {
+                  "id": "text_demo_policy",
+                  "type": "represents"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "2": {
+        "id": "9d41696a-6c3d-4869-bcff-246fb50821ca",
+        "label": "Training score is at least 80",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_training_score) ? dp_training_score >= 80 : ()",
+              "description": "Return no value if the training score is missing."
+            }
+          }
+        ]
+      },
+      "3": {
+        "id": "b90cdacb-ae4f-4905-84db-a040ecae9385",
+        "label": "Policy has been acknowledged",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_acknowledged) ? dp_acknowledged = true : ()"
+            }
+          }
+        ]
+      },
+      "4": {
+        "id": "89c2ab34-49bf-46b8-81ee-a64bad5b8076",
+        "label": "Account is not suspended",
+        "capabilities": [
+          {
+            "id": "ruml:query",
+            "payload": {
+              "expression": "$exists(dp_suspended) ? dp_suspended = false : ()"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

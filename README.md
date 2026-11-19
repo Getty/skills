@@ -21,7 +21,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
 | [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
-| [data-sources-and-standards](data-sources-and-standards/README.md) | 8 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange |
+| [data-sources-and-standards](data-sources-and-standards/README.md) | 9 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange, RUML rulemaps for Law as Code |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [game-development](game-development/README.md) | 3 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices |
@@ -103,6 +103,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [gs1-epcis](data-sources-and-standards/gs1-epcis/SKILL.md) | EPCIS 2.x traceability events and the Core Business Vocabulary: identifiers, corrections, sensors, interfaces |
 | [iptc-news-standards](data-sources-and-standards/iptc-news-standards/SKILL.md) | NewsML-G2, ninjs, NewsCodes and Media Topics: revisions, corrections, embargo, taxonomy mapping |
 | [openstreetmap-data](data-sources-and-standards/openstreetmap-data/SKILL.md) | The OSM data model, extracts and updates, geometry assembly, service boundaries, ODbL obligations |
+| [ruml-engineering](data-sources-and-standards/ruml-engineering/SKILL.md) | RUML rulemaps for Law as Code: operators and evaluation modes, JSONata, modules, results, containers, validation |
 | [wikibase-data](data-sources-and-standards/wikibase-data/SKILL.md) | Wikidata and Wikibase: entity JSON, dumps and RDF, ranks, qualifiers and references, updates, reconciliation |
 | [xbrl-reporting-standards](data-sources-and-standards/xbrl-reporting-standards/SKILL.md) | XBRL 2.1, Dimensions, Inline XBRL and OIM: facts and contexts, taxonomies, SEC and ESEF filing profiles |
 

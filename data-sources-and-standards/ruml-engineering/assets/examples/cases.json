@@ -1,0 +1,88 @@
+{
+  "description": "Original test data. Expected outcomes are assertions, not recorded production evaluations. All inputs below meet their declared types; missing inputs are intentional.",
+  "workspace_access": [
+    {
+      "name": "pass-at-boundary",
+      "inputs": {
+        "dp_training_score": 80,
+        "dp_acknowledged": true,
+        "dp_suspended": false
+      },
+      "expected": {
+        "optimized": "true",
+        "complete": "true"
+      }
+    },
+    {
+      "name": "below-boundary",
+      "inputs": {
+        "dp_training_score": 79,
+        "dp_acknowledged": true,
+        "dp_suspended": false
+      },
+      "expected": {
+        "optimized": "false",
+        "complete": "false"
+      }
+    },
+    {
+      "name": "missing-score-then-failure",
+      "inputs": {
+        "dp_acknowledged": true,
+        "dp_suspended": true
+      },
+      "expected": {
+        "optimized": "undefined",
+        "complete": "false"
+      }
+    },
+    {
+      "name": "unacknowledged",
+      "inputs": {
+        "dp_training_score": 95,
+        "dp_acknowledged": false,
+        "dp_suspended": false
+      },
+      "expected": {
+        "optimized": "false",
+        "complete": "false"
+      }
+    },
+    {
+      "name": "all-missing",
+      "inputs": {},
+      "expected": {
+        "optimized": "undefined",
+        "complete": "undefined"
+      }
+    }
+  ],
+  "two_of_three": [
+    {
+      "name": "two-true",
+      "inputs": {
+        "dp_criterion_1": true,
+        "dp_criterion_2": true,
+        "dp_criterion_3": false
+      },
+      "expected": "true"
+    },
+    {
+      "name": "one-true",
+      "inputs": {
+        "dp_criterion_1": true,
+        "dp_criterion_2": false,
+        "dp_criterion_3": false
+      },
+      "expected": "false"
+    },
+    {
+      "name": "two-true-one-unknown",
+      "inputs": {
+        "dp_criterion_1": true,
+        "dp_criterion_2": true
+      },
+      "expected": "undefined"
+    }
+  ]
+}

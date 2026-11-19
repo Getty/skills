@@ -88,3 +88,16 @@ reported claims and events keeps its evidence.
 
 **Load when** creating, converting, ingesting or validating news items, or mapping a
 provider's subject codes to another taxonomy.
+
+## [ruml-engineering](ruml-engineering/SKILL.md)
+
+RUML, the Rulemapping Logic Format, for legal and policy decisions modeled as Law as
+Code: rulemaps with ordered AND, OR and XOR operators and their optimized and
+complete evaluation modes, JSONata queries and DELEGATED combiners, typed
+DataPoints, modular nodes and recursion, AI checks and actions, result traces,
+signed containers, and the bridges to Akoma Ntoso, LegalRuleML, DMN and RDF. Keeps a
+valid file, a correct evaluation and a correct legal reading apart. The prose adapts
+the specification and is CC BY-SA 4.0; scripts and examples are Apache-2.0.
+
+**Load when** writing, validating or evaluating a `.ruml` file, building an
+evaluator, or when a rulemap returns a result nobody expected.
