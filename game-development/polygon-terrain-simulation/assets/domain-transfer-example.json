@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "purpose": "Small internally consistent fixtures for adaptation; not measured soil data or a production save format.",
+    "units": "SI; explicit unit suffixes on scalar fields",
+    "created": "2026-11-20"
+  },
+  "example_type": "illustrative_transaction_independent_of_world_state_fixture",
+  "transfer": {
+    "transfer_id": "transfer-example-001",
+    "operation_id": "earthworks-example-001",
+    "source_account": "terrain:excavation-patch",
+    "destination_account": "logistics:truck-001",
+    "material_id": "mineral_fill_demo",
+    "dry_mass_kg": 12000.0,
+    "carried_pore_water_m3": 0.0,
+    "source_revision": 14,
+    "expected_destination_revision": 8,
+    "state": "committed",
+    "idempotency_key": "earthworks-example-001:increment-003"
+  },
+  "geometry_projection": {
+    "canonical_quantity_owner": "logistics:truck-001",
+    "reference_dry_bulk_density_kg_m3": 1500.0,
+    "derived_bulk_volume_m3": 8.0,
+    "counts_as_additional_physical_mass": false
+  },
+  "contract_rules": [
+    "Commit source debit and destination credit together, or use a durable recoverable pending-transfer record.",
+    "A repeated idempotency key returns the recorded result without another transfer.",
+    "The source revision is checked before the first application.",
+    "Future fill at another density derives a different bulk volume from the same dry mass.",
+    "If water is carried or expelled, give it an explicit receiving account."
+  ]
+}

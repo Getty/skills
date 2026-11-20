@@ -1,6 +1,12 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New skills in game-development, each with references, offline helper
+    scripts and tests: game-pathfinding-navigation for graphs, grids and
+    navmeshes, A* and D* Lite, flow fields, local avoidance and multi-agent
+    reservations; polygon-terrain-simulation for editable polygon terrain with
+    generation and climate, layered materials, earthworks, water, erosion, map
+    rendering and streaming.
 
 0.8.0     2026-11-20 00:29:38Z
   - New group rules-and-reasoning, one rule, policy, decision or planning

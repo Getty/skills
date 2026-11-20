@@ -24,7 +24,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [data-sources-and-standards](data-sources-and-standards/README.md) | 8 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
-| [game-development](game-development/README.md) | 3 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices |
+| [game-development](game-development/README.md) | 5 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices, pathfinding and navigation, editable terrain |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
@@ -126,6 +126,8 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [ai-playable-games](game-development/ai-playable-games/SKILL.md) | One seat protocol for humans, bots and LLM agents: views, orders, rejections, replay, untrusted player text |
 | [game-balance-math](game-development/game-balance-math/SKILL.md) | Economy flow graphs, money loops, feedback loops, cost curves, payoff matrices |
+| [game-pathfinding-navigation](game-development/game-pathfinding-navigation/SKILL.md) | Graphs, grids and navmeshes, A* and D* Lite, flow fields, local avoidance, multi-agent reservations, engine adapters |
+| [polygon-terrain-simulation](game-development/polygon-terrain-simulation/SKILL.md) | Editable polygon terrain: generation and climate, layered materials, earthworks, water and erosion, persistence and streaming |
 | [simulation-balancing](game-development/simulation-balancing/SKILL.md) | The sim as balance instrument: policy league, paired runs, sample sizes, mechanic ablation |
 
 ### [git](git/README.md)

@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "cost_unit": "one abstract nonnegative unit per graph; grid fixtures use seconds",
+    "purpose": "Analytical reference cases, not performance measurements or production saves."
+  },
+  "search_cases": [
+    {
+      "name": "weighted_detour",
+      "graph": {
+        "nodes": [
+          "S",
+          "A",
+          "B",
+          "C",
+          "G"
+        ],
+        "edges": [
+          {
+            "edge_id": "SA",
+            "source": "S",
+            "target": "A",
+            "cost": 1
+          },
+          {
+            "edge_id": "AG",
+            "source": "A",
+            "target": "G",
+            "cost": 10
+          },
+          {
+            "edge_id": "SB",
+            "source": "S",
+            "target": "B",
+            "cost": 2
+          },
+          {
+            "edge_id": "BC",
+            "source": "B",
+            "target": "C",
+            "cost": 2
+          },
+          {
+            "edge_id": "CG",
+            "source": "C",
+            "target": "G",
+            "cost": 2
+          }
+        ]
+      },
+      "start": "S",
+      "goal": "G",
+      "expected": {
+        "status": "found",
+        "cost": 6,
+        "nodes": [
+          "S",
+          "B",
+          "C",
+          "G"
+        ]
+      }
+    },
+    {
+      "name": "goal_discovery_trap",
+      "graph": {
+        "nodes": [
+          "S",
+          "A",
+          "G"
+        ],
+        "edges": [
+          {
+            "edge_id": "SG",
+            "source": "S",
+            "target": "G",
+            "cost": 10
+          },
+          {
+            "edge_id": "SA",
+            "source": "S",
+            "target": "A",
+            "cost": 1
+          },
+          {
+            "edge_id": "AG",
+            "source": "A",
+            "target": "G",
+            "cost": 1
+          }
+        ]
+      },
+      "start": "S",
+      "goal": "G",
+      "expected": {
+        "status": "found",
+        "cost": 2,
+        "nodes": [
+          "S",
+          "A",
+          "G"
+        ]
+      }
+    },
+    {
+      "name": "admissible_inconsistent",
+      "graph": {
+        "nodes": [
+          "S",
+          "A",
+          "B",
+          "G"
+        ],
+        "edges": [
+          {
+            "edge_id": "SA",
+            "source": "S",
+            "target": "A",
+            "cost": 3
+          },
+          {
+            "edge_id": "SB",
+            "source": "S",
+            "target": "B",
+            "cost": 1
+          },
+          {
+            "edge_id": "BA",
+            "source": "B",
+            "target": "A",
+            "cost": 1
+          },
+          {
+            "edge_id": "AG",
+            "source": "A",
+            "target": "G",
+            "cost": 3
+          },
+          {
+            "edge_id": "BG",
+            "source": "B",
+            "target": "G",
+            "cost": 100
+          }
+        ]
+      },
+      "start": "S",
+      "goal": "G",
+      "heuristic": {
+        "S": 5,
+        "A": 0,
+        "B": 4,
+        "G": 0
+      },
+      "expected": {
+        "status": "found",
+        "cost": 5,
+        "nodes": [
+          "S",
+          "B",
+          "A",
+          "G"
+        ],
+        "reopenings": 1,
+        "heuristic_admissible": true,
+        "heuristic_consistent": false
+      }
+    },
+    {
+      "name": "unreachable",
+      "graph": {
+        "nodes": [
+          "S",
+          "A",
+          "G"
+        ],
+        "edges": [
+          {
+            "edge_id": "SA",
+            "source": "S",
+            "target": "A",
+            "cost": 1
+          }
+        ]
+      },
+      "start": "S",
+      "goal": "G",
+      "expected": {
+        "status": "unreachable",
+        "cost": null,
+        "nodes": []
+      }
+    }
+  ],
+  "reverse_field": {
+    "graph": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "G",
+        "H",
+        "U"
+      ],
+      "edges": [
+        {
+          "edge_id": "AB",
+          "source": "A",
+          "target": "B",
+          "cost": 2
+        },
+        {
+          "edge_id": "BG",
+          "source": "B",
+          "target": "G",
+          "cost": 3
+        },
+        {
+          "edge_id": "GA",
+          "source": "G",
+          "target": "A",
+          "cost": 100
+        },
+        {
+          "edge_id": "AH",
+          "source": "A",
+          "target": "H",
+          "cost": 9
+        },
+        {
+          "edge_id": "CH",
+          "source": "C",
+          "target": "H",
+          "cost": 1
+        }
+      ]
+    },
+    "goals": [
+      "G",
+      "H"
+    ],
+    "expected_distances": {
+      "A": 5,
+      "B": 3,
+      "C": 1,
+      "G": 0,
+      "H": 0,
+      "U": null
+    }
+  },
+  "zero_cycle_field": {
+    "graph": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "G",
+        "U"
+      ],
+      "edges": [
+        {
+          "edge_id": "AB",
+          "source": "A",
+          "target": "B",
+          "cost": 0
+        },
+        {
+          "edge_id": "BA",
+          "source": "B",
+          "target": "A",
+          "cost": 0
+        },
+        {
+          "edge_id": "BC",
+          "source": "B",
+          "target": "C",
+          "cost": 0
+        },
+        {
+          "edge_id": "CB",
+          "source": "C",
+          "target": "B",
+          "cost": 0
+        },
+        {
+          "edge_id": "CG",
+          "source": "C",
+          "target": "G",
+          "cost": 2
+        },
+        {
+          "edge_id": "AG",
+          "source": "A",
+          "target": "G",
+          "cost": 5
+        }
+      ]
+    },
+    "goals": [
+      "G"
+    ],
+    "start": "A",
+    "expected": {
+      "cost": 2,
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "G"
+      ]
+    }
+  },
+  "schedule_example": {
+    "paths": {
+      "alice": [
+        "A",
+        "B"
+      ],
+      "bob": [
+        "B",
+        "A"
+      ]
+    },
+    "expected_conflict": {
+      "type": "edge_swap",
+      "time": 0
+    }
+  }
+}

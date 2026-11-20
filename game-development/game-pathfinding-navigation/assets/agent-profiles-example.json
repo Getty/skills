@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "purpose": "Example contract/profile vocabulary; not a mandatory runtime schema or measured biomechanical data.",
+    "units": "metres, seconds; angles explicitly degrees in these records",
+    "created": "2026-11-20"
+  },
+  "profiles": [
+    {
+      "profile_id": "pedestrian_demo",
+      "version": 1,
+      "body": {
+        "model": "upright_cylinder",
+        "radius_m": 0.3,
+        "height_m": 1.8
+      },
+      "movement": {
+        "mode": "walk",
+        "max_slope_degrees": 30.0,
+        "max_step_m": 0.25,
+        "max_wading_depth_m": 0.3,
+        "surface_speed_m_s": {
+          "road": 1.6,
+          "plain": 1.4,
+          "mud": 0.7
+        }
+      },
+      "capabilities": [
+        "open_unlocked_door"
+      ],
+      "notes": [
+        "Synthetic game rules, not human limits.",
+        "Clearance must hold along the swept body."
+      ]
+    },
+    {
+      "profile_id": "cart_demo",
+      "version": 1,
+      "body": {
+        "model": "oriented_rectangle",
+        "width_m": 1.2,
+        "length_m": 2.0,
+        "height_m": 1.5
+      },
+      "movement": {
+        "mode": "ground_vehicle",
+        "max_slope_degrees": 12.0,
+        "max_step_m": 0.05,
+        "max_wading_depth_m": 0.15,
+        "min_turn_radius_m": 2.5,
+        "surface_speed_m_s": {
+          "road": 2.0,
+          "plain": 1.0,
+          "mud": 0.4
+        }
+      },
+      "capabilities": [],
+      "notes": [
+        "Heading/motion constraints require a compatible state/movement model.",
+        "A circular point path is not a complete vehicle trajectory."
+      ]
+    },
+    {
+      "profile_id": "boat_demo",
+      "version": 1,
+      "body": {
+        "model": "oriented_rectangle",
+        "width_m": 1.5,
+        "length_m": 3.0,
+        "height_m": 1.0
+      },
+      "movement": {
+        "mode": "surface_boat",
+        "draft_m": 0.35,
+        "under_keel_margin_m": 0.1,
+        "still_water_speed_m_s": 1.2,
+        "min_turn_radius_m": 3.0
+      },
+      "capabilities": [
+        "dock"
+      ],
+      "notes": [
+        "Eligibility depends on modeled water depth plus draft/margin.",
+        "Currents can make costs directed; use a declared motion model."
+      ]
+    }
+  ],
+  "implementation_scope": "The reference graph-search code consumes already filtered graphs; it does not implement these geometry/profile filters."
+}

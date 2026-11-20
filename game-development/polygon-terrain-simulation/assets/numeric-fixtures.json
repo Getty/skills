@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "origin": "synthetic_illustrative_not_calibrated",
+    "units": "SI: metre, second, kilogram; explicit unit suffixes",
+    "purpose": "Analytical examples for geometry and conservative accounting; no measured material table or production hydraulic calibration",
+    "particle_density_note": "2650 kg/m3 is an illustrative example value, not a universal density for soil or rock"
+  },
+  "polygon": {
+    "vertices_m": [[0, 0], [2, 0], [2, 1], [0, 1]],
+    "expected_area_m2": 2,
+    "expected_centroid_m": [1, 0.5],
+    "expected_perimeter_m": 6
+  },
+  "cut_fill": {
+    "patch_columns": ["overlap_area_m2", "old_z_m", "target_z_m"],
+    "patches": [[20, 12, 11.5], [5, 11, 11.5]],
+    "expected_cut_m3": 10,
+    "expected_fill_m3": 2.5,
+    "expected_net_fill_m3": -7.5
+  },
+  "compaction": {
+    "inputs": {
+      "dry_mass_kg": 159000,
+      "particle_density_kg_m3": 2650,
+      "area_m2": 100,
+      "old_porosity": 0.4,
+      "new_porosity": 0.25,
+      "pore_water_m3": 30
+    },
+    "expected_old_thickness_m": 1,
+    "expected_new_thickness_m": 0.8,
+    "expected_new_bulk_volume_m3": 80,
+    "expected_retained_water_m3": 20,
+    "expected_expelled_water_m3": 10
+  },
+  "storage_edit": {
+    "patch_columns": ["area_m2", "bed_z_m"],
+    "old_patches": [[60, 0], [40, 1]],
+    "new_patches": [[60, 0.5], [40, 1]],
+    "volume_m3": 110,
+    "expected_old_stage_m": 1.5,
+    "expected_new_stage_m": 1.8,
+    "assumption": "One connected level water body; unlimited vertical storage in this local illustration; no overflow occurs during the instantaneous edit"
+  },
+  "transfers": {
+    "volumes_m3": {"A": 5, "B": 0, "C": 10},
+    "edges": [
+      {"edge_id": "AB", "a": "A", "b": "B", "requested_m3": 4},
+      {"edge_id": "AC", "a": "A", "b": "C", "requested_m3": 6},
+      {"edge_id": "BC", "a": "B", "b": "C", "requested_m3": 7}
+    ],
+    "expected_final_m3": {"A": 0, "B": 2, "C": 13},
+    "expected_actual_m3": {"AB": 2, "AC": 3, "BC": 0},
+    "expected_total_m3": 15
+  },
+  "crest": {
+    "pond_patches": [[10, 0]],
+    "initial_upstream_m3": 9,
+    "initial_downstream_m3": 0,
+    "rain_added_m3": 3,
+    "crest_m": 1,
+    "conductance_m2_s": 2,
+    "dt_s": 1,
+    "expected_before_rain_transfer_m3": 0,
+    "expected_after_rain_transfer_m3": 0.4,
+    "expected_final_m3": {"upstream": 11.6, "downstream": 0.4},
+    "model": "Thresholded linear reservoir connection; a teaching approximation, not a calibrated weir or shallow-water solver"
+  }
+}

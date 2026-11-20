@@ -1,0 +1,14 @@
+interface:
+  display_name: Polygon Terrain Simulation
+  short_description: Persistent terrain, materials, water and erosion
+  default_prompt: Use $polygon-terrain-simulation to design an editable polygon world
+    with the simplest suitable soil, water, and terrain models.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

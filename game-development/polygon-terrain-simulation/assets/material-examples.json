@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "purpose": "Small internally consistent fixtures for adaptation; not measured soil data or a production save format.",
+    "units": "SI; explicit unit suffixes on scalar fields",
+    "created": "2026-11-20"
+  },
+  "materials": [
+    {
+      "material_id": "mineral_fill_demo",
+      "label": "Synthetic mineral fill",
+      "particle_density_kg_m3": 2650.0,
+      "reference_porosity": 0.4,
+      "texture_mass_fractions": {
+        "sand": 0.6,
+        "silt": 0.3,
+        "clay": 0.1
+      },
+      "infiltration_capacity_m_s": 1e-05,
+      "conductivity_m_s": 3e-06,
+      "roughness_manning_s_m_neg_third": 0.04,
+      "provenance": {
+        "status": "synthetic",
+        "measurement_method": null,
+        "validity": "Demonstration arithmetic only; parameters do not imply a real soil class."
+      }
+    },
+    {
+      "material_id": "coarse_demo",
+      "label": "Synthetic coarse loose material",
+      "particle_density_kg_m3": 2700.0,
+      "reference_porosity": 0.35,
+      "texture_mass_fractions": {
+        "sand": 0.85,
+        "silt": 0.1,
+        "clay": 0.05
+      },
+      "infiltration_capacity_m_s": 3e-05,
+      "conductivity_m_s": 2e-05,
+      "roughness_manning_s_m_neg_third": 0.035,
+      "provenance": {
+        "status": "synthetic",
+        "measurement_method": null,
+        "validity": "Toy contrasting parameter set, not a calibrated gravel or sand."
+      }
+    },
+    {
+      "material_id": "fine_demo",
+      "label": "Synthetic fine loose material",
+      "particle_density_kg_m3": 2600.0,
+      "reference_porosity": 0.5,
+      "texture_mass_fractions": {
+        "sand": 0.1,
+        "silt": 0.5,
+        "clay": 0.4
+      },
+      "infiltration_capacity_m_s": 2e-06,
+      "conductivity_m_s": 2e-07,
+      "roughness_manning_s_m_neg_third": 0.05,
+      "provenance": {
+        "status": "synthetic",
+        "measurement_method": null,
+        "validity": "Toy contrasting parameter set; porosity alone does not determine conductivity."
+      }
+    }
+  ],
+  "fluid_assumptions": {
+    "water_density_kg_m3": 1000.0,
+    "dynamic_viscosity_pa_s": 0.001,
+    "gravity_m_s2": 9.81,
+    "status": "rounded_reference_assumptions_not_universal_constants"
+  },
+  "excluded_parameters": {
+    "bedrock_erodibility": "Choose a law, units and calibration before adding.",
+    "critical_shear_pa": "No universal value inferred from material label.",
+    "cohesion_pa": "Omitted until a strength model is selected.",
+    "friction_angle_rad": "Omitted until a strength model is selected."
+  }
+}

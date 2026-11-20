@@ -3,8 +3,9 @@
 # Game development skills
 
 Building games that machines can play and that are balanced by measurement — the
-seat interface for bots and LLM agents, the simulation as a balance instrument, and
-the numbers inside the systems. Engine and genre independent; written with strategy
+seat interface for bots and LLM agents, the simulation as a balance instrument, the
+numbers inside the systems, the terrain units stand on and how they find their way.
+Engine and genre independent; written with strategy
 and economy simulations in mind, where bots playing thousands of games replace much
 of the early playtesting.
 
@@ -50,3 +51,29 @@ of row sums; and the order of remedies for a dominant option.
 
 **Load when** pricing units, ships, buildings or upgrades, designing counters or an
 economy, or chasing inflation, hoarding, runaway leaders or one strategy that always wins.
+
+## [game-pathfinding-navigation](game-pathfinding-navigation/SKILL.md)
+
+Routes for units and agents, from the smallest model that works upward: graphs,
+grids and navmeshes, agent profiles with clearance and directed costs, BFS, Dijkstra
+and A* with admissible heuristics, hierarchy and landmarks, D* Lite repair when the
+world changes, flow fields for many units and one goal, path following and local
+avoidance, reservations and multi-agent pathfinding, streamed worlds, and adapters
+for Recast, Unity, Unreal and Godot. Terrain, buildings and logistics stay outside
+and arrive through explicit contracts. Ships a reference implementation with tests.
+
+**Load when** units take wrong, slow or blocked routes, a navigation model has to be
+chosen or replaced, or many agents must share narrow space without deadlock.
+
+## [polygon-terrain-simulation](polygon-terrain-simulation/SKILL.md)
+
+Editable terrain on a polygon or Voronoi mesh that stays physically consistent:
+generation from noise, painted elevation and climate, layered soils and bedrock with
+mass bookkeeping, excavation, fill and building pads, surface water with lakes, dams
+and culverts, optional groundwater, erosion, sediment and channel migration, map
+rendering, and saving and streaming a world that keeps changing. Construction,
+logistics and population stay outside and trade material through explicit contracts.
+Ships reference math and a snapshot audit with tests.
+
+**Load when** a game's terrain must change at runtime — digging, flattening, rerouting
+water — or a generated world needs rivers, lakes and soils that hold together.

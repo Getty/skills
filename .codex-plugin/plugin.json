@@ -52,6 +52,8 @@
     "./development/getty-create-software",
     "./game-development/ai-playable-games",
     "./game-development/game-balance-math",
+    "./game-development/game-pathfinding-navigation",
+    "./game-development/polygon-terrain-simulation",
     "./game-development/simulation-balancing",
     "./git/getty-git-commit-style",
     "./git/getty-git-usage",

@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "purpose": "Small internally consistent fixtures for adaptation; not measured soil data or a production save format.",
+    "units": "SI; explicit unit suffixes on scalar fields",
+    "created": "2026-11-20"
+  },
+  "world_id": "four_cell_fixture",
+  "simulation_time_s": 0.0,
+  "coordinate_system": {
+    "horizontal": "local Cartesian metres",
+    "vertical_datum": "arbitrary fixed game datum",
+    "up_axis": "z"
+  },
+  "model": {
+    "geometry": "flat terrain per cell; orthogonal square control volumes are a special case of polygon cells",
+    "water": "thresholded_linear_reservoir_connections",
+    "material_state": "dry_mass_and_porosity",
+    "soil_water": "bounded_layer_store; no per-step infiltration in the initial equilibrium check",
+    "enabled_processes": [
+      "surface_transfer"
+    ],
+    "dt_s": 1.0,
+    "limitations": [
+      "No momentum or full shallow-water solver",
+      "No erosion or groundwater",
+      "No geological bedrock mass budget; bedrock is fixed",
+      "No production persistence compatibility promised"
+    ]
+  },
+  "materials_file": "material-examples.json",
+  "domain_area_m2": 400.0,
+  "cells": [
+    {
+      "cell_id": "sw",
+      "vertices_m": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "center_m": [
+        5,
+        5
+      ],
+      "area_m2": 100.0,
+      "bedrock_top_m": 8,
+      "bedrock_material_id": "unmodeled_substrate",
+      "layers_bottom_to_top": [
+        {
+          "layer_id": "sw_layer",
+          "material_id": "mineral_fill_demo",
+          "dry_mass_kg": 159000.0,
+          "porosity": 0.4,
+          "pore_water_m3": 10.0
+        }
+      ],
+      "surface_water_m3": 100,
+      "suspended_sediment_kg": {},
+      "geometry_revision": 1
+    },
+    {
+      "cell_id": "se",
+      "vertices_m": [
+        [
+          10,
+          0
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          10
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "center_m": [
+        15,
+        5
+      ],
+      "area_m2": 100.0,
+      "bedrock_top_m": 8.5,
+      "bedrock_material_id": "unmodeled_substrate",
+      "layers_bottom_to_top": [
+        {
+          "layer_id": "se_layer",
+          "material_id": "mineral_fill_demo",
+          "dry_mass_kg": 159000.0,
+          "porosity": 0.4,
+          "pore_water_m3": 10.0
+        }
+      ],
+      "surface_water_m3": 50,
+      "suspended_sediment_kg": {},
+      "geometry_revision": 1
+    },
+    {
+      "cell_id": "nw",
+      "vertices_m": [
+        [
+          0,
+          10
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          20
+        ],
+        [
+          0,
+          20
+        ]
+      ],
+      "center_m": [
+        5,
+        15
+      ],
+      "area_m2": 100.0,
+      "bedrock_top_m": 9,
+      "bedrock_material_id": "unmodeled_substrate",
+      "layers_bottom_to_top": [
+        {
+          "layer_id": "nw_layer",
+          "material_id": "mineral_fill_demo",
+          "dry_mass_kg": 159000.0,
+          "porosity": 0.4,
+          "pore_water_m3": 10.0
+        }
+      ],
+      "surface_water_m3": 0,
+      "suspended_sediment_kg": {},
+      "geometry_revision": 1
+    },
+    {
+      "cell_id": "ne",
+      "vertices_m": [
+        [
+          10,
+          10
+        ],
+        [
+          20,
+          10
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          10,
+          20
+        ]
+      ],
+      "center_m": [
+        15,
+        15
+      ],
+      "area_m2": 100.0,
+      "bedrock_top_m": 9.5,
+      "bedrock_material_id": "unmodeled_substrate",
+      "layers_bottom_to_top": [
+        {
+          "layer_id": "ne_layer",
+          "material_id": "mineral_fill_demo",
+          "dry_mass_kg": 159000.0,
+          "porosity": 0.4,
+          "pore_water_m3": 10.0
+        }
+      ],
+      "surface_water_m3": 0,
+      "suspended_sediment_kg": {},
+      "geometry_revision": 1
+    }
+  ],
+  "internal_faces": [
+    {
+      "face_id": "sw_se",
+      "owner": "sw",
+      "neighbor": "se",
+      "endpoints_m": [
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "normal_owner_to_neighbor": [
+        1,
+        0
+      ],
+      "length_m": 10.0,
+      "normal_distance_m": 10.0,
+      "crest_m": 9.5,
+      "conductance_m2_s": 0.2
+    },
+    {
+      "face_id": "sw_nw",
+      "owner": "sw",
+      "neighbor": "nw",
+      "endpoints_m": [
+        [
+          0,
+          10
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "normal_owner_to_neighbor": [
+        0,
+        1
+      ],
+      "length_m": 10.0,
+      "normal_distance_m": 10.0,
+      "crest_m": 10.0,
+      "conductance_m2_s": 0.2
+    },
+    {
+      "face_id": "se_ne",
+      "owner": "se",
+      "neighbor": "ne",
+      "endpoints_m": [
+        [
+          10,
+          10
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "normal_owner_to_neighbor": [
+        0,
+        1
+      ],
+      "length_m": 10.0,
+      "normal_distance_m": 10.0,
+      "crest_m": 10.5,
+      "conductance_m2_s": 0.2
+    },
+    {
+      "face_id": "nw_ne",
+      "owner": "nw",
+      "neighbor": "ne",
+      "endpoints_m": [
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          20
+        ]
+      ],
+      "normal_owner_to_neighbor": [
+        1,
+        0
+      ],
+      "length_m": 10.0,
+      "normal_distance_m": 10.0,
+      "crest_m": 10.5,
+      "conductance_m2_s": 0.2
+    }
+  ],
+  "boundary_faces": [
+    {
+      "face_id": "sw_w",
+      "owner": "sw",
+      "endpoints_m": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "outward_normal": [
+        -1,
+        0
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "sw_s",
+      "owner": "sw",
+      "endpoints_m": [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "outward_normal": [
+        0,
+        -1
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "se_s",
+      "owner": "se",
+      "endpoints_m": [
+        [
+          10,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "outward_normal": [
+        0,
+        -1
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "se_e",
+      "owner": "se",
+      "endpoints_m": [
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "outward_normal": [
+        1,
+        0
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "nw_w",
+      "owner": "nw",
+      "endpoints_m": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          20
+        ]
+      ],
+      "outward_normal": [
+        -1,
+        0
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "nw_n",
+      "owner": "nw",
+      "endpoints_m": [
+        [
+          0,
+          20
+        ],
+        [
+          10,
+          20
+        ]
+      ],
+      "outward_normal": [
+        0,
+        1
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "ne_n",
+      "owner": "ne",
+      "endpoints_m": [
+        [
+          10,
+          20
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "outward_normal": [
+        0,
+        1
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    },
+    {
+      "face_id": "ne_e",
+      "owner": "ne",
+      "endpoints_m": [
+        [
+          20,
+          10
+        ],
+        [
+          20,
+          20
+        ]
+      ],
+      "outward_normal": [
+        1,
+        0
+      ],
+      "length_m": 10.0,
+      "boundary_type": "closed_wall"
+    }
+  ],
+  "operations": [],
+  "expected_checks": {
+    "dry_mobile_mass_kg": 636000.0,
+    "surface_water_m3": 150.0,
+    "pore_water_m3": 40.0,
+    "total_water_m3": 190.0,
+    "derived_surface_elevations_m": {
+      "sw": 9.0,
+      "se": 9.5,
+      "nw": 10.0,
+      "ne": 10.5
+    },
+    "derived_stages_m": {
+      "sw": 10.0,
+      "se": 10.0,
+      "nw": 10.0,
+      "ne": 10.5
+    },
+    "all_internal_flow_m3_s": 0.0,
+    "note": "At zero volume use bed elevation as dry-stage convention; thresholded head above each sill is equal on both sides."
+  }
+}

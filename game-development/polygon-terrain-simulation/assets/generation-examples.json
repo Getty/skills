@@ -1,0 +1,92 @@
+{
+  "schema": "polygon-terrain-generation-examples/v1",
+  "provenance": "Original synthetic arithmetic examples. Not measured material data, calibrated climate parameters, or copied Mapgen2/Mapgen4 presets.",
+  "purpose": "Optional worked examples for generation-recipes.md, authored-terrain-and-climate.md and terrain-map-rendering.md. This is an illustrative fixture format, not a required game schema.",
+  "noise_shaping": {
+    "assumption": "Input field is finite and lies in [-1, 1]; convert once to unsigned before the power transform.",
+    "signed_sample": -0.5,
+    "expected_unsigned_sample": 0.25,
+    "power_exponent": 2,
+    "expected_reshaped_sample": 0.0625,
+    "vertical_offset_m": -10,
+    "vertical_scale_m": 160,
+    "expected_elevation_m": 0,
+    "ridge_formula": "1 - abs(2 * unsigned_sample - 1)",
+    "expected_ridge_sample": 0.5
+  },
+  "terrace": {
+    "formula": "z_ref + step * floor((z - z_ref) / step + 0.5)",
+    "tie_rule": "Halfway values round toward the larger elevation, including negative heights.",
+    "reference_elevation_m": 0,
+    "step_m": 4,
+    "input_elevations_m": [14, -2, 6],
+    "expected_elevations_m": [16, 0, 8]
+  },
+  "island_border_blend": {
+    "assumption": "Blend is applied after all other bounded elevation detail; t is a clamped coordinate across the declared perimeter band.",
+    "formula": "b = 3*t*t - 2*t*t*t; z_out = (1-b)*z_in + b*z_edge",
+    "input_elevation_m": 50,
+    "edge_elevation_m": -2,
+    "sea_level_m": 0,
+    "band_coordinates": [0, 0.5, 1],
+    "expected_weights": [0, 0.5, 1],
+    "expected_elevations_m": [50, 24, -2],
+    "boundary_note": "Boundary elevation below sea level is a shape constraint; initializing seawater still requires declared water state and boundary connectivity. Resolve the perimeter in the actual surface representation."
+  },
+  "area_weighted_coverage": {
+    "cell_areas_m2": [10, 30, 60],
+    "selected_cell_indices": [0, 1],
+    "expected_cell_count_fraction": 0.6666666666666666,
+    "expected_area_fraction": 0.4
+  },
+  "stationary_target_height_brush": {
+    "assumption": "Fixed brush center, target, weight and k over the interval. Frame subdivision equality does not imply invariance to arbitrary moving-cursor sampling.",
+    "inner_radius_m": 4,
+    "outer_radius_m": 8,
+    "sample_radius_m": 6,
+    "expected_u": 0.5,
+    "expected_weight": 0.5,
+    "rate_per_s": 2,
+    "duration_s": 1,
+    "old_elevation_m": 20,
+    "target_elevation_m": 12,
+    "expected_alpha": 0.6321205588285577,
+    "expected_new_elevation_m": 14.94303552937154,
+    "substep_durations_s": [0.5, 0.5],
+    "expected_substepped_elevation_m": 14.94303552937154
+  },
+  "rainfall_and_steady_routing": {
+    "assumption": "Two disjoint upstream areas, runoff coefficient one, no other sources or losses. A zero-area junction receives each upstream discharge exactly once. This steady/instantaneous routing diagnostic has no transient storage or travel-time dynamics.",
+    "rainfall_mm_per_hour": 10,
+    "expected_rainfall_m_per_s": 0.000002777777777777778,
+    "upstream_areas_m2": [200, 300],
+    "runoff_coefficients": [1, 1],
+    "expected_local_discharges_m3_per_s": [0.0005555555555555556, 0.0008333333333333334],
+    "expected_junction_discharge_m3_per_s": 0.001388888888888889,
+    "duration_s": 1800,
+    "expected_local_rain_volumes_m3": [1, 1.5],
+    "expected_total_rain_volume_m3": 2.5,
+    "runtime_note": "Do not add the accumulated junction discharge as a second rainfall source in a transient water solver."
+  },
+  "temperature_initialization": {
+    "assumption": "An illustrative altitude rule for initial climate, not a universal lapse rate or a time-dependent atmospheric model.",
+    "reference_temperature_K": 288.15,
+    "altitude_difference_m": 500,
+    "chosen_lapse_coefficient_K_per_m": 0.004,
+    "temperature_variation_K": 0,
+    "expected_temperature_difference_K": -2,
+    "expected_temperature_K": 286.15
+  },
+  "bilinear_palette": {
+    "color_space": "linear RGB, each component in [0, 1]",
+    "elevation_coordinate": 0.25,
+    "moisture_coordinate": 0.75,
+    "corner_00": [0.65, 0.5, 0.3],
+    "corner_10": [0.8, 0.8, 0.75],
+    "corner_01": [0.1, 0.4, 0.2],
+    "corner_11": [0.45, 0.6, 0.5],
+    "expected_bilinear_color": [0.3125, 0.48125, 0.309375],
+    "expected_interaction_vector": [0.2, -0.1, -0.15],
+    "note": "A nonzero interaction vector prevents one affine color rule from fitting all four corners exactly. Display-only values have no physical ownership."
+  }
+}

@@ -1,0 +1,15 @@
+interface:
+  display_name: Game Pathfinding and Navigation
+  short_description: Paths, navmeshes, dynamic worlds and agent movement
+  default_prompt: Use $game-pathfinding-navigation to choose and implement the simplest
+    suitable navigation model for my game, with correct costs, dynamic updates, and
+    agent constraints.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

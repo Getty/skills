@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "origin": "synthetic_illustrative_not_calibrated",
+    "purpose": "Example contract/profile vocabulary; not a mandatory runtime schema or measured biomechanical data.",
+    "units": "metres, seconds; angles explicitly degrees in these records",
+    "created": "2026-11-20"
+  },
+  "request": {
+    "query_id": "route-demo-007",
+    "intent_id": "deliver-stone-demo-003",
+    "profile_id": "pedestrian_demo",
+    "profile_version": 1,
+    "start_state": "outside_west",
+    "accepted_goal_states": [
+      "warehouse_loading_entrance"
+    ],
+    "objective": {
+      "kind": "travel_time",
+      "unit": "s"
+    },
+    "geometry_revision": 12,
+    "cost_revision": 4,
+    "expansion_budget": 1000
+  },
+  "result": {
+    "query_id": "route-demo-007",
+    "intent_id": "deliver-stone-demo-003",
+    "status": "found",
+    "states": [
+      "outside_west",
+      "door_west",
+      "warehouse_loading_entrance"
+    ],
+    "actions": [
+      {
+        "action_id": "approach",
+        "from": "outside_west",
+        "to": "door_west",
+        "kind": "walk",
+        "cost_s": 4.0
+      },
+      {
+        "action_id": "door_entry",
+        "from": "door_west",
+        "to": "warehouse_loading_entrance",
+        "kind": "open_and_pass",
+        "cost_s": 2.0
+      }
+    ],
+    "objective_cost": 6.0,
+    "objective_unit": "s",
+    "profile_version": 1,
+    "geometry_revision": 12,
+    "cost_revision": 4,
+    "guarantee": "illustrative_exact_graph_cost_under_the_supplied_snapshot",
+    "not_guaranteed": [
+      "future_door_availability",
+      "loading_slot_availability",
+      "physical_arrival_time_in_a_crowd"
+    ]
+  },
+  "rules": [
+    "Only apply the result if intent and applicable revisions remain compatible.",
+    "The building/task system owns the loading slot; logistics owns the stone reservation.",
+    "Navigation supplies a route to an eligible entrance, not a resource reservation.",
+    "A budget-exhausted or partial result must not be relabeled unreachable or fully found."
+  ]
+}
