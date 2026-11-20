@@ -1,6 +1,6 @@
 ---
 name: cisco-small-business-switch
-description: Use when reading, auditing or configuring a Cisco Small Business managed switch over its CLI or web UI — Sx300/Sx500 (SG300-xx, SF300-xx, SG500) on firmware 1.x, and the same CLI family on Sx350/Sx550/CBS250/CBS350 (2.x/3.x) — VLANs and access/trunk/general ports, management VLAN and IP, SSH/users, LLDP/CDP/MAC-table lookups, PoE, port mirroring, SNTP/syslog/SNMP, saving config, firmware and boot-code upgrades. These switches are NOT Catalyst IOS: the CLI looks similar but differs in details.
+description: "Use when configuring or auditing a Cisco Small Business switch (SG300/SF300/SG500, Sx350/Sx550, CBS250/CBS350) via CLI or web UI — VLANs and port modes, management IP, SSH users, LLDP and MAC lookups, PoE, mirroring, saving config, firmware upgrades. Not Catalyst IOS."
 ---
 
 # Cisco Small Business switches (Sx300 / Sx500 / Sx350 / CBS)

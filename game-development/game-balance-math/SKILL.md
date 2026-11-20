@@ -1,6 +1,6 @@
 ---
 name: game-balance-math
-description: "Use when pricing or tuning game objects and systems by the numbers — cost curves for units, ships, buildings or upgrades; counter tables and payoff matrices; dominant or useless strategies; designing or auditing an economy's sources, sinks, converters and trade; inflation, hoarding, infinite-money loops; snowballing, runaway leaders, catch-up mechanics and kingmaking in strategy games."
+description: "Use when tuning game numbers — cost curves for units or upgrades, counter tables and payoff matrices, dominant or useless strategies, economy sources and sinks, inflation and infinite-money loops, snowballing, catch-up mechanics, kingmaking."
 ---
 
 # Game Balance Math

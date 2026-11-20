@@ -1,6 +1,6 @@
 ---
 name: json-logic-engineering
-description: "Use when writing, embedding, validating, testing, migrating or debugging JSON Logic (JsonLogic) rules — JSON expression trees, json-logic-js and other ports, var and missing values, truthiness and coercion, collection scope, custom operations, rules shared between browser and server, rule builders, or rules that must behave the same across evaluators."
+description: "Use when writing, embedding or debugging JSON Logic (JsonLogic) rules — json-logic-js and other ports, var and missing values, truthiness and coercion, custom operations, rules shared by browser and server, or evaluators that disagree on a rule."
 ---
 
 # JSON Logic Engineering

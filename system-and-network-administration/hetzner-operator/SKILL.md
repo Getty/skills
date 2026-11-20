@@ -1,6 +1,6 @@
 ---
 name: hetzner-operator
-description: "Use when planning, building or debugging anything on Hetzner — Cloud, Robot, dedicated or auction servers, Primary and Floating IPs, private Networks, vSwitch, WireGuard or Tailscale VPN, NAT, Load Balancers, firewalls, DNS, Volumes, Storage Box, Object Storage, backups, hcloud, Terraform/OpenTofu, costs, recovery."
+description: "Use when planning, building or debugging anything on Hetzner — Cloud, Robot and dedicated servers, Floating IPs, Networks and vSwitch, VPN and NAT, Load Balancers, firewalls, Volumes, Storage Box, Object Storage, hcloud, Terraform/OpenTofu, costs, recovery."
 ---
 
 # Hetzner Operator

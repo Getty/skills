@@ -1,6 +1,6 @@
 ---
 name: cedar-engineering
-description: "Use when writing, validating, testing, integrating or debugging Cedar authorization policies — .cedar and .cedarschema files, permit/forbid rules, principal-action-resource-context requests, entities and hierarchies, RBAC/ABAC/ReBAC, policy templates, multi-tenant access, partial evaluation, Rust or Wasm embedding, Amazon Verified Permissions, or migrating authorization to or from Cedar."
+description: "Use when writing, validating or debugging Cedar authorization policies — .cedar and .cedarschema files, permit/forbid, entities and hierarchies, RBAC/ABAC/ReBAC, templates, multi-tenant access, partial evaluation, Amazon Verified Permissions, migrating to or from Cedar."
 ---
 
 # Cedar Engineering

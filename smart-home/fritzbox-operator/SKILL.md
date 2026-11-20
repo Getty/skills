@@ -1,6 +1,6 @@
 ---
 name: fritzbox-operator
-description: "Use when integrating, automating or debugging a FRITZ!Box or FRITZ! smart-home devices — TR-064, AHA HTTP, the Smart Home REST API, login or SID errors, Home Assistant FRITZ!Box Tools or FRITZ!SmartHome, DECT thermostats, Control 440 buttons, presence trackers, mesh, guest network, provider-managed cable firmware, VPN, NAS, telephony."
+description: "Use when integrating, automating or debugging a FRITZ!Box or FRITZ! smart-home devices — TR-064, AHA HTTP, the Smart Home REST API, login or SID errors, the Home Assistant FRITZ! integrations, DECT thermostats, buttons, presence, mesh, guest Wi-Fi, VPN, telephony."
 ---
 
 # FRITZ!Box Operator

@@ -1,6 +1,6 @@
 ---
 name: ai-playable-games
-description: "Use when building or reviewing a game, simulation or prototype that scripted bots, search AIs or LLM agents must play — the observation and order interface, a bot/agent API or MCP server for a game, AI seats next to human players, fog of war for agents, replaying agent games; or when an AI player cheats, stalls, misreads the game state, or gets steered by text other players wrote."
+description: "Use when building a game or simulation that bots or LLM agents must play — observation and order interface, agent API or MCP server, AI seats beside humans, fog of war, replays; or when an AI player cheats, stalls, misreads the state or follows text other players wrote."
 ---
 
 # AI-Playable Games

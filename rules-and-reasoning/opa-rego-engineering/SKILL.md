@@ -1,6 +1,6 @@
 ---
 name: opa-rego-engineering
-description: "Use when writing, testing, integrating, operating or debugging Open Policy Agent and Rego policies — .rego files, Rego v0/v1/v2 migration, policy as code, input and data contracts, undefined results and errors, the OPA CLI and REST API, bundles and capabilities, Kubernetes Gatekeeper, Terraform plan checks, partial evaluation, Wasm, decision logs, or slow policies."
+description: "Use when writing, testing or operating Open Policy Agent and Rego — .rego files, Rego v1/v2 migration, undefined results, input and data contracts, bundles, Gatekeeper, Terraform plan checks, partial evaluation, Wasm, decision logs, slow policies."
 ---
 
 # OPA and Rego Engineering

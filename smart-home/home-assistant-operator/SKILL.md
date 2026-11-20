@@ -1,6 +1,6 @@
 ---
 name: home-assistant-operator
-description: "Use when installing, upgrading, backing up, migrating or debugging Home Assistant itself — HAOS, Container, Supervisor, apps and add-ons, restore, device and entity registries, REST or WebSocket API and tokens, recorder database growth, discovery, slow startup or high CPU, custom integration development."
+description: "Use when installing, upgrading, backing up, migrating or debugging Home Assistant itself — HAOS, Container, Supervisor, add-ons, restore, registries, REST or WebSocket API and tokens, recorder database growth, slow startup, high CPU, custom integration development."
 ---
 
 # Home Assistant Operator

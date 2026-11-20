@@ -1,6 +1,6 @@
 ---
 name: getty-perl-release-author-getty
-description: Load when a dist.ini contains [@Author::GETTY] — bundle options, POD conventions (=attr/=method/=opt), next-version semantics, the dzil release workflow.
+description: "Use when a dist.ini contains [@Author::GETTY] — bundle options, POD conventions (=attr/=method/=opt), next-version semantics, the dzil release workflow."
 user-invocable: false
 allowed-tools: Read, Grep
 model: sonnet

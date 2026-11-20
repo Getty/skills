@@ -1,6 +1,6 @@
 ---
 name: xacml-engineering
-description: "Use when writing, validating, integrating, migrating or debugging OASIS XACML attribute-based access control — XACML 3.0 XML policies and requests, PDP/PEP/PAP/PIP architecture, targets and conditions, attribute bags and issuers, combining algorithms, Permit/Deny/NotApplicable/Indeterminate, obligations and advice, the JSON Profile, AuthzForce and other PDPs, or migrating to or from other authorization systems."
+description: "Use when writing, validating or integrating OASIS XACML 3.0 access control — XML policies and requests, PDP/PEP/PIP, targets and conditions, attribute bags, combining algorithms, Indeterminate and NotApplicable, obligations and advice, the JSON Profile, AuthzForce."
 ---
 
 # XACML Engineering

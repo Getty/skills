@@ -1,6 +1,6 @@
 ---
 name: ai-web-scraping
-description: "Use when scraping, crawling or extracting structured data from websites, especially with an LLM in the loop — Crawl4AI, Firecrawl, ScrapeGraphAI, Scrapy, Crawlee, Scrapling, Playwright, Stagehand, browser-use, Jina Reader, Zyte; turning a site into a dataset or RAG corpus, monitoring pages for changes, or when a scraper returns empty, partial, duplicated or invented records."
+description: "Use when scraping, crawling or extracting structured data from websites, especially with an LLM — Crawl4AI, Firecrawl, Scrapy, Crawlee, Playwright, browser-use; building a dataset or RAG corpus, watching pages for changes, or a scraper that returns empty, duplicated or invented records."
 metadata:
   researched: "2026-10-29"
 ---

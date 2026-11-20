@@ -1,6 +1,6 @@
 ---
 name: network-device-ssh-cli
-description: Use when a script or agent must talk to a network device CLI over SSH and plain "ssh host cmd" does not work — legacy SSH errors ("no matching host key type found", "no matching key exchange method", "their offer: ssh-rsa,ssh-dss", "diffie-hellman-group1-sha1"), devices that ignore the command argument and open a shell instead (Cisco IOS, Cisco Small Business Sx300/SB switches), in-band "User Name:/Password:" logins, "--More--"/"More:" pagers, enable mode, or when writing a pexpect/expect driver for routers, switches, MikroTik, modems. Also for pinning host keys and storing device passwords outside the repo.
+description: "Use when a script or agent must drive a router or switch CLI over SSH and plain `ssh host cmd` fails — \"no matching host key type found\", \"no matching key exchange method found\", a device that opens a shell instead of running the command, in-band \"User Name:\" logins, --More-- pagers, enable mode, pexpect/expect drivers, pinned host keys, device passwords kept out of the repo."
 ---
 
 # Driving network device CLIs over SSH

@@ -1,6 +1,6 @@
 ---
 name: ruml-engineering
-description: "Use when reading, authoring, validating, evaluating or debugging RUML (Rulemapping Logic Format) or Law as Code rulemaps — .ruml, .ruml-result, .ruml-ext, .rumlc, legal or policy decision models, AND/OR/XOR evaluation modes, JSONata queries, DELEGATED combiners, DataPoints, modular nodes, ruml:ai-query, result traces, signatures, conformance fixtures, Akoma Ntoso, LegalRuleML or DMN mappings."
+description: "Use when authoring, validating or evaluating RUML (Rulemapping Logic Format) Law as Code rulemaps — .ruml, .ruml-result, .ruml-ext, .rumlc, AND/OR/XOR evaluation modes, JSONata, DELEGATED combiners, DataPoints, result traces, signatures, Akoma Ntoso, LegalRuleML or DMN mappings."
 ---
 
 <!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->

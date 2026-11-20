@@ -1,6 +1,6 @@
 ---
 name: pddl-engineering
-description: "Use when modeling, generating, solving, validating or debugging PDDL planning domains and problems — STRIPS/ADL, typed actions and goals, numeric fluents and action costs, durative or concurrent plans, derived predicates, timed initial literals, preferences and trajectory constraints, planner choice, Fast Downward, VAL or pyperplan, execution monitoring and replanning, or agents that hand planning to a planner."
+description: "Use when modeling, solving or validating PDDL planning domains and problems — STRIPS/ADL, numeric fluents and costs, durative actions, derived predicates, preferences, planner choice, Fast Downward, VAL, pyperplan, execution and replanning for agents."
 ---
 
 # PDDL Engineering

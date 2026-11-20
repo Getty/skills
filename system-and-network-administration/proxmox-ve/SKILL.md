@@ -1,6 +1,6 @@
 ---
 name: proxmox-ve
-description: "Use when reading, auditing or changing a Proxmox VE host over CLI/SSH — qm/pct VM and container lifecycle, pvesm storage (ZFS, LVM-thin, dir), Proxmox Backup Server (PBS datastores, sync jobs, prune/GC/verify), vmbr bridges and VLANs, clustering, host maintenance, reading `qm config`/`pvesm status`/`zpool status` output."
+description: "Use when reading, auditing or changing a Proxmox VE host — qm and pct guests, pvesm storage (ZFS, LVM-thin), Proxmox Backup Server datastores, sync, prune and verify, vmbr bridges and VLANs, clustering, host maintenance."
 ---
 
 # Proxmox VE

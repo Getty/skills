@@ -1,6 +1,6 @@
 ---
 name: rocm-engineering
-description: "Use when running, building or debugging GPU workloads on AMD hardware with ROCm — Instinct, Radeon or Ryzen APU graphics on Linux, Windows or WSL; amdgpu, TheRock, rocminfo, amd-smi, HIP, HIPIFY, porting CUDA code, PyTorch, JAX, ONNX, vLLM, SGLang, llama.cpp, Ollama, ComfyUI, training, quantization, Triton/AITER, RCCL, Kubernetes, HSA_OVERRIDE_GFX_VERSION; choosing an AMD GPU, checking whether a GPU/OS/driver/framework combination is supported, or when a ROCm install, kernel or multi-GPU job fails or runs slow."
+description: "Use when running, building or debugging GPU workloads on AMD hardware with ROCm — Instinct, Radeon or Ryzen APUs, HIP and porting CUDA code, PyTorch, vLLM, llama.cpp or Ollama on AMD, amd-smi, HSA_OVERRIDE_GFX_VERSION, support matrices, or a ROCm install or multi-GPU job that fails or runs slow."
 metadata:
   researched: "2026-10-30"
 ---

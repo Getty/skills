@@ -1,6 +1,6 @@
 ---
 name: cel-engineering
-description: "Use when writing, embedding, testing or debugging Common Expression Language (CEL) expressions — declarations and type environments, parse/check/eval, macros and comprehensions, missing fields, null, errors and unknowns, host functions, cost limits, Kubernetes x-kubernetes-validations and ValidatingAdmissionPolicy, Envoy conditions, Google Cloud IAM Conditions, or porting CEL between runtimes."
+description: "Use when writing, embedding or debugging Common Expression Language (CEL) — type environments, macros, missing fields, errors and unknowns, cost limits, Kubernetes x-kubernetes-validations and ValidatingAdmissionPolicy, Envoy, Google Cloud IAM Conditions."
 ---
 
 # CEL Engineering

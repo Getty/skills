@@ -1,6 +1,6 @@
 ---
 name: feel-engineering
-description: "Use when writing, evaluating, testing or debugging FEEL (Friendly Enough Expression Language) expressions, standalone or inside DMN — expressions versus unary tests, Decimal128 numbers, null and three-valued logic, lists and contexts, functions and iteration, dates, times and durations, S-FEEL and B-FEEL, host bindings, or results that differ between engines."
+description: "Use when writing or debugging FEEL expressions, standalone or in DMN — unary tests, Decimal128, null and three-valued logic, contexts, iteration, dates and durations, S-FEEL and B-FEEL, host bindings, or engines that disagree on a result."
 ---
 
 # FEEL Engineering

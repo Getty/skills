@@ -1,6 +1,6 @@
 ---
 name: smart-home-devices
-description: "Use when identifying, choosing, integrating or debugging a specific smart-home product in Home Assistant — Philips Hue, Shelly, THIRDREALITY, Tuya and _TZ Zigbee fingerprints, SONOFF/eWeLink, Zengge, ThermoBeacon, Aqara/Xiaomi, OSRAM/LEDVANCE, Govee, Paulmann, thermostats, plugs, locks, covers, presence sensors, solar, EV chargers."
+description: "Use when choosing, integrating or debugging a specific smart-home product in Home Assistant — Hue, Shelly, Tuya and _TZ Zigbee fingerprints, SONOFF/eWeLink, Aqara/Xiaomi, Govee, LEDVANCE, thermostats, plugs, locks, covers, presence sensors, solar, EV chargers."
 ---
 
 # Smart Home Devices

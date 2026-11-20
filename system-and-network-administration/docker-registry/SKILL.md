@@ -1,6 +1,6 @@
 ---
 name: docker-registry
-description: "Use when deploying, securing, debugging, or maintaining container registries and pull-through caches: Distribution/OCI HTTP API, TLS/auth, storage, Docker/BuildKit/containerd/K3s/RKE2 clients, mirror fallback, air gaps, uploads, retention, garbage collection, backup, HA, referrers, or migration. Load the relevant operational references."
+description: "Use when running, securing or debugging a container registry or pull-through cache — Distribution/OCI API, TLS and auth, storage, mirror fallback for Docker, containerd, K3s or RKE2, air gaps, retention and garbage collection, backup, HA, migration."
 ---
 
 # Container Registries and Mirrors

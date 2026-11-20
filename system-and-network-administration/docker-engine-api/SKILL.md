@@ -1,6 +1,6 @@
 ---
 name: docker-engine-api
-description: "Use when implementing, testing, or debugging a Docker Engine HTTP API client: socket/remote transport, API negotiation, container lifecycle, attach/exec/log framing, progress streams, image auth, events/stats, resource policy, archives, retries, or Podman compatibility. Load task-specific references rather than the entire API corpus."
+description: "Use when writing or debugging a Docker Engine HTTP API client — socket or remote transport, API version negotiation, container lifecycle, attach/exec/log stream framing, progress streams, registry auth, events and stats, archives, Podman compatibility."
 ---
 
 # Docker Engine HTTP API

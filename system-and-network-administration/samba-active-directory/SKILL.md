@@ -1,6 +1,6 @@
 ---
 name: samba-active-directory
-description: "Use when setting up or operating Samba as an Active Directory domain controller or SMB file server — samba-tool domain provision, realm/Kerberos/DNS (SAMBA_INTERNAL vs BIND9_DLZ), FSMO, SYSVOL replication, multiple DCs, GPO, joining Windows/Linux clients (net ads join, realm join), file shares with ACLs/VFS, idmap, central Windows software deployment."
+description: "Use when setting up or running Samba as an AD domain controller or SMB file server — samba-tool domain provision, Kerberos and DNS backends, FSMO, SYSVOL replication, GPO, joining Windows or Linux clients, share ACLs and VFS, idmap, Windows software deployment."
 ---
 
 # Samba Active Directory

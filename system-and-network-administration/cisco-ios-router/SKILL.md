@@ -1,6 +1,6 @@
 ---
 name: cisco-ios-router
-description: Use when reading, auditing or changing a classic Cisco IOS 15.x router (ISR 900 C921/C926/C927/C931, ISR G2 1900/2900/3900, 800 series; "c900-universalk9" images) — interfaces and SVIs on the built-in switch ports, ACLs and reflexive ACLs, NAT/port forwards, zone-based firewall, static routes with IP SLA failover, DHCP/DNS/NTP, SSH/VTY hardening, licenses (ipbasek9/securityk9), config archive/rollback, IOS upgrades. Most CLI also applies to IOS-XE (ISR 1100/4000, Catalyst) — differences are noted.
+description: "Use when reading, auditing or changing a classic Cisco IOS 15.x router (ISR 900/1900/2900/3900, 800 series, c900-universalk9) — interfaces and SVIs, ACLs, NAT and port forwards, zone-based firewall, IP SLA failover, SSH hardening, licences, config rollback, IOS upgrades; IOS-XE differences noted."
 ---
 
 # Cisco IOS (classic 15.x) routers

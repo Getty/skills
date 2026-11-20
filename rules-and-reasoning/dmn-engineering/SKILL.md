@@ -1,6 +1,6 @@
 ---
 name: dmn-engineering
-description: "Use when modeling, reading, validating, executing or debugging OMG DMN decision models — .dmn files, decision requirements diagrams, decision tables and hit policies, boxed expressions, business knowledge models, decision services, DMN XML and DMNDI, engine choice and portability, TCK conformance, decision governance, or migrating rules into DMN."
+description: "Use when modeling, validating or executing OMG DMN decision models — .dmn files, decision requirements diagrams, decision tables and hit policies, boxed expressions, decision services, DMNDI, engine portability, TCK conformance, migrating rules into DMN."
 ---
 
 # DMN Engineering

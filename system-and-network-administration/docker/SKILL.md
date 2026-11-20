@@ -1,6 +1,6 @@
 ---
 name: docker
-description: "Use when designing, building, securing, debugging, or operating Docker images and Compose stacks: Dockerfiles, BuildKit/buildx/Bake, caching, multi-platform builds, Compose include/overrides/profiles/Watch, networking, volumes, readiness, deployment, or recovery. Load only the task-specific references."
+description: "Use when building, securing, debugging or operating Docker images and Compose stacks — Dockerfiles, BuildKit, buildx and Bake, caching, multi-platform builds, Compose overrides, profiles and Watch, networking, volumes, readiness, deployment, recovery."
 user-invocable: true
 ---
 

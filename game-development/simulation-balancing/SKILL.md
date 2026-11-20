@@ -1,6 +1,6 @@
 ---
 name: simulation-balancing
-description: "Use when balancing a game through bot, AI-vs-AI or self-play runs instead of (or before) human playtests — batch runners, seed sets, bot policy leagues, parameter sweeps, win-rate comparisons; when asking whether a mechanic matters or can be cut; when a rule change shows no effect in the sim; or when someone says 'the bots win every time so it's balanced', 'one strategy always wins' or 'nobody ever uses X'."
+description: "Use when balancing a game with bot, AI-vs-AI or self-play runs — batch runners, seeds, policy leagues, parameter sweeps, win rates; asking whether a mechanic matters, a rule change that shows no effect, or claims like 'the bots always win, so it's balanced' or 'one strategy always wins'."
 ---
 
 # Simulation Balancing

@@ -1,6 +1,6 @@
 ---
 name: home-assistant-hacs
-description: "Use when installing, updating, removing or debugging HACS or a Home Assistant custom integration, card or theme — custom repositories, a card that fails to load (\"Custom element doesn't exist\"), frontend resources, Mushroom, Bubble Card, card-mod, Adaptive Lighting, LocalTuya, Tuya Local, SonoffLAN, the HACS Marketplace transition."
+description: "Use when installing, updating or debugging HACS or a Home Assistant custom integration, card or theme — custom repositories, \"Custom element doesn't exist\", frontend resources, Mushroom, card-mod, Adaptive Lighting, LocalTuya, SonoffLAN, the HACS Marketplace transition."
 ---
 
 # Home Assistant HACS
