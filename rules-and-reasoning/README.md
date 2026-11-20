@@ -1,3 +1,5 @@
+![rules-and-reasoning](../assets/rules-and-reasoning.png)
+
 # Rules and reasoning skills
 
 Logic written down so that an engine can evaluate it — decision models, authorization

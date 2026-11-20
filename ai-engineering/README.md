@@ -1,3 +1,5 @@
+![ai-engineering](../assets/ai-engineering.png)
+
 # AI engineering skills
 
 Building and running systems on top of models — the GPU stack they run on, serving

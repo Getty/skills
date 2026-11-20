@@ -1,3 +1,5 @@
+![game-development](../assets/game-development.png)
+
 # Game development skills
 
 Building games that machines can play and that are balanced by measurement — the
