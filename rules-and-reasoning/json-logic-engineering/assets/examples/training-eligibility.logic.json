@@ -1,0 +1,40 @@
+{
+  "if": [
+    {
+      "missing": [
+        "age",
+        "active",
+        "completedModules"
+      ]
+    },
+    false,
+    {
+      "and": [
+        {
+          ">=": [
+            {
+              "var": "age"
+            },
+            18
+          ]
+        },
+        {
+          "===": [
+            {
+              "var": "active"
+            },
+            true
+          ]
+        },
+        {
+          ">=": [
+            {
+              "var": "completedModules"
+            },
+            3
+          ]
+        }
+      ]
+    }
+  ]
+}

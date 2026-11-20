@@ -1,0 +1,8 @@
+{
+  "subject": "alice",
+  "action": "read",
+  "resource": {
+    "tenant": "t1",
+    "owner": "alice"
+  }
+}

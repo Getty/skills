@@ -1,0 +1,284 @@
+{
+  "profile": "DMN 1.6 FEEL common subset; original educational fixtures",
+  "cases": [
+    {
+      "id": "arithmetic",
+      "kind": "expression",
+      "source": "7 * 3 + 2",
+      "context": {},
+      "expected": 23
+    },
+    {
+      "id": "null-equality",
+      "kind": "expression",
+      "source": "null = null",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "null-vs-value",
+      "kind": "expression",
+      "source": "null = 4",
+      "context": {},
+      "expected": false
+    },
+    {
+      "id": "mixed-kind-equality",
+      "kind": "expression",
+      "source": "1 = \"1\"",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "and-dominating-false",
+      "kind": "expression",
+      "source": "false and null",
+      "context": {},
+      "expected": false
+    },
+    {
+      "id": "and-unknown",
+      "kind": "expression",
+      "source": "true and null",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "or-dominating-true",
+      "kind": "expression",
+      "source": "true or null",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "or-unknown",
+      "kind": "expression",
+      "source": "false or null",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "not-unknown",
+      "kind": "expression",
+      "source": "not(null)",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "null-condition-else",
+      "kind": "expression",
+      "source": "if null then \"a\" else \"b\"",
+      "context": {},
+      "expected": "b"
+    },
+    {
+      "id": "bound-input",
+      "kind": "expression",
+      "source": "if score >= 50 then \"pass\" else \"fail\"",
+      "context": {
+        "score": 50
+      },
+      "expected": "pass"
+    },
+    {
+      "id": "explicit-missing-branch",
+      "kind": "expression",
+      "source": "if score = null then \"needs-data\" else if score >= 50 then \"pass\" else \"fail\"",
+      "context": {
+        "score": null
+      },
+      "expected": "needs-data"
+    },
+    {
+      "id": "missing-variable",
+      "kind": "expression",
+      "source": "unboundName",
+      "context": {},
+      "expected": null,
+      "minWarnings": 1
+    },
+    {
+      "id": "list-first",
+      "kind": "expression",
+      "source": "[4,8,12][1]",
+      "context": {},
+      "expected": 4
+    },
+    {
+      "id": "list-last",
+      "kind": "expression",
+      "source": "[4,8,12][-1]",
+      "context": {},
+      "expected": 12
+    },
+    {
+      "id": "list-zero",
+      "kind": "expression",
+      "source": "[4,8,12][0]",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "list-outside",
+      "kind": "expression",
+      "source": "[4,8,12][4]",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "filter",
+      "kind": "expression",
+      "source": "[4,8,12][item > 5]",
+      "context": {},
+      "expected": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "projection-missing",
+      "kind": "expression",
+      "source": "[{code:\"a\"},{other:\"b\"}].code",
+      "context": {},
+      "expected": [
+        "a",
+        null
+      ]
+    },
+    {
+      "id": "context-dependencies",
+      "kind": "expression",
+      "source": "{base:12,factor:3,total:base * factor}.total",
+      "context": {},
+      "expected": 36
+    },
+    {
+      "id": "local-function",
+      "kind": "expression",
+      "source": "{scale:function(value,factor) value * factor,result:scale(7,3)}.result",
+      "context": {},
+      "expected": 21
+    },
+    {
+      "id": "iteration",
+      "kind": "expression",
+      "source": "for x in [2,3] return x * 4",
+      "context": {},
+      "expected": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "cartesian-iteration",
+      "kind": "expression",
+      "source": "for x in [1,2], y in [10,20] return x + y",
+      "context": {},
+      "expected": [
+        11,
+        21,
+        12,
+        22
+      ]
+    },
+    {
+      "id": "some-empty",
+      "kind": "expression",
+      "source": "some x in [] satisfies x > 0",
+      "context": {},
+      "expected": false
+    },
+    {
+      "id": "every-empty",
+      "kind": "expression",
+      "source": "every x in [] satisfies x > 0",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "sum-empty",
+      "kind": "expression",
+      "source": "sum([])",
+      "context": {},
+      "expected": null
+    },
+    {
+      "id": "count-empty",
+      "kind": "expression",
+      "source": "count([])",
+      "context": {},
+      "expected": 0
+    },
+    {
+      "id": "sum-duplicates",
+      "kind": "expression",
+      "source": "sum([5,5])",
+      "context": {},
+      "expected": 10
+    },
+    {
+      "id": "range-endpoint",
+      "kind": "expression",
+      "source": "10 in [0..10]",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "range-open-endpoint",
+      "kind": "expression",
+      "source": "10 in [0..10)",
+      "context": {},
+      "expected": false
+    },
+    {
+      "id": "leap-day",
+      "kind": "expression",
+      "source": "date(\"2024-02-28\") + duration(\"P1D\") = date(\"2024-02-29\")",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "calendar-duration",
+      "kind": "expression",
+      "source": "duration(\"P1Y\") = duration(\"P12M\")",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "unary-closed-endpoint",
+      "kind": "unary-test",
+      "source": "[2..5]",
+      "context": {
+        "?": 5
+      },
+      "expected": true
+    },
+    {
+      "id": "unary-open-endpoint",
+      "kind": "unary-test",
+      "source": "(2..5]",
+      "context": {
+        "?": 2
+      },
+      "expected": false
+    },
+    {
+      "id": "unary-alternatives",
+      "kind": "unary-test",
+      "source": "\"normal\", \"urgent\"",
+      "context": {
+        "?": "urgent"
+      },
+      "expected": true
+    },
+    {
+      "id": "unary-unrestricted",
+      "kind": "unary-test",
+      "source": "-",
+      "context": {
+        "?": null
+      },
+      "expected": true
+    }
+  ]
+}

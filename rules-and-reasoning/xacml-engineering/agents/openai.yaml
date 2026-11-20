@@ -1,0 +1,14 @@
+interface:
+  display_name: XACML Engineering
+  short_description: Model and integrate XACML access decisions
+  default_prompt: Use $xacml-engineering to model, implement, or troubleshoot this
+    task with explicit runtime assumptions and meaningful validation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

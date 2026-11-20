@@ -21,7 +21,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
 | [codex](codex/README.md) | 3 | Working with Codex — non-interactive runs, reaching threads that already exist, building plugins |
 | [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
-| [data-sources-and-standards](data-sources-and-standards/README.md) | 9 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange, RUML rulemaps for Law as Code |
+| [data-sources-and-standards](data-sources-and-standards/README.md) | 8 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
 | [development](development/README.md) | 2 | Engineering practice independent of language — debugging discipline, project scaffolding |
 | [game-development](game-development/README.md) | 3 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices |
@@ -29,6 +29,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
 | [javascript](javascript/README.md) | 2 | React and Electron — renderer, library choice and React Flow; main/preload boundary, security, packaging and updates |
 | [perl](perl/README.md) | 15 | House style, object systems including Mojo::Base, typing, DSL sugar, async, MCP, XS and Alien, release tooling, standalone PAR binaries |
+| [rules-and-reasoning](rules-and-reasoning/README.md) | 9 | Logic an engine evaluates, one language per skill — DMN, FEEL and RUML decision models, Cedar, OPA/Rego and XACML authorization policies, CEL and JSON Logic expressions, PDDL planning |
 | [semantic-web](semantic-web/README.md) | 7 | The W3C graph stack, one standard per skill — RDF, JSON-LD, OWL 2, SHACL, SPARQL, SKOS and PROV-O, independent of any store or library |
 | [smart-home](smart-home/README.md) | 9 | Home Assistant with its automations and extensions, FRITZ!Box, radio networks, device families, ESPHome and MQTT, cameras and media |
 | [social-media](social-media/README.md) | 2 | LinkedIn and Twitch — platform mechanics, content practice, and the DACH legal duties that have no US equivalent |
@@ -103,7 +104,6 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [gs1-epcis](data-sources-and-standards/gs1-epcis/SKILL.md) | EPCIS 2.x traceability events and the Core Business Vocabulary: identifiers, corrections, sensors, interfaces |
 | [iptc-news-standards](data-sources-and-standards/iptc-news-standards/SKILL.md) | NewsML-G2, ninjs, NewsCodes and Media Topics: revisions, corrections, embargo, taxonomy mapping |
 | [openstreetmap-data](data-sources-and-standards/openstreetmap-data/SKILL.md) | The OSM data model, extracts and updates, geometry assembly, service boundaries, ODbL obligations |
-| [ruml-engineering](data-sources-and-standards/ruml-engineering/SKILL.md) | RUML rulemaps for Law as Code: operators and evaluation modes, JSONata, modules, results, containers, validation |
 | [wikibase-data](data-sources-and-standards/wikibase-data/SKILL.md) | Wikidata and Wikibase: entity JSON, dumps and RDF, ranks, qualifiers and references, updates, reconciliation |
 | [xbrl-reporting-standards](data-sources-and-standards/xbrl-reporting-standards/SKILL.md) | XBRL 2.1, Dimensions, Inline XBRL and OIM: facts and contexts, taxonomies, SEC and ESEF filing profiles |
 
@@ -167,6 +167,20 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [perl-par-binary-release](perl/perl-par-binary-release/SKILL.md) | A standalone `PAR::Packer` binary in the GitHub release: workflow, build, verify, lib check |
 | [perl-release-dist-ini](perl/perl-release-dist-ini/SKILL.md) | Dist::Zilla for any distribution, independent of the author bundle |
 | [perl-xs](perl/perl-xs/SKILL.md) | The Perl/C boundary, and why an `.xs` file is C behind a preprocessor |
+
+### [rules-and-reasoning](rules-and-reasoning/README.md)
+
+| Skill | What it is |
+|---|---|
+| [cedar-engineering](rules-and-reasoning/cedar-engineering/SKILL.md) | Cedar authorization policies: permit and forbid, schemas, entities and hierarchies, templates, partial evaluation, Verified Permissions |
+| [cel-engineering](rules-and-reasoning/cel-engineering/SKILL.md) | Common Expression Language: type environments, macros, errors and unknowns, cost limits, Kubernetes, Envoy and IAM hosts |
+| [dmn-engineering](rules-and-reasoning/dmn-engineering/SKILL.md) | OMG DMN decision models: requirements graphs, decision tables and hit policies, boxed expressions, DMN XML, TCK conformance |
+| [feel-engineering](rules-and-reasoning/feel-engineering/SKILL.md) | FEEL in and outside DMN: unary tests, Decimal128, null logic, contexts, temporal values, S-FEEL and B-FEEL, engine portability |
+| [json-logic-engineering](rules-and-reasoning/json-logic-engineering/SKILL.md) | JSON Logic rule trees: var and missing values, truthiness, collection scope, custom operations, evaluator portability |
+| [opa-rego-engineering](rules-and-reasoning/opa-rego-engineering/SKILL.md) | OPA and Rego: undefined and conflicts, v0/v1/v2, bundles and capabilities, Gatekeeper, Terraform plans, Wasm |
+| [pddl-engineering](rules-and-reasoning/pddl-engineering/SKILL.md) | PDDL planning: STRIPS and ADL, numeric and temporal planning, planner choice, plan validation, execution and replanning |
+| [ruml-engineering](rules-and-reasoning/ruml-engineering/SKILL.md) | RUML rulemaps for Law as Code: operators and evaluation modes, JSONata, modules, results, containers, validation |
+| [xacml-engineering](rules-and-reasoning/xacml-engineering/SKILL.md) | XACML 3.0 access control: PDP, PEP, PAP and PIP, combining algorithms, the four decisions, obligations and advice, JSON Profile |
 
 ### [semantic-web](semantic-web/README.md)
 

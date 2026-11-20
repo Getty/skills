@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdp xmlns="http://authzforce.github.io/core/xmlns/pdp/8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="8.0">
+ <policyProvider id="localPolicies" xsi:type="StaticPolicyProvider"><policyLocation>${PARENT_DIR}/training-policy.xml</policyLocation></policyProvider>
+ <rootPolicyRef>urn:example:policy:training-read</rootPolicyRef>
+ <ioProcChain><requestPreproc>urn:ow2:authzforce:feature:pdp:request-preproc:xacml-json:default-lax</requestPreproc><resultPostproc>urn:ow2:authzforce:feature:pdp:result-postproc:xacml-json:default</resultPostproc></ioProcChain>
+</pdp>

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "eligible",
+    "data": {
+      "age": 32,
+      "active": true,
+      "completedModules": 4
+    },
+    "inputValid": true,
+    "expected": true
+  },
+  {
+    "id": "boundary",
+    "data": {
+      "age": 18,
+      "active": true,
+      "completedModules": 3
+    },
+    "inputValid": true,
+    "expected": true
+  },
+  {
+    "id": "under-threshold",
+    "data": {
+      "age": 17,
+      "active": true,
+      "completedModules": 3
+    },
+    "inputValid": true,
+    "expected": false
+  },
+  {
+    "id": "inactive",
+    "data": {
+      "age": 32,
+      "active": false,
+      "completedModules": 4
+    },
+    "inputValid": true,
+    "expected": false
+  },
+  {
+    "id": "missing",
+    "data": {
+      "active": true,
+      "completedModules": 4
+    },
+    "inputValid": false
+  },
+  {
+    "id": "null",
+    "data": {
+      "age": null,
+      "active": true,
+      "completedModules": 4
+    },
+    "inputValid": false
+  },
+  {
+    "id": "numeric-string",
+    "data": {
+      "age": "32",
+      "active": true,
+      "completedModules": 4
+    },
+    "inputValid": false
+  }
+]

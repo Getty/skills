@@ -1,0 +1,14 @@
+interface:
+  display_name: JSON Logic Engineering
+  short_description: Build and test portable JSON Logic rules
+  default_prompt: Use $json-logic-engineering to model, implement, or troubleshoot
+    this task with explicit runtime assumptions and meaningful validation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

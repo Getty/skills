@@ -1,0 +1,59 @@
+{
+  "profile": "Normative FEEL decimal and type expectations; failures are retained as compatibility evidence",
+  "cases": [
+    {
+      "id": "decimal-addition-identity",
+      "kind": "expression",
+      "source": "0.1 + 0.2 = 0.3",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "large-integer-ordering",
+      "kind": "expression",
+      "source": "9007199254740993 > 9007199254740992",
+      "context": {},
+      "expected": true
+    },
+    {
+      "id": "comparison-string-number",
+      "kind": "expression",
+      "source": "amount <= 100",
+      "context": {
+        "amount": "100"
+      },
+      "expected": null
+    },
+    {
+      "id": "unary-lte-string-number",
+      "kind": "unary-test",
+      "source": "<= 100",
+      "context": {
+        "?": "100"
+      },
+      "expected": null
+    },
+    {
+      "id": "unary-gte-string-number",
+      "kind": "unary-test",
+      "source": ">= 100",
+      "context": {
+        "?": "100"
+      },
+      "expected": null
+    },
+    {
+      "id": "every-string-predicate",
+      "kind": "expression",
+      "source": "every a in approvals satisfies a.approved",
+      "context": {
+        "approvals": [
+          {
+            "approved": "false"
+          }
+        ]
+      },
+      "expected": null
+    }
+  ]
+}

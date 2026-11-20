@@ -1,6 +1,15 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New group rules-and-reasoning, one rule, policy, decision or planning
+    language per skill, each with references, offline helper scripts and
+    examples: dmn-engineering and feel-engineering for decision models and
+    their expressions, cedar-engineering, opa-rego-engineering and
+    xacml-engineering for authorization policies, cel-engineering and
+    json-logic-engineering for embedded expressions, pddl-engineering for
+    planning.
+  - ruml-engineering moved from data-sources-and-standards to
+    rules-and-reasoning; its name is unchanged.
 
 0.7.0     2026-11-19 18:20:57Z
   - model-routing: Fable 5.2 is stronger than Opus 5.5 and a regular

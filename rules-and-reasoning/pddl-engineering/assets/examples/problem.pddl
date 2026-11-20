@@ -1,0 +1,11 @@
+(define (problem deliver-parcel)
+  (:domain parcel-transfer)
+  (:objects bot - robot parcel-a - parcel dock lab - location)
+  (:init
+    (robot-at bot dock)
+    (parcel-at parcel-a dock)
+    (handempty bot)
+    (connected dock lab)
+    (connected lab dock))
+  (:goal (and (parcel-at parcel-a lab) (handempty bot)))
+)

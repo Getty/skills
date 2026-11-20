@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "subjects": {
+      "alice": {
+        "active": true,
+        "tenant": "t1",
+        "roles": [
+          "reader"
+        ]
+      },
+      "bob": {
+        "active": true,
+        "tenant": "t1",
+        "roles": [
+          "editor"
+        ]
+      },
+      "carol": {
+        "active": false,
+        "tenant": "t1",
+        "roles": [
+          "editor"
+        ]
+      }
+    }
+  }
+}

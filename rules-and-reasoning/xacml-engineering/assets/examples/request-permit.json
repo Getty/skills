@@ -1,0 +1,55 @@
+{
+  "Request": {
+    "ReturnPolicyIdList": true,
+    "CombinedDecision": false,
+    "Category": [
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject",
+        "Attribute": [
+          {
+            "AttributeId": "urn:example:subject:status",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": [
+              "active"
+            ],
+            "IncludeInResult": false
+          },
+          {
+            "AttributeId": "urn:example:subject:role",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": [
+              "analyst"
+            ],
+            "IncludeInResult": false
+          }
+        ]
+      },
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": [
+              "read"
+            ],
+            "IncludeInResult": false
+          }
+        ]
+      },
+      {
+        "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+        "Attribute": [
+          {
+            "AttributeId": "urn:example:resource:kind",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "Value": [
+              "training-record"
+            ],
+            "IncludeInResult": false
+          }
+        ]
+      }
+    ]
+  }
+}

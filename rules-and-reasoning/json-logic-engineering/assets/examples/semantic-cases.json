@@ -1,0 +1,602 @@
+[
+  {
+    "id": "literal-true",
+    "rule": true,
+    "data": {},
+    "expected": true
+  },
+  {
+    "id": "literal-null",
+    "rule": null,
+    "data": {},
+    "expected": null
+  },
+  {
+    "id": "truthy-empty-list",
+    "rule": {
+      "!!": [
+        []
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "truthy-string-zero",
+    "rule": {
+      "!!": [
+        "0"
+      ]
+    },
+    "data": null,
+    "expected": true
+  },
+  {
+    "id": "and-returns-operand",
+    "rule": {
+      "and": [
+        true,
+        "ready",
+        7
+      ]
+    },
+    "data": null,
+    "expected": 7
+  },
+  {
+    "id": "or-returns-operand",
+    "rule": {
+      "or": [
+        0,
+        "review",
+        false
+      ]
+    },
+    "data": null,
+    "expected": "review"
+  },
+  {
+    "id": "default-absent",
+    "rule": {
+      "var": [
+        "x",
+        9
+      ]
+    },
+    "data": {},
+    "expected": 9
+  },
+  {
+    "id": "default-explicit-null",
+    "rule": {
+      "var": [
+        "x",
+        9
+      ]
+    },
+    "data": {
+      "x": null
+    },
+    "expected": null
+  },
+  {
+    "id": "missing-distinction",
+    "rule": {
+      "missing": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    "data": {
+      "a": null,
+      "b": "",
+      "c": 0,
+      "d": false
+    },
+    "expected": [
+      "a",
+      "b",
+      "e"
+    ]
+  },
+  {
+    "id": "missing-some",
+    "rule": {
+      "missing_some": [
+        2,
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "data": {
+      "a": 0,
+      "b": false
+    },
+    "expected": []
+  },
+  {
+    "id": "coercing-equality",
+    "rule": {
+      "==": [
+        18,
+        "18"
+      ]
+    },
+    "data": null,
+    "expected": true
+  },
+  {
+    "id": "strict-equality",
+    "rule": {
+      "===": [
+        18,
+        "18"
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "lazy-if",
+    "rule": {
+      "if": [
+        true,
+        "ok",
+        {
+          "unknown_for_test": []
+        }
+      ]
+    },
+    "data": null,
+    "expected": "ok"
+  },
+  {
+    "id": "lazy-and",
+    "rule": {
+      "and": [
+        false,
+        {
+          "unknown_for_test": []
+        }
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "lazy-or",
+    "rule": {
+      "or": [
+        true,
+        {
+          "unknown_for_test": []
+        }
+      ]
+    },
+    "data": null,
+    "expected": true
+  },
+  {
+    "id": "map-scope",
+    "rule": {
+      "map": [
+        {
+          "var": "items"
+        },
+        {
+          "var": "x"
+        }
+      ]
+    },
+    "data": {
+      "x": 99,
+      "items": [
+        {
+          "x": 2
+        },
+        {
+          "x": 3
+        }
+      ]
+    },
+    "expected": [
+      2,
+      3
+    ]
+  },
+  {
+    "id": "map-no-outer-scope",
+    "rule": {
+      "map": [
+        {
+          "var": "items"
+        },
+        {
+          "var": "threshold"
+        }
+      ]
+    },
+    "data": {
+      "threshold": 9,
+      "items": [
+        {
+          "x": 2
+        }
+      ]
+    },
+    "expected": [
+      null
+    ]
+  },
+  {
+    "id": "reduce",
+    "rule": {
+      "reduce": [
+        {
+          "var": "xs"
+        },
+        {
+          "+": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": {
+      "xs": [
+        2,
+        3,
+        4
+      ]
+    },
+    "expected": 9
+  },
+  {
+    "id": "empty-reduce",
+    "rule": {
+      "reduce": [
+        [],
+        {
+          "+": [
+            {
+              "var": "current"
+            },
+            {
+              "var": "accumulator"
+            }
+          ]
+        },
+        0
+      ]
+    },
+    "data": null,
+    "expected": 0
+  },
+  {
+    "id": "all-empty",
+    "rule": {
+      "all": [
+        [],
+        true
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "some-empty",
+    "rule": {
+      "some": [
+        [],
+        true
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "none-empty",
+    "rule": {
+      "none": [
+        [],
+        true
+      ]
+    },
+    "data": null,
+    "expected": true
+  },
+  {
+    "id": "substring",
+    "rule": {
+      "in": [
+        "admin",
+        "superadmin"
+      ]
+    },
+    "data": null,
+    "expected": true
+  },
+  {
+    "id": "array-membership",
+    "rule": {
+      "in": [
+        "admin",
+        [
+          "superadmin"
+        ]
+      ]
+    },
+    "data": null,
+    "expected": false
+  },
+  {
+    "id": "range-inclusive",
+    "rule": {
+      "<=": [
+        18,
+        {
+          "var": "age"
+        },
+        65
+      ]
+    },
+    "data": {
+      "age": 65
+    },
+    "expected": true
+  },
+  {
+    "id": "range-exclusive",
+    "rule": {
+      "<": [
+        18,
+        {
+          "var": "age"
+        },
+        65
+      ]
+    },
+    "data": {
+      "age": 65
+    },
+    "expected": false
+  },
+  {
+    "id": "training-eligible",
+    "rule": {
+      "if": [
+        {
+          "missing": [
+            "age",
+            "active",
+            "completedModules"
+          ]
+        },
+        false,
+        {
+          "and": [
+            {
+              ">=": [
+                {
+                  "var": "age"
+                },
+                18
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "active"
+                },
+                true
+              ]
+            },
+            {
+              ">=": [
+                {
+                  "var": "completedModules"
+                },
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "data": {
+      "age": 32,
+      "active": true,
+      "completedModules": 4
+    },
+    "expected": true
+  },
+  {
+    "id": "training-boundary",
+    "rule": {
+      "if": [
+        {
+          "missing": [
+            "age",
+            "active",
+            "completedModules"
+          ]
+        },
+        false,
+        {
+          "and": [
+            {
+              ">=": [
+                {
+                  "var": "age"
+                },
+                18
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "active"
+                },
+                true
+              ]
+            },
+            {
+              ">=": [
+                {
+                  "var": "completedModules"
+                },
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "data": {
+      "age": 18,
+      "active": true,
+      "completedModules": 3
+    },
+    "expected": true
+  },
+  {
+    "id": "training-under-threshold",
+    "rule": {
+      "if": [
+        {
+          "missing": [
+            "age",
+            "active",
+            "completedModules"
+          ]
+        },
+        false,
+        {
+          "and": [
+            {
+              ">=": [
+                {
+                  "var": "age"
+                },
+                18
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "active"
+                },
+                true
+              ]
+            },
+            {
+              ">=": [
+                {
+                  "var": "completedModules"
+                },
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "data": {
+      "age": 17,
+      "active": true,
+      "completedModules": 3
+    },
+    "expected": false
+  },
+  {
+    "id": "training-inactive",
+    "rule": {
+      "if": [
+        {
+          "missing": [
+            "age",
+            "active",
+            "completedModules"
+          ]
+        },
+        false,
+        {
+          "and": [
+            {
+              ">=": [
+                {
+                  "var": "age"
+                },
+                18
+              ]
+            },
+            {
+              "===": [
+                {
+                  "var": "active"
+                },
+                true
+              ]
+            },
+            {
+              ">=": [
+                {
+                  "var": "completedModules"
+                },
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "data": {
+      "age": 32,
+      "active": false,
+      "completedModules": 4
+    },
+    "expected": false
+  },
+  {
+    "id": "unknown-operation",
+    "rule": {
+      "unknown_for_test": []
+    },
+    "data": {},
+    "expectedError": "Unrecognized operation"
+  },
+  {
+    "id": "division-infinity",
+    "rule": {
+      "/": [
+        1,
+        0
+      ]
+    },
+    "data": {},
+    "expectedSpecial": "positive-infinity"
+  },
+  {
+    "id": "division-nan",
+    "rule": {
+      "/": [
+        0,
+        0
+      ]
+    },
+    "data": {},
+    "expectedSpecial": "nan"
+  }
+]

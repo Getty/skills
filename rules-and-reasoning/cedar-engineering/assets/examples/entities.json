@@ -1,0 +1,143 @@
+[
+  {
+    "uid": {
+      "type": "Workshop::Tenant",
+      "id": "t1"
+    },
+    "attrs": {},
+    "parents": []
+  },
+  {
+    "uid": {
+      "type": "Workshop::Tenant",
+      "id": "t2"
+    },
+    "attrs": {},
+    "parents": []
+  },
+  {
+    "uid": {
+      "type": "Workshop::Team",
+      "id": "blue"
+    },
+    "attrs": {},
+    "parents": [
+      {
+        "type": "Workshop::Tenant",
+        "id": "t1"
+      }
+    ]
+  },
+  {
+    "uid": {
+      "type": "Workshop::User",
+      "id": "u1"
+    },
+    "attrs": {
+      "tenant": {
+        "__entity": {
+          "type": "Workshop::Tenant",
+          "id": "t1"
+        }
+      },
+      "suspended": false
+    },
+    "parents": [
+      {
+        "type": "Workshop::Team",
+        "id": "blue"
+      }
+    ]
+  },
+  {
+    "uid": {
+      "type": "Workshop::User",
+      "id": "u2"
+    },
+    "attrs": {
+      "tenant": {
+        "__entity": {
+          "type": "Workshop::Tenant",
+          "id": "t1"
+        }
+      },
+      "suspended": true
+    },
+    "parents": [
+      {
+        "type": "Workshop::Team",
+        "id": "blue"
+      }
+    ]
+  },
+  {
+    "uid": {
+      "type": "Workshop::User",
+      "id": "u3"
+    },
+    "attrs": {
+      "tenant": {
+        "__entity": {
+          "type": "Workshop::Tenant",
+          "id": "t2"
+        }
+      },
+      "suspended": false
+    },
+    "parents": []
+  },
+  {
+    "uid": {
+      "type": "Workshop::Document",
+      "id": "d1"
+    },
+    "attrs": {
+      "tenant": {
+        "__entity": {
+          "type": "Workshop::Tenant",
+          "id": "t1"
+        }
+      },
+      "owner": {
+        "__entity": {
+          "type": "Workshop::User",
+          "id": "u1"
+        }
+      },
+      "confidential": true
+    },
+    "parents": [
+      {
+        "type": "Workshop::Tenant",
+        "id": "t1"
+      }
+    ]
+  },
+  {
+    "uid": {
+      "type": "Workshop::Document",
+      "id": "d2"
+    },
+    "attrs": {
+      "tenant": {
+        "__entity": {
+          "type": "Workshop::Tenant",
+          "id": "t2"
+        }
+      },
+      "owner": {
+        "__entity": {
+          "type": "Workshop::User",
+          "id": "u3"
+        }
+      },
+      "confidential": false
+    },
+    "parents": [
+      {
+        "type": "Workshop::Tenant",
+        "id": "t2"
+      }
+    ]
+  }
+]

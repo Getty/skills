@@ -1,0 +1,23 @@
+namespace Workshop {
+  entity Tenant;
+  entity Team in [Tenant];
+  entity User in [Team] {
+    tenant: Tenant,
+    suspended: Bool,
+  };
+  entity Document in [Tenant] {
+    tenant: Tenant,
+    owner: User,
+    confidential: Bool,
+  };
+  action "read" appliesTo {
+    principal: User,
+    resource: Document,
+    context: { mfa: Bool },
+  };
+  action "write" appliesTo {
+    principal: User,
+    resource: Document,
+    context: { mfa: Bool },
+  };
+}

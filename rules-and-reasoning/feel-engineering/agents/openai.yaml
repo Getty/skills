@@ -1,0 +1,14 @@
+interface:
+  display_name: FEEL Engineering
+  short_description: Author and validate FEEL expressions and unary tests
+  default_prompt: Use $feel-engineering to write, test, or troubleshoot FEEL expressions
+    with explicit types and runtime assumptions.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

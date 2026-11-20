@@ -1,0 +1,3 @@
+; Move first, then attempt to pick a parcel that is still at the dock.
+(move bot dock lab)
+(pick bot parcel-a lab)

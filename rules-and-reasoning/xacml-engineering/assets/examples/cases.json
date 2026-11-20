@@ -1,0 +1,64 @@
+[
+  {
+    "id": "permit",
+    "request": "request-permit.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "Permit",
+    "expectedObligations": [
+      "urn:example:obligation:audit-training-read"
+    ]
+  },
+  {
+    "id": "permit-json",
+    "request": "request-permit.json",
+    "format": "XACML_JSON",
+    "expectedDecision": "Permit",
+    "expectedObligations": [
+      "urn:example:obligation:audit-training-read"
+    ]
+  },
+  {
+    "id": "deny-suspended",
+    "request": "request-deny-suspended.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "Deny",
+    "expectedObligations": []
+  },
+  {
+    "id": "outside-action",
+    "request": "request-outside-action.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "NotApplicable",
+    "expectedObligations": []
+  },
+  {
+    "id": "viewer",
+    "request": "request-viewer.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "NotApplicable",
+    "expectedObligations": []
+  },
+  {
+    "id": "missing-status",
+    "request": "request-missing-status.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "Indeterminate",
+    "expectedObligations": []
+  },
+  {
+    "id": "multiple-status",
+    "request": "request-multiple-status.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "Indeterminate",
+    "expectedObligations": []
+  },
+  {
+    "id": "multiple-roles",
+    "request": "request-multiple-roles.xml",
+    "format": "XACML_XML",
+    "expectedDecision": "Permit",
+    "expectedObligations": [
+      "urn:example:obligation:audit-training-read"
+    ]
+  }
+]

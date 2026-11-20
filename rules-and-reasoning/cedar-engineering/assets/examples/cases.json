@@ -1,0 +1,103 @@
+[
+  {
+    "name": "team-read-with-mfa",
+    "principal": "u1",
+    "action": "read",
+    "resource": "d1",
+    "context": {
+      "mfa": true
+    },
+    "expected": "Allow",
+    "errors": false,
+    "reasons": [
+      "read-team-document"
+    ]
+  },
+  {
+    "name": "confidential-without-mfa",
+    "principal": "u1",
+    "action": "read",
+    "resource": "d1",
+    "context": {
+      "mfa": false
+    },
+    "expected": "Deny",
+    "errors": false,
+    "reasons": []
+  },
+  {
+    "name": "suspended-overrides-permit",
+    "principal": "u2",
+    "action": "read",
+    "resource": "d1",
+    "context": {
+      "mfa": true
+    },
+    "expected": "Deny",
+    "errors": false,
+    "reasons": [
+      "deny-suspended-user"
+    ]
+  },
+  {
+    "name": "cross-tenant-owner-mismatch",
+    "principal": "u1",
+    "action": "read",
+    "resource": "d2",
+    "context": {
+      "mfa": true
+    },
+    "expected": "Deny",
+    "errors": false,
+    "reasons": []
+  },
+  {
+    "name": "owner-write",
+    "principal": "u1",
+    "action": "write",
+    "resource": "d1",
+    "context": {
+      "mfa": true
+    },
+    "expected": "Allow",
+    "errors": false,
+    "reasons": [
+      "write-own-document"
+    ]
+  },
+  {
+    "name": "nonowner-write",
+    "principal": "u3",
+    "action": "write",
+    "resource": "d1",
+    "context": {
+      "mfa": true
+    },
+    "expected": "Deny",
+    "errors": false,
+    "reasons": []
+  },
+  {
+    "name": "missing-required-context",
+    "principal": "u1",
+    "action": "read",
+    "resource": "d1",
+    "context": {},
+    "expected": "Deny",
+    "errors": true,
+    "reasons": []
+  },
+  {
+    "name": "skip-failed-forbid",
+    "principal": "u1",
+    "action": "read",
+    "resource": "d1",
+    "context": {},
+    "expected": "Allow",
+    "errors": true,
+    "policies": "unsafe-forbid.cedar",
+    "reasons": [
+      "permit-read"
+    ]
+  }
+]

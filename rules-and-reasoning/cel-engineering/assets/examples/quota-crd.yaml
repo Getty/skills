@@ -1,0 +1,33 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: quotas.rules.example.com
+spec:
+  group: rules.example.com
+  scope: Namespaced
+  names:
+    plural: quotas
+    singular: quota
+    kind: Quota
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          required: [spec]
+          properties:
+            spec:
+              type: object
+              required: [used, limit]
+              properties:
+                used:
+                  type: integer
+                  minimum: 0
+                limit:
+                  type: integer
+                  minimum: 0
+              x-kubernetes-validations:
+                - rule: self.used <= self.limit
+                  message: used must not exceed limit

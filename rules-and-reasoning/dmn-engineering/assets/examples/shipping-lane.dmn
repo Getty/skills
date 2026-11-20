@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20240513/MODEL/"
+  id="shipping-definitions" name="Synthetic shipping lane"
+  namespace="urn:example:dmn:shipping-lane:1"
+  expressionLanguage="https://www.omg.org/spec/DMN/20240513/FEEL/">
+  <description>Original educational policy: urgent shipments use express; normal shipments at most 10 kg use economy; heavier normal shipments use freight. Validate nonnegative weight and known urgency before evaluation.</description>
+  <inputData id="weight-input" name="weight">
+    <variable id="weight-variable" name="weight" typeRef="number"/>
+  </inputData>
+  <inputData id="urgency-input" name="urgency">
+    <variable id="urgency-variable" name="urgency" typeRef="string"/>
+  </inputData>
+  <decision id="shipping-lane" name="Shipping lane">
+    <variable id="lane-variable" name="Shipping lane" typeRef="string"/>
+    <informationRequirement id="require-weight"><requiredInput href="#weight-input"/></informationRequirement>
+    <informationRequirement id="require-urgency"><requiredInput href="#urgency-input"/></informationRequirement>
+    <decisionTable id="lane-table" hitPolicy="UNIQUE">
+      <input id="weight-clause" label="Weight in kg">
+        <inputExpression id="weight-expression" typeRef="number"><text>weight</text></inputExpression>
+        <inputValues id="valid-weights"><text>&gt;= 0</text></inputValues>
+      </input>
+      <input id="urgency-clause" label="Urgency">
+        <inputExpression id="urgency-expression" typeRef="string"><text>urgency</text></inputExpression>
+        <inputValues id="valid-urgencies"><text>"normal", "urgent"</text></inputValues>
+      </input>
+      <output id="lane-output" name="lane" typeRef="string">
+        <outputValues id="valid-lanes"><text>"express", "economy", "freight"</text></outputValues>
+      </output>
+      <rule id="urgent-rule">
+        <inputEntry id="urgent-weight"><text>-</text></inputEntry>
+        <inputEntry id="urgent-value"><text>"urgent"</text></inputEntry>
+        <outputEntry id="urgent-output"><text>"express"</text></outputEntry>
+      </rule>
+      <rule id="normal-light-rule">
+        <inputEntry id="light-weight"><text>[0..10]</text></inputEntry>
+        <inputEntry id="light-urgency"><text>"normal"</text></inputEntry>
+        <outputEntry id="light-output"><text>"economy"</text></outputEntry>
+      </rule>
+      <rule id="normal-heavy-rule">
+        <inputEntry id="heavy-weight"><text>&gt; 10</text></inputEntry>
+        <inputEntry id="heavy-urgency"><text>"normal"</text></inputEntry>
+        <outputEntry id="heavy-output"><text>"freight"</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

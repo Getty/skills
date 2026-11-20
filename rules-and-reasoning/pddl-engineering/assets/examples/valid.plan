@@ -1,0 +1,3 @@
+(pick bot parcel-a dock)
+(move bot dock lab)
+(drop bot parcel-a lab)

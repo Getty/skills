@@ -1,0 +1,88 @@
+{
+  "profile": "DMN 1.6 / FEEL; original synthetic shipping policy",
+  "entryPoint": {
+    "decisionId": "shipping-lane",
+    "namespace": "urn:example:dmn:shipping-lane:1"
+  },
+  "inputContract": {
+    "weight": "number >= 0, kilograms",
+    "urgency": [
+      "normal",
+      "urgent"
+    ],
+    "invalidInput": "reject before model execution"
+  },
+  "cases": [
+    {
+      "id": "normal-zero",
+      "input": {
+        "weight": 0,
+        "urgency": "normal"
+      },
+      "expectedValue": "economy"
+    },
+    {
+      "id": "normal-threshold",
+      "input": {
+        "weight": 10,
+        "urgency": "normal"
+      },
+      "expectedValue": "economy"
+    },
+    {
+      "id": "normal-above",
+      "input": {
+        "weight": 10.01,
+        "urgency": "normal"
+      },
+      "expectedValue": "freight"
+    },
+    {
+      "id": "urgent-heavy",
+      "input": {
+        "weight": 100,
+        "urgency": "urgent"
+      },
+      "expectedValue": "express"
+    },
+    {
+      "id": "urgent-zero",
+      "input": {
+        "weight": 0,
+        "urgency": "urgent"
+      },
+      "expectedValue": "express"
+    },
+    {
+      "id": "negative-weight",
+      "input": {
+        "weight": -1,
+        "urgency": "normal"
+      },
+      "expectedHostOutcome": "invalid-input"
+    },
+    {
+      "id": "missing-weight",
+      "input": {
+        "urgency": "normal"
+      },
+      "expectedHostOutcome": "invalid-input"
+    },
+    {
+      "id": "string-weight",
+      "input": {
+        "weight": "10",
+        "urgency": "normal"
+      },
+      "expectedHostOutcome": "invalid-input"
+    },
+    {
+      "id": "unknown-urgency",
+      "input": {
+        "weight": 10,
+        "urgency": "later"
+      },
+      "expectedHostOutcome": "invalid-input"
+    }
+  ]
+}

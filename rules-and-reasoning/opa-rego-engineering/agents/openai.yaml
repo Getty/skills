@@ -1,0 +1,14 @@
+interface:
+  display_name: OPA and Rego Engineering
+  short_description: Author, test, and operate OPA Rego policies
+  default_prompt: Use $opa-rego-engineering to write and test an OPA authorization
+    policy with an explicit input contract and deployment profile.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

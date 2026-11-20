@@ -1,0 +1,14 @@
+interface:
+  display_name: Cedar Authorization Engineering
+  short_description: Design and validate Cedar authorization policies
+  default_prompt: Use $cedar-engineering to model, implement, or troubleshoot this
+    task with explicit runtime assumptions and meaningful validation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,341 @@
+{
+  "profile": "cel-expr-python-0.1.3-no-extensions",
+  "cases": [
+    {
+      "id": "quota-at-limit",
+      "expression": "used >= 0 && used <= limit",
+      "declarations": {
+        "used": "int",
+        "limit": "int"
+      },
+      "bindings": {
+        "used": 5,
+        "limit": 5
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "quota-over-limit",
+      "expression": "used >= 0 && used <= limit",
+      "declarations": {
+        "used": "int",
+        "limit": "int"
+      },
+      "bindings": {
+        "used": 6,
+        "limit": 5
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "quota-negative",
+      "expression": "used >= 0 && used <= limit",
+      "declarations": {
+        "used": "int",
+        "limit": "int"
+      },
+      "bindings": {
+        "used": -1,
+        "limit": 5
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "owner-present",
+      "expression": "has(request.owner) && request.owner == \"alice\"",
+      "declarations": {
+        "request": "dyn"
+      },
+      "bindings": {
+        "request": {
+          "owner": "alice"
+        }
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "owner-missing-guarded",
+      "expression": "has(request.owner) && request.owner == \"alice\"",
+      "declarations": {
+        "request": "dyn"
+      },
+      "bindings": {
+        "request": {}
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "owner-null-present",
+      "expression": "has(request.owner)",
+      "declarations": {
+        "request": "dyn"
+      },
+      "bindings": {
+        "request": {
+          "owner": null
+        }
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "owner-null-value",
+      "expression": "request.owner == null",
+      "declarations": {
+        "request": "dyn"
+      },
+      "bindings": {
+        "request": {
+          "owner": null
+        }
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "owner-missing-direct",
+      "expression": "request.owner == null",
+      "declarations": {
+        "request": "dyn"
+      },
+      "bindings": {
+        "request": {}
+      },
+      "expect": {
+        "kind": "runtime_error"
+      }
+    },
+    {
+      "id": "dynamic-wrong-type",
+      "expression": "x + 1",
+      "declarations": {
+        "x": "dyn"
+      },
+      "bindings": {
+        "x": "three"
+      },
+      "expect": {
+        "kind": "runtime_error"
+      }
+    },
+    {
+      "id": "static-type-error",
+      "expression": "1 + true",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "compile_error"
+      }
+    },
+    {
+      "id": "all-empty",
+      "expression": "[].all(x, x > 0)",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "nonempty-all",
+      "expression": "size(items) > 0 && items.all(x, x > 0)",
+      "declarations": {
+        "items": "dyn"
+      },
+      "bindings": {
+        "items": []
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "exists-one-match",
+      "expression": "[1,2,3].exists_one(x, x == 2)",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "exists-duplicate-matches",
+      "expression": "[2,2,3].exists_one(x, x == 2)",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "error-and-false",
+      "expression": "(1 / z > 0) && false",
+      "declarations": {
+        "z": "int"
+      },
+      "bindings": {
+        "z": 0
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "error-or-true",
+      "expression": "(1 / z > 0) || true",
+      "declarations": {
+        "z": "int"
+      },
+      "bindings": {
+        "z": 0
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "error-and-true",
+      "expression": "(1 / z > 0) && true",
+      "declarations": {
+        "z": "int"
+      },
+      "bindings": {
+        "z": 0
+      },
+      "expect": {
+        "kind": "runtime_error"
+      }
+    },
+    {
+      "id": "conditional-guard",
+      "expression": "z == 0 ? false : 1 / z > 0",
+      "declarations": {
+        "z": "int"
+      },
+      "bindings": {
+        "z": 0
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "integer-division",
+      "expression": "7 / 2",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "INT",
+        "value": 3
+      }
+    },
+    {
+      "id": "valid-identifier",
+      "expression": "name.matches('^[a-z][a-z0-9-]{0,9}$')",
+      "declarations": {
+        "name": "string"
+      },
+      "bindings": {
+        "name": "team-7"
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "invalid-identifier",
+      "expression": "name.matches('^[a-z][a-z0-9-]{0,9}$')",
+      "declarations": {
+        "name": "string"
+      },
+      "bindings": {
+        "name": "7team"
+      },
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "expiry-exclusive",
+      "expression": "timestamp('2026-11-19T10:00:00Z') < timestamp('2026-11-19T10:00:00Z')",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": false
+      }
+    },
+    {
+      "id": "time-window",
+      "expression": "timestamp('2026-11-19T09:30:00Z') + duration('1800s') == timestamp('2026-11-19T10:00:00Z')",
+      "declarations": {},
+      "bindings": {},
+      "expect": {
+        "kind": "value",
+        "type": "BOOL",
+        "value": true
+      }
+    },
+    {
+      "id": "nonboolean-value",
+      "expression": "x + 1",
+      "declarations": {
+        "x": "int"
+      },
+      "bindings": {
+        "x": 3
+      },
+      "expect": {
+        "kind": "value",
+        "type": "INT",
+        "value": 4
+      }
+    }
+  ]
+}

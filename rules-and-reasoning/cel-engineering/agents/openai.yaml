@@ -1,0 +1,14 @@
+interface:
+  display_name: CEL Engineering
+  short_description: Embed and validate Common Expression Language
+  default_prompt: Use $cel-engineering to write and test CEL expressions for this
+    host, including types, missing values, errors, and cost limits.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
