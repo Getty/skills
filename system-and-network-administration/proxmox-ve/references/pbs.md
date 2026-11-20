@@ -1,5 +1,8 @@
 # Proxmox Backup Server (PBS)
 
+Read when backing up or restoring guests, attaching PBS to PVE, or working on a PBS host:
+datastores, off-site sync, prune/GC/verify, tokens and ACLs.
+
 A separate appliance (PBS 4 = Debian 13 trixie). Managed via `proxmox-backup-manager` (server) and `proxmox-backup-client` (client side/restore). Configs under `/etc/proxmox-backup/`. Backup is based on deduplicated **chunks**: `prune` only deletes snapshot metadata, only **garbage collection** frees the space of unreferenced chunks.
 
 ## Creating a datastore
@@ -19,7 +22,9 @@ Config: `/etc/proxmox-backup/datastore.cfg`. **Maintenance mode** for work on th
 
 ## Creating backups
 
-**From PVE** (PBS attached as storage, see SKILL): via GUI backup jobs or `vzdump`:
+**From PVE** — attach PBS as storage first:
+`pvesm add pbs <id> --server pbs.host --datastore store1 --username backup@pbs --password <pw> --fingerprint <sha256>`.
+Then via GUI backup jobs or `vzdump`:
 ```
 vzdump 100 --storage pbs-store --mode snapshot --notes-template '{{guestname}}'
 ```

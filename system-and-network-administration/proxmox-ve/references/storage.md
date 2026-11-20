@@ -1,6 +1,13 @@
 # Proxmox VE — Storage details
 
+Read when adding or changing a storage (`pvesm`, `storage.cfg`), working on ZFS or
+LVM-thin, replacing a disk, reclaiming thin space, or judging a hardware RAID controller.
+
 `/etc/pve/storage.cfg` defines all storages cluster-wide. `pvesm status` (overview), `pvesm list <storage>` (volumes), `pvesm scan <type>` (e.g. `pvesm scan zfs`, `pvesm scan nfs <server>`). **Always use `/dev/disk/by-id/` for disks** — kernel names (`sdX`, `nvmeXn1`) can swap after a reboot.
+
+Types: **`dir`** (directory, qcow2/raw), **`lvmthin`** (thin, snapshots), **`zfspool`**
+(thin, snapshots, compression), **`nfs`/`cifs`**, **`pbs`** (backup), `rbd`/`cephfs`,
+`btrfs`.
 
 ## storage.cfg — examples
 

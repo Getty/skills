@@ -80,10 +80,10 @@ output, a pull that falsely succeeds, or filters that match nothing.
 
 ### [kubernetes-concepts](kubernetes-concepts/SKILL.md)
 
-The big picture, independent of any client library: control plane and node
-components, the resource hierarchy and how ownership and selectors tie it together,
-the networking model with its four rules and service discovery, the PV/PVC storage
-model, scheduling, and RBAC.
+Kubernetes itself, independent of client library and distribution, as the traps
+agents fall into: ownership and selectors, service discovery, endpoints and
+NetworkPolicy, access modes and reclaim policy, RBAC scope and verbs, and the
+debugging order. Workload patterns — rollout, probes, resources, placement — on demand.
 
 **Load when** reasoning about Kubernetes itself rather than about a specific tool.
 

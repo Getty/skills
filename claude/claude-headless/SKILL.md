@@ -5,27 +5,26 @@ description: "Use when running Claude Code headless — claude -p, JSON output, 
 
 # Headless Claude Code
 
-`claude -p "<prompt>"` runs one non-interactive turn-loop and exits. Calling it
-from inside a running Claude Code session works — no environment cleanup
-needed. Facts below verified against claude 2.1.261; when a flag misbehaves,
-`claude --help` is the authority for the installed version.
+`claude -p "<prompt>"` runs one non-interactive turn-loop and exits. Calling it from
+inside a running Claude Code session works — no environment cleanup needed. Facts below
+verified against claude 2.1.261; when a flag misbehaves, `claude --help` is the
+authority for the installed version.
 
 ## Matching the parent's model
 
-A child does **not** inherit the parent session's model — it reads the saved
-user default (`~/.claude/settings.json`, key `model`; this is where `/model`
-saves). To guarantee the same model, pass it explicitly and verify:
+A child does **not** inherit the parent session's model — it reads the saved user
+default (`~/.claude/settings.json`, key `model`; this is where `/model` saves). To
+guarantee the same model, pass it explicitly and verify:
 
 1. The system prompt's environment block states the exact model ID — e.g.
-   `MiniMax-M3-512k`, or `claude-opus-5-5` when on Claude. No environment
-   variable carries it.
-2. Pass `--model <exact-id>` using that **exact string**, verbatim. Do not
-   substitute an Anthropic-family alias (`fable`, `opus`, `sonnet`, `haiku`)
-   when the parent is on a different provider; those aliases resolve inside
-   the Anthropic namespace only, and would silently swap the model.
-3. Verify from the output: with `--output-format json`, the `modelUsage`
-   object is keyed by the model ID that actually ran — assert it is the one
-   you asked for.
+   `MiniMax-M3-512k`, or `claude-opus-5-5` when on Claude. No environment variable
+   carries it.
+2. Pass `--model <exact-id>` using that **exact string**, verbatim. Do not substitute
+   an Anthropic-family alias (`fable`, `opus`, `sonnet`, `haiku`) when the parent is on
+   a different provider; those aliases resolve inside the Anthropic namespace only, and
+   would silently swap the model.
+3. Verify from the output: with `--output-format json`, the `modelUsage` object is
+   keyed by the model ID that actually ran — assert it is the one you asked for.
 
 ```bash
 claude -p "Reply with exactly one word: PONG" \
@@ -33,175 +32,70 @@ claude -p "Reply with exactly one word: PONG" \
   | jq -er '.result, (.modelUsage | keys[0])'
 ```
 
-**Default to the model you're already on.** `fable` / `claude-fable-5-2`
-is the strongest and most expensive slot in the Anthropic lineup, twice
-`opus` (5.5), and a one-shot `-p` call on it writes a fresh cache before it
-even answers. Switch to it when the run's task sits at the frontier tier of
-skill `model-routing`; otherwise let the parent's tier stand.
-
-The system prompt's "alternative models" list (typically the recent Claude
-family plus Haiku) is the switch menu — your current model is often *not*
-on that list when it belongs to another provider. Pick the cheapest tier
-appropriate for the task; per-token pricing varies by provider, so use that
-provider's rate card, not Claude's.
-
-## JSON output
-
-`--output-format json` (requires `-p`) returns one object; the fields that
-matter: `result` (the final text), `is_error`, `session_id` (feed to
-`--resume`), `total_cost_usd`, `num_turns`, `stop_reason`, `modelUsage`,
-`usage` (token detail), `permission_denials`. `--output-format stream-json`
-emits events as they happen and additionally requires `--verbose`;
-`--json-schema <schema>` forces structured output.
+**Default to the model you're already on.** Switch to `fable` / `claude-fable-5-2` only
+when the run's task sits at the frontier tier of skill `model-routing` — it is the most
+expensive slot, and a one-shot `-p` call on it writes a fresh cache before it even
+answers. The system prompt's "alternative models" list (typically the recent Claude
+family plus Haiku) is the switch menu; your current model is often *not* on it when it
+belongs to another provider. Pick the cheapest tier appropriate for the task, priced by
+that provider's rate card, not Claude's.
 
 ## Permissions — decide before launch
 
 A one-shot print run cannot ask. An unapproved tool call is denied (see
-`permission_denials`), so the run limps or stops instead of prompting. Choose
-one:
+`permission_denials` in the JSON), so the run limps or stops instead of prompting.
+Choose one:
 
-- `--allowedTools "Bash(git *),Read,Edit"` — pre-approve exactly what the task
-  needs (permission-rule syntax; the deny syntax is `--disallowedTools`).
+- `--allowedTools "Bash(git *),Read,Edit"` — pre-approve exactly what the task needs
+  (permission-rule syntax; the deny syntax is `--disallowedTools`).
 - `--permission-mode <mode>` — `auto`, `dontAsk`, `acceptEdits`, `plan`,
   `bypassPermissions`.
-- `--dangerously-skip-permissions` (= `bypassPermissions`) — only inside an
-  isolated environment (container, throwaway VM), never on a working checkout
-  you care about.
+- `--dangerously-skip-permissions` (= `bypassPermissions`) — only inside an isolated
+  environment (container, throwaway VM), never on a working checkout you care about.
 
-## Staying in the conversation
+A run that should ask instead needs the stream-json channel and
+`--permission-prompt-tool`: [references/stream-json.md](references/stream-json.md).
 
-The single turn is a choice, not a limit. `--input-format stream-json` keeps
-stdin open, so one process takes several turns and remembers the earlier ones:
+## What the child inherits
 
-```python
-p = subprocess.Popen(
-    ["claude","-p","--input-format","stream-json","--output-format","stream-json",
-     "--verbose","--replay-user-messages","--model","claude-haiku-4-5-20251001"],
-    stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
+Settings resolve against the **child's cwd**, not the parent's session: managed → user
+(`~/.claude/settings.json`) → project (`.claude/settings.json`) → local
+(`.claude/settings.local.json`), plus the cwd's `CLAUDE.md`, skills, agents, and hooks.
 
-def say(text):                       # one message in
-    p.stdin.write(json.dumps({"type":"user","message":{"role":"user",
-        "content":[{"type":"text","text":text}]}}) + "\n")
-    p.stdin.flush()                  # read stdout until type == "result"
-```
-
-`--replay-user-messages` echoes each message back so the driver knows it
-landed; closing stdin ends the run. `--include-partial-messages` streams
-chunks as they arrive, `--forward-subagent-text` surfaces what its subagents
-say. Both need `--output-format stream-json`.
-
-This is also the one way a print run can *ask*: point
-`--permission-prompt-tool` at an MCP tool of your own and every tool decision
-comes to the driver as a question instead of being silently denied.
-
-Because the channel is a pipe, it survives ssh — and that is how you drive an
-agent on a host whose Claude is somebody else's login:
-
-```bash
-ssh -T host 'export PATH=$HOME/.local/bin:$PATH; cd /srv/project; exec claude -p \
-  --input-format stream-json --output-format stream-json --verbose'
-```
-
-Write the same JSON lines into ssh's stdin. Use `-T` (no tty) and `exec` so the
-remote claude owns the connection's stdio and its signals. Verified across
-hosts: turn two still knew what turn one had been told. Nothing is shared but
-the ssh session — no account, no Remote Control.
+- Run the child in the directory whose context it should have; `cd` is the main
+  inheritance lever.
+- `--setting-sources user,project,local` narrows which scopes load;
+  `--settings <file-or-json>` injects overrides; `--bare` skips hooks, plugins, MCP,
+  and CLAUDE.md discovery entirely — pass what it needs explicitly
+  (`--append-system-prompt`, `--mcp-config`, `--agents`).
+- Session-scoped state of the parent (its model, its conversation) never transfers;
+  context the child needs goes into the prompt, the system-prompt flags, or files it
+  can read.
 
 ## The child is a peer
 
 A `-p` child is a full session, not an isolated command. It appears in
-`claude agents --json` — as `kind: interactive`, named after its directory
-(`p5-alien-libgit2-13`) — and it can call `ListAgents` and `SendMessage` to
-reach the session that started it and every other session on the machine.
-So a headless run does not have to report only through its exit JSON; it can
-talk back while it works, and you can talk to it. See `claude-cross-session`.
+`claude agents --json` as `kind: interactive`, named after its directory, and can call
+`ListAgents` and `SendMessage` to reach the session that started it and every other
+session on the machine. So it can talk back while it works, not only through its exit
+JSON, and you can talk to it. See `claude-cross-session`.
 
-## What the child inherits
+## Read on demand
 
-Settings resolve against the **child's cwd**, not the parent's session:
-managed → user (`~/.claude/settings.json`) → project (`.claude/settings.json`)
-→ local (`.claude/settings.local.json`), plus the cwd's `CLAUDE.md`, skills,
-agents, and hooks. Consequences:
-
-- Run the child in the directory whose context it should have; `cd` is the
-  main inheritance lever.
-- `--setting-sources user,project,local` narrows which scopes load;
-  `--settings <file-or-json>` injects overrides; `--bare` skips hooks,
-  plugins, MCP, and CLAUDE.md discovery entirely — pass what it needs
-  explicitly (`--append-system-prompt`, `--mcp-config`, `--agents`).
-- Session-scoped state of the parent (its model, its conversation) never
-  transfers; context the child needs goes into the prompt, the system-prompt
-  flags, or files it can read.
-
-## Guard rails and follow-ups
-
-- `--max-turns <n>` and `--max-budget-usd <amount>` bound a runaway child.
-- `session_id` from the JSON + `claude -p --resume <session-id> "<next>"`
-  continues that conversation; `--continue` takes the most recent one.
-  `--session-id <uuid>` picks the id up front. `--no-session-persistence`
-  for fire-and-forget runs.
-- Background Bash commands the child starts are killed ~5 s after its final
-  result — a headless run must finish its work in the foreground.
-- Inside any Claude Code Bash call, `CLAUDECODE=1` and
-  `CLAUDE_CODE_SESSION_ID` are set — a script can detect it is being run *by*
-  Claude and avoid spawning recursively by accident.
-
-## When the ssh host is Windows
-
-Windows' built-in OpenSSH server works for all of the above, with a few
-traps. Verified on Windows 11 with OpenSSH from the optional feature and
-claude 2.1.319:
-
-- **Make Git Bash the ssh shell.** The default is `cmd.exe`, which breaks every
-  `export …; cd … && exec claude …` line. Set
-  `HKLM:\SOFTWARE\OpenSSH` → `DefaultShell` =
-  `C:\Program Files\Git\bin\bash.exe`. After that the POSIX command lines in
-  this skill run unchanged, and Claude Code needs Git for Windows anyway.
-- **Keys of an admin account go elsewhere.** For members of Administrators,
-  sshd reads only `C:\ProgramData\ssh\administrators_authorized_keys`, never
-  `~/.ssh/authorized_keys`. The file must be owned by SYSTEM/Administrators
-  only (`icacls … /inheritance:r /grant *S-1-5-32-544:F /grant *S-1-5-18:F`),
-  or sshd silently ignores it.
-- **Password logins come in by a second door.** `PasswordAuthentication no` alone
-  still leaves `keyboard-interactive` open, and on Windows that asks for the
-  account password. Set `KbdInteractiveAuthentication no` too.
-- **Put claude on PATH yourself.** The native installer puts
-  `claude.exe` in `%USERPROFILE%\.local\bin` and does not add it to PATH, so
-  keep the `export PATH=$HOME/.local/bin:$PATH` prefix. In Git Bash, `$HOME` is
-  `/c/Users/<name>`.
-- **Session files speak Windows.** `~/.claude/sessions/*.json` stores `cwd` as
-  `C:\Users\…` and `pid` as a Windows PID. Normalise the path before you compare
-  it with a Git Bash path (`\` → `/`, `C:` → `/c`, compare case-insensitively).
-  msys Perl's `kill 0` cannot see Windows PIDs, so take them from the WINPID
-  column of `ps -W` (the fourth column).
-- **msys rewrites slash arguments.** An argument that starts with `/`, passed to
-  a native `.exe`, is turned into a path (`tasklist /FI` becomes
-  `C:/Program Files/Git/FI`). Write `//FI`, or set `MSYS_NO_PATHCONV=1`.
-- **The command line itself gets mangled.** Windows sshd hands the remote
-  command to the shell through a Windows command line, and double quotes and
-  backslashes inside it arrive broken: `perl -e '<script>'` fails to compile,
-  and an `--append-system-prompt` with quotes in it comes out wrong. Send
-  anything non-trivial base64-wrapped and unpack it with process
-  substitution, which keeps stdin free for the prompt:
-
-  ```bash
-  b=$(printf %s "$cmd" | base64 -w0)
-  printf %s "$prompt" | ssh -T host "bash <(echo $b | base64 -d)"
-  ```
-
-  The same line works unchanged against a Linux host.
-- **PowerShell through ssh is a quoting trap.** Nesting `powershell -Command "…"`
-  inside bash inside ssh breaks on `$`, quotes and backslashes. For anything
-  longer than one line, `scp` a `.ps1` file over and run
-  `powershell -NoProfile -ExecutionPolicy Bypass -File x.ps1`. Write JSON or
-  other backslash-heavy files locally and copy them, rather than building them
-  with `printf` on the far side.
+- JSON result fields, `stream-json` output, `--json-schema`, several turns in one
+  process over stdin (the single turn is a choice, not a limit), a print run that
+  asks: [references/stream-json.md](references/stream-json.md).
+- An agent on another host over ssh — somebody else's login, a Windows host, the
+  base64-wrapped remote command: [references/ssh-hosts.md](references/ssh-hosts.md),
+  with the channel from [references/stream-json.md](references/stream-json.md).
+- Bounding a run (`--max-turns`, `--max-budget-usd`), resuming or continuing it,
+  session persistence, background commands the child starts (killed right after its
+  result), recursion detection: [references/guard-rails.md](references/guard-rails.md).
 
 ## Related
 
-- `claude-cross-session` — when you do not want a result but a counterpart:
-  starting a session elsewhere with `claude --bg` and talking to it while it
-  runs.
-- `getty-agent-team` — subagents *within* a session (briefing-preloaded);
-  reach for headless spawning only when a separate process is genuinely
-  needed: clean context, different cwd, CI, or another program driving Claude.
+- `claude-cross-session` — when you do not want a result but a counterpart: starting a
+  session elsewhere with `claude --bg` and talking to it while it runs.
+- `getty-agent-team` — subagents *within* a session (briefing-preloaded); reach for
+  headless spawning only when a separate process is genuinely needed: clean context,
+  different cwd, CI, or another program driving Claude.

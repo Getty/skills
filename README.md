@@ -250,7 +250,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [gearman](system-and-network-administration/gearman/SKILL.md) | Gearman job queues: server, clients and workers, persistence, protocol, retries and idempotency |
 | [hetzner-operator](system-and-network-administration/hetzner-operator/SKILL.md) | Hetzner Cloud, Robot and managed hosting: networking, VPN access, storage, recovery, cost |
 | [kubernetes-cilium-concepts](system-and-network-administration/kubernetes-cilium-concepts/SKILL.md) | Cilium replacing CNI, kube-proxy, policy, encryption and ingress at once |
-| [kubernetes-concepts](system-and-network-administration/kubernetes-concepts/SKILL.md) | Control plane, resource hierarchy, and how ownership and selectors tie it together |
+| [kubernetes-concepts](system-and-network-administration/kubernetes-concepts/SKILL.md) | Where agents get Kubernetes wrong: selectors and ownership, networking, storage, RBAC, debugging order |
 | [kubernetes-gpu](system-and-network-administration/kubernetes-gpu/SKILL.md) | The four layers that must line up before a pod can use a GPU |
 | [kubernetes-rke2](system-and-network-administration/kubernetes-rke2/SKILL.md) | RKE2 and K3s as one topic, with the differences named where they exist |
 | [mikrotik-routeros](system-and-network-administration/mikrotik-routeros/SKILL.md) | RouterOS 7: one CLI grammar, safe mode, firewall, NAT, bridge VLANs, failover, WireGuard |
