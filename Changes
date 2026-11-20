@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.8.0     2026-11-20 00:29:38Z
   - New group rules-and-reasoning, one rule, policy, decision or planning
     language per skill, each with references, offline helper scripts and
     examples: dmn-engineering and feel-engineering for decision models and
