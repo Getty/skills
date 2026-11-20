@@ -8,7 +8,7 @@ Read when setting, reading or debugging an `[@Author::GETTY]` option in `dist.in
 - `no_changes` - Skip NextRelease
 - `no_installrelease` - Skip InstallRelease
 - `no_makemaker` - Skip MakeMaker
-- `xs` - Use ModuleBuildTiny (for pure-Perl XS without Alien deps)
+- `xs` - Use ModuleBuildTiny (for XS without Alien deps)
 - `deprecated` - Add Deprecated plugin
 - `adoptme` - Add x_adoptme metadata
 - `no_github` - Skip GithubMeta and GitHub::CreateRelease, use Repository instead. Auto-set to 1 when `.git/config` has no github.com remote; set `no_github = 0` to force GitHub plugins on anyway

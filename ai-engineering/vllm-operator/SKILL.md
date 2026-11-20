@@ -67,6 +67,8 @@ representative tasks before optimizing.
 Read [memory sizing](references/04-memory-capacity.md), then run
 `python scripts/capacity.py --help`. Do not apply the MHA/GQA calculator to MLA, Mamba or
 hybrid models. Compare the calculation with the actual KV capacity reported at startup.
+An OOM already happens: find its phase (loading, graph capture, load) in the
+[diagnostic cards](references/23-troubleshooting.md) before changing any memory flag.
 
 **C. Establish a baseline.** Read
 [deployment and security](references/22-deployment-security.md) and
