@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.9.0     2026-11-20 03:24:12Z
   - New skills in game-development, each with references, offline helper
     scripts and tests: game-pathfinding-navigation for graphs, grids and
     navmeshes, A* and D* Lite, flow fields, local avoidance and multi-agent
