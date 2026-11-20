@@ -1,5 +1,8 @@
 # 15 — Two to Four GPUs: Shard or Replicate?
 
+Read when the setup has 2–4 GPUs: choosing TP, PP, DP/replicas or EP, checking P2P
+topology, or routing between replicas.
+
 ## First question: must the model span multiple cards?
 
 When the model fits on one card with KV and reserve included, independent

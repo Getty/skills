@@ -1,5 +1,8 @@
 # Sources, Evidence, and Updates
 
+Read when citing a source ID (S, H, C, P), judging how current a claim is, or updating
+the package after a new vLLM release.
+
 Original research: **September 21, 2026**. The original source record reports
 that the official release page marked **v0.29.0 (September 9, 2026)** as Latest.
 That observation does not establish that every item at a moving `stable` URL

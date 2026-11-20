@@ -1,5 +1,8 @@
 # Cloud compute: selection, bootstrap and lifecycle
 
+Read when choosing Cloud server types or images, or when rescaling, placing or
+bootstrapping a Cloud server.
+
 Evidence snapshot: **2026-10-04**. Refresh available types, images, architecture support, quotas and prices before implementation. Example commands below inspect a Linux guest; they do not provision resources.
 
 ## Contents

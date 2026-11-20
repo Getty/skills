@@ -1,5 +1,8 @@
 # 25 — Specialized Capabilities, Extensions, and Deliberate Boundaries
 
+Read when a task touches offline batch inference, MLA/SSM/hybrid models, MoE,
+disaggregated prefill, IndexCache or custom code, or asks where vLLM's limits lie.
+
 This reference keeps less frequently needed areas visible without adding them
 to every single-GPU baseline. “Documented” is not evidence for the selected
 GPU/model/feature combination. [S03, S18, S28–S40](28-sources.md)

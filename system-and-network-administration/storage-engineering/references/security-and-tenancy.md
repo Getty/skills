@@ -1,5 +1,8 @@
 # Storage security, tenancy and data lifecycle
 
+Read this when the design touches storage identity, network access, encryption keys,
+tenant isolation, retention or deletion.
+
 Evidence reviewed: 2026-10-21. Apply these controls to the actual threat model and operation; do not manufacture compliance claims.
 
 ## Contents

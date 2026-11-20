@@ -1,5 +1,8 @@
 # Hetzner storage: available building blocks and architecture choices
 
+Read this when the deployment targets Hetzner: Cloud Volumes, dedicated servers, Storage
+Box, Storage Share, Object Storage or Kubernetes on Hetzner.
+
 Evidence checked: 2026-10-21 against official Hetzner documentation and the official CSI repository. Product limits, encryption defaults, supported S3 actions, topology and driver capabilities can change. Recheck the linked source before provisioning or promising a capability.
 
 ## Contents

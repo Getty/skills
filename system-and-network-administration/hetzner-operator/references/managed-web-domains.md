@@ -1,5 +1,7 @@
 # Web Hosting, Managed Servers, domains and DNS boundaries
 
+Read for Web Hosting, Managed Servers, domains or konsoleH administration.
+
 Evidence snapshot: **2026-10-04**. Confirm plan features, supported runtime versions, DNS integration and domain-transfer rules for the actual account. This module covers selection and migration; use the DNS-specific module for detailed API/record operations.
 
 ## Contents

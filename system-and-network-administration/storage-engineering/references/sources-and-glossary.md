@@ -1,5 +1,8 @@
 # Evidence discipline and storage terminology
 
+Read this when verifying a capability claim, resolving conflicting documentation or
+pinning down a storage term.
+
 Baseline research date: 2026-10-21. Source URLs within each reference are the authoritative lookup map for that topic; this file explains how to use them without turning a baseline into an evergreen promise.
 
 ## Contents

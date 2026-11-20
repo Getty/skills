@@ -1,5 +1,8 @@
 # Security, firewalls, and administrative boundaries
 
+Read before changing provider or host firewalls, private traffic policy, roles, tokens or
+secrets.
+
 Verified against primary documentation on **2026-10-04**. Recheck provider capabilities and permissions before changing production access. Recommendations below are operational design guidance; they are not additional Hetzner product guarantees.
 
 ## Contents

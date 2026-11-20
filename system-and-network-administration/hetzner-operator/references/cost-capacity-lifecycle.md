@@ -1,5 +1,8 @@
 # Cost, capacity, and resource lifecycle
 
+Read before quoting prices, checking quotas or availability, or retaining, deleting or
+cancelling resources.
+
 Verified against primary documentation on **2026-10-04**. Obtain current prices for the account currency, VAT treatment, location, plan, and billing period before quoting a total. This module intentionally avoids a fixed price list.
 
 ## Contents

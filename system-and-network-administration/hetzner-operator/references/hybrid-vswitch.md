@@ -1,5 +1,7 @@
 # Hybrid Cloud and dedicated networking with vSwitch
 
+Read when joining Cloud and dedicated servers via vSwitch.
+
 Evidence snapshot: **2026-10-04**. Revalidate limits and regional support before deployment. Address ranges below are examples and must be checked against office, VPN, container and existing Hetzner ranges.
 
 ## Contents

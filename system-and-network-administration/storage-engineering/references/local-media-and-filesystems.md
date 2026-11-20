@@ -1,5 +1,8 @@
 # Local media, volume layers, and filesystems
 
+Read this when choosing or debugging drives, controllers, volume managers or local
+filesystems.
+
 Evidence checked: 2026-10-21. Treat the architecture as durable knowledge; verify filesystem features against the installed OS, kernel, on-disk format, tooling, and support policy before changing a system.
 
 ## Contents

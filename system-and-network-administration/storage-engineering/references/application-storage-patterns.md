@@ -1,5 +1,8 @@
 # Application storage patterns
 
+Read this when choosing storage for a specific workload: databases and embedded stores,
+VMs and containers, uploads and shared files, AI, analytics, artifacts, logs and streams.
+
 Evidence reviewed: 2026-10-21. Treat the following as engineering patterns; validate each application's documented storage contract.
 
 ## Contents

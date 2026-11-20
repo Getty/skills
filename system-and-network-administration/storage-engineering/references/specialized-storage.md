@@ -1,5 +1,8 @@
 # Specialized storage and adjacent access models
 
+Read this when the workload may need archive/HSM, parallel high-throughput, content-
+addressed, typed persistence, memory-tier or device-specific storage.
+
 Evidence reviewed: 2026-10-21. Identify the method and its constraints before evaluating a named implementation. Emerging hardware and product support need release-specific verification.
 
 ## Contents

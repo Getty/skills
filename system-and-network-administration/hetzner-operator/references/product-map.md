@@ -1,5 +1,7 @@
 # Product and control-plane map
 
+Read when choosing a Hetzner product or finding which surface administers it.
+
 Evidence snapshot: **2026-10-04**. Product names describe capabilities; live orderability, pricing, hardware generations, quotas and locations must be checked again when selecting or buying a service.
 
 ## Contents

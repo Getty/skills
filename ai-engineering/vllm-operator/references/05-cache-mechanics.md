@@ -1,5 +1,8 @@
 # 05 — Caches: What Is Reused and What Is Not
 
+Read when a task involves any cache (APC, compile, download, KV offload, response cache)
+or a cache benchmark.
+
 | Cache | Contents | Primarily helps with | Cost / boundary |
 |---|---|---|---|
 | Model/download cache | Weight files, tokenizer | Restarting without downloading again | Disk; no speedup for ongoing token generation |

@@ -1,5 +1,8 @@
 # 09 — TTFT, ITL, TPOT, and Reliable Load Tests
 
+Read before planning, running or interpreting a latency or load test, including
+`stream_probe.py` and `bench_sweep.py` runs.
+
 ## Define measurement boundaries first
 
 | Quantity | Meaning in this skill | Common misinterpretation |
@@ -72,6 +75,8 @@ python scripts/bench_sweep.py --model MODEL_REPO_OR_LOCAL \
   --out experiments/arrival
 ```
 
+The sweep uses the official `vllm bench serve` CLI and checks flags against the
+locally installed help output.
 Before execution, the sweep checks local help, uses `subprocess` without a
 shell, and records the actual commands in its plan. A model alias is not
 necessarily a valid Hugging Face tokenizer name. Model/tokenizer downloads,

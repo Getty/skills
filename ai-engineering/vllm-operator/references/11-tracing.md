@@ -1,5 +1,8 @@
 # 11 — OpenTelemetry and End-to-End Request Traces
 
+Read when setting up OpenTelemetry tracing or locating where a slow request spends its
+time between client, gateway and engine.
+
 ## What a trace should show
 
 The useful chain is **client → gateway → tokenization/scheduling → model work

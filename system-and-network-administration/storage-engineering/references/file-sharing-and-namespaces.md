@@ -1,5 +1,8 @@
 # File sharing, distributed namespaces, and mounts
 
+Read this when the design uses NFS, SMB, a distributed namespace or an object-backed
+filesystem.
+
 Evidence checked: 2026-10-21. Verify client/server versions, negotiated protocol dialects, filesystem support, and vendor support matrices for the actual workload.
 
 ## Contents

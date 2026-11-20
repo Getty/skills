@@ -1,5 +1,8 @@
 # 14 — Attention Kernels, CUDA Graphs, Compilation, and Speculation
 
+Read when choosing an attention backend, CUDA Graphs, compilation or speculative
+decoding, or when decode or the host CPU path is slow.
+
 ## Compatibility before micro-tuning
 
 The attention backend, model architecture, GPU generation, dtype, KV layout,

@@ -12,11 +12,14 @@ Revision history for skills
     keep their distinguishing terms and lose the long keyword lists.
   - model-routing: a headless `claude -p` child does not inherit the session
     model; pass `--model` explicitly.
-  - claude-headless, getty-perl-release-author-getty, kubernetes-concepts and
-    proxmox-ve keep in SKILL.md only what nearly every use needs and route to
-    references/ for the rest. kubernetes-concepts drops the textbook overview
-    for the traps agents fall into; getty-perl-release-author-getty names the
-    bare tag format (1.005, no v prefix) and leaves POD to getty-perl-pod.
+  - claude-headless, getty-perl-release-author-getty, hetzner-operator,
+    kubernetes-concepts, perl-io-async-future, proxmox-ve, storage-engineering
+    and vllm-operator keep in SKILL.md only what nearly every use needs and
+    route to references/ for the rest. kubernetes-concepts drops the textbook
+    overview for the traps agents fall into; getty-perl-release-author-getty
+    names the bare tag format (1.005, no v prefix) and leaves POD to
+    getty-perl-pod; perl-io-async-future corrects what `also =>`, `->retain`
+    and `wait_any` do and times out with `$loop->timeout_future`.
 
 0.8.0     2026-11-20 00:29:38Z
   - New group rules-and-reasoning, one rule, policy, decision or planning

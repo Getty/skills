@@ -1,5 +1,7 @@
 # 20 — Vision, Audio, Video, Embeddings, and Reranking
 
+Read when serving vision, audio or video inputs, embeddings, pooling or reranking.
+
 ## Supported architecture plus the appropriate task
 
 Multimodal or pooling capability belongs to the selected model/runner/API

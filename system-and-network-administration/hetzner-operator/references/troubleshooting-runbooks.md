@@ -1,5 +1,7 @@
 # Troubleshooting runbooks
 
+Read when diagnosing an outage or an unreachable server without losing recovery access.
+
 Verified against primary documentation on **2026-10-04**. Start read-only. Change one demonstrated cause at a time, preserve a recovery path, and compare the same probe before and after the change.
 
 ## Contents

@@ -1,5 +1,8 @@
 # 06 — Agent Prompts, Stable Prefixes, and Isolation
 
+Read when shaping agent or RAG prompts for prefix reuse, setting `cache_salt` or tenant
+isolation, or routing requests across replicas.
+
 ## Prompt layout for recurring work
 
 A useful starting point is:

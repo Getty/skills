@@ -1,5 +1,8 @@
 # 24 — Concrete Startup and Tuning Recipes
 
+Read when starting a first server or running a concrete experiment: baseline, APC,
+throughput, offload, metrics, two cards, Spark or rental, quality regression.
+
 All numbers here are **unmeasured starting points**. No recipe installs
 drivers, rents hardware, or loads a model without your execution instruction.
 The target installation must offer the flags used. The scripts do not
@@ -28,6 +31,8 @@ OS-level protection against other GPU processes. [S03–S04, S17](28-sources.md)
 
 After startup, inspect the log for the actual backend/KV budget, `/health`,
 the model list, and a short chat probe. Then run real quality tasks.
+Record observations before and after warmup. Keep functional and quality tests
+separate from load tests.
 On OOM, consult [Diagnostics](23-troubleshooting.md) first rather than
 arbitrarily increasing memory flags.
 

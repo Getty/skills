@@ -1,5 +1,8 @@
 # 13 — Weight and KV Quantization: Capacity Does Not Automatically Mean Speed
 
+Read when choosing or changing weight or KV quantization, or when quantization saves
+memory but not time.
+
 ## Three separate layers
 
 **Weights** account for much of model memory. **Activations and the compute

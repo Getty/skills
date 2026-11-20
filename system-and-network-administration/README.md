@@ -196,7 +196,7 @@ versioning and backup each solve a different failure class.
 The workflow runs workload contract → semantics before products → a failure matrix
 with quorum, fencing and failback named per failure → sizing for normal, degraded and
 rebuild operation → platform match → a testable decision. Writer exclusion is proven
-before any failover. A router over 26 references: block, file and object semantics,
+before any failover. A router over 28 references: block, file and object semantics,
 S3, local filesystems, NAS/SAN and NVMe-oF, NFS/SMB, RAID and erasure coding,
 consistency and HA, geo-replication and DR, backup, Kubernetes CSI and recovery, cloud
 disk lifecycles, Hetzner, other providers, caching, sizing, migration, security and
@@ -241,7 +241,7 @@ merely because a design needs one. A private Cloud Network is a routed underlay,
 Load Balancer supplies neither general egress nor WireGuard UDP transport, and a
 private subnet is not a security boundary.
 
-A task table routes into 28 references: Cloud networking, public IPs, private egress
+A router leads into 29 references: Cloud networking, public IPs, private egress
 and NAT, Load Balancers, VPN architecture, vSwitch, firewalls, storage, database
 recovery, automation and IaC, DNS, Kubernetes, cost, troubleshooting, and community
 patterns kept apart from documented behaviour. Ships a WireGuard site-to-site runbook

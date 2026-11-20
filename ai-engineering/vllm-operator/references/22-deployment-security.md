@@ -1,5 +1,8 @@
 # 22 — Small, Secure Production Deployments
 
+Read before exposing an endpoint or putting a proxy or gateway in front, and when
+planning auth, timeouts, cancellation, logging, readiness or restarts.
+
 ## Minimal architecture
 
 ```text

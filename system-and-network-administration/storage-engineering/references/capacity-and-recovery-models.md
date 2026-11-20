@@ -1,5 +1,8 @@
 # Capacity and recovery arithmetic
 
+Read this before running `scripts/storage_budget.py` or interpreting its JSON: inputs,
+formulas, limitations and worked examples.
+
 Use `scripts/storage_budget.py` for reproducible first-pass comparisons. It performs pure arithmetic, accesses no devices or networks, changes no files, and emits JSON. Treat its results as model outputs, not availability guarantees. No external Python packages are required.
 
 ## Capacity model

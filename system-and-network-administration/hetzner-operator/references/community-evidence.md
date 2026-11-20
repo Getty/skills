@@ -1,5 +1,8 @@
 # Community evidence register
 
+Read when a firsthand report matters: what it claims, its date, and how far it is
+corroborated.
+
 Reviewed **2026-10-04**. These are selected diagnostic examples, not a survey of customer satisfaction or estimates of incident frequency. Dates below are publication/post dates unless qualified; later comments can correct the original post. All technical conclusions require current primary documentation. Reddit and forum reports establish what their authors reported, not a verified root cause.
 
 Classes: **D** = official product documentation; **H** = Hetzner-hosted tutorial, with author status stated; **T** = independent firsthand guide; **R** = Reddit firsthand report; **F** = external forum. A Hetzner-hosted community contribution does not acquire official product guarantees merely through its hostname.

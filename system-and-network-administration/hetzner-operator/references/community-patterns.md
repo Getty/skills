@@ -1,5 +1,7 @@
 # Community patterns: useful adaptations and their limits
 
+Read when a popular workaround is proposed or its tradeoffs need weighing.
+
 Evidence reviewed: **2026-10-04**. Read [community-evidence.md](community-evidence.md) for dated firsthand reports. A reported workaround supplies a hypothesis to test; current Hetzner documentation and upstream software documentation determine supported behavior. Distinguish a tutorial's publication date from the versions its current text covers.
 
 ## 1. A small public gateway can serve many private servers

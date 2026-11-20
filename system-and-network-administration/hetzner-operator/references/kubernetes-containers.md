@@ -1,5 +1,7 @@
 # Kubernetes, containers, Cloud controllers, and private nodes
 
+Read for self-managed Kubernetes, Hetzner CCM/CSI, Docker or private-node bootstrap.
+
 Verified on **2026-10-04**. Pin compatible Kubernetes/distribution, CNI, CCM, CSI, chart, and provider releases. Treat Kubernetes on rented Hetzner servers as operator-managed infrastructure; assigning a controller does not outsource cluster upgrades, security, quorum, or recovery.
 
 ## Contents

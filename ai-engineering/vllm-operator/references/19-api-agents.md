@@ -1,5 +1,8 @@
 # 19 — APIs, Tool Calling, Reasoning, and Fast Agent Loops
 
+Read when serving OpenAI- or Anthropic-compatible APIs, chat templates, tool calling,
+structured output, reasoning, or agent loops.
+
 ## “Compatible” means a tested contract, not identical product features
 
 vLLM provides model- and version-dependent OpenAI-compatible APIs, plus the

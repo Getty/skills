@@ -1,5 +1,8 @@
 # 21 — LoRA, Model Lifecycle, Sleep, and Training Boundaries
 
+Read when serving LoRA adapters, switching models, using sleep mode, or feeding weight
+updates from an RL/training system.
+
 ## One base model with many adapters
 
 LoRA serving uses compatible adapters for a base model and can serve

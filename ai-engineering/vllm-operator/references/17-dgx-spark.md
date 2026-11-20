@@ -1,5 +1,7 @@
 # 17 — NVIDIA DGX Spark: Large Shared Memory, Different Limits
 
+Read when the target is an NVIDIA DGX Spark (GB10, unified memory) or a pair of Sparks.
+
 ## The right mental model
 
 DGX Spark combines GB10 with an Arm CPU and, according to the manufacturer,

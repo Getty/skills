@@ -1,5 +1,8 @@
 # 16 — Consumer GPUs and Small Workstations
 
+Read when choosing or sizing consumer GPUs or small workstations (8–48 GB), or checking
+an older or non-NVIDIA card.
+
 ## Select hardware by bottleneck, not marketing FLOPS
 
 Answer four separate questions: Do **all weights**, KV, and reserve fit?

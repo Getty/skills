@@ -1,5 +1,8 @@
 # Storage taxonomy and selection
 
+Read this first for a new storage decision: it classifies the options and runs the first-
+pass selection.
+
 Evidence reviewed: 2026-10-21. Treat this as a method map, not a claim that every product implements every method.
 
 ## Contents

@@ -1,5 +1,8 @@
 # Private-server Internet egress through a NAT gateway
 
+Read when private-only servers need outbound access for updates, APIs, registries or
+backups.
+
 Evidence snapshot: 2026-10-04. Operator-managed reference design based on [Hetzner routing](https://docs.hetzner.com/networking/networks/technical-concepts/architecture/). Consult the provider-authored [NAT tutorial](https://community.hetzner.com/tutorials/how-to-set-up-nat-for-cloud-networks/) for distribution-specific background.
 
 ## Contents

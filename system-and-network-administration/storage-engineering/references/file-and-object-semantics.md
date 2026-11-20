@@ -1,5 +1,8 @@
 # File paths, object APIs, and the real access contract
 
+Read this when choosing between a mounted path and an object API, or when correctness
+depends on POSIX behavior, rename, locks or fsync.
+
 Evidence reviewed: 2026-10-21. Apply provider, bucket, client, OS, and filesystem version scope to every capability.
 
 ## Contents

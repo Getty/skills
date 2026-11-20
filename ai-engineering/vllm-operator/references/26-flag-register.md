@@ -1,5 +1,8 @@
 # 26 — Flag Register: Effects and Consequences
 
+Read when choosing, checking or explaining a specific `vllm serve` flag and its
+consequences.
+
 **Not a complete copy-and-paste configuration.** These tables connect the
 consulted feature families with decisions. Before execution, check
 `vllm serve --help=all` (or `--help` when necessary) and structured configuration.

@@ -1,5 +1,7 @@
 # Observability, performance diagnosis, and measured optimization
 
+Read when measuring or diagnosing CPU, disk, network, latency or load.
+
 Verified on **2026-10-04**. Read current product limits and status before interpreting measurements. Treat public benchmarks and forum reports as hypotheses; compare equivalent workloads and record the actual plan, architecture, location, image, time window, and path.
 
 ## Contents

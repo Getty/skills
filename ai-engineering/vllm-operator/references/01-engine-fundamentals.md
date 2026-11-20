@@ -1,5 +1,8 @@
 # 01 — From HTTP Request to Token
 
+Read when a latency, memory or utilization question needs the request path: prefill
+versus decode, continuous batching, PagedAttention, or Engine V1 versus Model Runner V2.
+
 ## The execution model
 
 A request roughly passes through the network/gateway, API validation, chat

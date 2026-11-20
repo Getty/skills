@@ -1,8 +1,31 @@
 # 23 — Diagnostic Cards: Symptom → Test → Action
 
+Read when a symptom needs a cause (OOM, high TTFT, missing cache hits, stuttering decode,
+broken tools, empty panels) or when tuning needs its next experiment.
+
 Use every card with a version/workload manifest. A proposed cause remains a
 hypothesis until a counter-test supports it. The flag/kernel/metric references
 are listed under [Sources](28-sources.md), especially S03–S14 and S27–S28.
+
+## Bottleneck triage
+
+Select a bottleneck; do not tune flags at random. Read the first reference, then run
+only the next controlled experiment.
+
+| Observation | First reference | Next controlled experiment |
+|---|---|---|
+| Long queue, GPU/KV full | [High load](08-scheduling-high-load.md) | Bound admission/output; evaluate another replica |
+| Long uncached prefills | [Caching](05-cache-mechanics.md) | Prefix layout; chunk budget; context |
+| Missing cache hits | [Prompt layout](06-cache-layout-isolation.md) | Compare tokens/templates/salts/routing |
+| Insufficient KV / preemptions | [Memory](04-memory-capacity.md) | Reduce active sequences; evaluate KV quantization |
+| Slow decode | [Kernels](14-kernels-compilation.md) | Isolate bandwidth, batch, quantization, speculation |
+| GPU frequently idle, CPU busy | [Tracing](11-tracing.md) | Tokenization, parsers, IPC, SDK/proxy |
+| Good TTFT, late answer | [API/reasoning](19-api-agents.md) | Reasoning/output budget; measure visible answer onset |
+| TP slower than expected | [Multi-GPU](15-multi-gpu.md) | Topology/P2P; compare independent replicas |
+| Offload makes performance worse | [KV offload](07-external-kv-offload.md) | Compare transfer time with avoided prefill |
+| Slow only behind the proxy | [Deployment](22-deployment-security.md) | SSE buffering, timeouts, cancellation propagation |
+
+## Diagnostic cards
 
 | Symptom | Likely cause classes | Low-cost counter-test | Possible next action |
 |---|---|---|---|

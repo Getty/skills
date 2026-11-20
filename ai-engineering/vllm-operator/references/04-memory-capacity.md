@@ -1,5 +1,8 @@
 # 04 — Memory, Context, and Actual Concurrency
 
+Read when sizing a model, context or concurrency for the available memory, running
+`capacity.py`, or locating an OOM.
+
 ## Weights are only the first calculation
 
 For a dense model with P parameters, `P × bits/8` is a **raw baseline**.

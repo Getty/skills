@@ -1,5 +1,7 @@
 # DNS, reverse DNS, certificates, and migration
 
+Read for DNS records, delegation, reverse DNS, TLS or DNS migration.
+
 Verified on **2026-10-04**. Recheck the current DNS/API integration matrix and certificate behavior before migration; tool support and strict request validation change independently of ordinary DNS resolution.
 
 ## Contents

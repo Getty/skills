@@ -1,5 +1,7 @@
 # Managed Load Balancers and private application targets
 
+Read when publishing an application through a Load Balancer or setting its health checks.
+
 Evidence snapshot: 2026-10-04. Provider behavior is linked; workflows are reference designs. Recheck the announced 2026-10-05 IP transition before provisioning.
 
 ## Contents

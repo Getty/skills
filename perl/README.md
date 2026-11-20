@@ -226,11 +226,12 @@ PEVANS-style async Perl. The framework is small; its lifetime rules are unforgiv
 The skill leads with the one rule behind most of the bugs: **retain every Future you
 care about until it is ready.** A Future is a Perl object like any other — when the
 last reference drops it is destroyed even though the operation is in flight, and the
-symptom is usually a silent hang rather than an error. Nine patterns follow (notifier
-skeleton, the TCP-connect GC trap, reconnect without losing futures, composition,
-`->retain`, `async`/`await`, timeouts, cancellation hygiene, loops and tests) and
-close on a mental model: every async bug is either nobody held the Future, somebody
-held it too tightly through a `$self` capture, or it was held and never released.
+symptom is usually a silent hang rather than an error. Then how to hold one without
+leaking `$self`, the traps (`configure` chaining, an undef `loop` before `add`, the
+Net::Async::HTTP hang) and the mental model: every async bug is either nobody held the
+Future, somebody held it too tightly, or it was held and never released. Four
+references carry the patterns: notifier skeleton with loops and tests, TCP connect
+and reconnect, composition with timeouts and cancellation, `async`/`await`.
 
 **Load when** writing async Perl — IO::Async, Future, Future::AsyncAwait,
 `Net::Async::*`, or debugging a future lost to GC.

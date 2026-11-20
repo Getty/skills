@@ -1,5 +1,8 @@
 # 03 — Installation, Platforms, and Reproducible Versions
 
+Read before installing, choosing an image or platform, upgrading, or trusting a flag or
+default taken from documentation.
+
 ## Starting point
 
 The consulted GPU documentation lists Linux and describes WSL as a route on

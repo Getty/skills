@@ -1,5 +1,8 @@
 # 27 — Glossary and Formulas
 
+Read when a term or formula needs a precise definition: TTFT versus TTFA, goodput, KV
+bytes per token, TPOT, Little's law.
+
 | Term | Meaning in this package |
 |---|---|
 | Prefill | Process input tokens and build initial states/KV |

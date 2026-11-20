@@ -1,5 +1,8 @@
 # Block access and storage transports
 
+Read this when the design uses DAS, NAS or SAN, or a block transport such as iSCSI, Fibre
+Channel or NVMe-oF, including multipath and block ownership.
+
 Evidence checked: 2026-10-21. Separate transport standards from a particular target's supported commands, availability design, security configuration, and operating-system support.
 
 ## Contents

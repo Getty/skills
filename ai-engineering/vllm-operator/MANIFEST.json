@@ -13,8 +13,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 10119,
-      "sha256": "55b67aaf0f206fb2f15a6290e8a8e537ecf655e3aef7fce1a1366b70e89cf0fb"
+      "bytes": 7388,
+      "sha256": "eb257f126d8b4110488558d0ca701f3ba9431e6a026f52f3b090103da985df95"
     },
     {
       "path": "VALIDATION.md",
@@ -63,143 +63,143 @@
     },
     {
       "path": "references/01-engine-fundamentals.md",
-      "bytes": 3696,
-      "sha256": "9874c0172c04d001144f56359a48c64e9382a542b9d8177b0ae5bd9acaaeb9f8"
+      "bytes": 3870,
+      "sha256": "7d5010292247589addb9183efa01567ac840b62b554357d2ec26697dbf5d9fcb"
     },
     {
       "path": "references/02-capability-map.md",
-      "bytes": 4250,
-      "sha256": "97af4987e7c32d8de864189392a132f492a47f69eb9659c78f439d1440431663"
+      "bytes": 4480,
+      "sha256": "9b8829496031e56e93565fa807e87f8326a6143b1faad76a7029413cb4339c9c"
     },
     {
       "path": "references/03-installation-versioning.md",
-      "bytes": 3687,
-      "sha256": "63a071dde3fc4b4fc8deebc95bce2d0109d0d8a76f1857a41b2b580da0f2550e"
+      "bytes": 3810,
+      "sha256": "d46b840f9c4ea971ea5d8cb8a6407eca991d5a4c1a0cce281ee10590057fb7e8"
     },
     {
       "path": "references/04-memory-capacity.md",
-      "bytes": 4291,
-      "sha256": "07188f7ddf306e6b4a390bfc967eaa083e018f918067d712eb5a20d5444e1209"
+      "bytes": 4410,
+      "sha256": "e8d85ceb7299a48a80013a7b8a9f3dcf31b57776b5f3f67225ab34cc5a8c8d2d"
     },
     {
       "path": "references/05-cache-mechanics.md",
-      "bytes": 3886,
-      "sha256": "ac2e758626f549fe57c46b30a256620b15065c5a6187d36fb577110e541e0064"
+      "bytes": 3998,
+      "sha256": "61988e4a6c667ad558c4993a47ea79492430261f5230d2f3c2ebcfce9ba98a55"
     },
     {
       "path": "references/06-cache-layout-isolation.md",
-      "bytes": 3623,
-      "sha256": "094ae822e002a5b605e94ed4b20226931c40807c3db9eb9d32ba71e4f42a9d5e"
+      "bytes": 3760,
+      "sha256": "561b11a30b712834e3c587fa91d2aa770a2d8bf64e23a841fb88cfcb195dbf76"
     },
     {
       "path": "references/07-external-kv-offload.md",
-      "bytes": 3845,
-      "sha256": "780b746b3715cd9153c50e9f15f5b24dd933e072f4c596f3a4d7b0c04e0cf2d2"
+      "bytes": 3967,
+      "sha256": "96ed6468d52b84e395adb26dc2f8a3bbcc716eb322af18065bc2296e7d4f66cd"
     },
     {
       "path": "references/08-scheduling-high-load.md",
-      "bytes": 5708,
-      "sha256": "3ee3a43fbefe1eb204b5a09eedff5b18f1322354dc3e92780527f00c87dbdad0"
+      "bytes": 5844,
+      "sha256": "e214c0ad98a5a43d6b310ec7353afa73a3671056a228a5b406d1465f7c2eb41f"
     },
     {
       "path": "references/09-benchmarking.md",
-      "bytes": 5929,
-      "sha256": "5241956fe626aaf93075d4b93badc765de5599c0e04dc5e064f6357f74dc1a7d"
+      "bytes": 6166,
+      "sha256": "f7689dea3a8448857694c78d79fc8b9c99b392b04b598dea8b26c30970e63ce3"
     },
     {
       "path": "references/10-metrics.md",
-      "bytes": 4834,
-      "sha256": "82dbc936b32542d26b346fb726fc5a617a935f2aad0ca6225ce7e12e363dad0e"
+      "bytes": 4952,
+      "sha256": "0b8f1b0a9c739c36825e1c48c904efd98b7465fc273dc106f6ec55ddcc7f792e"
     },
     {
       "path": "references/11-tracing.md",
-      "bytes": 4116,
-      "sha256": "a56422739d54eddc8e8216df1e1dfeafd68987aebc9a7c19d0816f0c92d4f36b"
+      "bytes": 4245,
+      "sha256": "9aba89f20c6234ad169c71af9cca4a7570939bee0dc24c0576c3dba70da11e76"
     },
     {
       "path": "references/12-profiling.md",
-      "bytes": 3798,
-      "sha256": "d269275737d59b25aab474a871c4b5fda1db8a3ffd13aed596f039064f112b3d"
+      "bytes": 3930,
+      "sha256": "6ecc4134e5bdcd7714c420178d2d7049124afde2a6c550ac1d82dc8231a38963"
     },
     {
       "path": "references/13-quantization.md",
-      "bytes": 4038,
-      "sha256": "0cf975d242bc385ee89c4b892f7a8b0aff5389fb4e30e61b3540f6a9facbe6fe"
+      "bytes": 4145,
+      "sha256": "f3d1b3434884f07a30824f74580f76e1927d421e0deba5257f4c70bff3fac6e3"
     },
     {
       "path": "references/14-kernels-compilation.md",
-      "bytes": 4076,
-      "sha256": "c397b95117bb2d91d75b042bb2405762c4e1059bfe9f6f197d27d98ad8677c48"
+      "bytes": 4213,
+      "sha256": "73d05c6310437f9dac6dab9589990734285783d90342b9133ba5ef9c8cfd8986"
     },
     {
       "path": "references/15-multi-gpu.md",
-      "bytes": 4444,
-      "sha256": "a6cc3acba4a52d8154892cf36f60162119ea5e703e128239c0ba90e84c4b6104"
+      "bytes": 4569,
+      "sha256": "4f75bdf0f8d8d72769f07af85dcc873b9d65eff018b5f35da5ef185cc0ef1214"
     },
     {
       "path": "references/16-consumer-hardware.md",
-      "bytes": 4892,
-      "sha256": "94650de058f19952bc32bdae468bde90147c8ccf62c199e0d58069fc65402426"
+      "bytes": 5012,
+      "sha256": "5ecb845ce39c75c915aca7961bad0954a446971b562aa6406da249a08da738a4"
     },
     {
       "path": "references/17-dgx-spark.md",
-      "bytes": 4206,
-      "sha256": "49ffdbdb80eda8cdfbcfa7c48f0a74f2f6925d5418ac18dd02478fe51a599449"
+      "bytes": 4295,
+      "sha256": "bcfb9f74380c70757d875c5fb7640dd67eff65a82dd8b0fbf0634a62e77755d0"
     },
     {
       "path": "references/18-rented-gpus-costs.md",
-      "bytes": 3989,
-      "sha256": "493c1ff1a7c2029827e2008b0aedb1a50c96a24af0b542a76813d91bbedbf9d1"
+      "bytes": 4095,
+      "sha256": "2a42028332b2edbf710db86ccba4700bf9a8d77add2ac3815f661db3db3df3e6"
     },
     {
       "path": "references/19-api-agents.md",
-      "bytes": 4922,
-      "sha256": "8b4100a3fb118a4c38134355ed0f579fd0b38b7751200d732fe52721ce02c884"
+      "bytes": 5055,
+      "sha256": "92548933300d6ba542ccca09b5e7bb07d72f6b324cbc8f1ee7da46186d538866"
     },
     {
       "path": "references/20-multimodal-pooling.md",
-      "bytes": 4171,
-      "sha256": "3c3146881b29e4bc296cd8c42554f8d8451f9e0ab5983779a4a299842ac73c83"
+      "bytes": 4255,
+      "sha256": "a7c9c993e196901c3a33e72b4e86ba8df834753fa7dafc851f31bd570f348231"
     },
     {
       "path": "references/21-lora-lifecycle.md",
-      "bytes": 4023,
-      "sha256": "18997e925c340b84c0c611b559c7b6c211238f16d8f37af58ffdf2bc0f964d77"
+      "bytes": 4147,
+      "sha256": "e086d2bda834870b4e5450d4b5a71b17d3fde470d562714292bc0dff76aa17b8"
     },
     {
       "path": "references/22-deployment-security.md",
-      "bytes": 4375,
-      "sha256": "2a33c8c4502fe1356080bb611c37aa088f6031a769042cdf0db16bac88cc58ed"
+      "bytes": 4529,
+      "sha256": "013978df417d100073fc0c834c62de805cebbe75bc21c17f11160ba088ec2c39"
     },
     {
       "path": "references/23-troubleshooting.md",
-      "bytes": 4735,
-      "sha256": "b349714db9c3353f1c9a5ee20b548e5433116a144ebb5cbf19d634428d540852"
+      "bytes": 6275,
+      "sha256": "2af5a2595a3ed2e25938a4af92ce8f4c6d81752389f83ce405a4ced5ea451a72"
     },
     {
       "path": "references/24-recipes.md",
-      "bytes": 6012,
-      "sha256": "77fdd16f9efa265e347df9e957ab8be83f81dfb93149c7cf702c727d9fb915e7"
+      "bytes": 6279,
+      "sha256": "07019f697eaa13bfcde5ddfe4e3ee836872f20fadd61e780cc05547b25b23d6d"
     },
     {
       "path": "references/25-advanced-boundaries.md",
-      "bytes": 4724,
-      "sha256": "e4cda28e99ecaba4c8e97805a29fb52418602b953fc4f734366655ea436aedb1"
+      "bytes": 4886,
+      "sha256": "7550eab11dffcc2469a284bcd38171f3ee8549df2fbe93f4dd20b09c95834f4f"
     },
     {
       "path": "references/26-flag-register.md",
-      "bytes": 8318,
-      "sha256": "ec89d5ac9fd8a6c6f0f04335ab4d1466396b5c302078ce12f1b24876297aa201"
+      "bytes": 8413,
+      "sha256": "4db7ef91ebff88c22bde6a58e5391be21768ecf1b7a5afe81905bf642873e66a"
     },
     {
       "path": "references/27-glossary.md",
-      "bytes": 4153,
-      "sha256": "050b7057f5bed6dbd0166cf638601c2a8ac1ee6c57a06c5e758c3704a3d31134"
+      "bytes": 4277,
+      "sha256": "68733532f532e519ed7ac0954ad2a8df366b1f3c8be47cee37cb1f5fb6adea68"
     },
     {
       "path": "references/28-sources.md",
-      "bytes": 9992,
-      "sha256": "0c868d1bd636893c08f1fae59e520eeb4597588d52d2cec4f657eec4e225a7e9"
+      "bytes": 10118,
+      "sha256": "47ced873a488d471cf1ff5d470a6a914b5734a0dd74e044110b80234bce33e6b"
     },
     {
       "path": "scripts/_common.py",

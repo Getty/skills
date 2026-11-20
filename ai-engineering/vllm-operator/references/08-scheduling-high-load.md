@@ -1,5 +1,8 @@
 # 08 — Scheduling, High Load, and Controlled Overload
 
+Read when tuning `max_num_seqs` or `max_num_batched_tokens`, planning admission control,
+or diagnosing queues, overload or preemption.
+
 ## Three different optimization goals
 
 **Single request:** one person should see a useful answer early.

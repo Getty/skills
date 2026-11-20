@@ -1,5 +1,8 @@
 # Caching, tiers, gateways and data movement
 
+Read this when a cache, tier, gateway or synchronization tool sits in the data path, or
+when a large dataset must be moved.
+
 Evidence reviewed: 2026-10-21. Check the selected client/server release before relying on cache or transfer behavior.
 
 ## Contents

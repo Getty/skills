@@ -1,5 +1,8 @@
 # 02 — Capabilities, Combinations, and Limits
 
+Read before promising that a feature, model or API combination works, or when asked what
+vLLM does and does not do.
+
 ## Compatibility is an intersection
 
 ```text
@@ -8,6 +11,8 @@ Working feature = release ∩ platform ∩ model architecture ∩ task
                   ∩ template/parser ∩ API behavior
 ```
 
+Check model architecture, task/runner, dtype, quantization format, kernel, tokenizer,
+template, parser, and API.
 A check mark in a model list does not replace this verification. Record a status
 and test for each combination in `templates/compatibility-matrix.md`.
 The following map describes feature families, not a guarantee for every piece

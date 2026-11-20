@@ -1,5 +1,8 @@
 # Architecture Recipes
 
+Read this when you want a worked starting architecture for a small-server, limited-cloud,
+hybrid or multi-site deployment.
+
 Evidence checked: 2026-10-21. Treat these recipes as illustrative starting points with explicit assumptions, not availability guarantees. Substitute measured workload, topology, failure behavior, and current provider contracts before implementing.
 
 ## Contents

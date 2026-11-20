@@ -1,5 +1,8 @@
 # Automation, APIs, infrastructure as code, and bootstrap
 
+Read before generating or running hcloud, REST API, Terraform/OpenTofu, Ansible or
+cloud-init automation.
+
 Verified against primary sources on **2026-10-04**. Recheck API changelog, installed tool versions, provider schemas, images, locations, and live prices before execution. Examples below inspect resources; they do not provision infrastructure.
 
 ## Contents

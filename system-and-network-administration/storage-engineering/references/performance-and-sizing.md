@@ -1,5 +1,8 @@
 # Performance, capacity, and recovery sizing
 
+Read this when measuring performance, budgeting protected or degraded capacity, locating a
+bottleneck or estimating operating cost.
+
 Evidence checked: 2026-10-21. Treat all numerical examples below as arithmetic illustrations, not measured product performance or an SLA.
 
 ## Contents

@@ -1,5 +1,8 @@
 # 18 — Small Rented Instances, Vast.ai/Runpod, and Honest Costs
 
+Read before renting GPU instances (Vast.ai, Runpod, others) or comparing costs per token
+or per request.
+
 ## Look for a usable instance, not just a GPU name
 
 An inexpensive single 24/32/48 GB host may be suitable. CPU share, RAM, local

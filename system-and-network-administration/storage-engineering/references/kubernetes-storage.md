@@ -1,5 +1,8 @@
 # Kubernetes storage: contracts, scheduling, and lifecycle
 
+Read this when the workload runs on Kubernetes: PV/PVC access contracts, topology-aware
+scheduling, CSI lifecycle and failed volume operations.
+
 Evidence checked: 2026-10-21. Match Kubernetes, CSI driver, sidecar, kernel, and storage-system versions before implementing features. Treat the current documentation URLs as moving references.
 
 ## Contents

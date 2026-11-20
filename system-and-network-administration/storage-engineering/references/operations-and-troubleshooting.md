@@ -1,5 +1,8 @@
 # Storage operations and evidence-led troubleshooting
 
+Read this when investigating a storage incident or defining steady-state operations;
+investigation starts read-only.
+
 Evidence checked: 2026-10-21. Treat commands as platform-specific inspection examples, not a universal script. Confirm available versions and target identifiers before use. Read-only inspection may require privileges, wake disks, access a network mount, or add load.
 
 ## Contents

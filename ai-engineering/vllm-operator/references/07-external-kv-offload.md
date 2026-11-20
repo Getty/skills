@@ -1,5 +1,8 @@
 # 07 — External KV, LMCache, and Transfer Break-Even
 
+Read before enabling KV offload (native CPU tier, LMCache, NVMe, network store) or when
+offload makes performance worse.
+
 ## Three different mechanisms
 
 **KV offload** moves reusable context states into other storage tiers.

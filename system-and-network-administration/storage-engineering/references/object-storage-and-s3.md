@@ -1,5 +1,8 @@
 # Object storage and S3 engineering
 
+Read this when using S3 or an S3-compatible service: service contract, layout,
+concurrency, multipart uploads, versioning, retention and compatibility.
+
 Evidence reviewed: 2026-10-21. Use S3 as an API family; verify each implementation and bucket class separately.
 
 ## Contents

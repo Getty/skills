@@ -1,5 +1,8 @@
 # Provider service families and portability
 
+Read this when comparing AWS, Azure, GCP or other providers' storage services, or
+translating a design between providers.
+
 Evidence checked: 2026-10-21. This is a capability map, not a price ranking or promise that every product exists in every region. Recheck product availability, service class, maturity, limits and API support for the target deployment.
 
 ## Contents

@@ -1,5 +1,8 @@
 # Dedicated servers, Robot and recovery
 
+Read for bare-metal or Auction servers, Robot, installimage, RAID, Rescue System or KVM
+console work.
+
 Evidence snapshot: **2026-10-04**. Recheck the individual hardware offer, network options, support workflow and maintenance terms. Instructions here are a planning and diagnostic workflow, not permission to reinstall an existing machine.
 
 ## Contents

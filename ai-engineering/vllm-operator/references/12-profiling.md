@@ -1,5 +1,8 @@
 # 12 — Profiling Without Disrupting Operations
 
+Read before profiling with the PyTorch profiler or Nsight, or when a timeline must
+explain GPU idle gaps, launches or collectives.
+
 ## Choose the tool for the question
 
 Metrics show trends; distributed traces show request paths; a kernel profile

@@ -1,5 +1,8 @@
 # 10 — Prometheus, Dashboards, and GPU Telemetry
 
+Read when setting up Prometheus scraping, dashboards, alerts or GPU telemetry, or when
+interpreting `vllm:` metrics.
+
 ## Inventory the running exporter first
 
 `/metrics` is an internal endpoint. Names and semantics evolve. The consulted

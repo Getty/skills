@@ -1,5 +1,8 @@
 # Public addressing: Primary IPs, Floating IPs, and private-only servers
 
+Read for Primary and Floating IPs, saving IPv4 addresses, private-only servers or IPv6
+exposure.
+
 Evidence snapshot: 2026-10-04. Recheck the announced 2026-10-05 Load Balancer IP transition. Provider facts are linked; workflows are reference designs.
 
 ## Contents

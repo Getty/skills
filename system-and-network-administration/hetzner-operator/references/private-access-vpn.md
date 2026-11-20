@@ -1,5 +1,7 @@
 # VPN and administrative access to private Hetzner servers
 
+Read first for any VPN, bastion, mesh or headquarters-access task, to choose the topology.
+
 Evidence snapshot: 2026-10-04. This module recommends architectures and operating decisions; it does not claim Hetzner supplies a managed VPN. Provider and upstream behavior is cited. For the complete worked configuration, load [WireGuard site-to-site](wireguard-site-to-site.md) after choosing the topology here.
 
 For encryption solely between already connected private Hetzner machines, use [internal WireGuard](vpn-inside-private-network.md). That scenario does not require this module's public headquarters-access hub.

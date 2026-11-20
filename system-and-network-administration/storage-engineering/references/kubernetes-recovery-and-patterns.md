@@ -1,5 +1,8 @@
 # Kubernetes recovery and workload patterns
 
+Read this when choosing a Kubernetes storage pattern for an application, or recovering
+storage after node or cluster failure.
+
 Evidence checked: 2026-10-21. Recheck version-dependent shutdown, retention, snapshot, and operator behavior against the deployed versions.
 
 ## Contents
