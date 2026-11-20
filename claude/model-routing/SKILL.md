@@ -95,9 +95,10 @@ lane routinely sees**, not the median:
   the work.
 - Where the choice lands: `model:` in `.claude/agents/*.md` frontmatter, the
   Agent tool's `model` parameter, `opts.model` per Workflow stage, `--model`
-  on a headless run (skill `claude-headless`). Default everywhere: **omit and
-  inherit the session model** — override only when the rubric gives you a
-  reason.
+  on a headless run (skill `claude-headless`). Default: **omit and inherit the
+  session model** — override only when the rubric gives you a reason. A
+  headless `claude -p` child inherits nothing: it reads the saved default, so
+  pass `--model` explicitly there.
 
 ## Anti-patterns
 

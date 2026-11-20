@@ -10,6 +10,8 @@ Revision history for skills
   - Shorter descriptions for 31 skills, trigger conditions only: the
     rules-and-reasoning, Docker, network device, smart-home and game skills
     keep their distinguishing terms and lose the long keyword lists.
+  - model-routing: a headless `claude -p` child does not inherit the session
+    model; pass `--model` explicitly.
 
 0.8.0     2026-11-20 00:29:38Z
   - New group rules-and-reasoning, one rule, policy, decision or planning
