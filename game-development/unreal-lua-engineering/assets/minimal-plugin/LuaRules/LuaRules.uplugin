@@ -1,0 +1,20 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "Lua Rules Proof Scaffold",
+  "Description": "A trusted scalar Lua evaluator scoped to each game world. UE 5.8 build verification is required.",
+  "Category": "Scripting",
+  "CanContainContent": true,
+  "Installed": false,
+  "SupportedTargetPlatforms": ["Win64"],
+  "Modules": [
+    {
+      "Name": "LuaRules",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": ["Win64"],
+      "PlatformArchitectureAllowList": {"Win64": ["x64"]}
+    }
+  ]
+}

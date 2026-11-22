@@ -5,7 +5,7 @@
 Building games that machines can play and that are balanced by measurement — the
 seat interface for bots and LLM agents, the simulation as a balance instrument, the
 numbers inside the systems, the terrain units stand on and how they find their way.
-Engine and genre independent; written with strategy
+Engine and genre independent apart from the engine-specific integration skills; written with strategy
 and economy simulations in mind, where bots playing thousands of games replace much
 of the early playtesting.
 
@@ -77,3 +77,19 @@ Ships reference math and a snapshot audit with tests.
 
 **Load when** a game's terrain must change at runtime — digging, flattening, rerouting
 water — or a generated world needs rivers, lakes and soils that hold together.
+
+## [unreal-lua-engineering](unreal-lua-engineering/SKILL.md)
+
+Lua gameplay integration in Unreal Engine, especially UE 5.8: choosing a route among
+UnLua, sluaunreal, LuaMachine and an explicit Lua C-API plugin, exact engine and plugin
+compatibility, binding lifetime and reflection, world-scoped Lua states, authority and
+RPCs, animation and simulation boundaries, hot reload, packaging, dedicated servers and
+reproducible build evidence. A generic UE5 label never counts as proof of UE 5.8 support.
+
+Ships a minimal plugin scaffold, inspection scripts and an acceptance contract. No UE 5.8
+binary was built while writing it; the scaffold is a starting point to compile and verify.
+
+**Load when** scripting an Unreal project in Lua, porting or selecting a Lua plugin, or
+debugging Lua lifetime, networking or packaging problems in UE. General Lua semantics
+belong to `lua-engineering`.
+

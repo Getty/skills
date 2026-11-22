@@ -1,0 +1,12 @@
+{
+  "implementation": "record PUC Lua, LuaJIT, Luau, or host fork",
+  "version_or_commit": "record exact release and build identity",
+  "host": "record CLI, embedded app, editor, engine, or service",
+  "platform": {"os": "record", "architecture": "record", "toolchain": "record if native"},
+  "numeric_configuration": {"integer_bits": null, "number_format": "record"},
+  "libraries": {"standard_enabled": [], "native_modules": [], "host_capabilities": []},
+  "ownership": {"vm_scope": "record", "thread_access": "record", "mutable_state_owner": "record"},
+  "execution": {"may_yield": false, "error_boundary": "record", "cancellation": "record if needed"},
+  "delivery": {"source_or_bytecode": "record", "module_roots": [], "persistent_schema": "record if needed"},
+  "validation": {"tested_runtimes": [], "commands": [], "unverified": []}
+}

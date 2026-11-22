@@ -48,3 +48,19 @@ all stop and ask rather than inventing something.
 
 **Load when** creating a new project or module — "create", "new", "scaffold",
 "init" plus a name.
+
+## [lua-engineering](lua-engineering/SKILL.md)
+
+A routed knowledge base for Lua work against the actual runtime and host contract: PUC
+Lua 5.1 through 5.5, LuaJIT and Luau distinctions, language semantics, tables and
+metatables, modules and hot reload, coroutines and errors, C/C++ embedding and native
+modules, garbage collection and performance, LuaRocks and tooling, sandboxing,
+persistence, networking and event-driven simulation rules.
+
+The skill starts by establishing the runtime contract — implementation, version, enabled
+libraries, host restrictions — and loads only the references the task needs. Ships probe
+and semantic-check scripts, a minimal C host and a rules example.
+
+**Load when** writing, embedding, debugging, testing, profiling or deploying Lua code or
+a Lua scripting API. Unreal integration belongs to `unreal-lua-engineering`.
+

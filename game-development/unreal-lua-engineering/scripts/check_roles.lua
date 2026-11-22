@@ -1,0 +1,20 @@
+local Roles = dofile("assets/role_bootstrap.lua")
+local count = 0
+local function check(mode, local_player, server, presentation)
+    local r = Roles.select(mode, local_player)
+    assert(r.shared_definitions == true)
+    assert(r.authoritative_simulation == server)
+    assert(r.local_presentation == presentation)
+    count = count + 1
+end
+check("Standalone", true, true, true)
+check("Standalone", false, true, false)
+check("DedicatedServer", false, true, false)
+check("ListenServer", true, true, true)
+check("ListenServer", false, true, false)
+check("Client", true, false, true)
+check("Client", false, false, false)
+assert(not pcall(Roles.select, "unknown", true))
+assert(not pcall(Roles.select, "DedicatedServer", true))
+assert(not pcall(Roles.select, "Client", 1))
+print("PASS " .. count .. " role mappings and 3 invalid-input cases; no network transport tested")

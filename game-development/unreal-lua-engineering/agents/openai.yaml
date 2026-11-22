@@ -1,0 +1,14 @@
+interface:
+  display_name: Unreal Lua Engineering
+  short_description: Integrate and verify Lua gameplay in Unreal Engine
+  default_prompt: Use $unreal-lua-engineering to establish and verify a Lua integration
+    for this exact Unreal Engine build.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: Lua Engineering
+  short_description: Build, embed, debug and optimize Lua applications
+  default_prompt: Use $lua-engineering to implement and verify this Lua application
+    for its exact runtime.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

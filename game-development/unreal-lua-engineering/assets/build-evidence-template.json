@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "engine": {"version": null, "changelist_or_commit": null, "distribution": null},
+  "target": {
+    "name": null,
+    "type": null,
+    "platform": null,
+    "architecture": null,
+    "configuration": null,
+    "compiler": null,
+    "compiler_version": null,
+    "toolset_version": null,
+    "windows_sdk_version": null,
+    "crt": null
+  },
+  "integration": {"route": null, "plugin_revision": null, "patch_identity": null, "lua_version": null, "script_revision": null},
+  "gates": [
+    {"id": "dependency_build", "required": true, "status": "not_run", "evidence": null},
+    {"id": "editor_build", "required": true, "status": "not_run", "evidence": null},
+    {"id": "script_startup", "required": true, "status": "not_run", "evidence": null},
+    {"id": "error_handling", "required": true, "status": "not_run", "evidence": null},
+    {"id": "world_isolation", "required": true, "status": "not_run", "evidence": null},
+    {"id": "lifecycle", "required": true, "status": "not_run", "evidence": null},
+    {"id": "packaged_game", "required": true, "status": "not_run", "evidence": null},
+    {"id": "shipping", "required": false, "status": "not_run", "evidence": null},
+    {"id": "dedicated_server", "required": false, "status": "not_run", "evidence": null},
+    {"id": "remote_clients", "required": false, "status": "not_run", "evidence": null},
+    {"id": "performance", "required": false, "status": "not_run", "evidence": null}
+  ],
+  "unverified": ["Every target is unverified until observed build/runtime evidence replaces these defaults."]
+}
