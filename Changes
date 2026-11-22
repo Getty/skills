@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.10.0    2026-11-22 19:54:00Z
   - New skills: lua-engineering in development (Lua 5.1 to 5.5, LuaJIT and
     Luau, embedding, modules, sandboxing, performance, with probe scripts and
     a minimal host) and unreal-lua-engineering in game-development (Lua in
