@@ -46,8 +46,7 @@ decision owned by another repo becomes a ticket to that repo, not an ADR here.
 
 ## Codex agents
 
-`.codex/agents/*.toml` with a `# briefing: skills = [...]` comment, underscores in
-`name`, and no `[briefing]` table (skill `briefing`).
+`.codex/agents/*.toml` with underscores in `name`.
 
 ## Settings and live check
 

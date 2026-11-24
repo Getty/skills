@@ -1,6 +1,6 @@
 ---
 name: getty-agent-team
-description: "Use when one of Getty's repos needs subagents or an agent team — setting one up, wiring briefing or karr, or when .claude/agents is missing or drifted. Getty's preset for agent-construction-kit (/agent-setup, /agent-machine)."
+description: "Use when one of Getty's repos needs subagents or an agent team — setting one up, wiring skills or karr, or when .claude/agents is missing or drifted. Getty's preset for agent-construction-kit (/agent-setup, /agent-machine)."
 ---
 
 # Agent team, Getty's preset
@@ -28,7 +28,7 @@ then continue in a new session:
 /plugin install agent-construction-kit@getty
 ```
 
-The install brings skilletor and briefing along. The procedure lives in the plugin;
+The install brings skilletor along. The procedure lives in the plugin;
 install it first.
 
 ## Procedure
@@ -122,24 +122,25 @@ kit's ("The board").
 
 When the same agent or rule file is wanted in several repos, ship it through skilletor
 (`agent:<name>@<source>`, `rule:<name>@<source>`; skill `skilletor`). Put an agent and
-every skill in its `briefing.skills` into one bundle: a user-level agent never sees
-project skills, and sync warns `briefing skills not installed` when they drift apart.
+every skill in its `skills:` into one bundle: a user-level agent never sees project
+skills, and sync warns about skills not installed when they drift apart.
 Installed copies (`.claude/agents/.local.*`) are build artifacts; change the source.
 
-## Briefing, as it works now
+## Skills in the agent frontmatter
 
-The `briefing` plugin denies the spawn of an agent that names an unknown skill
-(PreToolUse) and injects the skills when the subagent starts (SubagentStart); it does
-not rewrite the prompt. Codex agents are `.codex/agents/*.toml` with a
-`# briefing: skills = [...]` comment; skill `briefing` has the details.
+The top-level `skills:` list of an agent preloads the full text of each skill when the
+subagent starts (the first 32 names; a plugin skill as `plugin:skill`). Claude Code skips a
+name it cannot resolve without a word, so `fleet-housecheck` and `ack-team check` report
+it. The list serves subagents spawned through the Agent tool; a session started with
+`claude --agent` loads its skills itself, as its body says.
 
 ## Bringing an existing setup in line
 
-`ack-team check` reports what is missing (unresolved skills, `allowed-tools`, a top-level
-`skills:` key, undeclared marketplaces, the hook). Audit by hand, and report before
+`ack-team check` reports what is missing (unresolved skills, `allowed-tools`, a `briefing:`
+block, undeclared marketplaces). Audit by hand, and report before
 editing, what it does not see:
 
-- agent bodies that restate skill content: migrate to `briefing.skills`;
+- agent bodies that restate skill content: migrate to `skills:`;
 - a project rules file that duplicates a skill, lacks the house-rules bundle in
   `install.bundles` (`getty-house` or `getty-cpan-dist`), or still carries its own
   discipline list, delegation lock, karr block or release/public-issue gate: cut to what

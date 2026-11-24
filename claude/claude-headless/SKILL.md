@@ -96,6 +96,6 @@ JSON, and you can talk to it. See `claude-cross-session`.
 
 - `claude-cross-session` — when you do not want a result but a counterpart: starting a
   session elsewhere with `claude --bg` and talking to it while it runs.
-- `getty-agent-team` — subagents *within* a session (briefing-preloaded); reach for
+- `getty-agent-team` — subagents *within* a session (skills preloaded); reach for
   headless spawning only when a separate process is genuinely needed: clean context,
   different cwd, CI, or another program driving Claude.

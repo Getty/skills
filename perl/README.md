@@ -111,7 +111,7 @@ depend on.
 
 **Load when** designing a new DSL or sugar layer — keywords on `Moose::Exporter`,
 the registry behind them, the runner. Not for using or maintaining one that exists;
-never force-load it into an agent's briefing.
+never preload it through an agent's `skills:`.
 
 ## Distribution and release
 

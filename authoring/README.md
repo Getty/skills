@@ -54,7 +54,7 @@ and filler last), a classification for project-specific references — essential
 parameter, example, noise — and a hard rule for code: compress *around* examples,
 never inside them. Mangled example code teaches fake syntax, which is far more
 expensive than the tokens it saves. Names and descriptions of existing skills are
-left alone, because a rename breaks every `briefing.skills` list referring to it.
+left alone, because a rename breaks every agent `skills:` list referring to it.
 
 **Load when** a skill, prompt or instruction file must shrink — compressing one,
 merging overlapping ones, cutting token cost, or generalising a project-bound skill

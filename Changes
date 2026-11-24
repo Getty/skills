@@ -1,6 +1,9 @@
 Revision history for skills
 
 {{$NEXT}}
+  - agent-delegation rule, getty-agent-team and the authoring notes speak of the
+    agent frontmatter `skills:` that Claude Code preloads; the briefing plugin
+    is retired.
 
 0.10.0    2026-11-22 19:54:00Z
   - New skills: lua-engineering in development (Lua 5.1 to 5.5, LuaJIT and

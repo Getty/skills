@@ -67,7 +67,7 @@ code, never inside it.
 
 Routing metadata for new or merged skills follows `skill-authoring`
 (triggers only, third person, keywords). For an existing skill keep the
-original name and description — renames break `briefing.skills` lists and
+original name and description — renames break agent `skills:` lists and
 cross-references in consuming repos. If a clearly better description exists,
 append it as a suggestion under an "Optional metadata improvement" heading;
 never auto-replace.

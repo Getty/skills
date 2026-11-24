@@ -13,16 +13,15 @@ lane table (task → agent) and say what counts as behavior-relevant there.
   behavior-relevant code or skill text yourself — delegate to the agent whose lane covers
   it. Your lane: coordinate, inspect, plan, review diffs, run build and tests, edit plain
   prose docs. When in doubt, delegate. Why: only the team's agents get their skills
-  force-loaded via `briefing.skills`; you get no briefing and would work with too little
-  context.
+  preloaded through the `skills:` of their frontmatter; you get none and would work with
+  too little context.
   - **Every subagent you spawn is a team agent** — research, audits and sweeps too (tell
     it "read-only, change nothing"). Never the built-in `general-purpose`, `Explore` or
-    `Plan`: they get no briefing either.
+    `Plan`: they preload no skills either.
   - **A task spanning several lanes** → spawn every owning agent in parallel, then merge
     their reports. Agents that would edit the same files run one after another instead.
-  - **The right agent is missing or its spawn is refused** (unresolved briefing skill,
-    agent file not loaded yet) → report that and stop; never substitute a built-in or
-    unbriefed agent.
+  - **The right agent is missing** (agent file not loaded yet) → report that and stop; never
+    substitute a built-in agent.
 - **You are one of the team's agents**: the lock does not apply, even if you hold the Agent
   tool. Work your lane; subagents you spawn are yours to direct. Work outside your lane
   goes back to the main agent instead of being done across.

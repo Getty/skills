@@ -45,7 +45,7 @@ what Getty chose, or just what the tool does?
 
 Skill names are flat and global across all sources — check for collisions
 before naming (`skilletor available`). Renaming a skill means chasing every
-`install.skills` entry in a `skilletor.json`, every `briefing.skills` entry and
+`install.skills` entry in a `skilletor.json`, every agent `skills:` entry and
 every `CLAUDE.md` reference in every consuming repo; name it right the first
 time.
 

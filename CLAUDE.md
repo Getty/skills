@@ -40,7 +40,7 @@ under "Old pattern".
   version line in `Changes` in the same commit (format: skill `getty-git-commit-style`).
   Until then an entry goes under `{{$NEXT}}`.
 - Renames ripple: consuming repos reference skills by name in `install.skills` of their
-  `skilletor.json`, in `briefing.skills` and in `CLAUDE.md` files. Flag every rename in
+  `skilletor.json`, in the `skills:` of agents and in `CLAUDE.md` files. Flag every rename in
   your summary.
 
 ## Repo conventions
