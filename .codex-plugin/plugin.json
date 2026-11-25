@@ -10,6 +10,7 @@
   "homepage": "https://github.com/Getty/skills",
   "repository": "https://github.com/Getty/skills",
   "skills": [
+    "./agent-plugins/getty-bun-integration",
     "./ai-engineering/ai-web-scraping",
     "./ai-engineering/rocm-engineering",
     "./ai-engineering/vllm-operator",

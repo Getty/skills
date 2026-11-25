@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Getty Bun consumer requirement — proposal v0.1",
+  "description": "Validates the custom gettyBun object inside package.json, not the entire manifest. The provider must implement enforcement.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractVersion",
+    "bunVersion"
+  ],
+  "properties": {
+    "contractVersion": {
+      "const": 1
+    },
+    "bunVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "description": "Exact stable Bun version; no v prefix, ranges, tags, prereleases, or build metadata. Artifact availability and compatibility require separate verification."
+    }
+  }
+}

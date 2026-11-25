@@ -16,6 +16,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 
 | Group | Skills | What it holds |
 |---|---|---|
+| [agent-plugins](agent-plugins/README.md) | 1 | Plugin concerns shared across agent clients — the shared per-user Bun runtime, its setup, locking and updates |
 | [ai-engineering](ai-engineering/README.md) | 3 | Building and running systems on top of models — the AMD ROCm GPU stack, inference serving with vLLM, AI-assisted scraping and extraction with evidence-backed records |
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
@@ -39,6 +40,12 @@ skill belongs to one specific project, it moves there and this repo drops the li
 Each group README describes every skill in it: what it covers, and when to load it.
 
 ## Every skill
+
+### [agent-plugins](agent-plugins/README.md)
+
+| Skill | What it is |
+|---|---|
+| [getty-bun-integration](agent-plugins/getty-bun-integration/SKILL.md) | Integrating the shared per-user Bun runtime into agent plugins: version pin, setup adapters, locking, updates |
 
 ### [ai-engineering](ai-engineering/README.md)
 

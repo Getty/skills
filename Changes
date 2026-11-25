@@ -1,6 +1,9 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New group agent-plugins with getty-bun-integration: integrating Getty's shared
+    per-user Bun runtime into agent plugins (Claude Code, Codex), as a contract
+    proposal with references and templates; the group has its image.
   - agent-delegation rule, getty-agent-team and the authoring notes speak of the
     agent frontmatter `skills:` that Claude Code preloads; the briefing plugin
     is retired.
