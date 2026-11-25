@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+  - New skill getty-developer-hub in development: Getty's coordination hubs for a
+    family of repos — layout, hub versus product repo, dispatch, creating one.
 
 0.11.0    2026-11-25 02:32:08Z
   - New group agent-plugins with getty-bun-integration: integrating Getty's shared

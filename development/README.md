@@ -49,6 +49,20 @@ all stop and ask rather than inventing something.
 **Load when** creating a new project or module — "create", "new", "scaffold",
 "init" plus a name.
 
+## [getty-developer-hub](getty-developer-hub/SKILL.md)
+
+Getty's `<domain>-developer` hubs: a repo that coordinates a family of repos and holds
+no product code — specs, briefs, findings, cross-repo tools and the karr board of
+campaigns that belong to no single repo. Fixes the layout (`CLAUDE.md` sections,
+`docs/specs`, `docs/briefs`, `bin/`, `.claude/`), what belongs in the hub and what in
+a product repo, how a task is dispatched to a hub agent (repo, role, brief file,
+report file; the hub keeps commits, pushes and the board), the rules every hub shares
+(measure before claiming, decisions stay with Getty, no push or release of a product
+repo unasked) and the steps to create one, including the private src.ci remote.
+
+**Load when** setting up or working in a `*-developer` hub, or when work across several
+repos needs one place for specs, briefs and findings.
+
 ## [lua-engineering](lua-engineering/SKILL.md)
 
 A routed knowledge base for Lua work against the actual runtime and host contract: PUC

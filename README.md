@@ -24,7 +24,7 @@ skill belongs to one specific project, it moves there and this repo drops the li
 | [compliance-and-governance](compliance-and-governance/README.md) | 14 | EU law for an AI platform as engineering work — GDPR, AI Act, data and IP, consumer and B2B contracts, billing and tax, accessibility, content safety, cybersecurity, with German overlays |
 | [data-sources-and-standards](data-sources-and-standards/README.md) | 8 | Data that arrives from outside and the standards it is written in — Wikidata and OpenStreetMap, geodata formats, financial identifiers, XBRL and FIBO, GS1 EPCIS traceability, IPTC news exchange |
 | [databases](databases/README.md) | 1 | Data stores themselves — PostgreSQL with pgvector and Apache AGE: schema, indexes, retrieval, consistency, recovery |
-| [development](development/README.md) | 3 | Engineering practice independent of language — debugging discipline, project scaffolding, Lua engineering |
+| [development](development/README.md) | 4 | Engineering practice independent of language — debugging discipline, project scaffolding, coordination hubs, Lua engineering |
 | [game-development](game-development/README.md) | 6 | Games that bots and LLM agents can play, balanced by simulation — seat interface, policy leagues and ablation, economy flows, cost curves, payoff matrices, pathfinding and navigation, editable terrain, Unreal Engine Lua integration |
 | [git](git/README.md) | 2 | How repositories are used, and how commit messages are written |
 | [hermes-agent](hermes-agent/README.md) | 1 | NousResearch Hermes Agent — extending the agent, its messaging gateway, and the Desktop and Dashboard surfaces |
@@ -126,6 +126,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 |---|---|
 | [feedback-loop-debugging](development/feedback-loop-debugging/SKILL.md) | A six-phase discipline for hard bugs, built on a fast pass/fail signal |
 | [getty-create-software](development/getty-create-software/SKILL.md) | Scaffolding a new project from the signals that reveal its type |
+| [getty-developer-hub](development/getty-developer-hub/SKILL.md) | Coordination hubs for a family of repos: layout, hub vs. product repo, dispatch to hub agents, creating one |
 | [lua-engineering](development/lua-engineering/SKILL.md) | Lua 5.1–5.5, LuaJIT and Luau: semantics, embedding and the C API, modules and reload, sandboxing, performance, tooling |
 
 ### [game-development](game-development/README.md)
