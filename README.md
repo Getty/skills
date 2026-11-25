@@ -45,7 +45,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [getty-bun-integration](agent-plugins/getty-bun-integration/SKILL.md) | Integrating the shared per-user Bun runtime into agent plugins: version pin, setup adapters, locking, updates |
+| [getty-bun-integration](agent-plugins/getty-bun-integration/SKILL.md) | Integrating the shared per-user Bun runtime into agent plugins: version pin, starters that install on demand, bundled entry, locking, updates |
 
 ### [ai-engineering](ai-engineering/README.md)
 

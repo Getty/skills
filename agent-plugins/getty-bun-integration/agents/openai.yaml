@@ -2,7 +2,7 @@ interface:
   display_name: Getty Bun Integration
   short_description: Build plugins with shared, version-pinned Bun
   default_prompt: Use $getty-bun-integration to integrate this plugin with a shared,
-    version-pinned Bun runtime and verify setup, hooks, and updates.
+    version-pinned Bun runtime and verify the starter wiring, hooks and updates.
   icon_small: assets/icon.svg
   icon_large: assets/icon.svg
 policy:

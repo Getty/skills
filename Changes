@@ -3,6 +3,14 @@ Revision history for skills
 {{$NEXT}}
   - New skill getty-developer-hub in development: Getty's coordination hubs for a
     family of repos — layout, hub versus product repo, dispatch, creating one.
+  - getty-bun-integration follows contract proposal v0.2: the consumer's
+    committed starters getty-bun.sh and getty-bun.ps1 install the pinned Bun
+    on demand under the OS lock, consumers ship a bundled entry, and the setup
+    skill is for repair and diagnosis. Codex commandWindows, the Windows rules
+    and the open Claude Code Windows decision carry evidence labels; the
+    starters are planned, not built.
+  - codex-plugin-engineering: SessionEnd hooks share Interrupt's one-second
+    default timeout and three-second limit.
 
 0.11.0    2026-11-25 02:32:08Z
   - New group agent-plugins with getty-bun-integration: integrating Getty's shared

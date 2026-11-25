@@ -1,68 +1,63 @@
 ---
 name: getty-bun-integration
-description: Use when an agent plugin or tool must run TypeScript on Getty's shared per-user Bun runtime (getty-bun) — declaring the Bun version in package.json, writing the setup adapter for Claude Code or Codex, or reviewing such an integration.
+description: Use when an agent plugin or tool must run TypeScript on Getty's shared per-user Bun runtime (getty-bun) — declaring the Bun version in package.json, wiring Claude Code or Codex hooks through the getty-bun starter, shipping a bundled entry, or reviewing such an integration.
 ---
 
 # Getty Bun Integration
 
-Build integrations against **Getty contract proposal v0.1**. Treat this skill as an engineering specification and reusable references. It does not install Bun, supply a runtime manager, or establish that a `getty-bun` executable exists.
+Build integrations against **Getty contract proposal v0.2**. The decisions come from the `getty-bun` repository (`docs/plan.md`, `docs/adr/`); where this skill disagrees, they win. **Nothing is implemented yet:** the starters `getty-bun.sh` and `getty-bun.ps1` and the skilletor template `getty-bun-install` that delivers them are planned (getty-bun phase 1), not built or tested. Never describe them as existing.
 
 ## Inspect the actual integration
 
-1. Inspect the consumer repository, existing provider, package manifests, release process, and target agent client. Follow repository instructions and preserve unrelated work.
-2. Identify the execution environment: native Windows, macOS, Linux, WSL distribution, remote host, or container. Record the client version and distribution surface.
-3. Read [the contract](references/contract.md). If an implementation exists, inspect its API and map it to this contract. Report mismatches; do not invent commands or silently migrate a live store.
-4. Establish authorization from the session. Continue authorized setup and reversible engineering work. Prepare concrete changes before required host trust/review; do not bypass it.
+1. Inspect the consumer repository, package manifests, release process, and target agent client. Follow repository instructions and preserve unrelated work.
+2. Identify the execution environment: native Windows, Git Bash, Linux, macOS, WSL distribution, remote host, or container. Record the client version and distribution surface.
+3. Read [the contract](references/contract.md). Check whether the starters exist in getty-bun; if not, building them there is the first task, not a consumer workaround. The provider interface is `run`, `ensure`, `status`; invent no other commands.
+4. Establish authorization from the session. Prepare concrete changes before required host trust/review; do not bypass it.
 
 ## Preserve the invariants
 
-- Declare one exact runtime requirement in the consumer's real `package.json`: `gettyBun.contractVersion` and `gettyBun.bunVersion`. These are Getty metadata, not built-in Bun behavior.
-- Share one verified installation per exact **version and target within one execution environment**. Use immutable versioned slots outside consumer plugin caches. Keep the executable named `bun` or `bun.exe`.
-- Bind execution to a resolved absolute executable. Do not use PATH discovery, shell startup files, a mutable `current` link, or `bun upgrade` as the runtime contract.
-- Keep initial setup possible before external Bun or Node exists. A host instruction adapter points the ordinary agent to setup instructions; context injection does not complete installation.
-- Recheck readiness at actual execution boundaries. Gate this consumer's dependent work while keeping the agent's setup tools usable.
-- Hold a verified OS-backed mutex throughout shared installation mutations. Use `.installing` for PID, process name, process start identity, and attempt diagnostics. Never remove a suspected stale lock based only on process metadata.
-- Provision dependencies explicitly from shipped `package.json` and `bun.lock`. Run ordinary TypeScript entry points with the selected executable and `--no-install`.
-- Stage and verify new versions alongside old ones, then rebind only the consumers being updated. Retain still-referenced runtimes and the last working binding.
+- Declare one exact runtime requirement in the consumer's real `package.json`: `gettyBun.contractVersion: 1` and `gettyBun.bunVersion`. Getty metadata, not Bun behavior; the consumer's CI validates it against the schema and keeps it equal to the starters' pin block.
+- **The starter is the only installer.** Every `run`/`ensure` ensures the pinned Bun first: fast local check when present, install under the OS lock when missing. After a plugin install or update the first hook (normally `SessionStart`) installs; concurrent calls wait, bounded, on the same lock. `@getty/bun-runtime` never installs. The setup skill is repair and diagnosis.
+- **Ship a bundled entry.** Commit `bun build --target=bun` output; no `bun install` on user machines. Frozen-lockfile installs under a consumer lock are a later option for consumers that cannot bundle.
+- Share one verified installation per exact **version and target within one execution environment**, in immutable slots under `<GETTY_HOME>/runtimes`, outside plugin caches. Never overwrite a published slot; a mismatch fails closed.
+- Run Bun by absolute path with `--no-install`. Never PATH, shell startup files, a `current` link, `bun upgrade`, `bunx`, or a shebang.
+- stdout belongs to the entry; starter messages go to stderr. The starter never exits 2 for its own failures; the entry's exit code passes through unchanged.
+- Hold the OS-backed mutex throughout shared installation mutations; `.installing` is diagnostics, never ownership. Never remove a lock because a PID looks dead.
 
 ## Implement in order
 
-### 1. Declare ownership and supported targets
+### 1. Declare the pin
 
-Use [contract.md](references/contract.md) and [paths-platforms.md](references/paths-platforms.md). Put the runtime pin in the consumer package, integrity data in the provider, and machine bindings in local state. Verify the release's actual artifacts and OS/CPU/ABI requirements; agent-client support does not prove Bun or dependency support.
+Merge [package.fragment.json](assets/package.fragment.json) deliberately; its version is illustrative. Validate with [requirement.schema.json](assets/requirement.schema.json). Set the same version as `vars.bun_version` for `getty-bun-install`. Targets and roots: [paths-platforms.md](references/paths-platforms.md).
 
-Merge [package.fragment.json](assets/package.fragment.json) deliberately; its version is illustrative. Validate the Getty object using [requirement.schema.json](assets/requirement.schema.json). Preserve unrelated fields and select a version actually tested by the consumer.
+### 2. Commit the rendered starters
 
-### 2. Package setup instructions and host adapters
+Once `getty-bun-install` exists, render it for the consumer and commit both starters; until skilletor can render into a plugin, copy them by hand and let CI compare with a fresh render ([contract.md](references/contract.md), "Delivery"). Do not write installer or locking code in the consumer; [installation-locking.md](references/installation-locking.md) is the contract the starters implement and the review checklist for them.
 
-Read [setup-and-installation.md](references/setup-and-installation.md). Adapt [setup-skill-template.md](assets/setup-skill-template.md) into a real consumer setup skill; replace every template token with inspected implementation details.
+### 3. Bundle the entry
 
-- Claude Code: read [claude-code.md](references/claude-code.md) for native instruction injection and classic-hook limits.
-- Codex: read [codex.md](references/codex.md) for onboarding, hook support, trust, and distribution constraints.
-- Hermes or another host: apply the common contract and inspect current official interfaces. This skill ships no verified Hermes-specific hook adapter.
+Read [dependencies-and-execution.md](references/dependencies-and-execution.md). Commit the bundle; CI rebuilds with the pinned Bun and compares byte for byte.
 
-Use the smallest adapter that already executes on the target. A missing-runtime check must not require that runtime. Treat host API examples as source-checked until exercised in the actual client.
+### 4. Wire the host
 
-### 3. Implement transactional provisioning
+- Codex: [codex.md](references/codex.md): `command` runs `getty-bun.sh`, `commandWindows` the PowerShell starter; hook trust and re-review.
+- Claude Code: [claude-code.md](references/claude-code.md): shell-form hook on Linux; the Windows adapter is an open decision.
+- Hermes or another host: apply the contract and inspect current official interfaces; this skill ships no Hermes adapter.
 
-Read [installation-locking.md](references/installation-locking.md) before writing installer or recovery code. Keep the real lock owner alive through publication; confine external workers to unique staging directories. Make verification, publication, and binding updates inspectable. A prompt's completion message is not an installation receipt.
+Set every starter hook's `timeout` explicitly, above the lock wait plus one download; put no starter call on `SessionEnd` (or Codex `Interrupt`), whose budget is seconds. Treat host examples as source-checked until exercised in the actual client.
 
-### 4. Package dependencies and execute
+### 5. Package the setup skill
 
-Read [dependencies-and-execution.md](references/dependencies-and-execution.md). Resolve the consumer package independently of the user's working project. Check that a shipped lockfile exists before frozen installation. Separate application output from setup logs, use argument arrays where available, and test spaces in paths and missing imports.
+Read [setup-and-installation.md](references/setup-and-installation.md) and adapt [setup-skill-template.md](assets/setup-skill-template.md) for repair and diagnosis through `status` and `ensure`.
 
-### 5. Handle updates and retention
+### 6. Handle updates and retention
 
-Read [updates-and-retention.md](references/updates-and-retention.md). Treat runtime and consumer updates separately. Preserve rollback. Do not add automatic garbage collection until consumer references and active executions can be accounted for reliably.
+Read [updates-and-retention.md](references/updates-and-retention.md). A Bun bump re-renders the starters and rebuilds the bundle in one release; the new slot installs beside the old one. No automatic pruning.
 
-### 6. Verify and deliver
+### 7. Verify and deliver
 
-Use [verification.md](references/verification.md) and [integration-review-template.md](assets/integration-review-template.md). Run the cases needed to substantiate claimed host/platform support. Separate source inspection, schema validation, scenario reasoning, and actual runtime tests.
-
-Deliver concrete changes, exact runtime requirements, supported/tested targets, setup entry point, update behavior, and remaining gaps. Never describe the provider as installed or cross-platform tested merely because this skill exists.
+Use [verification.md](references/verification.md) and [integration-review-template.md](assets/integration-review-template.md). Label evidence: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Deliver concrete changes, the exact pin, supported/tested targets, update behavior, and remaining gaps. Never describe the starters as installed or cross-platform tested because this skill exists.
 
 ## Research and rationale
 
-Read [prior-art.md](references/prior-art.md) for OpenClaw, mise, pnpm, and metadata compatibility. Read [prior-art-plugins.md](references/prior-art-plugins.md) for inspected AgentPulse, GStack, and Claude-mem implementations. Use [sources.md](references/sources.md) when APIs or platform claims need refreshing.
-
-Attribute external facts. Mark Getty paths, fields, locking policy, and lifecycle rules as our proposal. Treat partial precedents as partial; do not claim another project implements the complete Getty contract.
+[prior-art.md](references/prior-art.md) covers OpenClaw, mise, pnpm, and metadata compatibility; [prior-art-plugins.md](references/prior-art-plugins.md) covers AgentPulse, GStack, and Claude-mem; [sources.md](references/sources.md) maps primary sources, the getty-bun decisions, and the windows-developer measurements. Attribute external facts; mark Getty paths, fields, locking policy, and lifecycle rules as our proposal.

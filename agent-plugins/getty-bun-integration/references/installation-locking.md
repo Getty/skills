@@ -1,10 +1,10 @@
 # Installation locking and recovery
 
-**Status: proposed prototype contract.** Apply these requirements when implementing the shared store described in [contract.md](contract.md). The layout, metadata, and recovery rules below are this project's design; linked OS documentation supports the underlying primitives. This reference does not establish that a working cross-platform installer exists.
+Status: Getty contract proposal v0.2. The planned starters `getty-bun.sh` and `getty-bun.ps1` implement these requirements; consumers do not write locking code. Use this reference to build or review the starters in getty-bun. The layout, metadata, and recovery rules are Getty's design; linked OS documentation supports the underlying primitives. Neither starter exists yet, so no installer has been run on any platform.
 
 ## Separate the mutex from its status
 
-Coordinate each exact version and artifact target through a stable control directory outside the published runtime slot:
+Coordinate each exact version and artifact target through a stable control directory outside the published runtime slot (`<store>` is `<GETTY_HOME>/runtimes`):
 
 ```text
 <store>/bun/.locks/<version>/<target>/.install.lock
@@ -19,17 +19,25 @@ Never unlink, replace, rename, or garbage-collect the mutex file or its containi
 
 Acquire locks, inspect state, and write metadata using available OS bootstrap tools. Neither Bun nor Node may be required before the first Bun installation. Do not compile or download a custom lock helper as an implicit prerequisite.
 
-Capability-probe the selected backend and its required mode before mutating installation state. These are candidates requiring implementation and platform validation:
+Capability-probe the selected backend and its required mode before mutating installation state. Planned backends; none is implemented or validated on a platform yet:
 
-| Platform | Candidate and required behavior |
+| Platform | Backend and required behavior |
 | --- | --- |
-| Linux | Use util-linux [`flock`](https://man7.org/linux/man-pages/man1/flock.1.html) on a descriptor retained by the installer shell. Require exclusive BSD-style locking; do not silently select `--fcntl`, whose locks are independent of BSD-style locks. |
-| macOS | Use [`lockf(1)`](https://raw.githubusercontent.com/apple-oss-distributions/shell_cmds/main/lockf/lockf.1) in supported file-descriptor mode on a descriptor retained by the installer shell. Apple's current documentation demonstrates this mode and implies `-k`, keeping the backing file. Check availability on the actual system. |
-| Windows | Use PowerShell and [`.NET File.Open`](https://learn.microsoft.com/en-us/dotnet/api/system.io.file.open?view=netframework-4.8.1) with `OpenOrCreate`, `ReadWrite`, and [`FileShare.None`](https://learn.microsoft.com/en-us/dotnet/api/system.io.fileshare?view=netframework-4.7.2). Retain the returned stream throughout the critical section. |
+| Linux (MVP) | `getty-bun.sh` with util-linux [`flock`](https://man7.org/linux/man-pages/man1/flock.1.html) on a descriptor the starter shell retains for the critical section and closes before it starts Bun. Require exclusive BSD-style locking; do not silently select `--fcntl`, whose locks are independent of BSD-style locks. |
+| Windows (MVP) | `getty-bun.ps1` with [`.NET File.Open`](https://learn.microsoft.com/en-us/dotnet/api/system.io.file.open?view=netframework-4.8.1) and `OpenOrCreate`, `ReadWrite`, [`FileShare.None`](https://learn.microsoft.com/en-us/dotnet/api/system.io.fileshare?view=netframework-4.7.2), kept in a variable for the whole critical section and disposed in a `finally` around that section, before Bun starts. Waiting is a retry loop with a short sleep until the deadline. Not a named mutex: `Local\` is per logon session, and the lock must belong to the store path. Must run on Windows PowerShell 5.1 and PowerShell 7. |
+| Git Bash, MSYS, Cygwin | `getty-bun.sh` forwards to `getty-bun.ps1` (paths through `cygpath -w`) and does no locking or download of its own, so a slot has exactly one lock implementation. |
+| WSL | Linux, with its own store under the WSL home; never a Windows `bun.exe` or the Windows lock. |
+| macOS (phase 4, later) | Candidate: [`lockf(1)`](https://raw.githubusercontent.com/apple-oss-distributions/shell_cmds/main/lockf/lockf.1) in file-descriptor mode on a descriptor the starter shell retains for the critical section. Apple's documentation demonstrates this mode and implies `-k`, keeping the backing file. Check availability on the actual system. |
 
 Distinguish contention from permission errors, unsupported operations, and other I/O failures. A timeout reports busy; it does not authorize breaking a lock. If no supported backend exists, stop before installation. Do not substitute PID-based unlinking or an independently chosen directory lock.
 
+## Bounded wait
+
+Waiters try the mutex for at most `GETTY_BUN_LOCK_WAIT` seconds (default 300); after acquiring it they re-check the slot before installing. A waiter whose wait runs out fails with one stderr line and exit 1, leaving no partial slot; the starter never exits 2 for its own failures. The wait must stay below the host hook timeout (Codex and Claude Code document 600 s for most command hooks), and the consumer sets hook timeouts above the lock wait plus one download: a waiter that acquires the lock after a crashed holder downloads itself. Concurrent first hooks after a plugin install or update are the normal case: exactly one downloads and publishes, the others wait and reuse.
+
 ## Record the installation owner
+
+Fields beyond `requestedVersion` and `target` are proposed diagnostics: skill `getty-bun-bootstrap` does not require them, and phase 1 decides which stay.
 
 Write `.installing` only after acquiring the mutex. Prefer a complete temporary record followed by same-directory rename. The following values are illustrative, not a recommended Bun version or real process identity:
 
@@ -57,9 +65,9 @@ Interpret start identity within its host, boot, and execution environment. Inclu
 3. Validate an existing published runtime; reuse it if valid. Reconcile orphan metadata under the mutex.
 4. Create a unique attempt directory and publish the current `.installing` record. Never reuse another attempt's working directory.
 5. Download, verify, and publish according to [contract.md](contract.md), retaining protection through all shared-state mutations.
-6. Remove this attempt's marker while still holding the mutex, then release the lock. Keep `.install.lock` permanently.
+6. Remove this attempt's marker while still holding the mutex, then release the lock. Keep `.install.lock` permanently. **Close the lock descriptor (Windows: dispose the stream) before starting Bun.** A descriptor without close-on-exec survives the `exec` ([execve(2)](https://man7.org/linux/man-pages/man2/execve.2.html)), and a `flock` lock belongs to the open file description ([flock(2)](https://man7.org/linux/man-pages/man2/flock.2.html)); otherwise Bun holds the install lock for the entry's whole run, and waiters run into `GETTY_BUN_LOCK_WAIT`. Our rule, derived from those semantics, not executed.
 
-Normal cleanup must hold the mutex and check that `installId` still matches. A delayed handler running after release must reacquire and recheck; otherwise it could delete a newer owner's marker. A token check without serialization remains a check-then-delete race.
+Normal cleanup must hold the mutex and check that the (proposed) `installId` still matches. A delayed handler running after release must reacquire and recheck; otherwise it could delete a newer owner's marker. A token check without serialization remains a check-then-delete race.
 
 ## Recovery and process lifetime
 
@@ -67,6 +75,6 @@ Successful mutex acquisition authorizes recovery within a known compatible store
 
 Two recovery contenders must acquire the same mutex and re-read state; only the winner repairs it. After a crash following successful publication, validate the runtime and clean orphan status instead of reinstalling automatically.
 
-Keep every shared-state writer protected for its entire lifetime. Do not assume a supervising lock wrapper survives its child. Either retain lock protection in surviving writers, or restrict workers to unique private staging paths with no publication authority. On Windows, prefer publication inside the coordinator retaining the stream. Do not reuse or blindly delete a previous stage if an orphan worker could still write there.
+Keep every shared-state writer protected for its entire lifetime. Do not assume a supervising lock wrapper survives its child. Either retain lock protection in surviving writers, or restrict workers to unique private staging paths with no publication authority. On Windows, publish inside the PowerShell process retaining the stream, with `[System.IO.Directory]::Move`; antivirus can hold a freshly written `.exe`, so retry moves and deletes on a sharing violation, bounded (about 10 s), then fail. Never fall back to copying into a slot. Keep staging ids short (MAX_PATH). Do not reuse or blindly delete a previous stage if an orphan worker could still write there.
 
-Stop automatic takeover for an unsupported schema, inconsistent requested version/target, or foreign `environmentId` until compatible coordination is established. Do not adopt unknown legacy writers merely because their PID appears absent. Restrict the prototype to a local store with validated locking semantics; network shares, synchronized homes, WSL/native sharing, and cross-container access require separate verification. The [`flock` documentation](https://man7.org/linux/man-pages/man1/flock.1.html) explicitly describes filesystem-dependent limitations. Metadata and elapsed time cannot compensate for an unavailable or incompatible mutex.
+Stop automatic takeover for an unsupported schema or an inconsistent requested version/target until compatible coordination is established. Doing the same for a foreign `environmentId` is a candidate rule beyond the phase 1 gate, tied to that proposed field. Do not adopt unknown legacy writers merely because their PID appears absent. Restrict the prototype to a local store with validated locking semantics; network shares, synchronized homes, WSL/native sharing, and cross-container access require separate verification. The [`flock` documentation](https://man7.org/linux/man-pages/man1/flock.1.html) explicitly describes filesystem-dependent limitations. Metadata and elapsed time cannot compensate for an unavailable or incompatible mutex.

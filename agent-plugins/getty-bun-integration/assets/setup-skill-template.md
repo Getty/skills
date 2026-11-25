@@ -1,25 +1,28 @@
 # Consumer setup skill authoring template
 
-This is a template for the integration engineer, not a ready-to-run installer. Replace every `{{TOKEN}}` with verified consumer/provider details and package the resulting setup skill in the host's documented format. Do not ship unresolved tokens, assumed provider commands, or links to this engineering skill as if it were installed on every user's machine.
+Contract proposal v0.2. This is a template for the integration engineer, not a ready-to-run procedure. In v0.2 the consumer's committed starter installs Bun on demand in its hooks; this skill is for **repair and diagnosis**, not installation. Replace every `{{TOKEN}}` with verified consumer details and package the result in the host's documented format. Do not ship unresolved tokens, starter commands other than `run`, `ensure`, `status`, or links to this engineering skill as if it were installed on every user's machine. The starters are planned in getty-bun and not built yet; do not ship a skill made from this template before they exist.
 
 Suggested frontmatter for the rendered consumer skill:
 
 ```yaml
 ---
 name: {{CONSUMER_SETUP_SKILL_NAME}}
-description: Set up or repair {{CONSUMER_NAME}} by verifying its Getty-managed Bun runtime and installing its locked dependencies in the current execution environment.
+description: Diagnose or repair {{CONSUMER_NAME}} when its hooks report a getty-bun failure or stay silent — Bun runtime state, lock waits, Windows execution policy.
 ---
 ```
 
-## Setup procedure to adapt
+## Procedure to adapt
 
-1. Resolve this installed consumer's root using `{{HOST_ROOT_MECHANISM}}`. Read its actual `package.json` and `bun.lock`. Require a valid `gettyBun` object and an existing lockfile; do not infer the pin from PATH.
-2. Identify the current execution environment. Resolve the provider root using `{{PROVIDER_ROOT_RESOLUTION}}`. Read the bundled provider integration instructions at `{{PROVIDER_REFERENCE_PATH}}` and verify that their implementation/API version matches this consumer.
-3. Reuse an already verified exact version/target when available. Otherwise perform the real bootstrap operation `{{VERIFIED_BOOTSTRAP_ENTRY_POINT_AND_ARGUMENTS}}` using the available OS tools and session authorization. This entry point must work before external Bun/Node exists and own a validated mutex through shared installation mutations.
-4. Inspect the operation's output and actual state. A `.installing` PID/name/start token is diagnostic; do not delete a held lock or kill a process from it. Follow the provider's supported wait/recovery flow. Report unsupported capabilities or inaccessible state explicitly.
-5. Verify the selected executable's absolute path, exact version, target, receipt, and smoke result. Resolve the package at `{{CONSUMER_PACKAGE_RESOLUTION}}` and install its frozen dependencies using that executable under consumer-level coordination. Keep dependencies outside unrelated user project repositories.
-6. Apply the documented lifecycle-script/native-dependency policy `{{DEPENDENCY_POLICY_REFERENCE}}`. Run the consumer check `{{VERIFIED_SMOKE_ENTRY_POINT_AND_ARGUMENTS}}`. Publish a binding only after success.
-7. Configure ordinary execution with the selected absolute executable, `--no-install`, the absolute entry point, and correctly separated project input. Use `{{HOST_ACTIVATION_OR_REVIEW_PROCEDURE}}` for changed hooks; do not bypass trust controls.
-8. Report the resolved path/version/target and checks actually performed. On failure, identify the failed step and retain any previous working binding. Do not claim successful setup from a marker or an agent message alone.
+1. Resolve this installed consumer's root (`<consumer-root>` below) using `{{HOST_ROOT_MECHANISM}}`. The starters are `{{STARTER_DIR}}/getty-bun.sh` and `{{STARTER_DIR}}/getty-bun.ps1` under that root.
+2. Identify the execution environment (Linux, native Windows, Git Bash, WSL, container). Use `getty-bun.sh` on Linux and WSL, `getty-bun.ps1` on Windows: `powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "<consumer-root>\{{STARTER_DIR}}\getty-bun.ps1" status`. Under Git Bash, `getty-bun.sh` forwards to the PowerShell starter itself.
+3. Run `status`. Report its JSON (`pin`, `target`, `slot`, `state`) as printed. Do not interpret `state` values beyond what {{STARTER_STATE_REFERENCE}} defines.
+4. If the runtime is missing, run `ensure`. It may wait up to `GETTY_BUN_LOCK_WAIT` seconds (default 300) for another install; that is normal after a plugin install or update. On failure, report its one stderr line verbatim and the step it names.
+5. A slot that fails closed (receipt version or target not matching the pin, or executable missing): report the path from the message. Do not delete, overwrite, or "repair" it; there is no repair command. Removing a published slot needs every consumer using it to be idle and the user's explicit decision.
+6. Windows: if PowerShell refuses to run the script, an execution policy set by Group Policy may be overriding `-ExecutionPolicy Bypass` (Group Policy takes precedence over it: documented, about_Execution_Policies). Application control (AppLocker, WDAC) or antivirus may block it instead. Report the error text as printed; do not change policy or security settings.
+7. Check that `gettyBun.bunVersion` in `package.json` equals the starters' pin and that the bundled entry `{{ENTRY}}` exists. A mismatch is a release defect: report it, do not patch the installed plugin.
+8. If hooks still do not run, check the host's hook trust using `{{HOST_ACTIVATION_OR_REVIEW_PROCEDURE}}`; do not bypass trust controls.
+9. Report what ran and what it printed. Do not claim readiness from a marker, a previous message, or this skill's completion.
 
-Honor existing authorization; do not ask again for already approved reversible setup. Do not add repeated installation to ordinary hooks. Keep the agent's setup tools available while this consumer is unready.
+Honor existing authorization; do not ask again for already approved reversible steps such as `ensure`. Do not add installation to hooks beyond the starter call, and do not set `GETTY_HOME` or `GETTY_BUN_MIRROR` unless the user asks for it.
+
+A consumer on the later dependency-install path (plan phase 5) needs additional steps for its frozen-lockfile install and binding; v0.2 does not specify them.

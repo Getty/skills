@@ -1,11 +1,13 @@
 # Getty Bun integration review
 
+Contract proposal v0.2.
+
 ## Subject and status
 
 - Consumer and revision:
-- Provider implementation/API revision, or missing component:
-- Exact Bun requirement and contract version:
-- Reviewed targets and release artifact metadata:
+- getty-bun revision the starters were rendered from, or missing component:
+- Exact Bun requirement (`gettyBun.bunVersion`, `vars.bun_version`) and contract version:
+- Reviewed targets and table checksums:
 - Agent client version, surface, and distribution route:
 - Status: proposed / implemented / source-checked / executed on listed targets:
 
@@ -13,24 +15,26 @@
 
 | Requirement | Implementation location | Evidence/result |
 | --- | --- | --- |
-| Canonical `gettyBun` pin in real package.json | | |
-| Shipped package.json + bun.lock | | |
-| One absolute shared slot per version/target/environment | | |
-| Setup works before external Bun/Node | | |
-| Host guidance/onboarding entry point | | |
-| Readiness at actual execution boundary | | |
-| Permanent OS mutex and diagnostic .installing record | | |
-| Safe crash recovery and worker lifetime | | |
-| Verified asset, staging, receipt, atomic publication | | |
-| Consumer dependency coordination and smoke check | | |
-| Ordinary execution with --no-install and clean protocol output | | |
-| Side-by-side update and binding/rollback behavior | | |
+| Canonical `gettyBun` pin in real package.json; CI validates it against the schema | | |
+| Rendered `getty-bun.sh` and `getty-bun.ps1` committed; CI: pin block equals package.json, fresh render equals committed copy | | |
+| Bundled entry committed (`bun build --target=bun`); CI rebuild byte-identical; no external packages | | |
+| Hooks call the starter's `run`; only `run`, `ensure`, `status` used | | |
+| Codex `command` and `commandWindows`; `"${PLUGIN_ROOT}"` quoted; `hooks.json` not shared with Claude Code | | |
+| Claude Code adapter (Windows: open decision) | | |
+| Hook timeouts set explicitly, above the lock wait plus one download; no starter call on `SessionEnd` or Codex `Interrupt` | | |
+| First hook installs without external Bun/Node; concurrent hooks wait | | |
+| Shared slot under `<GETTY_HOME>` per version/target/environment | | |
+| Starter stdout clean, stderr messages; never exits 2 for its own failures; the entry's exit code passes through unchanged | | |
+| Windows: PowerShell 5.1 and 7, Process byte copy, Git Bash forwarding | | |
+| Setup skill for repair and diagnosis | | |
+| Side-by-side update; rollback by previous plugin release | | |
 | Shared runtime survives consumer removal | | |
-| Host review/activation observed | | |
+| Host review/activation observed (Codex re-review after changed bundled script) | | |
+| Dependency install, consumer lock, binding (later, phase 5 only) | | |
 
 ## Checks performed
 
-Record the concrete command or scenario, environment, observed result, and limits. Distinguish schema/source/scenario checks from executed client/runtime tests. Refer to the engineering skill's verification cases; do not mark unexecuted platform cases as passed.
+Record the concrete command or scenario, environment, observed result, and limits. Label each: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Cite the getty-bun phase 1 gate for the starter revision instead of re-testing locking. Do not mark unexecuted platform cases as passed.
 
 ## Remaining gaps
 
@@ -38,4 +42,4 @@ Identify missing provider behavior, unsupported targets, untested host behavior,
 
 ## Sources
 
-List primary documentation and inspected revisions supporting external facts. Mark Getty-specific layout, fields, and lifecycle rules as design decisions.
+List primary documentation and inspected revisions supporting external facts. Mark Getty-specific layout, fields, and lifecycle rules as design decisions (getty-bun plan and ADRs).

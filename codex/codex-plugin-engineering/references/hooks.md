@@ -75,7 +75,7 @@ Resolve the actual exposed tool name before using that matcher. An original deni
 
 Treat unsupported output carefully: `PreToolUse` fields such as `permissionDecision: "ask"` or `continue: false` fail the hook and allow the tool to continue. `PermissionRequest`'s reserved rewrite fields instead fail closed. Do not use one generic output object for every event.
 
-Command timeouts use seconds and default to `600`; `Interrupt` defaults to one second and is limited to three. Background hooks cannot block, approve, rewrite, or continue the triggering operation. [Background execution](https://learn.chatgpt.com/docs/hooks#run-hooks-in-the-background)
+Command timeouts use seconds and default to `600`; `SessionEnd` and `Interrupt` default to one second and are limited to three. Background hooks cannot block, approve, rewrite, or continue the triggering operation. [Background execution](https://learn.chatgpt.com/docs/hooks#run-hooks-in-the-background)
 
 The documentation does not establish a universal fail-closed rule for arbitrary command crashes, non-`2` exit codes, timeouts, or malformed JSON. Test those exact cases on the target release; never substitute “the hook failed” for an explicit denial. MCP-hook missing-server, callback-error, timeout, and malformed-response cases can leave the operation running. [MCP execution and managed hooks](https://learn.chatgpt.com/docs/hooks#mcp-tool-hooks)
 

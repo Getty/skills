@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Getty Bun consumer requirement — proposal v0.1",
-  "description": "Validates the custom gettyBun object inside package.json, not the entire manifest. The provider must implement enforcement.",
+  "title": "Getty Bun consumer requirement — contract version 1 (proposal v0.2)",
+  "description": "Validates the custom gettyBun object inside package.json, not the entire manifest. Bun and the starter do not read it; the consumer's CI checks it against the starters' rendered pin block.",
   "type": "object",
   "additionalProperties": false,
   "required": [

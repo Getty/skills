@@ -1,6 +1,6 @@
 # Prior art in agent tooling
 
-Checked: 2026-11-25. These are inspected implementations, not endorsements or compatibility certifications. **Getty contract proposal v0.1** is our own integration contract; this skill does not implement a released provider. Compare against [contract.md](contract.md), including the per-user `<version>/<target>` store and fresh readiness checks.
+Checked: 2026-11-25. These are inspected implementations, not endorsements or compatibility certifications. **Getty contract proposal v0.2** is our own integration contract; its provider (the getty-bun starters) is planned, not built. Compare against [contract.md](contract.md), including the per-user `<version>/<target>` store and the starter's check on every call.
 
 ## AgentPulse: private fallback and explicit executable paths
 
@@ -20,7 +20,7 @@ The skill checks for Bun and, if absent, downloads the official installer to a t
 
 **Partial match:** existing PATH Bun bypasses that pin; installation is not a private per-version shared store. The checksum covers the installer script, and the broader setup builds components. Do not reuse its version/hash or infer that its confirmation policy applies to every session.
 
-**Apply:** package a setup reference the agent can follow; make runtime selection and integrity metadata explicit in Getty's own contract.
+**Apply:** keep a packaged reference the agent can follow, in v0.2 for repair and diagnosis only; installation itself belongs in a reviewed script (the starter), with runtime selection and integrity metadata explicit in Getty's own contract.
 
 ## Claude-mem: executable discovery and dependency verification
 
@@ -34,6 +34,6 @@ Setup discovers Bun or invokes the standard installer. Dependency installation u
 
 ## Use the evidence within its limits
 
-The inspected examples support separate design choices: instruction-driven setup, private runtime placement, integrity verification, absolute executable paths, and dependency checks. No complete match for the Getty contract was verified among these implementations. Do not describe partial precedents as a shared ecosystem standard, and do not turn their sample versions into Getty's recommended runtime version.
+The inspected examples support separate design choices: instruction-driven setup (which v0.2 replaced with starter-driven installation), private runtime placement, integrity verification, absolute executable paths, and dependency checks. No complete match for the Getty contract was verified among these implementations. Do not describe partial precedents as a shared ecosystem standard, and do not turn their sample versions into Getty's recommended runtime version.
 
 When extending this comparison, inspect executable source at a commit, record what was actually checked, and distinguish documentation claims from observed code and executed tests. None of the projects above was installed or tested end to end for this review.

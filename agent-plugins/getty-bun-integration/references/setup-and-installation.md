@@ -1,44 +1,64 @@
-# Setup and transactional installation
+# Installation and setup
 
-Status: Getty contract proposal v0.1. This is an implementation procedure, not a shipped installer. Follow [contract.md](contract.md), [paths-platforms.md](paths-platforms.md), and [installation-locking.md](installation-locking.md).
+Status: Getty contract proposal v0.2. This describes what the planned starters do and what a consumer's setup skill is for; neither the starters nor an installer exist yet. Follow [contract.md](contract.md), [paths-platforms.md](paths-platforms.md), and [installation-locking.md](installation-locking.md).
 
-## Instructions and execution
+## The starter installs on demand
 
-Package a setup skill/reference with the consumer. A host-native adapter may inject conditional guidance pointing to it without requiring missing Bun. The ordinary agent follows those instructions using available tools and existing session authorization.
+Neither Codex nor Claude Code has an install hook (ADR 0002; not re-checked here). So every starter call that runs code (`run`) or asks for readiness (`ensure`) first ensures the pinned Bun:
 
-Context injection does not execute commands, prove completion, or order matching hooks. Keep readiness checks at each consumer execution boundary. Gate unavailable consumer functionality while keeping the agent's shell/read/edit tools usable for setup.
+- Present and matching: fast local check, then run.
+- Missing: install under the OS lock, then run.
+- After a plugin install or update, the first hook (normally `SessionStart`) therefore installs. Concurrent hooks block on the same lock, bounded by `GETTY_BUN_LOCK_WAIT` (default 300 s), re-check the slot, and then either run the entry, whose exit code passes through unchanged, or fail with one stderr line and exit 1. The starter never exits 2 for its own failures.
+- The first hook after an update can take one download. Set each hook's `timeout` above the lock wait plus one download: a waiter that acquires the lock after a crashed holder downloads itself. Codex and Claude Code document 600 s for most command hooks and seconds for `SessionEnd` ([codex.md](codex.md), [claude-code.md](claude-code.md)).
+- `@getty/bun-runtime` never installs, downloads, or edits lockfiles. A consumer writes no installer code of its own.
 
-Keep recurring hooks short. Do not repeatedly install from session startup. Supply a clear setup entry point, deduplicate hints, and stop automatic retries after interruption or failure. A completion message is not an observed installation result.
+ADR 0002 makes installing or updating the plugin the point at which Bun is installed. In practice that waits for the host's hook trust, because a hook that is not yet trusted does not run (Codex: documented); this is our inference, not part of the ADR. The starter writes only under `<GETTY_HOME>`; it never edits shell startup files, PATH, or system packages, and never uses the official Bun install script.
 
-## Bootstrap without external Bun
+## Bootstrap prerequisites
 
-Inspect available capabilities. The first install may use a small POSIX-shell or PowerShell coordinator with download, hash, archive, and OS-locking facilities. Check these prerequisites; neither Node, Python, nor Bun may be silently assumed.
+The starter runs before Bun, Node or Python exist. Planned prerequisites (skill `getty-bun-bootstrap` in getty-bun):
 
-A Markdown reference can direct setup, but **one real coordinating process** must own the mutex across download, validation, and publication. Several independent shell calls with a dead PID in `.installing` are not one protected installation. Put the transactional part into a reviewed script or equivalent host operation and run it as one operation.
+| Starter | Needs |
+| --- | --- |
+| `getty-bun.sh` (Linux; macOS in phase 4) | POSIX `sh`, `curl` or `wget`, `unzip`, `sha256sum` or `shasum -a 256`, `flock` |
+| `getty-bun.ps1` (Windows) | Windows PowerShell 5.1 or PowerShell 7; .NET for download, hash, zip, lock |
 
-Use an existing provider's inspected implementation. If none exists, implement it within an authorized provider-building task or identify the missing component. Do not present a template as an installer or invent `getty-bun ensure` commands.
+A missing prerequisite or an unsupported target fails with a message that names it. Under Git Bash, MSYS or Cygwin, `getty-bun.sh` forwards to `getty-bun.ps1` and does nothing itself.
 
-## Provision one runtime key
+**One real coordinating process** owns the mutex across download, validation, and publication: the starter. Several independent shell calls with a PID in `.installing` are not one protected installation; a Markdown procedure cannot replace the starter.
 
-1. Parse the real consumer manifest and validate the Getty requirement.
-2. Resolve root and target from trusted provider metadata. Check bootstrap capabilities, filesystem assumptions, space, and write access.
-3. Acquire the permanent version/target mutex. Re-read readiness after acquisition; another installer may have completed.
-4. Reuse a valid slot and reconcile orphan status under the mutex. Do not overwrite a corrupt published slot while consumers may run; use coordinated repair.
-5. Create a unique private stage on the final slot's filesystem. Publish `.installing` under the mutex. Restrict workers to their stage.
-6. Fetch the exact reviewed asset; verify its archive checksum before executing content. Reject traversal, links, duplicate executable entries, or unexpected archive layout.
-7. Construct the staged final layout. Check executable permissions/type, run a bounded `--version` probe, compare the exact requirement, and run a minimal runtime smoke check. Record binary digest and receipt.
-8. Publish the complete stage to an **absent** final slot while holding the mutex, using an operation whose atomicity is established for that local filesystem. A cross-filesystem copy/move is not such a primitive.
-9. Clear this attempt's status safely and release the mutex. Keep the permanent lock file/control directory. Handle uncertain orphan workers as specified in the locking reference.
-10. Provision consumer dependencies under separate consumer coordination; publish its binding only after all checks pass.
+## What one install does
 
-A crash after runtime publication but before marker cleanup should trigger validation and cleanup by the next owner, not blind reinstallation. Bound lock/network waits and preserve prior working bindings on failure.
+The starter, not the agent, performs these steps:
+
+1. Take version and per-target SHA256 from the rendered pin block; nothing else selects a version.
+2. Resolve `<GETTY_HOME>` and detect the target; failed CPU-feature detection selects the baseline build; an unsupported target fails.
+3. Fast path: receipt present, version and target match, executable present. A mismatching published slot fails closed and is never overwritten.
+4. Acquire the permanent version/target mutex, bounded. Re-read the slot after acquisition; another installer may have completed.
+5. Create a unique stage on the slots' filesystem and publish `.installing` under the mutex.
+6. Download `bun-<target>.zip` from the official release or `GETTY_BUN_MIRROR`; verify the archive SHA256 from the pin block before unpacking; reject an archive with an unexpected or extra member; extract the expected member by name.
+7. Check executable type, run a bounded `bun --version` probe, compare it with the pin, write the receipt.
+8. Publish the complete stage to an **absent** final slot with one atomic rename while holding the mutex. A cross-filesystem copy or move is not such a primitive.
+9. Clear this attempt's status, clean the stage, release the mutex. Keep the permanent lock file.
+
+A crash after publication but before marker cleanup is handled by the next owner validating the slot and cleaning orphan status, not by reinstalling. A failed attempt leaves no partial slot.
+
+## The setup skill: repair and diagnosis
+
+Package a setup skill with the consumer ([setup-skill-template.md](../assets/setup-skill-template.md)). It is no longer the install path; it serves the cases where the automatic install failed or the user asks why the plugin is idle:
+
+- Run the committed starter's `status` and report pin, target, slot and state. `status` is not specified to install.
+- Run `ensure` to install explicitly, for example after a lock-wait timeout or a network failure, and report its stderr line.
+- A slot that fails closed: report its path. The MVP has no repair command; removing a published slot needs quiescence across every consumer using it and the user's decision. Do not delete it as an incidental fix.
+- Windows: an execution policy set by Group Policy takes precedence over `-ExecutionPolicy Bypass` (documented, [about_Execution_Policies](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies)); if it turns scripts off or is `AllSigned`, the starter cannot run, and the setup skill must say so. Application control (AppLocker, WDAC) or antivirus can block it as well (not checked).
+- Check that `gettyBun.bunVersion` equals the pin in the committed starters; a mismatch is a release bug, not something to fix on the user machine.
+
+Host onboarding surfaces (Codex `onboardingSkill`) may point to this skill; a context hint may mention it. Neither installs anything.
 
 ## Official installer limitations
 
-Official Bun installers accept a release and `BUN_INSTALL`; inspect current source before wrapping them. The Unix installer may edit shell startup files, so a private directory alone does not establish no PATH changes. The inspected Windows script exposes `-NoPathUpdate`, `-NoRegisterInstallation`, and `-NoCompletions`. Sources: [Unix installer](https://bun.com/install), [Windows installer](https://bun.sh/install.ps1).
-
-Prefer controlled download/verification/extraction from provider-owned release metadata, or a demonstrably equivalent invocation into unique staging. Running an unpinned mutable installer script is not verification of the resulting runtime. Send installer logs to stderr or a dedicated log channel when stdout carries a host protocol.
+Official Bun installers accept a release and `BUN_INSTALL`. The Unix installer may edit shell startup files; the inspected Windows script exposes `-NoPathUpdate`, `-NoRegisterInstallation`, and `-NoCompletions`. Sources: [Unix installer](https://bun.com/install), [Windows installer](https://bun.sh/install.ps1). The starters do not use them: they download the reviewed archive, verify it against the pin, and extract it themselves. Running an unpinned mutable installer script is not verification of the resulting runtime.
 
 ## Authorization
 
-Honor existing authorization for setup; do not repeatedly request the same permission. If a real boundary remains—required access, native hook review, or an unapproved system change—finish concrete reviewable work first and identify that step. Do not modify global shell configuration, replace system Bun, or add unrelated system packages as incidental effects of this private-store design.
+Honor existing authorization for repair; do not repeatedly request the same permission. Host hook review stays a real boundary: prepare the files, then let the user complete the review; never bypass it. Do not modify global shell configuration, replace system Bun, or add system packages as a side effect of this private-store design.

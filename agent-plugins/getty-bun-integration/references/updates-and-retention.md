@@ -1,31 +1,32 @@
 # Updates and retention
 
-Checked: 2026-11-25. **Getty contract proposal v0.1:** these lifecycle rules are our policy. This skill supplies no installed updater, retention service, or `getty-bun` CLI. Read [contract.md](contract.md) before implementing an actual provider API.
+Checked: 2026-11-25. **Getty contract proposal v0.2:** these lifecycle rules are our policy. The MVP starter interface is `run`, `ensure`, `status`; there is no updater, `gc`, upgrade or rollback command, and none may be invented. Read [contract.md](contract.md) first.
 
 ## Update by adding a runtime key
 
-Treat a runtime key as an exact Bun version plus verified target. Provision a new key alongside existing keys; never upgrade an occupied slot in place. Bun exposes a self-upgrade command, but it does not implement Getty's binding/retention protocol. Do not use it on managed slots. [Bun installation and upgrading](https://bun.com/docs/installation#upgrading)
+A runtime key is an exact Bun version plus a target from the reviewed table. A new key installs beside existing ones; an occupied slot is never upgraded in place. Bun's self-upgrade command does not implement Getty's protocol; never use it on managed slots. [Bun installation and upgrading](https://bun.com/docs/installation#upgrading)
 
-Keep existing executables and receipts immutable. In particular, do not overwrite `bun.exe` on Windows or try to replace a running executable. A corrupt slot needs coordinated quiescence and repair under [installation-locking.md](installation-locking.md), not an ordinary update disguised as replacement.
+Keep published executables and receipts immutable. Do not overwrite `bun.exe` on Windows or try to replace a running executable. A slot that does not match fails closed; it is not repaired by an update.
 
-## Publish the consumer binding last
+## Change a consumer's Bun version
 
-1. Preserve the current consumer release, dependencies, and working binding. Identify exactly which consumer release is being updated; do not silently change every project sharing its runtime.
-2. Review the new runtime requirement and trusted release/target metadata. Acquire the required runtime coordination, provision into unique staging, verify integrity and executable behavior, then publish the new slot according to the installation protocol.
-3. Prepare the candidate consumer release separately, using its shipped manifest and lockfile. Coordinate its dependency setup independently of the runtime lock. Follow [dependencies-and-execution.md](dependencies-and-execution.md).
-4. Validate the candidate with its selected runtime: exact version/target, dependencies, entry point, and the consumer's meaningful smoke tests. Recheck that the candidate requirement has not changed during setup.
-5. Publish the new machine-local binding atomically only after validation. Retain the previous binding and its complete release/dependency identity for rollback. Coordinate binding changes with launches so an execution receives one complete release/runtime tuple.
+1. **Version in the table.** If the version is new: change getty-bun (table plus phase 1 scenarios, signature verified), then update the template `getty-bun-install` in Getty/skills (ADR 0001). Both planned.
+2. **Consumer bump.** Set `vars.bun_version`, re-render both starters, set `gettyBun.bunVersion` to the same value, rebuild the bundled entry with the new Bun. CI checks that the pin block matches `package.json` and that the bundle rebuild is byte-identical.
+3. **Release.** Ship starters, bundle and `package.json` together in one plugin release. The first starter call after users update installs the new key on demand; concurrent hooks wait on its lock.
+4. **Host review.** Codex documents that a plugin update changing a bundled script needs a new hook review (documented, not executed; [codex.md](codex.md)). Expect it after a pin bump or rebuilt entry and note it in `Changes`.
 
-A failed download, dependency installation, or smoke test leaves the previous binding active. Keep failure diagnostics tied to the candidate attempt. A candidate slot successfully installed before later consumer failure can remain unused; that is safer than deleting shared state opportunistically.
+A failed install leaves the previous slot untouched and the hook fails with one stderr line; the plugin stays idle until a starter call succeeds (the next hook or `ensure`). An already-running process keeps the executable it launched; subsequent starts use the pin of the installed plugin release.
 
-## Preserve coexistence and rollback
+## Coexistence and rollback
 
-If consumer A requires the old version and B adopts a new version, both keys remain available. Updating B must not repoint A. An already-running process stays attached to the executable/release it launched; subsequent starts resolve the current verified binding.
+If consumer A pins the old version and B adopts a new one, both keys stay available; updating B does not touch A, because each consumer's committed pin selects its own slot.
 
-Rollback restores the previous consumer release, its dependencies, and its matching runtime binding together. Do not run a new release declaring a new exact version under the old Bun merely because it starts. Reverify restored files and retain any candidate still referenced or running. Do not use a mutable shared `current` alias as the binding mechanism.
+Rollback in the MVP means installing the previous plugin release: its starters, pin and bundle come back together, and its slot is still present because nothing deletes slots. Do not run a new release under the old Bun merely because it starts. Do not use a mutable shared `current` alias.
+
+**Later/optional, with the dependency install (plan phase 5):** a machine-local binding with a retained last-working binding. Then publish the new binding atomically only after the candidate's runtime, dependencies, and smoke test pass; keep the previous binding and its complete release/dependency identity for rollback; coordinate binding changes with launches so an execution receives one complete release/runtime tuple. A candidate slot installed before a later consumer failure can remain unused.
 
 ## Retain conservatively
 
-Consumer uninstall removes only consumer-owned state. Even uninstalling the last known consumer does not automatically remove shared runtimes: incomplete bookkeeping and active processes must not become deletion evidence.
+Retention and pruning are later, not in the MVP. Consumer uninstall removes only consumer-owned state; even uninstalling the last known consumer does not remove shared runtimes, because incomplete bookkeeping and active processes are no deletion evidence.
 
-Default to manual, explicit pruning with a reviewable candidate list. Automated pruning requires reliable accounting for installed bindings, rollback retention, active executions, concurrent setup, and all supported environments. Serialize pruning against provisioning and new launches, then recheck references under that coordination. If liveness or ownership is uncertain, retain the slot. Preserve the permanent mutex objects required by the locking protocol; cleaning old attempt data is a separate operation.
+Until a `gc` exists, do not delete slots by hand as routine maintenance. Automated pruning later requires reliable accounting for every consumer pin, rollback retention, active executions, concurrent installs, and all environments; serialize it against installs and launches, and recheck references under that coordination. If liveness or ownership is uncertain, retain the slot. Never delete the permanent mutex objects; cleaning old attempt data is a separate operation.
