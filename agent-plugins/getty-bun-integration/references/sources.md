@@ -7,9 +7,12 @@ Checked: 2026-11-25. Refresh changing host APIs, release artifacts, and platform
 | Source | What it holds |
 | --- | --- |
 | Repository `getty-bun` (`Getty/getty-bun`): `docs/plan.md`, `docs/adr/0001`–`0006` | The decisions behind v0.2: starter interface, install on demand, bundled entry, one starter per OS, version table and pin, npm distribution, phases and open decisions. They win over this skill. |
-| `getty-bun` project skills `getty-bun-bootstrap`, `getty-bun-windows` | Starter invariants, target detection, PowerShell 5.1 rules. |
+| `getty-bun` `bootstrap/` at `262bc95`: `getty-bun.sh`, `getty-bun.ps1`, `versions.json`, `render-pin.ts`, `README.md` | The built starters. The README is their behavior contract (pin block, render CLI, receipt, `.installing`, tools, Windows limits) and labels each claim with the CI run that executed it. |
+| `getty-bun` CI runs 45603412444 and 45604685681 on `262bc95`; `docs/hook-cost.md` (runs 45572032454, 45579886904, 45589361806) | The phase 1 gate: scenario suite on linux-x64, linux-arm64, Windows 5.1 and 7, all jobs green. Per-hook cost on the CI runners, Defender real-time protection off. |
+| `getty-bun` project skills `getty-bun-bootstrap`, `getty-bun-windows` | Starter invariants, target detection, PowerShell 5.1 rules. Where they and `bootstrap/README.md` differ, the README describes what is built. |
 | Hub `windows-developer`: `docs/hook-start-windows.md`, `docs/starter-konvention.md`, `docs/umgebung.md` | Measurements on Windows 11 with Claude Code 2.1.287: hook start forms, path forms, stdin/stdout, PowerShell start cost, probe y4. Codex was not installed there. |
 | Hub `agent-developer`: `docs/windows-referenzen.md` (hub-researcher) | Read, not executed: Claude Code hook fields and exec form (CHANGELOG at `anthropics/claude-code` `4cc5e8b`), Codex shell selection and textual `${PLUGIN_ROOT}` substitution (`openai/codex` `3f65e9f`), Bun `install.ps1`, claude-mem's stdin handling. |
+| `openai/codex` `3f65e9f`: `codex-rs/core/src/session/mod.rs`, `core/src/shell.rs`, `core/src/environment_selection.rs`, `hooks/src/engine/command_runner.rs` | Read, not executed (hub review of 2026-11-25): hooks run in the turn environment's session shell without login; `$SHELL -lc` or `%COMSPEC% /C` only as the fallback without a single local environment. |
 
 ## Bun
 

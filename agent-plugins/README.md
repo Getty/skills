@@ -12,7 +12,8 @@ Client-specific plugin skills stay with their client in
 
 Integrating Getty's shared per-user Bun runtime into agent plugins and tools — an
 engineering specification for the Getty contract proposal v0.2; its provider, the
-getty-bun starters, is planned, not built. One exact Bun version per consumer
+getty-bun starters, is built and tested in getty-bun's CI, while the template that
+delivers them is planned. One exact Bun version per consumer
 `package.json`, rendered into the committed starters `getty-bun.sh` and
 `getty-bun.ps1`, which install it on demand under an OS-backed mutex and run the
 consumer's bundled entry by absolute path; one verified installation per version and

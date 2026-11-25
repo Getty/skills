@@ -1,6 +1,6 @@
 # Dependencies and execution
 
-Checked: 2026-11-25. **Getty contract proposal v0.2:** the rules below are our integration policy; the starters that execute them are planned, not built. Read [contract.md](contract.md) for ownership, runtime keys, and the starter interface.
+Checked: 2026-11-25. **Getty contract proposal v0.2:** the rules below are our integration policy. The starters that execute them are built in getty-bun (phase 1); the SDK and consumer bundles are not. Read [contract.md](contract.md) for ownership, runtime keys, and the starter interface.
 
 ## Ship a bundled entry (normal case)
 
@@ -16,9 +16,12 @@ A consumer commits the output of `bun build --target=bun`: its entry plus `@gett
 
 Hooks and binaries call `getty-bun.sh run <entry> [args...]` or `getty-bun.ps1 run <entry> [args...]`. The starter ensures the slot, then runs the slot's Bun by absolute path with `--no-install`. Never PATH, a `current` link, `bun upgrade`, `bunx`, or a shebang. Bun documents `--no-install` as disabling runtime auto-installation. [Runtime options](https://bun.com/docs/runtime)
 
-- `<entry>` is relative to the consumer root, which the starter derives from its own path. Pass the user project as an explicit application argument; the working directory selects nothing.
-- stdout belongs to the entry (hook JSON, MCP); starter messages go to stderr. The starter passes stdin and stdout byte for byte, including end of input. It never exits 2 for its own failures (they exit 1); the entry's exit code passes through unchanged.
-- Codex may keep stdin open after the hook object (comment in claude-mem `4dc8e48`, `plugin/scripts/bun-runner.js`; not traced in the Codex source). A measurement point for phase 3a; if it holds, the entry must stop reading at one complete JSON object instead of waiting for end of input, which the plan settles for the SDK.
+- `<entry>` is relative to the consumer root, the parent of the starters' `bootstrap/` directory. Pass the user project as an explicit application argument; the working directory selects nothing.
+- stdout belongs to the entry (hook JSON, MCP); starter messages go to stderr. The starter passes stdin and stdout byte for byte, including end of input. It never exits 2 for its own failures (they exit 1); the entry's exit code passes through unchanged. Executed, scenario 8.
+- On Windows the entry's exit code arrives as 0–255: Bun 1.4.5 itself exits with the low byte (executed, getty-bun CI 45589361806). Use codes within 0–255 on every OS, 2 only for the host's meaning of 2.
+- No entry argument begins with `-`: under `-File` PowerShell may bind it as its own parameter ([contract.md](contract.md), "Starter interface").
+- Bun 1.4.5 on Windows: an empty `Bun.write` to stdout on a pipe fails with `EINVAL` (`ftruncate`) and exit 9, bare and through the starter (executed, getty-bun CI 45589361806; card `k11` on the getty-bun board). Write nothing rather than an empty buffer.
+- Codex may keep stdin open after the hook object (comment in claude-mem `4dc8e48`, `plugin/scripts/bun-runner.js`; not traced in the Codex source). The starters end when the entry ends even then (`getty-bun.ps1`: executed, scenario 8b; `getty-bun.sh` `exec`s Bun). A measurement point for phase 3a; if it holds, the entry must stop reading at one complete JSON object instead of waiting for end of input, which the plan settles for the SDK.
 - Windows: the PowerShell starter runs Bun through `System.Diagnostics.Process` with raw byte copies, never through `&` (measured by windows-developer: Windows PowerShell 5.1 did not pass the end of stdin to a native program). Details in [paths-platforms.md](paths-platforms.md).
 - A missing import fails at run time with an actionable error; `--no-install` prevents an on-demand package download. Do not substitute `bunx` or `npx`.
 - Start Bun child processes from the entry with the same absolute executable (`process.execPath`, with `--no-install`); audit scripts and shebangs rather than assuming they inherit runtime selection through PATH.

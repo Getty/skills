@@ -7,8 +7,17 @@ Revision history for skills
     committed starters getty-bun.sh and getty-bun.ps1 install the pinned Bun
     on demand under the OS lock, consumers ship a bundled entry, and the setup
     skill is for repair and diagnosis. Codex commandWindows, the Windows rules
-    and the open Claude Code Windows decision carry evidence labels; the
-    starters are planned, not built.
+    and the open Claude Code Windows decision carry evidence labels.
+  - getty-bun-integration describes the starters as getty-bun phase 1 built
+    and tested them: they live in bootstrap/, the fast path never starts Bun,
+    the receipt and the pin block have a fixed form, the install lock is
+    released before Bun starts, entry arguments never begin with "-" and entry
+    exit codes stay within 0-255. Executed facts name their CI run, and the
+    per-hook cost from getty-bun's CI sits beside the desktop measurement.
+    Bun 1.4.5 is the confirmed pin; Codex runs hook commands in the session
+    shell without login; the PowerShell starter's second probe after publish
+    is an open difference. Delivery through the template getty-bun-install,
+    the SDK and every host adapter remain planned.
   - codex-plugin-engineering: SessionEnd hooks share Interrupt's one-second
     default timeout and three-second limit.
 

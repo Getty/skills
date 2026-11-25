@@ -1,6 +1,6 @@
 # Codex adapter
 
-Checked: 2026-11-25. Status: **Getty contract proposal v0.2**. Codex is the first host in the getty-bun plan (phase 3a, consumer briefing); nothing below has run yet, and the starters are planned, not built. Read [contract.md](contract.md) for the canonical `package.json` requirement and the starter interface. Facts from the Codex documentation are marked **documented, not executed**; facts read in the Codex source are marked **source-checked** with the commit.
+Checked: 2026-11-25. Status: **Getty contract proposal v0.2**. Codex is the first host in the getty-bun plan (phase 3a, consumer briefing). The starters are built and tested in getty-bun's CI (phase 1); nothing below has run under Codex (not checked). Read [contract.md](contract.md) for the canonical `package.json` requirement and the starter interface. Facts from the Codex documentation are marked **documented, not executed**; facts read in the Codex source are marked **source-checked** with the commit.
 
 ## Contents
 
@@ -13,7 +13,7 @@ Checked: 2026-11-25. Status: **Getty contract proposal v0.2**. Codex is the firs
 
 ## Run hooks through the starter
 
-Each Bun-dependent hook carries a POSIX `command` and a Windows `commandWindows`. Proposed shape, **not executed**:
+Each Bun-dependent hook carries a POSIX `command` and a Windows `commandWindows`. Proposed shape, **not executed under Codex**:
 
 ```json
 {
@@ -23,8 +23,8 @@ Each Bun-dependent hook carries a POSIX `command` and a Windows `commandWindows`
         "hooks": [
           {
             "type": "command",
-            "command": "sh \"${PLUGIN_ROOT}/<starter-dir>/getty-bun.sh\" run <entry>",
-            "commandWindows": "powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}\\<starter-dir>\\getty-bun.ps1\" run <entry>",
+            "command": "sh \"${PLUGIN_ROOT}/bootstrap/getty-bun.sh\" run <entry>",
+            "commandWindows": "powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"${PLUGIN_ROOT}\\bootstrap\\getty-bun.ps1\" run <entry>",
             "timeout": 600
           }
         ]
@@ -34,10 +34,11 @@ Each Bun-dependent hook carries a POSIX `command` and a Windows `commandWindows`
 }
 ```
 
-- `<starter-dir>` and `<entry>` are the consumer's committed paths; `<entry>` is relative to the consumer root, which the starter derives from its own path.
-- How Codex runs the two lines, source-checked (openai/codex `3f65e9f`, read by the hub-researcher, hub `agent-developer`, `docs/windows-referenzen.md`, question 2), not executed: Codex replaces `${PLUGIN_ROOT}` (likewise `${CLAUDE_PLUGIN_ROOT}`, `${PLUGIN_DATA}`, `${CLAUDE_PLUGIN_DATA}`) **textually** in the command string before a shell sees it (`codex-rs/hooks/src/engine/discovery.rs:747-749`); the variables are also set in the hook environment. On Windows it takes `commandWindows`, else `command`. `command` runs through `$SHELL`/`/bin/sh -lc`. `commandWindows` runs in the session shell: by default PowerShell (`pwsh`, else `powershell.exe`) as `-NoProfile -Command <line>`, otherwise `cmd /C`. There is no exec form.
+- The starters sit in `bootstrap/` (plan, "Starter interface"); the consumer root is the parent of that directory, and `<entry>`, the committed bundle, is relative to it.
+- How Codex runs the two lines, source-checked at openai/codex `3f65e9f`, not executed. Codex replaces `${PLUGIN_ROOT}` (likewise `${CLAUDE_PLUGIN_ROOT}`, `${PLUGIN_DATA}`, `${CLAUDE_PLUGIN_DATA}`) **textually** in the command string before a shell sees it (`codex-rs/hooks/src/engine/discovery.rs:747-749`); the variables are also set in the hook environment. On Windows it takes `commandWindows`, else `command` (hub-researcher, hub `agent-developer`, `docs/windows-referenzen.md`, question 2).
+- The shell: Codex runs either line in the session shell of the turn environment, without login: `-c` for zsh, bash and sh, `-NoProfile -Command <line>` for PowerShell (`codex-rs/core/src/session/mod.rs:6477-6483`, `codex-rs/core/src/shell.rs:24-31`). On Windows that shell is by default PowerShell (`pwsh`, else `powershell.exe`; hub-researcher, as above). Only without a single local turn environment (`codex-rs/core/src/environment_selection.rs:1537-1548`) does it fall back to `$SHELL` (else `/bin/sh`) with `-lc`, a login shell, or on Windows to `%COMSPEC%` (else `cmd.exe`) with `/C` (`codex-rs/hooks/src/engine/command_runner.rs:456-466`). There is no exec form. Open for phase 3a: which shell a real session uses, whether it reads startup files (zsh reads `.zshenv` without login too), and what lands on stdout ahead of the hook JSON.
 - Write `"${PLUGIN_ROOT}"` inside double quotes in both lines: the substituted Windows path carries backslashes and may carry spaces. Keep `commandWindows` valid in PowerShell and in `cmd` alike: a bare `powershell.exe`, double-quoted path arguments, no `&`, `$env:` or `%VAR%`.
-- Derived, not measured: under the default session shell a Windows hook starts PowerShell twice (the session shell, then the starter's `powershell.exe`), about twice the 720 ms windows-developer measured for one start. It belongs in the per-hook cost measurement of phase 1 and 3a.
+- Under the default session shell a Windows hook starts PowerShell twice: the session shell, then the starter's `powershell.exe`. Executed in getty-bun CI as a stand-in, not under Codex (`docs/hook-cost.md`, row "Codex nesting": `powershell -NoProfile -Command <line>`, so Windows PowerShell 5.1 outside, around the direct starter call; runs 45572032454, 45579886904, 45589361806): 501–661 ms per hook with 5.1 inside, 550–785 ms with 7 inside (medians of 10 calls per run), before the entry's own work; exit code, stdout and timeouts unchanged in 60 runs. Defender real-time protection was off: a lower bound for desktops, where windows-developer measured about 720 ms per PowerShell start. Codex' own shell choice and cost on a desktop are for phase 3a.
 - Derived: since the substitution is textual, a plugin root containing `"`, `$` or `` ` `` (and `%` under `cmd`) breaks the quoting in sh and PowerShell before the starter runs. It belongs in the path tests.
 - Do not share this `hooks.json` with Claude Code until its Windows adapter is decided: Claude Code has no `commandWindows` and would run the `sh` line on Windows, which fails without Git Bash (not measured for this line).
 - The `timeout` value is illustrative; keep it above `GETTY_BUN_LOCK_WAIT` (default 300 s) plus one download.
@@ -93,4 +94,4 @@ Current packaging guidance supports lifecycle hooks for manually installed Codex
 
 ## Validate the integration
 
-Plan gate for phase 3a: real Codex (0.153.4 on the development machine) with isolated `HOME`, `CODEX_HOME` and `GETTY_HOME`: plugin install, hook trust, the first session installs Bun, the hook's effect arrives (for briefing: a subagent receives its skills). Also check: concurrent sessions (one download), a lock wait that runs out, a wrong `bun` on PATH, a changed starter or bundle triggering re-review, stdout byte for byte, and whether Codex closes stdin after the hook object (claude-mem `4dc8e48` reads one complete JSON object because "Codex can keep stdin open"; not traced in the Codex source; see [dependencies-and-execution.md](dependencies-and-execution.md)). Windows goes as a card to the windows-developer board. Record the Codex version, surface, package format, and distribution route; source and schema checks alone establish neither runtime support nor directory eligibility.
+Plan gate for phase 3a: real Codex (0.153.4 on the development machine) with isolated `HOME`, `CODEX_HOME` and `GETTY_HOME`: plugin install, hook trust, the first session installs Bun, the hook's effect arrives (for briefing: a subagent receives its skills). Also check: concurrent sessions (one download), a lock wait that runs out, a wrong `bun` on PATH, a changed starter or bundle triggering re-review, stdout byte for byte, and whether Codex closes stdin after the hook object (claude-mem `4dc8e48` reads one complete JSON object because "Codex can keep stdin open"; not traced in the Codex source; see [dependencies-and-execution.md](dependencies-and-execution.md)). The starters end when the entry ends either way (`getty-bun.sh` `exec`s Bun; `getty-bun.ps1`: executed, scenario 8b). Windows goes as a card to the windows-developer board. Record the Codex version, surface, package format, and distribution route; source and schema checks alone establish neither runtime support nor directory eligibility.

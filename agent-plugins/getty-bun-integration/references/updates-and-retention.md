@@ -10,8 +10,8 @@ Keep published executables and receipts immutable. Do not overwrite `bun.exe` on
 
 ## Change a consumer's Bun version
 
-1. **Version in the table.** If the version is new: change getty-bun (table plus phase 1 scenarios, signature verified), then update the template `getty-bun-install` in Getty/skills (ADR 0001). Both planned.
-2. **Consumer bump.** Set `vars.bun_version`, re-render both starters, set `gettyBun.bunVersion` to the same value, rebuild the bundled entry with the new Bun. CI checks that the pin block matches `package.json` and that the bundle rebuild is byte-identical.
+1. **Version in the table.** If the version is new: change getty-bun (table plus phase 1 scenarios, signature verified; procedure in getty-bun `bootstrap/README.md`, "Adding a version"), then update the template `getty-bun-install` in Getty/skills (ADR 0001). The table and the procedure are built; the template is planned.
+2. **Consumer bump.** Set `vars.bun_version`, re-render both starters (until the template exists: `render-pin.ts` in getty-bun), set `gettyBun.bunVersion` to the same value, rebuild the bundled entry with the new Bun. CI checks that the pin block matches `package.json` and that the bundle rebuild is byte-identical.
 3. **Release.** Ship starters, bundle and `package.json` together in one plugin release. The first starter call after users update installs the new key on demand; concurrent hooks wait on its lock.
 4. **Host review.** Codex documents that a plugin update changing a bundled script needs a new hook review (documented, not executed; [codex.md](codex.md)). Expect it after a pin bump or rebuilt entry and note it in `Changes`.
 

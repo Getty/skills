@@ -16,7 +16,7 @@ Contract proposal v0.2.
 | Requirement | Implementation location | Evidence/result |
 | --- | --- | --- |
 | Canonical `gettyBun` pin in real package.json; CI validates it against the schema | | |
-| Rendered `getty-bun.sh` and `getty-bun.ps1` committed; CI: pin block equals package.json, fresh render equals committed copy | | |
+| Rendered `getty-bun.sh` and `getty-bun.ps1` committed under `bootstrap/`; CI: pin block equals package.json, fresh render (`render-pin.ts --check`) equals committed copy | | |
 | Bundled entry committed (`bun build --target=bun`); CI rebuild byte-identical; no external packages | | |
 | Hooks call the starter's `run`; only `run`, `ensure`, `status` used | | |
 | Codex `command` and `commandWindows`; `"${PLUGIN_ROOT}"` quoted; `hooks.json` not shared with Claude Code | | |
@@ -25,6 +25,7 @@ Contract proposal v0.2.
 | First hook installs without external Bun/Node; concurrent hooks wait | | |
 | Shared slot under `<GETTY_HOME>` per version/target/environment | | |
 | Starter stdout clean, stderr messages; never exits 2 for its own failures; the entry's exit code passes through unchanged | | |
+| Entry exit codes within 0–255; no entry argument begins with `-` | | |
 | Windows: PowerShell 5.1 and 7, Process byte copy, Git Bash forwarding | | |
 | Setup skill for repair and diagnosis | | |
 | Side-by-side update; rollback by previous plugin release | | |
@@ -34,7 +35,7 @@ Contract proposal v0.2.
 
 ## Checks performed
 
-Record the concrete command or scenario, environment, observed result, and limits. Label each: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Cite the getty-bun phase 1 gate for the starter revision instead of re-testing locking. Do not mark unexecuted platform cases as passed.
+Record the concrete command or scenario, environment, observed result, and limits. Label each: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Cite the getty-bun phase 1 gate (CI run and commit) for the starter revision instead of re-testing locking; it covers CI runners, not the host. Do not mark unexecuted platform cases as passed.
 
 ## Remaining gaps
 
