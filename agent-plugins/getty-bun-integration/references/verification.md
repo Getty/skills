@@ -4,13 +4,13 @@ Status: Getty contract proposal v0.2. Use this to verify an implementation. The 
 
 ## Establish the test subject
 
-Record the getty-bun revision the starters were rendered from, the consumer revision, the exact Bun pin, the table's checksum for each target, OS/architecture/libc/CPU target, agent client version, and distribution surface. Identify the actual process executing the tool. A Windows host and its WSL distribution are separate subjects.
+Record the agent-bun-runtime revision the starters were rendered from, the consumer revision, the exact Bun pin, the table's checksum for each target, OS/architecture/libc/CPU target, agent client version, and distribution surface. Identify the actual process executing the tool. A Windows host and its WSL distribution are separate subjects.
 
-Label each finding: **documented** (vendor documentation says so; not run), **source-checked**, **schema-checked**, **scenario-reviewed**, **executed** (with command, host version and platform; for getty-bun's CI the run ID and commit), **measured by windows-developer** (executed there; cite the hub document), or **not checked**. Never turn source inspection or a successful `--version` command into an end-to-end support claim. A mocked stdin/stdout test proves the codec, not the host. A Windows claim needs a run on Windows.
+Label each finding: **documented** (vendor documentation says so; not run), **source-checked**, **schema-checked**, **scenario-reviewed**, **executed** (with command, host version and platform; for agent-bun-runtime's CI the run ID and commit), **measured by windows-developer** (executed there; cite the hub document), or **not checked**. Never turn source inspection or a successful `--version` command into an end-to-end support claim. A mocked stdin/stdout test proves the codec, not the host. A Windows claim needs a run on Windows.
 
-## Provider gate (getty-bun, phase 1)
+## Provider gate (agent-bun-runtime, phase 1)
 
-The starters are verified in getty-bun, not in each consumer. The gate passed at `262bc95`: CI 45603412444 (pull request) and 45604685681 (`main`), 10 of 10 jobs green. One shared `bun:test` suite ran the plan's scenarios 1–10 against both starters on `ubuntu-latest` (linux-x64), `ubuntu-24.04-arm` (linux-arm64) and `windows-latest` under `powershell` (5.1) and `pwsh` (7), scenario 11 on both Windows shells, and further cases: 2b (Bun does not inherit the lock), 8b (the host keeps stdin open), a `file://` mirror, the starter contract and interface details. Each case used `GETTY_HOME` in a fresh temporary directory, a `PATH` without Bun and a fixture server through `GETTY_BUN_MIRROR`; two jobs downloaded from GitHub for real (linux-x64, Windows PowerShell 5.1). `shellcheck` and the pin-block check passed, and the per-hook cost is in getty-bun `docs/hook-cost.md`. A consumer cites that gate for the getty-bun commit its starters came from; it does not re-test locking.
+The starters are verified in agent-bun-runtime, not in each consumer. The gate passed at `262bc95`: CI 45603412444 (pull request) and 45604685681 (`main`), 10 of 10 jobs green. One shared `bun:test` suite ran the plan's scenarios 1–10 against both starters on `ubuntu-latest` (linux-x64), `ubuntu-24.04-arm` (linux-arm64) and `windows-latest` under `powershell` (5.1) and `pwsh` (7), scenario 11 on both Windows shells, and further cases: 2b (Bun does not inherit the lock), 8b (the host keeps stdin open), a `file://` mirror, the starter contract and interface details. Each case used `GETTY_HOME` in a fresh temporary directory, a `PATH` without Bun and a fixture server through `GETTY_BUN_MIRROR`; two jobs downloaded from GitHub for real (linux-x64, Windows PowerShell 5.1). `shellcheck` and the pin-block check passed, and the per-hook cost is in agent-bun-runtime `docs/hook-cost.md`. A consumer cites that gate for the agent-bun-runtime commit its starters came from; it does not re-test locking.
 
 Outside the gate, not checked: any host (Codex, Claude Code); a Windows desktop (Defender real-time protection on, an OEM code page, a proxy, AppLocker or WDAC, Constrained Language Mode); a CPU without AVX2; WSL, macOS, musl; the wget download path; hook cost on `linux-aarch64`.
 
@@ -38,14 +38,14 @@ Outside the gate, not checked: any host (Codex, Claude Code); a Windows desktop 
 
 ## Lock and crash cases
 
-Exercise the implementation of [installation-locking.md](installation-locking.md) with real concurrent processes (provider side, in getty-bun). The phase 1 gate executed these (CI 45603412444, every leg):
+Exercise the implementation of [installation-locking.md](installation-locking.md) with real concurrent processes (provider side, in agent-bun-runtime). The phase 1 gate executed these (CI 45603412444, every leg):
 
 1. Start multiple requests for one missing key. Observe one publisher; waiters re-read and reuse (scenario 2).
 2. Hold the mutex until a waiter's `GETTY_BUN_LOCK_WAIT` runs out: clear message, no partial slot, no state deleted (scenario 3; the holder is a fixture process without a marker).
 3. Feed a wrong checksum and an archive with an unexpected or extra member. Nothing is published; staging is cleaned (scenarios 4, 5).
 4. Start `run` on a fresh install and take the install lock while the entry runs: Bun does not hold it (scenario 2b).
 
-Candidates beyond the phase 1 gate, proposed for getty-bun and not in its suite:
+Candidates beyond the phase 1 gate, proposed for agent-bun-runtime and not in its suite:
 
 5. Hold the mutex with an old or malformed marker. Others wait or time out without deleting state.
 6. Interrupt before marker creation, during marker write, after marker publication, and after runtime publication, by a handled signal and by SIGKILL. Verify the next owner recovers or validates without exposing a partial ready slot.

@@ -8,16 +8,24 @@ Revision history for skills
     on demand under the OS lock, consumers ship a bundled entry, and the setup
     skill is for repair and diagnosis. Codex commandWindows, the Windows rules
     and the open Claude Code Windows decision carry evidence labels.
-  - getty-bun-integration describes the starters as getty-bun phase 1 built
+  - getty-bun-integration describes the starters as agent-bun-runtime phase 1 built
     and tested them: they live in bootstrap/, the fast path never starts Bun,
     the receipt and the pin block have a fixed form, the install lock is
     released before Bun starts, entry arguments never begin with "-" and entry
     exit codes stay within 0-255. Executed facts name their CI run, and the
-    per-hook cost from getty-bun's CI sits beside the desktop measurement.
+    per-hook cost from agent-bun-runtime's CI sits beside the desktop measurement.
     Bun 1.4.5 is the confirmed pin; Codex runs hook commands in the session
     shell without login; the PowerShell starter's second probe after publish
     is an open difference. Delivery through the template getty-bun-install,
     the SDK and every host adapter remain planned.
+  - getty-bun-integration and the hub register in getty-developer-hub follow
+    the renamed repository: the runtime's repository is agent-bun-runtime
+    (Getty/agent-bun-runtime, ~/dev/agent-bun-runtime), the SDK package is
+    @getty/agent-bun-runtime, and cards on its board read
+    "agent-bun-runtime kN". The runtime, its starters getty-bun.sh and
+    getty-bun.ps1, the store, GETTY_* and the template getty-bun-install keep
+    the name getty-bun. The contract cites ADRs 0001-0008: the starter's
+    exit-code and hook-timeout rules come from ADR 0007, the names from 0008.
   - codex-plugin-engineering: SessionEnd hooks share Interrupt's one-second
     default timeout and three-second limit.
 

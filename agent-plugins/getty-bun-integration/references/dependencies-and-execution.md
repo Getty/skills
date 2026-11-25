@@ -1,15 +1,15 @@
 # Dependencies and execution
 
-Checked: 2026-11-25. **Getty contract proposal v0.2:** the rules below are our integration policy. The starters that execute them are built in getty-bun (phase 1); the SDK and consumer bundles are not. Read [contract.md](contract.md) for ownership, runtime keys, and the starter interface.
+Checked: 2026-11-25. **Getty contract proposal v0.2:** the rules below are our integration policy. The starters that execute them are built in agent-bun-runtime (phase 1); the SDK and consumer bundles are not. Read [contract.md](contract.md) for ownership, runtime keys, and the starter interface.
 
 ## Ship a bundled entry (normal case)
 
-A consumer commits the output of `bun build --target=bun`: its entry plus `@getty/bun-runtime` and any pure-JS dependency (ADR 0003). User machines download exactly one artifact, the pinned Bun, and never run `bun install`; there is no registry access at hook time.
+A consumer commits the output of `bun build --target=bun`: its entry plus `@getty/agent-bun-runtime` and any pure-JS dependency (ADR 0003). User machines download exactly one artifact, the pinned Bun, and never run `bun install`; there is no registry access at hook time.
 
 - Bun documents `--target=bun` as "for bundles that run in the Bun runtime"; such output gets a `// @bun` pragma. Packages are bundled by default; anything marked `external` stays an import resolved at runtime, which a bundled consumer must not have. [Bun bundler](https://bun.com/docs/bundler) (documented, not executed)
 - The consumer's CI rebuilds with the pinned Bun and compares byte for byte with the committed bundle.
 - Keep `package.json` and `bun.lock` in the repository as build inputs; they are resolved in CI, not on user machines.
-- `@getty/bun-runtime` stays bundle-friendly: ESM, no dynamic requires, no filesystem lookups of its own package files. Until its first npm release, consumers pin a git commit of `Getty/getty-bun` (ADR 0006); it is a build-time dependency only.
+- `@getty/agent-bun-runtime` stays bundle-friendly: ESM, no dynamic requires, no filesystem lookups of its own package files. Until its first npm release, consumers pin a git commit of `Getty/agent-bun-runtime` (ADR 0006; the names, ADR 0008); it is a build-time dependency only.
 - A consumer that needs native add-ons or runtime-resolved packages cannot bundle; see the later option below.
 
 ## Execute through the starter
@@ -18,9 +18,9 @@ Hooks and binaries call `getty-bun.sh run <entry> [args...]` or `getty-bun.ps1 r
 
 - `<entry>` is relative to the consumer root, the parent of the starters' `bootstrap/` directory. Pass the user project as an explicit application argument; the working directory selects nothing.
 - stdout belongs to the entry (hook JSON, MCP); starter messages go to stderr. The starter passes stdin and stdout byte for byte, including end of input. It never exits 2 for its own failures (they exit 1); the entry's exit code passes through unchanged. Executed, scenario 8.
-- On Windows the entry's exit code arrives as 0–255: Bun 1.4.5 itself exits with the low byte (executed, getty-bun CI 45589361806). Use codes within 0–255 on every OS, 2 only for the host's meaning of 2.
+- On Windows the entry's exit code arrives as 0–255: Bun 1.4.5 itself exits with the low byte (executed, agent-bun-runtime CI 45589361806). Use codes within 0–255 on every OS, 2 only for the host's meaning of 2.
 - No entry argument begins with `-`: under `-File` PowerShell may bind it as its own parameter ([contract.md](contract.md), "Starter interface").
-- Bun 1.4.5 on Windows: an empty `Bun.write` to stdout on a pipe fails with `EINVAL` (`ftruncate`) and exit 9, bare and through the starter (executed, getty-bun CI 45589361806; card `k11` on the getty-bun board). Write nothing rather than an empty buffer.
+- Bun 1.4.5 on Windows: an empty `Bun.write` to stdout on a pipe fails with `EINVAL` (`ftruncate`) and exit 9, bare and through the starter (executed, agent-bun-runtime CI 45589361806; card `agent-bun-runtime k11`). Write nothing rather than an empty buffer.
 - Codex may keep stdin open after the hook object (comment in claude-mem `4dc8e48`, `plugin/scripts/bun-runner.js`; not traced in the Codex source). The starters end when the entry ends even then (`getty-bun.ps1`: executed, scenario 8b; `getty-bun.sh` `exec`s Bun). A measurement point for phase 3a; if it holds, the entry must stop reading at one complete JSON object instead of waiting for end of input, which the plan settles for the SDK.
 - Windows: the PowerShell starter runs Bun through `System.Diagnostics.Process` with raw byte copies, never through `&` (measured by windows-developer: Windows PowerShell 5.1 did not pass the end of stdin to a native program). Details in [paths-platforms.md](paths-platforms.md).
 - A missing import fails at run time with an actionable error; `--no-install` prevents an on-demand package download. Do not substitute `bunx` or `npx`.

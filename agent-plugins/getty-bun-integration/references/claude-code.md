@@ -1,6 +1,6 @@
 # Claude Code adapter
 
-Checked: 2026-11-25. Status: **Getty contract proposal v0.2**. Claude Code follows Codex in the getty-bun plan (phase 3b, first consumer skilletor). The starters are built and tested in getty-bun's CI (phase 1); a Claude Code hook through them is not checked. Use [contract.md](contract.md) for the canonical declaration and the starter interface.
+Checked: 2026-11-25. Status: **Getty contract proposal v0.2**. Claude Code follows Codex in the agent-bun-runtime plan (phase 3b, first consumer skilletor). The starters are built and tested in agent-bun-runtime's CI (phase 1); a Claude Code hook through them is not checked. Use [contract.md](contract.md) for the canonical declaration and the starter interface.
 
 ## Contents
 
@@ -49,12 +49,12 @@ Documented ([hooks reference](https://code.claude.com/docs/en/hooks), "Exec form
 
 Measured by windows-developer (Claude Code 2.1.287, `docs/hook-start-windows.md`). Git Bash could not be hidden on that machine, so the PowerShell fallback was measured with `"shell": "powershell"` per hook as a stand-in. **Windows without Git for Windows is not measured.**
 
-- Shell form with Git Bash present runs `sh`; `getty-bun.sh` then forwards to `getty-bun.ps1` (forwarding built and executed in getty-bun CI, scenario 11; under Claude Code not checked). The target, though, is Windows **without** Git Bash.
+- Shell form with Git Bash present runs `sh`; `getty-bun.sh` then forwards to `getty-bun.ps1` (forwarding built and executed in agent-bun-runtime CI, scenario 11; under Claude Code not checked). The target, though, is Windows **without** Git Bash.
 - Exec form with `command: "sh"` depends on the Claude process's PATH; started from PowerShell, `sh` is not found. Exec form on an extensionless script fails with ENOENT, on a `.cmd` with EINVAL.
 - Windows-only entries start too: exec form `powershell -NoProfile -ExecutionPolicy Bypass -File ...` (probe x9; the hooks reference shows the same call as its Windows example), `cmd /c ...` (x10), `node` plus a script (x8). None serves Linux from the same entry: `powershell.exe` and `cmd` are Windows programs, and the getty-bun chain has no Node.
 - Of the entries that start on Linux and on Windows from one `hooks.json`, two remain without Git Bash: exec form on an extensionless path with a `.exe` next to it (Claude Code starts the `.exe`, probe y1), or a dot-sourced `.cmd` polyglot in shell form (probe q6 under the `"shell": "powershell"` stand-in, r6 under Git Bash), which pays a PowerShell start per hook (about 720 ms on that desktop). Their Linux side was not part of these probes.
 
-Per-hook cost of the starters, executed in getty-bun CI (`docs/hook-cost.md`: runs 45572032454, 45579886904, 45589361806; the median of 10 fast-path calls per run, lowest to highest run):
+Per-hook cost of the starters, executed in agent-bun-runtime CI (`docs/hook-cost.md`: runs 45572032454, 45579886904, 45589361806; the median of 10 fast-path calls per run, lowest to highest run):
 
 | Leg | Starter over Bun alone | Of that, the PowerShell start |
 | --- | --- | --- |

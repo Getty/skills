@@ -1,6 +1,6 @@
 # Installation locking and recovery
 
-Status: Getty contract proposal v0.2. The starters `getty-bun.sh` and `getty-bun.ps1` (getty-bun `bootstrap/`, phase 1) implement these requirements on Linux and Windows; consumers do not write locking code. Use this reference to review or extend the starters in getty-bun. The layout, metadata, and recovery rules are Getty's design; linked OS documentation supports the underlying primitives. "Executed, scenario N" means getty-bun's suite in CI 45603412444 ([contract.md](contract.md), status); macOS, WSL, network filesystems and real desktops are not checked.
+Status: Getty contract proposal v0.2. The starters `getty-bun.sh` and `getty-bun.ps1` (agent-bun-runtime `bootstrap/`, phase 1) implement these requirements on Linux and Windows; consumers do not write locking code. Use this reference to review or extend the starters in agent-bun-runtime. The layout, metadata, and recovery rules are Getty's design; linked OS documentation supports the underlying primitives. "Executed, scenario N" means agent-bun-runtime's suite in CI 45603412444 ([contract.md](contract.md), status); macOS, WSL, network filesystems and real desktops are not checked.
 
 ## Separate the mutex from its status
 
@@ -37,7 +37,7 @@ Waiters try the mutex for at most `GETTY_BUN_LOCK_WAIT` seconds (default 300); a
 
 ## Record the installation owner
 
-Phase 1 fixed the record (getty-bun `bootstrap/README.md`, "Install lock and `.installing`"): the eight fields below, written after acquiring the mutex as a complete temporary file renamed in the same directory. `installId` is the staging directory's name. `processStartToken` and `environmentId` are `null` where the OS does not provide them; on Windows they are `start-filetime:<n>` and `<machine>/windows/<SID>`, and `processName` is `powershell` or `pwsh`. Executed: the record during an install and a timed-out waiter naming it (interface tests). The POSIX form:
+Phase 1 fixed the record (agent-bun-runtime `bootstrap/README.md`, "Install lock and `.installing`"): the eight fields below, written after acquiring the mutex as a complete temporary file renamed in the same directory. `installId` is the staging directory's name. `processStartToken` and `environmentId` are `null` where the OS does not provide them; on Windows they are `start-filetime:<n>` and `<machine>/windows/<SID>`, and `processName` is `powershell` or `pwsh`. Executed: the record during an install and a timed-out waiter naming it (interface tests). The POSIX form:
 
 ```json
 {

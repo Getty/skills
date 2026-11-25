@@ -2,7 +2,7 @@
 
 Primary sources checked: **2026-11-25**. These are evolving documentation pages; recheck them before relying on new versions or platforms.
 
-`getty-bun` is Getty's runtime bootstrap, specified by the getty-bun plan and ADRs; this skill carries the resulting **integration contract proposal v0.2**. Its starters are built and tested in getty-bun's CI (phase 1); nothing is released, and the SDK and the delivery template are not built. The precedents below support individual design choices; they do not implement our complete contract or establish compatibility with every agent client.
+`getty-bun` is Getty's runtime bootstrap, specified by the plan and ADRs of its repository `agent-bun-runtime`; this skill carries the resulting **integration contract proposal v0.2**. Its starters are built and tested in agent-bun-runtime's CI (phase 1); nothing is released, and the SDK and the delivery template are not built. The precedents below support individual design choices; they do not implement our complete contract or establish compatibility with every agent client.
 
 ## Relevant precedents
 

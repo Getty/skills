@@ -1,6 +1,6 @@
 # Prior art in agent tooling
 
-Checked: 2026-11-25. These are inspected implementations, not endorsements or compatibility certifications. **Getty contract proposal v0.2** is our own integration contract; its provider, the getty-bun starters, is built and tested in getty-bun's CI (phase 1); its delivery template `getty-bun-install` is planned. Compare against [contract.md](contract.md), including the per-user `<version>/<target>` store and the starter's check on every call.
+Checked: 2026-11-25. These are inspected implementations, not endorsements or compatibility certifications. **Getty contract proposal v0.2** is our own integration contract; its provider, the getty-bun starters, is built and tested in agent-bun-runtime's CI (phase 1); its delivery template `getty-bun-install` is planned. Compare against [contract.md](contract.md), including the per-user `<version>/<target>` store and the starter's check on every call.
 
 ## AgentPulse: private fallback and explicit executable paths
 

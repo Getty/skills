@@ -1,6 +1,6 @@
 # Installation and setup
 
-Status: Getty contract proposal v0.2. This describes what the starters do and what a consumer's setup skill is for. The starters are built in getty-bun (phase 1, tested in its CI); the consumer side (template, setup skill) is not. Follow [contract.md](contract.md), [paths-platforms.md](paths-platforms.md), and [installation-locking.md](installation-locking.md).
+Status: Getty contract proposal v0.2. This describes what the starters do and what a consumer's setup skill is for. The starters are built in agent-bun-runtime (phase 1, tested in its CI); the consumer side (template, setup skill) is not. Follow [contract.md](contract.md), [paths-platforms.md](paths-platforms.md), and [installation-locking.md](installation-locking.md).
 
 ## The starter installs on demand
 
@@ -8,15 +8,15 @@ Neither Codex nor Claude Code has an install hook (ADR 0002; not re-checked here
 
 - Present and matching: fast local check, then run.
 - Missing: install under the OS lock, then run.
-- After a plugin install or update, the first hook (normally `SessionStart`) therefore installs. Concurrent hooks block on the same lock, bounded by `GETTY_BUN_LOCK_WAIT` (default 300 s), re-check the slot, and then either run the entry, whose exit code passes through unchanged, or fail with one stderr line and exit 1. The starter never exits 2 for its own failures. Executed, scenarios 2 and 3.
-- The first hook after an update can take one download. Set each hook's `timeout` above the lock wait plus one download: a waiter that acquires the lock after a crashed holder downloads itself. Codex and Claude Code document 600 s for most command hooks and seconds for `SessionEnd` ([codex.md](codex.md), [claude-code.md](claude-code.md)).
-- `@getty/bun-runtime` never installs, downloads, or edits lockfiles. A consumer writes no installer code of its own.
+- After a plugin install or update, the first hook (normally `SessionStart`) therefore installs. Concurrent hooks block on the same lock, bounded by `GETTY_BUN_LOCK_WAIT` (default 300 s), re-check the slot, and then either run the entry, whose exit code passes through unchanged, or fail with one stderr line and exit 1. The starter never exits 2 for its own failures (ADR 0007). Executed, scenarios 2 and 3.
+- The first hook after an update can take one download. Set each hook's `timeout` above the lock wait plus one download: a waiter that acquires the lock after a crashed holder downloads itself (ADR 0007, superseding 0002's "above the lock wait"). Codex and Claude Code document 600 s for most command hooks and seconds for `SessionEnd` ([codex.md](codex.md), [claude-code.md](claude-code.md)).
+- `@getty/agent-bun-runtime` never installs, downloads, or edits lockfiles. A consumer writes no installer code of its own.
 
 ADR 0002 makes installing or updating the plugin the point at which Bun is installed. In practice that waits for the host's hook trust, because a hook that is not yet trusted does not run (Codex: documented); this is our inference, not part of the ADR. The starter writes only under `<GETTY_HOME>`; it never edits shell startup files, PATH, or system packages, and never uses the official Bun install script.
 
 ## Bootstrap prerequisites
 
-The starter runs before Bun, Node or Python exist. Prerequisites as built (getty-bun `bootstrap/README.md`, "POSIX starter: tools", "Windows starter"):
+The starter runs before Bun, Node or Python exist. Prerequisites as built (agent-bun-runtime `bootstrap/README.md`, "POSIX starter: tools", "Windows starter"):
 
 | Starter | Needs |
 | --- | --- |
@@ -40,7 +40,7 @@ The starter, not the agent, performs these steps (built; executed, scenarios 1â€
 6. Download `<base>/bun-v<version>/<archive>` from the official release or `GETTY_BUN_MIRROR`; verify the archive SHA256 from the pin block before unpacking; reject an archive with an unexpected or extra member; extract the expected member by name.
 7. Run `bun --version` and compare it with the pin (Windows: killed after 60 s, retried once after a failure, illegal-instruction fallback to the baseline; POSIX: no time bound), then write the receipt.
 8. Publish the complete stage to an **absent** final slot with one atomic rename while holding the mutex. A cross-filesystem copy or move is not such a primitive.
-9. Clear this attempt's status before releasing the mutex, and clean the stage. Keep the permanent lock file. `getty-bun.ps1` then runs `bun --version` on the published `bun.exe` once more and exits 1 if it does not run, leaving the slot published; `getty-bun.sh` does not (open difference, card `k19`, [contract.md](contract.md)).
+9. Clear this attempt's status before releasing the mutex, and clean the stage. Keep the permanent lock file. `getty-bun.ps1` then runs `bun --version` on the published `bun.exe` once more and exits 1 if it does not run, leaving the slot published; `getty-bun.sh` does not (open difference, card `agent-bun-runtime k19`, [contract.md](contract.md)).
 
 A crash after publication but before marker cleanup is handled by the next owner validating the slot and cleaning orphan status, not by reinstalling. A failed attempt leaves no partial slot.
 

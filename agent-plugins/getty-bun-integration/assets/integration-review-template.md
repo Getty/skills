@@ -5,7 +5,7 @@ Contract proposal v0.2.
 ## Subject and status
 
 - Consumer and revision:
-- getty-bun revision the starters were rendered from, or missing component:
+- agent-bun-runtime revision the starters were rendered from, or missing component:
 - Exact Bun requirement (`gettyBun.bunVersion`, `vars.bun_version`) and contract version:
 - Reviewed targets and table checksums:
 - Agent client version, surface, and distribution route:
@@ -35,7 +35,7 @@ Contract proposal v0.2.
 
 ## Checks performed
 
-Record the concrete command or scenario, environment, observed result, and limits. Label each: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Cite the getty-bun phase 1 gate (CI run and commit) for the starter revision instead of re-testing locking; it covers CI runners, not the host. Do not mark unexecuted platform cases as passed.
+Record the concrete command or scenario, environment, observed result, and limits. Label each: documented, source-checked, schema-checked, scenario-reviewed, executed, measured by windows-developer, or not checked. Cite the agent-bun-runtime phase 1 gate (CI run and commit) for the starter revision instead of re-testing locking; it covers CI runners, not the host. Do not mark unexecuted platform cases as passed.
 
 ## Remaining gaps
 
@@ -43,4 +43,4 @@ Identify missing provider behavior, unsupported targets, untested host behavior,
 
 ## Sources
 
-List primary documentation and inspected revisions supporting external facts. Mark Getty-specific layout, fields, and lifecycle rules as design decisions (getty-bun plan and ADRs).
+List primary documentation and inspected revisions supporting external facts. Mark Getty-specific layout, fields, and lifecycle rules as design decisions (agent-bun-runtime plan and ADRs).

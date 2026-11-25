@@ -1,6 +1,6 @@
 # Consumer setup skill authoring template
 
-Contract proposal v0.2. This is a template for the integration engineer, not a ready-to-run procedure. In v0.2 the consumer's committed starter installs Bun on demand in its hooks; this skill is for **repair and diagnosis**, not installation. Replace every `{{TOKEN}}` with verified consumer details and package the result in the host's documented format. Do not ship unresolved tokens, starter commands other than `run`, `ensure`, `status`, or links to this engineering skill as if it were installed on every user's machine. The starters are built in getty-bun (`bootstrap/`, phase 1); ship a skill made from this template only with a consumer release that commits them.
+Contract proposal v0.2. This is a template for the integration engineer, not a ready-to-run procedure. In v0.2 the consumer's committed starter installs Bun on demand in its hooks; this skill is for **repair and diagnosis**, not installation. Replace every `{{TOKEN}}` with verified consumer details and package the result in the host's documented format. Do not ship unresolved tokens, starter commands other than `run`, `ensure`, `status`, or links to this engineering skill as if it were installed on every user's machine. The starters are built in agent-bun-runtime (`bootstrap/`, phase 1); ship a skill made from this template only with a consumer release that commits them.
 
 Suggested frontmatter for the rendered consumer skill:
 
