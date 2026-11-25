@@ -8,7 +8,7 @@ hub, is edited here first (`~/dev/skills`), then `skilletor sync` in the hubs.
 | `perl-developer` | the Perl fleet under `~/dev`: `dbio-dev/*`, `p5-*`, `langertha*`, `kubernetes-*`, `rex-*`, `karr` | `bin/fleet` (inventory, dependencies, release order, board status for **all** repos), `bin/fleet-housecheck`, `bin/claude-uptodate`, `bin/smoke` |
 | `sunriser-developer` | `sunriser`, `sunriserx`, `sunriser4`, `sunriser2`, `sunriser-homeassistant`, `sunriser-mobile` | none |
 | `windows-developer` | a campaign, not a family: the plugins of the `getty` marketplace on Windows; findings live there, fixes land in the plugin repos | none |
-| `agent-developer` | the agent repos: `agent-irc`, `briefing`, `ruler`, `loadguard`, `skilletor`, `manage-skills`, `marketplace` (the fleet's `marketplace` corner), plus `agent-construction-kit` and `our-codex`; the move to the shared Bun runtime | none |
+| `agent-developer` | the agent repos: `agent-irc`, `briefing`, `ruler`, `loadguard`, `skilletor`, `manage-skills`, `marketplace` (the fleet's `marketplace` corner), plus `agent-construction-kit`, `our-codex` and `getty-bun` (the shared Bun runtime: bootstrap and the `@getty/bun-runtime` SDK); the move to that runtime | none |
 
 Every hub installs the skill `getty-fleet` from the source `developer-fleet`
 (`ssh://git@src.ci/getty/developer-fleet.git`); the `fleet` tool it describes is
