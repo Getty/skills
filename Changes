@@ -1,6 +1,8 @@
 Revision history for skills
 
 {{$NEXT}}
+
+0.11.0    2026-11-25 02:32:08Z
   - New group agent-plugins with getty-bun-integration: integrating Getty's shared
     per-user Bun runtime into agent plugins (Claude Code, Codex), as a contract
     proposal with references and templates; the group has its image.
