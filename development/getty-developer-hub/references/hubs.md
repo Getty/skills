@@ -10,6 +10,11 @@ hub, is edited here first (`~/dev/skills`), then `skilletor sync` in the hubs.
 | `windows-developer` | a campaign, not a family: the plugins of the `getty` marketplace on Windows; findings live there, fixes land in the plugin repos | none |
 | `agent-developer` | the agent repos: `agent-irc`, `briefing`, `ruler`, `loadguard`, `skilletor`, `manage-skills`, `marketplace` (the fleet's `marketplace` corner), plus `agent-construction-kit` and `our-codex`; the move to the shared Bun runtime | none |
 
+Every hub installs the skill `getty-fleet` from the source `developer-fleet`
+(`ssh://git@src.ci/getty/developer-fleet.git`); the `fleet` tool it describes is
+`~/dev/perl-developer/bin/fleet`. A skill shared by all hubs lives in that repo, never in
+one hub.
+
 ## Which hub gets a task
 
 1. A task about **one repo** goes to the hub that lists the repo. `bin/fleet --json repo
