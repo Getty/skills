@@ -8,7 +8,7 @@ description: Use when committing in a Getty repository — writing or amending a
 ## Format
 
 ```
-<summary line — imperative, no prefix, max ~72 chars>
+<summary line — imperative or "<component>: <what>", no type prefix, max ~72 chars>
 
 <body — one line per change, no filler>
 
@@ -17,8 +17,16 @@ Co-Authored-By: Claude <Model> <noreply@anthropic.com>
 
 ## Rules
 
-- **Summary line**: imperative mood ("Add", "Fix", "Rename", "Remove"), describe the primary intent
-- **No prefix**: the summary starts with its verb — no Conventional Commits type (`feat:`, `fix:`, `docs:`, `chore(scope):`); the verb already says what kind of change it is
+- **Summary line**: describe the primary intent, in one of two forms:
+  - imperative mood ("Add", "Fix", "Rename", "Remove"):
+    `Rename _dbic_connect_attributes to _dbio_connect_attributes`
+  - `<component>: <what>`, the component saying *where* the change lies — a file, a
+    directory, a command, an area:
+    `README.md: rework for first-time readers, with current limits stated`
+- **No type prefix**: what stands before the colon names a place, never the kind of change —
+  no Conventional Commits type (`feat:`, `fix:`, `docs:`, `chore(scope):`). A place whose
+  name is also a type word (docs, test, tests, ci, build, chore) is written as its path:
+  `docs/plan.md:`, `t/hooks.t:`, `.github/workflows/ci.yml:`, never bare `docs:`
 - **No `--signoff`**: commit without `-s`; the message carries no `Signed-off-by:` line, only the co-author trailer below
 - **Body**: list every discrete change on its own line, no bullets needed, no prose explanations
 - **Completeness**: every file-level change must be mentioned — don't silently lump things together

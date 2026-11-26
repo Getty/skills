@@ -31,11 +31,13 @@ demand.
 
 ## [getty-git-commit-style](getty-git-commit-style/SKILL.md)
 
-The norm for every commit message and `Changes` entry. The format: an imperative
-summary line under ~72 characters that starts with its verb, without a `feat:`/`fix:`
-type prefix, then a body with one line per discrete change — no bullets, no prose, no
-"This commit…". No `--signoff`, so no `Signed-off-by:` line; the trailer is the
-co-author line.
+The norm for every commit message and `Changes` entry. The format: a summary line
+under ~72 characters, either imperative or `<component>: <what>` — the component says
+where the change lies (`ack-team check:`, `README:`); a `feat:`/`fix:` type prefix,
+which says what kind of change it is, stays out, and a place named like a type is
+written as its path (`docs/plan.md:`, never `docs:`). Then a body with one line per
+discrete change — no bullets, no prose, no "This commit…". No `--signoff`, so no
+`Signed-off-by:` line; the trailer is the co-author line.
 
 The rule that carries the most weight is completeness: every file-level change gets
 named, nothing silently lumped together. State *what* changed, never why it matters

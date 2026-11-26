@@ -144,7 +144,7 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | The norm for every commit: imperative summary without a type prefix, one body line per change, no signoff, and the `Changes` file every repo keeps: format, entries, version line |
+| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | The norm for every commit: summary imperative or `<component>: <what>`, never a type prefix, one body line per change, no signoff, and the `Changes` file every repo keeps: format, entries, version line |
 | [getty-git-usage](git/getty-git-usage/SKILL.md) | Linear history: rebase over merge, `--force-with-lease` after it, stacked branches, commit early and often |
 
 ### [hermes-agent](hermes-agent/README.md)
