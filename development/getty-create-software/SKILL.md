@@ -50,5 +50,5 @@ guess.
 
 - `getty-perl-distribution` — the complete CPAN scaffold; this skill only
   routes to it.
-- `getty-git-usage`, `getty-git-commit-style` — repo and commit conventions
-  for the first commit.
+- `getty-git-commit-style` — the first commit's message; `getty-git-usage` —
+  landing and pushing once the repo has a remote.

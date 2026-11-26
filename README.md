@@ -144,8 +144,8 @@ Each group README describes every skill in it: what it covers, and when to load 
 
 | Skill | What it is |
 |---|---|
-| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | Imperative summary, one body line per change, and the `Changes` file every repo keeps: format, entries, version line |
-| [getty-git-usage](git/getty-git-usage/SKILL.md) | Linear history: rebase over merge, and `--force-with-lease` after it |
+| [getty-git-commit-style](git/getty-git-commit-style/SKILL.md) | The norm for every commit: imperative summary without a type prefix, one body line per change, no signoff, and the `Changes` file every repo keeps: format, entries, version line |
+| [getty-git-usage](git/getty-git-usage/SKILL.md) | Linear history: rebase over merge, `--force-with-lease` after it, stacked branches, commit early and often |
 
 ### [hermes-agent](hermes-agent/README.md)
 
@@ -310,7 +310,7 @@ holds only what is true there.
 | Bundle | Contents |
 |---|---|
 | [house](bundles/house.yaml) | engineering-discipline, agent-delegation, publish-gate |
-| [getty-house](bundles/getty-house.yaml) | house + board-karr |
+| [getty-house](bundles/getty-house.yaml) | house + board-karr, and the skills getty-git-commit-style and getty-git-usage |
 | [getty-cpan-dist](bundles/getty-cpan-dist.yaml) | getty-house + getty-cpan-release, and the skills getty-perl-pod and getty-perl-release-author-getty |
 
 A change here reaches every consuming repo at its next sync — review it like a release.

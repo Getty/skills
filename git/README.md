@@ -10,28 +10,32 @@ different concerns kept as two skills so either can be loaded without the other.
 Short version: **keep the history linear.** A branch lands rebased, not merged, and
 a force-push after a rebase is always `--force-with-lease`.
 
-Covers why squash-merging is the wrong default where a release is cut from commit
-prefixes (squashing replaces the individual `feat:`/`fix:` subjects with the PR
-title, and a PR title without a prefix cuts no release at all), how stacked branches
-behave when the lower one lands — GitHub closes the dependent PR and refuses to
-reopen it — and which conventional prefixes drive which version bump. Merge commits
-are not forbidden, just not the default.
+Covers why a pull request lands with `--rebase` rather than squashed (squashing folds
+the small commits into one and takes `git bisect`, a one-commit revert and
+cherry-picks with them), and how stacked branches behave when the lower one lands —
+GitHub closes the dependent PR and refuses to reopen it. Merge commits are not
+forbidden, just not the default.
 
 It also states the cadence: **commit early and commit often**, one finished piece of
-work per commit down to a typo fix, and wrapping up finished work needs no separate
-go-ahead — pushing is the decision that waits. The linear, never-squashed history is
-what carries those small commits into `main`, and with them `git bisect`, a one-commit
-revert and the option to cherry-pick. Shared skills under `.claude/skills/` are
+work per commit down to a typo fix. Who commits follows the house rule
+`agent-delegation`; a local commit of finished work needs no separate go-ahead —
+pushing is the decision that waits. Shared skills under `.claude/skills/` are
 installed by skilletor and stay out of git: a repo commits its `skilletor.json` and
 the skills it owns, and a shared skill git still tracks gets untracked, not committed.
+Before a push the repo's own checks run, and history already on `main` is never
+rewritten.
 
-**Load when** landing a branch, cleaning up history before a PR, working with
-stacked branches, or cutting a release.
+**Load when** landing or pushing a branch, cleaning up history before a PR, or working
+with stacked branches. Not preloaded: it is installed in the project and loads on
+demand.
 
 ## [getty-git-commit-style](getty-git-commit-style/SKILL.md)
 
-The message format: an imperative summary line under ~72 characters, then a body
-with one line per discrete change — no bullets, no prose, no "This commit…".
+The norm for every commit message and `Changes` entry. The format: an imperative
+summary line under ~72 characters that starts with its verb, without a `feat:`/`fix:`
+type prefix, then a body with one line per discrete change — no bullets, no prose, no
+"This commit…". No `--signoff`, so no `Signed-off-by:` line; the trailer is the
+co-author line.
 
 The rule that carries the most weight is completeness: every file-level change gets
 named, nothing silently lumped together. State *what* changed, never why it matters
@@ -51,5 +55,11 @@ publishes** — an internal board number has no reader outside the workspace and
 as `#254`, resolves against the platform's own issue 254, where it is a dead link or,
 later, someone else's bug.
 
-**Load when** writing or amending a commit message, including one that spans
-several repos — each repo gets its own commit, with no cross-references.
+Across several repos each repo gets its own commit. A product repo's message names no
+other repo, except a card on another board in that board's notation
+(`agent-developer k3`); a hub repo names its family's commits, since recording the
+state across repos is its job.
+
+**Load when** committing — writing or amending a commit message or a `Changes` entry.
+Whoever commits has it loaded: the release-manager preloads it, the house rule
+`agent-delegation` points every other committer at it.

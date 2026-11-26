@@ -29,7 +29,8 @@ lane table (task → agent) and say what counts as behavior-relevant there.
 **One agent commits.** That is the release-manager; a worker leaves a commit-ready tree
 and a report, and the main agent then dispatches the release-manager to cut the commit. A
 team without a release-manager: the committer the project rules name commits; if they name
-none, the main agent commits, after reviewing the diff.
+none, the main agent commits, after reviewing the diff. Commit messages and `Changes`
+entries follow skill `getty-git-commit-style`, whoever commits.
 
 **Card life cycle:** the main agent hands out a card → the worker notes its progress and
 hands it to `review` → the reviewer checks it → the committer commits and marks it `done`.

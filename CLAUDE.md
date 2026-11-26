@@ -45,7 +45,8 @@ under "Old pattern".
 
 ## Repo conventions
 
-- Commits follow skills `getty-git-commit-style` and `getty-git-usage` (linked in
-  `.claude/skills/`). English skill content; never commit or push unasked.
+- Commit messages and `Changes` entries follow skill `getty-git-commit-style`; landing
+  and pushing follow `getty-git-usage` (both linked in `.claude/skills/`). English
+  skill content; never commit or push unasked.
 - `.claude/skills/` holds relative symlinks into the groups — the repo dogfoods its own
   skills. Consumers are unaffected: skilletor skips symlinks.

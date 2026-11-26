@@ -1,5 +1,8 @@
-description: Getty's house rules for a repo with an agent team — the house bundle plus karr coordination
+description: Getty's house rules for a repo with an agent team — the house bundle plus karr coordination and the two git skills
 rules:
   - board-karr
+skills:
+  - getty-git-commit-style
+  - getty-git-usage
 bundles:
   - house

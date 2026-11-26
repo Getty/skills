@@ -58,7 +58,7 @@ start it). Verification is the kit's `ack-team check`.
 | worker | + `getty-perl-core`, `getty-perl-pod` | "dist.ini exists" |
 | test-writer | + `getty-perl-core` | "dist.ini exists" |
 | reviewer | + `getty-perl-core` | "dist.ini exists" |
-| release-manager | + `getty-git-commit-style`, `getty-git-usage` | |
+| release-manager | + `getty-git-commit-style` | |
 | release-manager | + `getty-perl-release-author-getty`, `perl-release-dist-ini` | "dist.ini exists" |
 | doc-writer | + `getty-perl-pod` | "dist.ini exists" |
 | coordinator | + `kanban-issues-karr-ticket` | |
@@ -70,10 +70,12 @@ uses them.
 `outside_input: on` is the house rule `publish-gate`: public trackers are not a queue;
 single entries come in as cards the user writes.
 
-The `getty-cpan-dist` bundle already ships `getty-perl-pod` and
-`getty-perl-release-author-getty`; the rows add them to the roles, the bundle installs
-them. The kit keeps `<prefix>-core`, the coordinator's `<family>-coordination` and the
-karr card skills on top.
+The bundles already ship some row skills: `getty-house` ships `getty-git-commit-style`
+and `getty-git-usage`, `getty-cpan-dist` adds `getty-perl-pod` and
+`getty-perl-release-author-getty`. The rows add them to the roles, the bundle installs
+them in the project's scope. `getty-git-usage` is in no row: it loads on demand when
+work lands. The kit keeps `<prefix>-core`, the coordinator's `<family>-coordination`
+and the karr card skills on top.
 
 ## CPAN specifics
 

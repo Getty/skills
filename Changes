@@ -28,6 +28,11 @@ Revision history for skills
     exit-code and hook-timeout rules come from ADR 0007, the names from 0008.
   - codex-plugin-engineering: SessionEnd hooks share Interrupt's one-second
     default timeout and three-second limit.
+  - getty-git-commit-style is the norm for commit messages: no type prefix, no
+    --signoff, another repo named only as a card on its board or, in a hub, as
+    a family commit. getty-git-usage holds only the git methods; getty-house
+    installs both, the release-manager preloads the commit style and the
+    agent-delegation rule points every committer at it.
 
 0.11.0    2026-11-25 02:32:08Z
   - New group agent-plugins with getty-bun-integration: integrating Getty's shared
