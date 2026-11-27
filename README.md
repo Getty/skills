@@ -16,7 +16,6 @@ skill belongs to one specific project, it moves there and this repo drops the li
 
 | Group | Skills | What it holds |
 |---|---|---|
-| [agent-plugins](agent-plugins/README.md) | 1 | Plugin concerns shared across agent clients — the shared per-user Bun runtime, its setup, locking and updates |
 | [ai-engineering](ai-engineering/README.md) | 3 | Building and running systems on top of models — the AMD ROCm GPU stack, inference serving with vLLM, AI-assisted scraping and extraction with evidence-backed records |
 | [authoring](authoring/README.md) | 5 | Skills about skills — writing them, mining them out of existing code, compressing them, the library's own rules, and the agent team that consumes them |
 | [claude](claude/README.md) | 4 | Working with Claude itself — headless spawning, talking across running sessions, routing work across model tiers, building plugins for Claude Code |
@@ -40,12 +39,6 @@ skill belongs to one specific project, it moves there and this repo drops the li
 Each group README describes every skill in it: what it covers, and when to load it.
 
 ## Every skill
-
-### [agent-plugins](agent-plugins/README.md)
-
-| Skill | What it is |
-|---|---|
-| [getty-bun-integration](agent-plugins/getty-bun-integration/SKILL.md) | Integrating the shared per-user Bun runtime into agent plugins: version pin, starters that install on demand, bundled entry, locking, updates |
 
 ### [ai-engineering](ai-engineering/README.md)
 
@@ -270,6 +263,25 @@ Each group README describes every skill in it: what it covers, and when to load 
 | [samba-active-directory](system-and-network-administration/samba-active-directory/SKILL.md) | Samba AD DCs and member file servers: provisioning, DNS, FSMO, SYSVOL, client joins, ACLs |
 | [ssl-tls-pki](system-and-network-administration/ssl-tls-pki/SKILL.md) | TLS, public Web PKI, private CAs, ACME and mTLS — design, operation, debugging |
 | [storage-engineering](system-and-network-administration/storage-engineering/SKILL.md) | Storage from the access contract and failure model: block, file, object, HA, DR, backup, Kubernetes, sizing |
+
+## Moved to their owner
+
+The getty-bun skills — `getty-bun`, `getty-bun-install` and `getty-bun-integration` —
+live in [Getty/agent-bun-runtime](https://github.com/Getty/agent-bun-runtime) under
+`skills/`, released with the runtime they describe. A project declares that source in
+its `.claude/skilletor.json`; `ref` is an agent-bun-runtime release tag:
+
+```json
+{
+  "sources": {
+    "agent-bun-runtime": { "git": "https://github.com/Getty/agent-bun-runtime", "ref": "v0.1.0", "path": "skills" }
+  },
+  "install": { "skills": ["getty-bun-integration@agent-bun-runtime"] }
+}
+```
+
+Then `skilletor trust agent-bun-runtime` (a project-declared source renders nothing
+until trusted) and `skilletor sync --scope project`.
 
 ## Using this repo
 
